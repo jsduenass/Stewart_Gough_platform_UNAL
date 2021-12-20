@@ -4,7 +4,7 @@ This repo documents the updating process of an Stewart Gough platform at Univers
 
 ## (Tentative) Objectives
 The project  has the following objectives:
-* Update the platform and make it's system requirements compatible with a modern system (Windows 10 - MATLAB2021a)
+* Update the platform and make it's system requirements compatible with a modern system (windows 10 - MATLAB2021a )
 * Move the platform using open source software
 * Evaluate the impact of sensor quality on the performance of the system.
 
@@ -12,7 +12,7 @@ The project  has the following objectives:
 ## Process
 
 ### Getting to know the system
-The process started by getting acquaintance with the platform. After an onsite visit of the platform, the team received the corresponding documentation and produced a ![file](project_structure.txt) containing a log with every one of the files received.
+The process started by getting acquaintance with the platform. After an onsite visit of the platform, the team received the corresponding documentation and produced a [file](project_structure.txt) containing a log with every one of the files received.
 
 ```
 find >  project_structure.txt
