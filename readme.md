@@ -20,6 +20,14 @@ find >  project_structure.txt
 This analysis proof fruitful and provided a starting path '/ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd/Software'
 to begin the search.
 
+The file 'MoveSG.m' under '\ENTREGA-FINAL-RC-380-2011\CONTROLADORES\PRISMMATIC\cd\Software\GUI_V3\' becomes a starting point to test the Software 
+
+find xpc dependencies and usage 
+
+'''
+grep -r -n  --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd' > ../xpcMatch.txt
+
+'''
 
 ## Inquiries 
 
@@ -49,4 +57,7 @@ to begin the search.
 * Edgar Bolivar
 * DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
 
-## References 
+## References and Resources
+[forum question](https://www.mathworks.com/matlabcentral/answers/479843-about-xpc-target-and-supproted-ioboard)
+
+[matlab real time / xPC successor](https://www.mathworks.com/products/simulink-real-time.html?s_tid=FX_PR_info)
