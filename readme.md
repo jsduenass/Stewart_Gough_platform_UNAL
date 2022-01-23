@@ -1,11 +1,11 @@
 
 # Stewart Gough platform project analysis
-This repo documents the updating process of an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
+This repo documents the updating process of PRISMMATIC(Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
 
 ## (Tentative) Objectives
-The project  has the following objectives:
-* Update the platform and make it's system requirements compatible with a modern system (Windows 10 - MATLAB r2021a)
-* Moving the platform using open source software
+The project has the following objectives:
+* Update the platform and make it's system requirements compatible with a modern system (Windows 10 - MATLAB r2021a).
+* Moving the platform using open source software (Python 3.7 or higher).
 * Evaluate the impact of sensor quality on the performance of the system.
 
 
@@ -15,10 +15,10 @@ The project  has the following objectives:
 The process started by getting acquaintance with the platform. After an onsite visit of the platform, the team received the corresponding documentation and produced a [file](project_structure.txt) containing a log with every one of the files received.
 
 ```
-find >  project_structure.txt
+tree /f >  project_structure.txt
 ```
-This analysis proof fruitful and provided a starting path '/ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd/Software'
-to begin the search.
+
+This analysis proof fruitful and provided a starting path '/ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd/Software' to begin the search.
 
 The file 'MoveSG.m' under '\ENTREGA-FINAL-RC-380-2011\CONTROLADORES\PRISMMATIC\cd\Software\GUI_V3\' becomes a starting point to test the Software 
 
@@ -50,8 +50,9 @@ grep -r -n  --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRIS
 
 ### Components:
 
-* single board computer (SBC) PCM-4153
+* Single board computer (SBC) PCM-4153
 * Diamond MM 16-AT
+* STM32F407 microcontroller
 
 ### (work in progress) Parties involved 
 * Edgar Bolivar
