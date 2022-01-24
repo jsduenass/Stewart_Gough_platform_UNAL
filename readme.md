@@ -15,7 +15,7 @@ The project has the following objectives:
 The process started by getting acquaintance with the platform. After an onsite visit of the platform, the team received the corresponding documentation and produced a [file](project_structure.txt) containing a log with every one of the files received.
 
 ```
-tree /f >  project_structure.txt
+tree /f > project_structure.txt
 ```
 
 This analysis proof fruitful and provided a starting path '/ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd/Software' to begin the search.
@@ -41,13 +41,7 @@ findstr /i /n /s "xpc" *.m > xpcMatch.txt
 ## Information about legacy system 
 
 ### System requirements
-
-<<<<<<< HEAD
-**xPC Target (deprecated)**: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. produces __.dlm__ files.
-=======
-**xPC Target (deprecated)**: Mathworks  toolbox for real time model  HIL (Hardware in the Loop) simulation.  produces __.dlm__ files. [1](#references-and-resources)
-
->>>>>>> 1239ae6a630799ca9220814644a2e80cb1ec227e
+**xPC Target (deprecated)**: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. Produces __.dlm__ files. [1](#references-and-resources)
 
 ![system architecture](media/imgs/system_architecure.png)
 
@@ -63,14 +57,14 @@ findstr /i /n /s "xpc" *.m > xpcMatch.txt
 
 ## References and Resources
 
-1 [forum question](https://www.mathworks.com/matlabcentral/answers/479843-about-xpc-target-and-supproted-ioboard)
+1. [Forum xPC question](https://www.mathworks.com/matlabcentral/answers/479843-about-xpc-target-and-supproted-ioboard).
 
-2 [matlab real time / xPC successor](https://www.mathworks.com/products/simulink-real-time.html?s_tid=FX_PR_info)
+2. [MATLAB real time/xPC successor](https://www.mathworks.com/products/simulink-real-time.html?s_tid=FX_PR_info).
 
-3 [Real time matlab laboratory](http://tsakalis.faculty.asu.edu/coursea/481LAB2015.pdf)
+3. [Real time MATLAB laboratory](http://tsakalis.faculty.asu.edu/coursea/481LAB2015.pdf).
 
-4 Frank González-Morphy (2022). [xPC Target Quick Reference Guide](https://www.mathworks.com/matlabcentral/fileexchange/6414-xpc-target-quick-reference-guide), MATLAB Central File Exchange. Retrieved January 23, 2022. 
+4. Frank González-Morphy (2022). [xPC Target Quick Reference Guide](https://www.mathworks.com/matlabcentral/fileexchange/6414-xpc-target-quick-reference-guide), MATLAB Central File Exchange. Retrieved January 23, 2022. 
 
-5 [xpc target User guide Version 2](http://www.bmed.mcgill.ca/reklab/manual/common/xpc/documentation/xpc_target_ug%5B1%5D.pdf). Retrieved January 23, 2022.
+5. [xPC target User guide Version 2](http://www.bmed.mcgill.ca/reklab/manual/common/xpc/documentation/xpc_target_ug%5B1%5D.pdf). Retrieved January 23, 2022.
 
-6 [MATLAB Real time documetation](https://www.mathworks.com/help/pdf_doc/slrealtime/index.html)
+6. [MATLAB Real time documentation](https://www.mathworks.com/help/pdf_doc/slrealtime/index.html).
