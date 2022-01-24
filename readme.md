@@ -24,10 +24,9 @@ The file 'MoveSG.m' under '\ENTREGA-FINAL-RC-380-2011\CONTROLADORES\PRISMMATIC\c
 
 find xpc dependencies and usage 
 
-'''
-grep -r -n  --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd' > ../xpcMatch.txt
-
-'''
+```
+findstr /i /n /s "xpc" *.m > xpcMatch.txt
+```
 
 ## Inquiries 
 
@@ -43,16 +42,15 @@ grep -r -n  --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRIS
 
 ### System requirements
 
-**xPC Target (deprecated)**: Mathworks  toolbox for real time model  HIL (Hardware in the Loop) simulation. . produces __.dlm__
- files 
+**xPC Target (deprecated)**: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. produces __.dlm__ files.
 
 ![system architecture](media/imgs/system_architecure.png)
 
 ### Components:
 
-* Single board computer (SBC) PCM-4153
-* Diamond MM 16-AT
-* STM32F407 microcontroller
+* Single board computer (SBC) PCM-4153.
+* Diamond MM 16-AT.
+* STM32F407 microcontroller.
 
 ### (work in progress) Parties involved 
 * Edgar Bolivar

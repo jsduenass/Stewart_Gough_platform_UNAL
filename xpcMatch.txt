@@ -1,41 +1,100 @@
-./ActuatorIdentification/potenti2position/ReadAnalogInput_xpc_rtw/xpcoptions.m:2:function info=xpcoptions
-./ActuatorIdentification/potenti2position/ReadAnalogInput_xpc_rtw/xpcoptions.m:4:info.xpcObjCom=0;
-./ActuatorIdentification/XPC_Code/IdentificationMotor2Order_xpc_rtw/xpcoptions.m:2:function info=xpcoptions
-./ActuatorIdentification/XPC_Code/IdentificationMotor2Order_xpc_rtw/xpcoptions.m:4:info.xpcObjCom=0;
-./GUI_V3/BuildXPC.m:15:tgPC104 = xpctarget.xpc
-./GUI_V3/Code2XPCtarget/GUI_User_V1_3_xpc_rtw/xpcoptions.m:2:function info=xpcoptions
-./GUI_V3/Code2XPCtarget/GUI_User_V1_3_xpc_rtw/xpcoptions.m:4:info.xpcObjCom=0;
-./GUI_V3/exportFile2XPc.m:6:tgPC104 = xpctarget.xpc;
-./GUI_V3/exportFile2XPc.m:25:xpcbytes2file(fileXPC, A1',A1P',A1PP')                  %Creating the file for xPC format
-./GUI_V3/exportFile2XPc.m:26:PC104=xpctarget.ftp('TCPIP','192.168.1.12','22222');    %Creating ftp object
-./GUI_V3/GUI_V3.m:50:% tgPC104 = xpctarget.xpc;
-./GUI_V3/GUI_V3.m:135:%fsys=xpctarget.fs('TCPIP','192.168.1.12','22222');      %Creating an .fs object
-./GUI_V3/GUI_V3.m:136:tgPC104=xpctarget.xpc;
-./GUI_V3/GUI_V3.m:196:tgPC104=xpctarget.xpc;
-./GUI_V3/GUI_V3.m:274:tgPC104 = xpctarget.xpc;
-./GUI_V3/GUI_V3.m:289:tgPC104 = xpctarget.xpc;
-./GUI_V3/GUI_V3.m:1216:tgPC104 = xpctarget.xpc;
-./GUI_V3/GUI_V3.m:1227:tgPC104 = xpctarget.xpc;
-./GUI_V3/MoveSG.m:36:tgPC104 = xpctarget.xpc;
-./playground.m:5:%xpcsetCC('setup')
-./thirdpartydrivers/sample_int.m:95:%  board.PreHookFunction = 'xpc6804prehook';
-./thirdpartydrivers/sample_int.m:97:%  board.HookIncludeFile = 'xpc6804hooks';
-./thirdpartydrivers/sample_int.m:98:%  board.StartFunction = 'xpc6804start';
-./thirdpartydrivers/sample_int.m:99:%  board.StopFunction = 'xpc6804stop';
-./thirdpartydrivers/sample_int.m:107:%  board.PreHookFunction = 'xpcgs24dsi12prehook';
-./thirdpartydrivers/sample_int.m:109:%  board.HookIncludeFile = 'xpcgs24dsi12hooks';
-./thirdpartydrivers/sample_int.m:110:%  board.StartFunction = 'xpcgs24dsi12start';
-./thirdpartydrivers/sample_int.m:111:%  board.StopFunction = 'xpcgs24dsi12stop';
-./thirdpartydrivers/sample_supported.m:4:% be found in a system.  This information is used by getxpcpci.
-./thirdpartydrivers/sample_xpcblocks.m:1:function out = sample_xpcblocks
-./thirdpartydrivers/sample_xpcblocks.m:2:% <name>_xpcblocks Returns a structure that describes an entry
-./thirdpartydrivers/sample_xpcblocks.m:7:%   with its own name, ending in xpcblocks.m.
-./thirdpartydrivers/sample_xpcblocks.m:9:%   Copy this file under a new name, <yourname>xpcblocks.m
-./thirdpartydrivers/sample_xpcblocks.m:19:%   in a copy of this file that might be named myxpcblocks.m.
-./thirdpartydrivers/slblocks.m:13:  cdir = which( 'mxpcinterrupt.m' );
-./thirdpartydrivers/slblocks.m:15:  searchdir = [basedir,'\thirdpartydrivers\*xpcblocks.m'];
-./thirdpartydrivers/UNAL_lib_xpcblocks.m:1:function out = sample_xpcblocks
-./thirdpartydrivers/UNAL_lib_xpcblocks.m:2:% <name>_xpcblocks Returns a structure that describes an entry
-./thirdpartydrivers/UNAL_lib_xpcblocks.m:7:%   with its own name, ending in xpcblocks.m.
-./thirdpartydrivers/UNAL_lib_xpcblocks.m:9:%   Copy this file under a new name, <yourname>xpcblocks.m
-./thirdpartydrivers/UNAL_lib_xpcblocks.m:19:%   in a copy of this file that might be named myxpcblocks.m.
+ActuatorIdentification\MainIdentification2Order.m:5:cd XPC_Code
+ActuatorIdentification\potenti2position\ReadAnalogInput_xpc_rtw\xpcoptions.m:2:function info=xpcoptions
+ActuatorIdentification\potenti2position\ReadAnalogInput_xpc_rtw\xpcoptions.m:4:info.xpcObjCom=0;
+ActuatorIdentification\potenti2position\GatherData.m:1:%% Code to read data from XPC target and measured position for later interpretation
+ActuatorIdentification\XPC_Code\IdentificationMotor2Order_xpc_rtw\xpcoptions.m:2:function info=xpcoptions
+ActuatorIdentification\XPC_Code\IdentificationMotor2Order_xpc_rtw\xpcoptions.m:4:info.xpcObjCom=0;
+GUI_V3\MoveSG.m:36:tgPC104 = xpctarget.xpc;
+GUI_V3\exportFile2XPc.m:1:function [iniCon] = exportFile2XPc(FileName)
+GUI_V3\exportFile2XPc.m:2:%EXPORTFILE2XPC Summary of this function goes here
+GUI_V3\exportFile2XPc.m:6:tgPC104 = xpctarget.xpc;
+GUI_V3\exportFile2XPc.m:21:fileXPC='Trajec2.dat';
+GUI_V3\exportFile2XPc.m:25:xpcbytes2file(fileXPC, A1',A1P',A1PP')                  %Creating the file for xPC format
+GUI_V3\exportFile2XPc.m:26:PC104=xpctarget.ftp('TCPIP','192.168.1.12','22222');    %Creating ftp object
+GUI_V3\exportFile2XPc.m:30:    PC104.cd('C:\XPCFILES\')    
+GUI_V3\exportFile2XPc.m:31:    PC104.put(fileXPC)                                      %Put file into target PC.
+GUI_V3\exportFile2XPc.m:36:    PC104.cd('C:\XPCFILES\')    
+GUI_V3\exportFile2XPc.m:37:    PC104.put(fileXPC)                                      %Put file into target PC.
+GUI_V3\exportFile2XPc.m:43:    PC104.cd('C:\XPCFILES\')    
+GUI_V3\exportFile2XPc.m:44:    PC104.put(fileXPC)                                       %Put file into target PC.
+GUI_V3\GUI_V3.m:50:% tgPC104 = xpctarget.xpc;
+GUI_V3\GUI_V3.m:135:%fsys=xpctarget.fs('TCPIP','192.168.1.12','22222');      %Creating an .fs object
+GUI_V3\GUI_V3.m:136:tgPC104=xpctarget.xpc;
+GUI_V3\GUI_V3.m:196:tgPC104=xpctarget.xpc;
+GUI_V3\GUI_V3.m:274:tgPC104 = xpctarget.xpc;
+GUI_V3\GUI_V3.m:289:tgPC104 = xpctarget.xpc;
+GUI_V3\GUI_V3.m:1199:if (BuildXPC)
+GUI_V3\GUI_V3.m:1216:tgPC104 = xpctarget.xpc;
+GUI_V3\GUI_V3.m:1227:tgPC104 = xpctarget.xpc;
+GUI_V3\GUI_V3.m:1239:function File2XPC_Menu_Callback(hObject, eventdata, handles)
+GUI_V3\GUI_V3.m:1240:% hObject    handle to File2XPC_Menu (see GCBO)
+GUI_V3\GUI_V3.m:1246:    [iniCon] = exportFile2XPc([PathName,FileName]);
+GUI_V3\GUI_V3.m:1293:File2XPC_Menu_Callback(hObject, eventdata, handles)
+GUI_V3\BuildXPC.m:1:function  [Status] = BuildXPC
+GUI_V3\BuildXPC.m:2:%BUILD2XPC Summary of this function goes here
+GUI_V3\BuildXPC.m:15:tgPC104 = xpctarget.xpc
+GUI_V3\BuildXPC.m:20:        load (tgPC104,'Code2XPCtarget\GUI_User_V1_3')
+GUI_V3\BuildXPC.m:28:        load (tgPC104,'Code2XPCtarget\GUI_User_V1_3')
+GUI_V3\BuildXPC.m:37:        load (tgPC104,'Code2XPCtarget\GUI_User_V1_3')
+GUI_V3\Code2XPCtarget\GUI_User_V1_3_xpc_rtw\xpcoptions.m:2:function info=xpcoptions
+GUI_V3\Code2XPCtarget\GUI_User_V1_3_xpc_rtw\xpcoptions.m:4:info.xpcObjCom=0;
+thirdpartydrivers\sample_supported.m:4:% be found in a system.  This information is used by getxpcpci.
+thirdpartydrivers\sample_xpcblocks.m:1:function out = sample_xpcblocks
+thirdpartydrivers\sample_xpcblocks.m:2:% <name>_xpcblocks Returns a structure that describes an entry
+thirdpartydrivers\sample_xpcblocks.m:7:%   with its own name, ending in xpcblocks.m.
+thirdpartydrivers\sample_xpcblocks.m:9:%   Copy this file under a new name, <yourname>xpcblocks.m
+thirdpartydrivers\sample_xpcblocks.m:19:%   in a copy of this file that might be named myxpcblocks.m.
+thirdpartydrivers\sample_xpcblocks.m:29:%   'xPC Target: ' to Name so that the Simulink browser
+thirdpartydrivers\sample_xpcblocks.m:30:%   will show 'xPC Target: My Super IO Library' under the
+thirdpartydrivers\sample_xpcblocks.m:31:%   standard xPC Target entry in the browser.
+thirdpartydrivers\slblocks.m:4:%   for xPC Target third party add on libraries.
+thirdpartydrivers\slblocks.m:13:  cdir = which( 'mxpcinterrupt.m' );
+thirdpartydrivers\slblocks.m:15:  searchdir = [basedir,'\thirdpartydrivers\*xpcblocks.m'];
+thirdpartydrivers\slblocks.m:22:        % add an xPC Target specific decoration to position this
+thirdpartydrivers\slblocks.m:25:          Browser(idx).Name = ['xPC Target: ', Browser(idx).Name];
+thirdpartydrivers\slblocks.m:31:        msg = sprintf( 'xPC Target: Error ''%s'' while adding third party library from %s', ME.message, file );
+thirdpartydrivers\mdodiamond16at_custom.m:12:        error('xPCTarget:DiamondMM:Config', 'Channel Vector parameter must be of class double');
+thirdpartydrivers\mdodiamond16at_custom.m:16:        error('xPCTarget:DiamondMM:Config', 'Channel Vector parameter must be a row vector');
+thirdpartydrivers\mdodiamond16at_custom.m:22:        error('xPCTarget:DiamondMM:Config', ['Channel vector elements must be in the range 1-' num2str(maxChan)]);
+thirdpartydrivers\mdodiamond16at_custom.m:27:        error('xPCTarget:DiamondMM:Config', 'Sample Time parameter must be of class double');
+thirdpartydrivers\mdodiamond16at_custom.m:31:        error('xPCTarget:DiamondMM:Config', 'Sample Time parameter must be a scalar');
+thirdpartydrivers\mdodiamond16at_custom.m:36:            error('xPCTarget:DiamondMM:Config', 'Reset vector must be of class double');
+thirdpartydrivers\mdodiamond16at_custom.m:41:            error('xPCTarget:DiamondMM:Config', 'Reset vector must be a scalar or have the same number of elements as the Channel vector');
+thirdpartydrivers\mdodiamond16at_custom.m:45:            error('xPCTarget:DiamondMM:Config', 'Reset vector elements must be 0 or 1');
+thirdpartydrivers\mdodiamond16at_custom.m:49:            error('xPCTarget:DiamondMM:Config', 'Initial value vector must be of class double');
+thirdpartydrivers\mdodiamond16at_custom.m:54:            error('xPCTarget:DiamondMM:Config', 'Initial value vector must be a scalar or have the same number of elements as the Channel vector');
+thirdpartydrivers\mdodiamond16at_custom.m:109:            disp('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:15:            error('xPCTarget:DiamondMM16AT:Block',...
+thirdpartydrivers\maskdiamondmm16.m:27:            disp('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:33:        error('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:36:        error('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:39:        error('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:45:        error('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:48:        error('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:51:        error('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:56:        error('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\maskdiamondmm16.m:106:            disp('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\mdadiamondmm16at_custom.m:21:      error('xPCTarget:Diamond:Config',...
+thirdpartydrivers\mdadiamondmm16at_custom.m:29:        error('xPCTarget:Diamond:Config',...
+thirdpartydrivers\mdadiamondmm16at_custom.m:33:        error('xPCTarget:Diamond:Config',...
+thirdpartydrivers\mdadiamondmm16at_custom.m:44:      error('xPCTarget:Diamond:Config',...
+thirdpartydrivers\mdadiamondmm16at_custom.m:50:      error('xPCTarget:Diamond:Config',...
+thirdpartydrivers\mdadiamondmm16at_custom.m:107:            disp('xPCTarget:DiamondMM16AT:Config',...
+thirdpartydrivers\sample_int.m:3:% routine for xPC Target.
+thirdpartydrivers\sample_int.m:20:%   the asynchronous interrupt block and on the xPC Target
+thirdpartydrivers\sample_int.m:95:%  board.PreHookFunction = 'xpc6804prehook';
+thirdpartydrivers\sample_int.m:97:%  board.HookIncludeFile = 'xpc6804hooks';
+thirdpartydrivers\sample_int.m:98:%  board.StartFunction = 'xpc6804start';
+thirdpartydrivers\sample_int.m:99:%  board.StopFunction = 'xpc6804stop';
+thirdpartydrivers\sample_int.m:107:%  board.PreHookFunction = 'xpcgs24dsi12prehook';
+thirdpartydrivers\sample_int.m:109:%  board.HookIncludeFile = 'xpcgs24dsi12hooks';
+thirdpartydrivers\sample_int.m:110:%  board.StartFunction = 'xpcgs24dsi12start';
+thirdpartydrivers\sample_int.m:111:%  board.StopFunction = 'xpcgs24dsi12stop';
+thirdpartydrivers\UNAL_lib_xpcblocks.m:1:function out = sample_xpcblocks
+thirdpartydrivers\UNAL_lib_xpcblocks.m:2:% <name>_xpcblocks Returns a structure that describes an entry
+thirdpartydrivers\UNAL_lib_xpcblocks.m:7:%   with its own name, ending in xpcblocks.m.
+thirdpartydrivers\UNAL_lib_xpcblocks.m:9:%   Copy this file under a new name, <yourname>xpcblocks.m
+thirdpartydrivers\UNAL_lib_xpcblocks.m:19:%   in a copy of this file that might be named myxpcblocks.m.
+thirdpartydrivers\UNAL_lib_xpcblocks.m:29:%   'xPC Target: ' to Name so that the Simulink browser
+thirdpartydrivers\UNAL_lib_xpcblocks.m:30:%   will show 'xPC Target: My Super IO Library' under the
+thirdpartydrivers\UNAL_lib_xpcblocks.m:31:%   standard xPC Target entry in the browser.
