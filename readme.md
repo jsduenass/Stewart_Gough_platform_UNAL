@@ -15,7 +15,7 @@ The project has the following objectives:
 The process started by getting acquaintance with the platform. After an onsite visit of the platform, the team received the corresponding documentation and produced a [file](project_structure.txt) containing a log with every one of the files received.
 
 ```
-tree /f >  project_structure.txt
+tree /f > project_structure.txt
 ```
 
 This analysis proof fruitful and provided a starting path '/ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd/Software' to begin the search.
@@ -41,13 +41,7 @@ findstr /i /n /s "xpc" *.m > xpcMatch.txt
 ## Information about legacy system 
 
 ### System requirements
-
-<<<<<<< HEAD
-**xPC Target (deprecated)**: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. produces __.dlm__ files.
-=======
-**xPC Target (deprecated)**: Mathworks  toolbox for real time model  HIL (Hardware in the Loop) simulation.  produces __.dlm__ files. [1](#references-and-resources)
-
->>>>>>> 1239ae6a630799ca9220814644a2e80cb1ec227e
+**xPC Target (deprecated)**: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. Produces __.dlm__ files. [1](#references-and-resources)
 
 ![system architecture](media/imgs/system_architecure.png)
 
