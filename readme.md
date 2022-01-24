@@ -22,7 +22,7 @@ This analysis proof fruitful and provided a starting path '/ENTREGA-FINAL-RC-380
 
 The file 'MoveSG.m' under '\ENTREGA-FINAL-RC-380-2011\CONTROLADORES\PRISMMATIC\cd\Software\GUI_V3\' becomes a starting point to test the Software 
 
-find xpc dependencies and usage 
+Find xpc dependencies and usage 
 
 ```
 findstr /i /n /s "xpc" *.m > xpcMatch.txt
