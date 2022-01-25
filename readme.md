@@ -2,7 +2,7 @@
 # Stewart Gough platform project analysis
 This repo documents the updating process of PRISMMATIC(Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
 
-## table of contents
+## Table of contents
 
 * [Process](#process)
 * [Inquires](#inquiries) 
