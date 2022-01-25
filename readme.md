@@ -17,6 +17,8 @@ The process started by getting acquaintance with the platform. After an onsite v
 ```
 tree /f >  project_structure.txt
 ```
+Note: this file is encoded in windows 1252 encoding
+
 
 This analysis proof fruitful and provided a starting path '/ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd/Software' to begin the search.
 
@@ -24,16 +26,29 @@ The file 'MoveSG.m' under '\ENTREGA-FINAL-RC-380-2011\CONTROLADORES\PRISMMATIC\c
 
 find xpc dependencies and usage 
 
-'''
+```
 grep -r -n  --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd' > ../xpcMatch.txt
 
-'''
+```
+
+This information allow us to understand how and where the deprecated _xPC Target_  library was used, identifying './GUI_V3/BuildXPC.m:15:tgPC104 = xpctarget.xpc' as a starting point to understand the code. Simultaneously its counterpart was search in the _real time_ library.
+
+information about the IP configuration 
+__"./GUI_V3/exportFile2XPc.m:26:PC104=xpctarget.ftp('TCPIP','192.168.1.12','22222');    %Creating ftp object"__
+
+
+tg:target object 
+
+
+### Real time getting started
+Configure the development computer Ethernet port to use Internet Protocol Version 4 (TCP/IPv4) only. Specify a nonroutable static IP
 
 ## Inquiries 
 
 * Software license the project is licensed under.
 * History, participants and their contributions.
 * Components and system architecture.
+* Is Matlab 2017a compatible? 
 
 <!-- Hoja de ruta -->
 
@@ -42,8 +57,9 @@ grep -r -n  --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRIS
 ## Information about legacy system 
 
 ### System requirements
+* Matlab 2011a  [download] (https://www.mathworks.com/downloads/?release=R2011a) 
 
-**xPC Target (deprecated)**: Mathworks  toolbox for real time model  HIL (Hardware in the Loop) simulation.  produces __.dlm__ files. [1](#references-and-resources)
+*  __xPC Target (deprecated)__: Mathworks  toolbox for real time model  HIL (Hardware in the Loop) simulation.  produces __.dlm__ files. [1](#references-and-resources)
 
 
 ![system architecture](media/imgs/system_architecure.png)
@@ -70,4 +86,6 @@ grep -r -n  --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRIS
 
 5 [xpc target User guide Version 2](http://www.bmed.mcgill.ca/reklab/manual/common/xpc/documentation/xpc_target_ug%5B1%5D.pdf). Retrieved January 23, 2022.
 
-6 [MATLAB Real time documetation](https://www.mathworks.com/help/pdf_doc/slrealtime/index.html)
+6 [MATLAB Real time documentation](https://www.mathworks.com/help/pdf_doc/slrealtime/index.html)
+
+7 [STM32 Microcontroller Support ](https://www.mathworks.com/products/hardware/stmicroelectronics.html)

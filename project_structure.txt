@@ -1,4 +1,4 @@
-H:.
+.
 ¦   User_Manual_StewartGoughV1_2.pdf
 ¦   README.txt
 ¦   project_structure.txt
