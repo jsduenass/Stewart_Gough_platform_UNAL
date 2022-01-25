@@ -18,9 +18,32 @@ The process started by getting acquaintance with the platform. After an onsite v
 tree /f > project_structure.txt
 ```
 
-This analysis proof fruitful and provided a starting path '/ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd/Software' to begin the search.
+This analysis proof fruitful and provided a starting path '/Software' to begin the search.
 
-The file 'MoveSG.m' under '\ENTREGA-FINAL-RC-380-2011\CONTROLADORES\PRISMMATIC\cd\Software\GUI_V3\' becomes a starting point to test the Software 
+### First contact with the platform software
+In order to check the correct operation of the hardware, the procedure indicated in the user manual provided in the previously received files was followed.
+
+#### Installation of drivers and programs
+Initially the platform was connected with MATLAB R2011a using the xPCTarget toolbox, as this toolbox was discontinued and replaced by Simulink Real Time, version r2011a was downloaded to be able to use it and configure the platform.
+
+In order for the platform communication card to connect with xPCTarget, it is necessary to add the drivers from the '\Software\thirdpartydrivers' folder to the toolbox drivers folder. In addition, the 'Software\Stewart_Gough_library' library is also added to the MATLAB path to be able to use it.
+
+With the software configured it is necessary to install a C compiler; testing with several compilers we found that the version of MATLAB used only recognizes the compilers installed by __Visual Studio 2010 Professional__ (recommended software in the original documentation), this version of Visual Studio was difficult to find as an online installation did not work since Microsoft servers are available, therefore, it was necessary to look for the version in the iso file (packaged with all the files necessary for installation). This program was found at the following [link](https://51-68-135-147.xyz/Getintopc.com/Visual_Studio2010_Professional_x86_x16-81637.iso?md5=m66_WqpIkGd_2yU8rFLZyg&expires=1645586596).
+
+Once the C compiler was installed, MATLAB recognized it and proceeded with the network configuration of the card.
+
+```
+tgs = xpctarget.targets;
+tgs.makeDefault('TargetPC1');
+env.TargetBoot = 'DOSLoader';
+env.TcpIpTargetAddress = '192.168.1.12';
+env.TcpIpSubNetMask = '255.255.255.0';
+```
+
+
+
+
+The file 'MoveSG.m' under '\Software\GUI_V3\' becomes a starting point to test the Software 
 
 Find xpc dependencies and usage 
 
