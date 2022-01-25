@@ -40,12 +40,14 @@ env.TcpIpTargetAddress = '192.168.1.12';
 env.TcpIpSubNetMask = '255.255.255.0';
 ```
 
+The next step is to set the IP address of the host PC to 192.168.1.13 with subnet mask 255.255.255.0. Finally, to move the platform, run the *GUI_V3.m* file from the 'Software\GUI_V3' folder.
+
+#### Testing the connection
 
 
 
-The file 'MoveSG.m' under '\Software\GUI_V3\' becomes a starting point to test the Software 
-
-Find xpc dependencies and usage 
+#### First steps of editing
+To find out how it works, instances of the XPCTarget toolbox were searched for in the 'Software\GUI_V3' folder. The matches found are in the [xpcMatch](xpcMatch.txt) file.
 
 ```
 findstr /i /n /s "xpc" *.m > xpcMatch.txt
