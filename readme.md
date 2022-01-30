@@ -54,6 +54,29 @@ env.TcpIpSubNetMask = '255.255.255.0';
 The next step is to set the IP address of the host PC to 192.168.1.13 with subnet mask 255.255.255.0. Finally, to move the platform, run the *GUI_V3.m* file from the 'Software\GUI_V3' folder.
 
 #### Testing the connection
+When the first connection to the platform was attempted in the lab, the code returned several errors. The first one was "wrong IP address" and the xpctarget.xpc object could not be created in MATLAB; reviewing the documentation we found that the definition of the variable was incorrect and it was corrected as follows:
+```
+tg = xpxtarget.xpc('TCPIP','192.168.1.12','22222')
+```
+
+With this command the connection was established and then the GUI was executed, but it showed the error "application not loaded", and therefore, we decided to investigate in the BuildXPC.m file where a little more information was found.
+
+Two useful commands we found to handle the connection to the target were
+```
+tg.targetping
+tg.Application
+```
+The first shows us if the host pc and the target are on the same network without the need to check from CMD; and the second shows us which application is loaded on the target.
+
+Finally, with the connection established it was possible to load the application that was in the BuildXPC.m file and connect the GUI with the target.
+
+```
+tg.load('Code2XPCtarget\GUI_User_V1_3')
+tg.start
+```
+
+
+### Hardware problems
 
 
 
