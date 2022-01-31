@@ -1,4 +1,17 @@
+clc, clear, close all
+
+X=0;
+Y=0;
+Z=0;
+Roll=pi/3;
+Pitch=0;
+Yaw=0;
+
+[d,ActuatorsIndx] =MoveSG( X,Y,Z,Roll,Pitch,Yaw)
+
 %%
+
+
 getxpcenv
 setxpcenv('CCompiler', 'VisualC')
 xpcgetCC('supported')

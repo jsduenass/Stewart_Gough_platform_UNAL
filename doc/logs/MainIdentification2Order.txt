@@ -1,0 +1,134 @@
+### Starting xPC Target build procedure for model: IdentificationMotor2Order
+### Generating code into build folder: E:\Documentos\u\11.Semester_XI\sensores\proyecto\ENTREGA-FINAL-RC-380-2011\CONTROLADORES\PRISMMATIC\cd\Software\ActuatorIdentification\XPC_Code\IdentificationMotor2Order_xpc_rtw
+### Invoking Target Language Compiler on IdentificationMotor2Order.rtw
+### Using System Target File: D:\programacion\old_matlab\toolbox\rtw\targets\xpc\xpc\xpctarget.tlc
+Warning: This model contains blocks that do not handle sample time
+changes at runtime. To avoid incorrect results, only change
+the sample time in the original model, then rebuild the model. 
+### Loading TLC function libraries
+......
+### Initial pass through model to cache user defined code
+..........
+### Caching model source code
+...............................................................................
+................................................................
+### Generating TLC interface API.
+...............................................................................
+..................................
+### Writing source file IdentificationMotor2Order_capi.c
+.......................................
+### Writing header file IdentificationMotor2Order_capi.h
+.................................................
+### Writing header file IdentificationMotor2Order.h
+### Writing header file IdentificationMotor2Order_types.h
+.
+### Writing header file rtwtypes.h
+### Writing source file IdentificationMotor2Order.c
+.
+### Writing header file IdentificationMotor2Order_private.h
+### Writing header file rtmodel.h
+### Writing source file IdentificationMotor2Order_data.c
+.
+### Writing header file rt_nonfinite.h
+### Writing source file rt_nonfinite.c
+### Writing header file rtGetInf.h
+.
+### Writing source file rtGetInf.c
+### Writing header file rtGetNaN.h
+### Writing source file rtGetNaN.c
+.
+### TLC code generation complete.
+..
+### Creating data type transition file IdentificationMotor2Order_dt.h
+.
+### Creating xPC Options Header file xpcoptions.h.
+.
+### Creating xPC Definition File xpcvcdll.def
+### Creating model Hierarchy xml  IdentificationMotor2Order.xml
+........................
+### Creating model IdentificationMotor2Order_ref.m
+### Patch bio and pt MATLAB files
+### Create sorted BIO
+### Create sorted PT
+### Patch xml-file
+.
+### Processing Template Makefile: D:\programacion\old_matlab\toolbox\rtw\targets\xpc\xpc\xpc_vc.tmf
+### Creating IdentificationMotor2Order.mk from D:\programacion\old_matlab\toolbox\rtw\targets\xpc\xpc\xpc_vc.tmf
+### Building IdentificationMotor2Order: .\IdentificationMotor2Order.bat
+ 
+E:\Documentos\u\11.Semester_XI\sensores\proyecto\ENTREGA-FINAL-RC-380-2011\CONTROLADORES\PRISMMATIC\cd\Software\ActuatorIdentification\XPC_Code\IdentificationMotor2Order_xpc_rtw>call "C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools\..\..\VC\vcvarsall.bat" x86  
+Setting environment for using Microsoft Visual Studio 2010 x86 tools. 
+ 
+Microsoft (R) Program Maintenance Utility Version 10.00.30319.01 
+Copyright (C) Microsoft Corporation.  All rights reserved. 
+ 
+### Compiling IdentificationMotor2Order.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  IdentificationMotor2Order.c 
+IdentificationMotor2Order.c 
+### Compiling IdentificationMotor2Order_capi.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  IdentificationMotor2Order_capi.c 
+IdentificationMotor2Order_capi.c 
+### Compiling IdentificationMotor2Order_data.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  IdentificationMotor2Order_data.c 
+IdentificationMotor2Order_data.c 
+### Compiling rtGetInf.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  rtGetInf.c 
+rtGetInf.c 
+### Compiling rtGetNaN.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  rtGetNaN.c 
+rtGetNaN.c 
+### Compiling D:\programacion\old_matlab\rtw\c\src\rt_logging.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\rtw\c\src\rt_logging.c 
+rt_logging.c 
+### Compiling D:\programacion\old_matlab\rtw\c\src\rt_logging_mmi.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\rtw\c\src\rt_logging_mmi.c 
+rt_logging_mmi.c 
+### Compiling D:\programacion\old_matlab\rtw\c\src\rt_matrx.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\rtw\c\src\rt_matrx.c 
+rt_matrx.c 
+### Compiling rt_nonfinite.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  rt_nonfinite.c 
+rt_nonfinite.c 
+### Compiling D:\programacion\old_matlab\rtw\c\src\rt_printf.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\rtw\c\src\rt_printf.c 
+rt_printf.c 
+### Compiling D:\programacion\old_matlab\rtw\c\src\rtw_modelmap_utils.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\rtw\c\src\rtw_modelmap_utils.c 
+rtw_modelmap_utils.c 
+### Compiling xpc_datatype_ground.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  xpc_datatype_ground.c 
+xpc_datatype_ground.c 
+### Compiling xpctarget.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\src\xpctarget.c 
+xpctarget.c 
+### Compiling D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\fifowrite.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\fifowrite.c 
+fifowrite.c 
+### Compiling D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\fiforead.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\fiforead.c 
+fiforead.c 
+### Compiling D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers\addiamondmm16atcustom.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers\addiamondmm16atcustom.c 
+addiamondmm16atcustom.c 
+### Compiling D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\asciiencode.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\asciiencode.c 
+asciiencode.c 
+### Compiling D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\sersetupbase.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\sersetupbase.c 
+sersetupbase.c 
+### Compiling D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\include\xpcimports.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\include\xpcimports.c 
+xpcimports.c 
+### Compiling D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\include\xpcPCFunctions.c 
+	cl  -D_MT -MT /wd4996 /fp:precise  /W3 /c /nologo /O2 /Oy- -DMODEL=IdentificationMotor2Order -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO -DXPCMSVISUALC  -DXPCCALLCONV=__cdecl  -DUSE_RTMODEL -DERT_CORE  D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\xpcblocks\include\xpcPCFunctions.c 
+xpcPCFunctions.c 
+	lib /nologo /out:xpcruntime.lib xpcimports.obj xpcPCFunctions.obj 
+### Linking ... 
+	D:\programacion\old_matlab\sys\perl\win32\bin\perl D:\programacion\old_matlab\rtw\c\tools\mkvc_lnk.pl IdentificationMotor2Order.lnk IdentificationMotor2Order.obj IdentificationMotor2Order_capi.obj IdentificationMotor2Order_data.obj rtGetInf.obj rtGetNaN.obj rt_logging.obj rt_logging_mmi.obj rt_matrx.obj rt_nonfinite.obj rt_printf.obj rtw_modelmap_utils.obj xpc_datatype_ground.obj xpctarget.obj  fifowrite.obj fiforead.obj addiamondmm16atcustom.obj asciiencode.obj sersetupbase.obj 
+	link /NOLOGO /DLL /SUBSYSTEM:CONSOLE /DEF:xpcvcdll.def  /Include:_malloc D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\lib\libatlas.a D:\programacion\old_matlab\toolbox\rtw\targets\xpc\target\build\lib\libcblas.a  xpcruntime.lib    @IdentificationMotor2Order.lnk @IdentificationMotor2Order_ref.rsp -out:IdentificationMotor2Order_xpc.dll 
+   Creating library IdentificationMotor2Order_xpc.lib and object IdentificationMotor2Order_xpc.exp 
+### Created DLL IdentificationMotor2Order_xpc.dll 
+	D:\programacion\old_matlab\toolbox\rtw\targets\xpc\xpc\bin\mkusrdlm -c+ -q+ IdentificationMotor2Order_xpc.dll ..\IdentificationMotor2Order 
+RTTarget-32 DLM Processor 5.16 (c) 1996,2009 On Time Informatik GmbH 
+### Created DLM ..\IdentificationMotor2Order.dlm 
+### Successful completion of build procedure for model: IdentificationMotor2Order
