@@ -1,6 +1,10 @@
 
-# Stewart Gough platform project analysis
-This repo documents the diagnostic and maintenance  process of: PRISMMATIC (Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
+# Stewart Gough platform upkeep project 
+
+This repo documents the diagnostic and maintenance process of the PRISMMATIC platform (Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
+
+![SG platform](media/imgs/SG_platform.jpg)
+
 
 ## Table of contents
 
@@ -15,7 +19,7 @@ This repo documents the diagnostic and maintenance  process of: PRISMMATIC (Para
 The main objective of this work is to upkeep and bring back to service the inactive PRISMMATIC platform. Recovering this asset in the mechatronic's laboratory  can proof to be a  useful platform  for current and future students to work with parallel robots. 
 
 ### Secondary objectives
-The project has the following objectives:
+The project has the following secondary objectives:
 * Document the  diagnostic and maintenance process
 * Update the platform and make it's system requirements compatible with a modern system (Windows 10 - MATLAB r2021a). 
 * Moving the platform using open source software (Python 3.7 or higher).
@@ -46,7 +50,7 @@ This information allow us to understand how and where the deprecated _xPC Target
 
 
 ### Software setup
-With an idea in mind on how the code worked. The following step consisted on setting up an environment for running it. The procedure started by following the instructions indicated in the [user manual](doc/User_Manual_StewartGoughV1_3.pdf). The legacy system requirements (MATLAB R2011a and XPC toolbox) were analyzed in order to find a modern compatible setup. The xPCTarget toolbox was discontinued in MATLAB R2018a, and replaced by the __Real Time toolbox__ [1](#references-and-resources). However this system only supports__Speedgoat__ hardware which made it incompatible for the applications with it's [components](#components).  
+With an idea in mind on how the code worked. The following step consisted on setting up an environment for running it. The procedure started by following the instructions indicated in the [user manual](doc/User_Manual_StewartGoughV1_3.pdf). The legacy system requirements (MATLAB R2011a and XPCTarget toolbox) were analyzed in order to find a modern compatible setup. The xPCTarget toolbox was discontinued in MATLAB R2018a, and replaced by the __Real Time toolbox__ \[[1](#references-and-resources)\]. However this system only supports __Speedgoat__ hardware which made it incompatible for the applications with it's [components](#components).  
 
 
 Therefore  MATLAB r2011a (Version 7.12 ), xPC target (Version 5.0) and simulink (Version 7.7) were setup on a modern computer.
@@ -75,7 +79,8 @@ The next step is to set the IP address of the host PC to 192.168.1.13 with subne
 
 
 ### Testing the connection
-When the first connection to the platform was attempted in the lab, the code returned several errors. The first one was "wrong IP address" and the xpctarget.xpc object could not be created in MATLAB; reviewing the documentation we found that the definition ```tg =   xpctarget.xpc()``` produced an error if a default target had not been specified, so the following command explicitly stating the settings of the target was used:
+When the first connection to the platform was attempted in the lab, the code returned several errors. The first one was "wrong IP address" and the xpctarget.xpc object could not be created in MATLAB; reviewing the documentation we found that the definition ```tg =   xpctarget.xpc()``` produced an error if a default target had not been specified, so the following command explicitly starting the settings of the target was used:
+
 ```
 tg =   xpctarget.xpc('TCPIP','192.168.1.12','22222')
 ```
@@ -99,9 +104,22 @@ tg.start
 
 
 ### Platform troubleshooting
+<!-- 
+ambos LEDS amarillos prendidos en Driver = PELIGOR!!! RIESGO DE QUE SE QUEME LA PLACA
 
+image side by side
 
+<p float="left">
+  <img src="media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg" width="100" />
+  <img src="/img2.png" width="100" /> 
+  <img src="/img3.png" width="100" />
+</p>
 
+-->
+![](media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg)
+![](media/imgs/bottom_view_repaired_PC104_to_STM32F4_Board.jpg)
+![](media/imgs/top_view_PC104_to_STM32F4_Board.jpg)
+![](media/imgs/top_view_repaired_PC104_to_STM32F4_Board.jpg)
 
 
 
