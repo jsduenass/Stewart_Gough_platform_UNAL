@@ -58,7 +58,7 @@ This information allow us to understand how and where the deprecated _xPC Target
 With an idea in mind on how the code worked. The following step consisted on setting up an environment for running it. The procedure started by following the instructions indicated in the [user manual](doc/User_Manual_StewartGoughV1_3.pdf). The legacy system requirements (MATLAB R2011a and XPCTarget toolbox) were analyzed in order to find a modern compatible setup. The xPCTarget toolbox was discontinued in MATLAB R2018a, and replaced by the __Real Time toolbox__ \[[1](#references-and-resources)\]. However this system only supports __Speedgoat__ hardware which made it incompatible for the applications with it's [components](#components).  
 
 
-Therefore  MATLAB r2011a (Version 7.12 ), xPC target (Version 5.0) and simulink (Version 7.7) were setup on a modern computer.
+Therefore  MATLAB r2011a (Version 7.12 ), xPC target (Version 5.0) and simulink (Version 7.7) were setup on a modern computer, which can be found at [Matlab 2011a release ](https://www.mathworks.com/downloads/?release=R2011a).
 > Information gathered thanks to the MATLAB command ```ver``` 
 
 
@@ -112,19 +112,14 @@ tg.start
 <!-- 
 ambos LEDS amarillos prendidos en Driver = PELIGOR!!! RIESGO DE QUE SE QUEME LA PLACA
 
-image side by side
-
-<p float="left">
-  <img src="media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg" width="100" />
-  <img src="/img2.png" width="100" /> 
-  <img src="/img3.png" width="100" />
-</p>
-
 -->
-![](media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg)
-![](media/imgs/bottom_view_repaired_PC104_to_STM32F4_Board.jpg)
-![](media/imgs/top_view_PC104_to_STM32F4_Board.jpg)
-![](media/imgs/top_view_repaired_PC104_to_STM32F4_Board.jpg)
+
+
+|  PC104 to STM32F4 Board   | Top view  | Bottom view   |
+|----------|-----------|---------------|
+| received | ![](media/imgs/top_view_PC104_to_STM32F4_Board.jpg)   | ![](media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg)  |  
+| repaired | ![](media/imgs/top_view_repaired_PC104_to_STM32F4_Board.jpg)  | ![](media/imgs/bottom_view_repaired_PC104_to_STM32F4_Board.jpg)|  
+
 
 
 
@@ -142,8 +137,7 @@ image side by side
 ## Information about legacy system 
 
 ### System requirements
-* Matlab 2011a  [download] (https://www.mathworks.com/downloads/?release=R2011a) 
-
+* Matlab 2011a 
 *  __xPC Target (deprecated)__: Mathworks  toolbox for real time model  HIL (Hardware in the Loop) simulation.  produces __.dlm__ files. [1](#references-and-resources)
 
 
@@ -173,4 +167,6 @@ image side by side
 5. [xPC target User guide Version 2](http://www.bmed.mcgill.ca/reklab/manual/common/xpc/documentation/xpc_target_ug%5B1%5D.pdf). Retrieved January 23, 2022.
 6. [MATLAB Real time documentation](https://www.mathworks.com/help/pdf_doc/slrealtime/index.html).
 7. [STM32 Microcontroller Support ](https://www.mathworks.com/products/hardware/stmicroelectronics.html)
+8. [Matlab 2011a release ](https://www.mathworks.com/downloads/?release=R2011a) 
+
 
