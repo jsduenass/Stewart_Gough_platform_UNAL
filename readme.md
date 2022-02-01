@@ -153,6 +153,10 @@ ambos LEDS amarillos prendidos en Driver = PELIGOR!!! RIESGO DE QUE SE QUEME LA 
 
 ![system architecture](media/imgs/system_architecure.png)
 
+#### CAD Model
+
+[Onshape model](https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6)
+
 
 ### (work in progress) Parties involved 
 * Edgar Bolivar
