@@ -115,10 +115,10 @@ ambos LEDS amarillos prendidos en Driver = PELIGOR!!! RIESGO DE QUE SE QUEME LA 
 -->
 
 
-|  PC104 to STM32F4 Board   | Top view  | Bottom view   |
-|----------|-----------|---------------|
-| received | ![](media/imgs/top_view_PC104_to_STM32F4_Board.jpg)   | ![](media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg)  |  
-| repaired | ![](media/imgs/top_view_repaired_PC104_to_STM32F4_Board.jpg)  | ![](media/imgs/bottom_view_repaired_PC104_to_STM32F4_Board.jpg)|  
+| PC104 to STM32F4 Board | Top view | Bottom view |
+| :------- | :----: | :----: |
+| Received | ![](media/imgs/top_view_PC104_to_STM32F4_Board.jpg) | ![](media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg) |  
+| Repaired | ![](media/imgs/top_view_repaired_PC104_to_STM32F4_Board.jpg) | ![](media/imgs/bottom_view_repaired_PC104_to_STM32F4_Board.jpg) |  
 
 
 
