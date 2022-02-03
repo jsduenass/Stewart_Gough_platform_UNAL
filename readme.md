@@ -119,7 +119,12 @@ With the board repaired, we connected 3 drivers and 3 motors but one track broke
 #### Mechanical Review
 To rule out mechanical failures in the platform, each actuator and the mobile base were disconnected in order to release the loads of each one and be able to connect them directly to a DC source.
 
+#### PC104 connector verification
+R
 
+<p align="center">
+    <img src="media/imgs/DiamondPC104connections.png" alt="Diamond connections"/>
+</p>
 
 ## Inquiries 
 
