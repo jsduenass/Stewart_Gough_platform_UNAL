@@ -140,7 +140,7 @@ As some actuators presented a high current, the stem of each one was removed and
 #### Manual motion from board
 With the mechanical tests and the direct connection to the DC source carried out on the actuators, we ruled out that the problems were mechanical, so we disconnected, leaving only one actuator to avoid burning the PC104 to STM32 Board again, and we began to carry out tests. With the control connectors connected, we realized that after cleaning the drivers' LEDs turned on.
 <p align="center">
-    <img src="media/imgs/twoLedDriver" alt="LEDs in drivers"/>
+    <img src="media/imgs/twoLedDriver.png" alt="LEDs in drivers"/>
 </p>
 
 Even so, the actuators did not work with the buttons on the PCB, so we disconnected the entire control part and left only the power part connected. With these connections the actuators finally worked, although we found something very important and that is that each LED of the drivers indicates a direction, that is, one LED indicates that the stem of the actuators is coming out and the other indicates that it is going in. This means that **IF THE TWO LEDs ON THE DRIVERS ARE ON, THE PLATFORM MUST BE POWERED OFF**, as it can cause the PC104 to STM32 Board to burn again.
@@ -159,7 +159,7 @@ Reviewing the datasheet of the Diamond MM 16 AT expansion card, we find that its
     <img src="media/imgs/DiamondPC104connections.png" alt="Diamond connections"/>
 </p>
 
-Comparing these pins with the connectors J7, J8 and J9 of the PC104 to STM32 board, the first 16 pins of the Diamond board are connected to J7, the next 16 to J8 and finally, J9 to the following 8. **When we received the platform, pins J7 and J8 were inverted**.
+Comparing these pins with the connectors J7, J8 and J9 of the PC104 to STM32 board, the first 16 pins of the Diamond board are connected to J7, the next 16 to J8 and finally, J9 to the following 8. **When we received the platform, pins J7 and J8 were inverted**. The information of the drivers could not be found, we believe that the schematic is open source and the construction was at the Universidad Nacional de Colombia.
 
 <p align="center">
     <img src="media/imgs/schePC2STMBoard.png" alt="Schematic connectors PC104"/> <br/>
@@ -192,7 +192,7 @@ In order to better understand the operation of the platform and have the parts m
 
 <p align="center">
     <a href="https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6" target="_blank">
-        <img src="media/imgs/cadModel.png" alt="Cad Model"/> <br/>
+        <img src="media/imgs/cadModel.png" alt="Cad Model" width="50%"/> <br/>
         Onshape CAD Model
     </a>
 </p>
@@ -214,7 +214,7 @@ This model was built based on the design plans of Francisco Villate and the mode
 
 ## Components:
 <p align="center">
-    <img src="media/imgs/system_architecure.png" alt="system architecture"/>
+    <img src="media/imgs/system_architecure.png" alt="system architecture" width="80%"/>
 </p>
 
 
