@@ -122,13 +122,17 @@ To rule out mechanical failures in the platform, each actuator was disassembled 
     <img src="media/imgs/actuatorTestDCSource.png" alt="Actuators disassembled"/>
 </p>
 
-At the time of testing each actuator, we found that for a forward voltage of 8.6V, the current values for each actuator were as follows:
+At the time of testing each actuator, we found that for a forward voltage of **8.9V**, the current values for each actuator were as follows:
+
+<center>
 
 | Current [A] | Actuator 1 | Actuator 2 | Actuator 3 | Actuator 4 | Actuator 5 | Actuator 6 |
 | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
 | Up | 0.73 | 0.78 | 0.63 | 1.06 | 0.74 | 0.49 |
 | Down | 0.6 | 0.73 | 0.53 | 0.92 | 0.7 | 0.67 |
+</center>
 
+As some actuators presented a high current, the stem of each one was removed and they were lubricated. Finally, new current values were obtained
 
 
 
