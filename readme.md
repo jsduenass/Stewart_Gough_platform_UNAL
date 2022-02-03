@@ -143,7 +143,7 @@ With the mechanical tests and the direct connection to the DC source carried out
     <img src="media/imgs/twoLedDriver.png" alt="LEDs in drivers"/>
 </p>
 
-Even so, the actuators did not work with the buttons on the PCB, so we disconnected the entire control part and left only the power part connected. With these connections the actuators finally worked, although we found something very important and that is that each LED of the drivers indicates a direction, that is, one LED indicates that the stem of the actuators is coming out and the other indicates that it is going in. This means that **IF THE TWO LEDs ON THE DRIVERS ARE ON, THE PLATFORM MUST BE POWERED OFF**, as it can cause the PC104 to STM32 Board to burn again.
+Even so, the actuators did not work with the buttons on the PCB, so we disconnected the entire control part and left only the power part connected. With these connections the actuators finally worked, although we found something very important and that is that each LED of the drivers indicates a direction, that is, one LED indicates that the stem of the actuators is coming out and the other indicates that it is going in. This means that **IF THE TWO LEDs ON THE DRIVERS ARE ON, THE PLATFORM MUST BE POWERED OFF IMMEDIATELY**, as it can cause the PC104 to STM32 Board to burn again.
 
 <p align="center">
     <a href="https://youtu.be/IWlgqmLl4kY" target="_blank">
