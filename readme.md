@@ -134,11 +134,9 @@ To rule out mechanical failures in the platform, each actuator and the mobile ba
 In order to better understand the operation of the platform and have the parts modeled in an open source CAD program, the model was made in OnShape, a Software-as-a-Service (SaaS) product development platform that combines CAD, built-in data management, real-time collaboration tools, and business analytics[<sup>9</sup>](#references-and-resources).
 
 <p align="center">
-    <a href="https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6">
-        <figure>
-            <img src="media/imgs/cadModel.png" alt="Cad Model"/> 
-            <figcaption>Onshape CAD Model</figcaption>
-        </figure>
+    <a href="https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6" target="_blank">
+        <img src="media/imgs/cadModel.png" alt="Cad Model"/> <br/>
+        Onshape CAD Model
     </a>
 </p>
 
