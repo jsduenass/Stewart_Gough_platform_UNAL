@@ -1,10 +1,13 @@
+
 # Stewart Gough platform upkeep project 
+
 This repo documents the diagnostic and maintenance process of the PRISMMATIC platform (Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
 
 ![SG platform](media/imgs/SG_platform.jpg)
 
 
 ## Table of contents
+
 * [Process](#process)
 * [Inquires](#inquiries) 
 * [Information about legacy system](#information-about-legacy-system)
@@ -33,11 +36,11 @@ tree /f > project_structure.txt
 ```
 > Note: the previous terminal command produces the log file, it is encoded in windows 1252 encoding format
 
-This analysis proof fruitful and provided a starting path _'/Software'_ to begin the search.
+This analysis proof fruitful and provided a starting path *'/Software'* to begin the search.
 
 
 #### Search of xPC usage
-To find out how and where the xPC toolbox was used, instances of the XPCTarget toolbox were searched in the *'Software\GUI_V3'* folder. The matches found were logged in the [xpcMatch](xpcMatch.txt) file.
+To find out how and where the xPC toolbox was used, instances of the XPCTarget toolbox were searched in the _'Software\GUI\_V3'_ folder. The matches found were logged in the [xpcMatch](xpcMatch.txt) file.
 
 ```
 findstr /i /n /s "xpc" *.m > xpcMatch.txt
@@ -169,5 +172,3 @@ ambos LEDS amarillos prendidos en Driver = PELIGRO!!! RIESGO DE QUE SE QUEME LA 
 6. [MATLAB Real time documentation](https://www.mathworks.com/help/pdf_doc/slrealtime/index.html).
 7. [STM32 Microcontroller Support ](https://www.mathworks.com/products/hardware/stmicroelectronics.html)
 8. [Matlab 2011a release ](https://www.mathworks.com/downloads/?release=R2011a) 
-
-
