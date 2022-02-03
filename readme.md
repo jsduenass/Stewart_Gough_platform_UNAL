@@ -135,8 +135,10 @@ In order to better understand the operation of the platform and have the parts m
 
 <p align="center">
     <a href="https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6">
-        <img src="media/imgs/cadModel.png" alt="Cad Model"/> <br/>
-        Onshape CAD Model
+        <figure>
+            <img src="media/imgs/cadModel.png" alt="Cad Model"/> 
+            <figcaption>Onshape CAD Model</figcaption>
+        </figure>
     </a>
 </p>
 
