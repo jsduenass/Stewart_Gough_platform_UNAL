@@ -107,7 +107,7 @@ tg.start
 
 
 ### Platform troubleshooting
-Initially, when we tried to manually move the platform using the pushbuttons integrated in the PC104 to STM32 board, these did not work, therefore, we decided to disassemble it from the electrical panel and check continuity between its pins using the schematic as a reference. When checking the connections, we observed that two tracks of the PCB were raised and one of them was broken, so with the help of the lab technician from the mechatronics laboratory of the Universidad Nacional de Colombia, we repaired and cleaned the PCB (in addition, the board had flux and in some occasions it can become an electrical conductor over time).
+Initially, when we tried to manually move the platform using the pushbuttons integrated in the PC104 to STM32 board, these did not work, therefore, we decided to disassemble it from the electrical panel and check continuity between its pins using the schematic as a reference. When checking the connections, we observed that two tracks of the PCB were raised and one of them was broken, so with the help of the lab technician from the mechatronics laboratory of the Universidad Nacional de Colombia, we repaired and cleaned with isopropyl alcohol the PCB (in addition, the board had flux and in some occasions it can become an electrical conductor over time).
 
 | PC104 to STM32F4 Board | Top view | Bottom view |
 | :------- | :----: | :----: |
@@ -124,16 +124,32 @@ To rule out mechanical failures in the platform, each actuator was disassembled 
 
 At the time of testing each actuator, we found that for a forward voltage of **8.9V**, the current values for each actuator were as follows:
 
-<center>
-
 | Current [A] | Actuator 1 | Actuator 2 | Actuator 3 | Actuator 4 | Actuator 5 | Actuator 6 |
 | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
 | Up | 0.73 | 0.78 | 0.63 | 1.06 | 0.74 | 0.49 |
 | Down | 0.6 | 0.73 | 0.53 | 0.92 | 0.7 | 0.67 |
-</center>
 
 As some actuators presented a high current, the stem of each one was removed and they were lubricated. Finally, new current values were obtained
 
+| Current [A] | Actuator 1 | Actuator 2 | Actuator 3 | Actuator 4 | Actuator 5 | Actuator 6 |
+| :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| Up |  |  |  |  |  |  |
+| Down |  |  |  |  |  |  |
+
+
+#### Manual motion from board
+With the mechanical tests and the direct connection to the DC source carried out on the actuators, we ruled out that the problems were mechanical, so we disconnected, leaving only one actuator to avoid burning the PC104 to STM32 Board again, and we began to carry out tests. With the control connectors connected, we realized that after cleaning the drivers' LEDs turned on.
+<p align="center">
+    <img src="media/imgs/twoLedDriver" alt="LEDs in drivers"/>
+</p>
+
+Even so, the actuators did not work with the buttons on the PCB, so we disconnected the entire control part and left only the power part connected. With these connections the actuators finally worked, although we found something very important and that is that each LED of the drivers indicates a direction, that is, one LED indicates that the stem of the actuators is coming out and the other indicates that it is going in. This means that **IF THE TWO LEDs ON THE DRIVERS ARE ON, THE PLATFORM MUST BE POWERED OFF**, as it can cause the PC104 to STM32 Board to burn again.
+
+<p align="center">
+    <a href="https://youtu.be/IWlgqmLl4kY" target="_blank">
+        <img src="media/imgs/videoPlay.png" alt="Video manual motion"/>
+    </a>
+</p>
 
 
 #### PC104 connector verification
@@ -146,10 +162,21 @@ Reviewing the datasheet of the Diamond MM 16 AT expansion card, we find that its
 Comparing these pins with the connectors J7, J8 and J9 of the PC104 to STM32 board, the first 16 pins of the Diamond board are connected to J7, the next 16 to J8 and finally, J9 to the following 8. **When we received the platform, pins J7 and J8 were inverted**.
 
 <p align="center">
-    <img src="media/imgs/schePC2STMBoard.png" alt="Diamond connections"/> <br/>
+    <img src="media/imgs/schePC2STMBoard.png" alt="Schematic connectors PC104"/> <br/>
     Schematic elaborated by Edgar Bolívar
 </p>
 
+
+#### STM32F4 board verification
+As with the PC104 to STM32 Board, the STM32 Baseboard was also cleaned with isopropyl alcohol due to excess flux and to avoid possible errors. After cleaning and mounting on the electrical panel, two leds on the STM32F4 Discovery development board lit up, reviewing the datasheet, one of the leds is a power indicator and the other is a VBUS connection indicator; From the above, we concluded that the cleaning on the STM32 baseboard worked, but we found a new fault, the STM32F103C8T6 chip was overheating and the PCB around the chip was black.
+
+<p align="center">
+    <img src="media/imgs/STM32F4_burn.jpg" alt="STM32F4 Discovery burned"/>
+</p>
+
+To verify that it was not a problem in the connection to the electrical panel, the STM32F4 was connected directly to a computer through a USB-A to mini USB-B cable, but the chip continued to overheat.
+
+Looking at the datasheet, this chip is in charge of providing a clock source for the main chip of the STM32F4 Discovery; so we decided to change the clock source to a quartz oscillator integrated in the PCB, disconnecting the resistor R25 as indicated in the datasheet. With this configured the chip kept overheating and the development board could not be fixed.
 
 ## Inquiries 
 
