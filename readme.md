@@ -40,7 +40,7 @@ This analysis proof fruitful and provided a starting path *'/Software'* to begin
 
 
 #### Search of xPC usage
-To find out how and where the xPC toolbox was used, instances of the XPCTarget toolbox were searched in the _'Software\GUI\_V3'_ folder. The matches found were logged in the [xpcMatch](xpcMatch.txt) file.
+To find out how and where the xPC toolbox was used, instances of the XPCTarget toolbox were searched in the *'Software\GUI_V3'* folder. The matches found were logged in the [xpcMatch](xpcMatch.txt) file.
 
 ```
 findstr /i /n /s "xpc" *.m > xpcMatch.txt
@@ -99,9 +99,7 @@ tg.Application
 
 The first shows us if the host PC and the target are on the same network without the need to check from CMD; and the second shows us which application is loaded on the target.
 
-Finally, with the connection established it was possible to load the application that was in the **BuildXPC.m** file and connect the GUI with the target.
-
-
+Finally, with the connection established it was possible to load the application that was in the **BuildXPC.m** file and connect the GUI with the target through the next commands:
 ```
 tg.load('Code2XPCtarget\GUI_User_V1_3')
 tg.start
@@ -109,17 +107,17 @@ tg.start
 
 
 ### Platform troubleshooting
-<!-- 
-ambos LEDS amarillos prendidos en Driver = PELIGRO!!! RIESGO DE QUE SE QUEME LA PLACA
-
--->
-
+Initially, when we tried to manually move the platform using the pushbuttons integrated in the PC104 to STM32 board, these did not work, therefore, we decided to disassemble it from the electrical panel and check continuity between its pins using the schematic as a reference. When checking the connections, we observed that two tracks of the PCB were raised and one of them was broken, so with the help of the lab technician from the mechatronics laboratory of the Universidad Nacional de Colombia, we repaired and cleaned the PCB (in addition, the board had flux and in some occasions it can become an electrical conductor over time).
 
 | PC104 to STM32F4 Board | Top view | Bottom view |
 | :------- | :----: | :----: |
 | Received | ![](media/imgs/top_view_PC104_to_STM32F4_Board.jpg) | ![](media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg) | 
 | Repaired | ![](media/imgs/top_view_repaired_PC104_to_STM32F4_Board.jpg) | ![](media/imgs/bottom_view_repaired_PC104_to_STM32F4_Board.jpg) | 
 
+With the board repaired, we connected 3 drivers and 3 motors but one track broke again, which indicated that there was a short circuit somewhere. So we repaired the PC104 to STM32 Board again and connected each motor with its driver, one by one; this did not work, so we decided to disassemble the platform to do a mechanical review.
+
+#### Mechanical Review
+To rule out mechanical failures in the platform, each actuator and the mobile base were disconnected in order to release the loads of each one and be able to connect them directly to a DC source.
 
 
 
