@@ -1,13 +1,10 @@
-
 # Stewart Gough platform upkeep project 
-
 This repo documents the diagnostic and maintenance process of the PRISMMATIC platform (Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
 
 ![SG platform](media/imgs/SG_platform.jpg)
 
 
 ## Table of contents
-
 * [Process](#process)
 * [Inquires](#inquiries) 
 * [Information about legacy system](#information-about-legacy-system)
@@ -36,37 +33,21 @@ tree /f > project_structure.txt
 ```
 > Note: the previous terminal command produces the log file, it is encoded in windows 1252 encoding format
 
-<<<<<<< HEAD
 This analysis proof fruitful and provided a starting path _'/Software'_ to begin the search.
 
 
 #### Search of xPC usage
-To find out how and where the xPC toolbox was used, instances of the XPCTarget toolbox were searched in the _'Software\GUI\_V3'_ folder. The matches found were logged in the [xpcMatch](xpcMatch.txt) file.
-=======
-This analysis proof fruitful and provided a starting path <mark>'/Software'</mark> to begin the search.
-
-
-#### Search of xPC usage
-To find out how and where the xPC toolbox was used, instances of the XPCTarget toolbox were searched in the 'Software\GUI_V3' folder. The matches found were logged in the [xpcMatch](xpcMatch.txt) file.
->>>>>>> e4cf0eaac5d6115436dcaaff9afdd8eb05aa6da5
+To find out how and where the xPC toolbox was used, instances of the XPCTarget toolbox were searched in the *'Software\GUI_V3'* folder. The matches found were logged in the [xpcMatch](xpcMatch.txt) file.
 
 ```
 findstr /i /n /s "xpc" *.m > xpcMatch.txt
 ```
 
-<<<<<<< HEAD
 <!-- grep -r -n --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd' > ../xpcMatch.txt
 
 Subsystem5 -->
 
 This information allow us to understand how and where the deprecated __xPCTarget__ library was used, identifying *./GUI_V3/BuildXPC.m:15:tgPC104 = xpctarget.xpc* as a starting point to understand the code. 
-=======
-<!-- grep -r -n  --include=\*.m 'xpc' './ENTREGA-FINAL-RC-380-2011/CONTROLADORES/PRISMMATIC/cd' > ../xpcMatch.txt
-
-Subsystem5 -->
-
-This information allow us to understand how and where the deprecated _xPCTarget_  library was used, identifying `./GUI_V3/BuildXPC.m:15:tgPC104 = xpctarget.xpc` as a starting point to understand the code. 
->>>>>>> e4cf0eaac5d6115436dcaaff9afdd8eb05aa6da5
 
 
 ### Software setup
