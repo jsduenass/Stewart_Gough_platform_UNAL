@@ -152,9 +152,9 @@ To rule out mechanical failures in the platform, each actuator and the mobile ba
 ![system architecture](media/imgs/system_architecure.png)
 
 #### CAD Model
-In order to better understand the operation of the platform and have the parts modeled in an open source CAD program, the model was made in OnShape, a Software-as-a-Service (SaaS) product development platform that combines CAD, built-in data management, real-time collaboration tools, and business analytics[9](#references-and-resources).
+In order to better understand the operation of the platform and have the parts modeled in an open source CAD program, the model was made in OnShape, a Software-as-a-Service (SaaS) product development platform that combines CAD, built-in data management, real-time collaboration tools, and business analytics[<sup>9</sup>](#references-and-resources).
 
-![Cad model](media/imgs/cadModel.png)](https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6)
+[![Cad model](media/imgs/cadModel.png)](https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6)
 
 This model was built based on the design plans of Francisco Villate and the models found in the catalogs of commercial parts.
 
