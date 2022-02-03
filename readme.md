@@ -156,8 +156,16 @@ To rule out mechanical failures in the platform, each actuator and the mobile ba
 [Onshape model](https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6)
 
 
+### Contributors
+* Alexandra - Laboratory Technician
+* Jorge Andrés Acero - Laboratory Technician
+* William ... - Laboratory Technician
+
+
+
 ### (work in progress) Parties involved 
 * Edgar Bolivar
+* Francisco Javier Villate Gaona
 * DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
 
 ## References and Resources
