@@ -117,14 +117,35 @@ Initially, when we tried to manually move the platform using the pushbuttons int
 With the board repaired, we connected 3 drivers and 3 motors but one track broke again, which indicated that there was a short circuit somewhere. So we repaired the PC104 to STM32 Board again and connected each motor with its driver, one by one; this did not work, so we decided to disassemble the platform to do a mechanical review.
 
 #### Mechanical Review
-To rule out mechanical failures in the platform, each actuator and the mobile base were disconnected in order to release the loads of each one and be able to connect them directly to a DC source.
+To rule out mechanical failures in the platform, each actuator was disassembled from the mobile plate to release the loads of each one and connect them directly to a direct current source.
+<p align="center">
+    <img src="media/imgs/actuatorTestDCSource.png" alt="Actuators disassembled"/>
+</p>
+
+At the time of testing each actuator, we found that for a forward voltage of 8.6V, the current values for each actuator were as follows:
+
+| Current [A] | Actuator 1 | Actuator 2 | Actuator 3 | Actuator 4 | Actuator 5 | Actuator 6 |
+| :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| Up | 0.73 | 0.78 | 0.63 | 1.06 | 0.74 | 0.49 |
+| Down | 0.6 | 0.73 | 0.53 | 0.92 | 0.7 | 0.67 |
+
+
+
 
 #### PC104 connector verification
-R
+Reviewing the datasheet of the Diamond MM 16 AT expansion card, we find that its first 16 pins are for analog inputs and the next 16 are mostly for ground and analog outputs.
 
 <p align="center">
     <img src="media/imgs/DiamondPC104connections.png" alt="Diamond connections"/>
 </p>
+
+Comparing these pins with the connectors J7, J8 and J9 of the PC104 to STM32 board, the first 16 pins of the Diamond board are connected to J7, the next 16 to J8 and finally, J9 to the following 8. **When we received the platform, pins J7 and J8 were inverted**.
+
+<p align="center">
+    <img src="media/imgs/schePC2STMBoard.png" alt="Diamond connections"/> <br/>
+    Schematic elaborated by Edgar Bolívar
+</p>
+
 
 ## Inquiries 
 
