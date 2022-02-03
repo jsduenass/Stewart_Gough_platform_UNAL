@@ -148,25 +148,39 @@ This model was built based on the design plans of Francisco Villate and the mode
 * Matlab 2011a 
 * __xPC Target (deprecated)__: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. produces __.dlm__ files. [<sup>1</sup>](#references-and-resources)
 
-
-
-### Components:
-#### Generic:
-* Single board computer (SBC) PCM-4153.
-* Diamond MM 16-AT.
-* STM32F407 microcontroller.
-
-#### Custom made
-
-
-![system architecture](media/imgs/system_architecure.png)
-
-
-
 ### (work in progress) Parties involved 
 * Edgar Bolivar
 * Francisco Javier Villate Gaona
 * DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
+
+
+
+## Components:
+<p align="center">
+    <img src="media/imgs/system_architecure.png" alt="system architecture"/>
+</p>
+
+
+### Electronics
+#### Generic:
+* Single board computer (SBC) PCM-4153.
+* PC104 expansion card Diamond MM 16-AT.
+* STM32F407 microcontroller.
+#### Custom-made:
+* PC104 to STM32F4 board.
+* STM32F4 Baseboard.
+
+### Mechanical
+#### Generic:
+* Actuators Firgelli Automation FA-PO-35-12-12".
+* Spherical Joints Hephaist SRJ012C.
+
+#### Custom-made:
+* Base plate.
+* Mobile plate.
+* Manual press.
+* Universal joints.
+
 
 ## Contributors
 * Alexandra - Laboratory Technician
