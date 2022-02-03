@@ -54,7 +54,7 @@ This information allow us to understand how and where the deprecated __xPCTarget
 
 
 ### Software setup
-With an idea in mind on how the code worked. The following step consisted on setting up an environment for running it. The procedure started by following the instructions indicated in the [user manual](doc/User_Manual_StewartGoughV1_3.pdf). The legacy system requirements (MATLAB R2011a and XPCTarget toolbox 5.0) were analyzed in order to find a modern compatible setup. The xPCTarget toolbox was discontinued in MATLAB R2018a, and replaced by the __Simulink Real-Time toolbox__ \[[1](#references-and-resources)\]. However, this system only supports __Speedgoat__ hardware which made it incompatible for applications with the platform [components](#components). 
+With an idea in mind on how the code worked. The following step consisted on setting up an environment for running it. The procedure started by following the instructions indicated in the [user manual](doc/User_Manual_StewartGoughV1_3.pdf). The legacy system requirements (MATLAB R2011a and XPCTarget toolbox 5.0) were analyzed in order to find a modern compatible setup. The xPCTarget toolbox was discontinued in MATLAB R2018a, and replaced by the __Simulink Real-Time toolbox__[<sup>1</sup>](#references-and-resources). However, this system only supports __Speedgoat__ hardware which made it incompatible for applications with the platform [components](#components). 
 
 
 Therefore, MATLAB r2011a (Version 7.12), xPC target (Version 5.0) and Simulink (Version 7.7) were setup on a modern computer, which can be found at [Matlab 2011a release](https://www.mathworks.com/downloads/?release=R2011a).
@@ -130,7 +130,19 @@ To rule out mechanical failures in the platform, each actuator and the mobile ba
 
 <!-- Hoja de ruta -->
 
+## CAD Model
+In order to better understand the operation of the platform and have the parts modeled in an open source CAD program, the model was made in OnShape, a Software-as-a-Service (SaaS) product development platform that combines CAD, built-in data management, real-time collaboration tools, and business analytics[<sup>9</sup>](#references-and-resources).
 
+<figure style="text-align: center;">
+    <img src="media/imgs/cadModel.png" alt="Cad Model"/>       
+    <figcaption>
+        <a href="https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6">
+            CAD Model Onshape
+        </a>
+    </figcaption>
+</figure>
+
+This model was built based on the design plans of Francisco Villate and the models found in the catalogs of commercial parts.
 
 ## Information about legacy system 
 
@@ -151,28 +163,18 @@ To rule out mechanical failures in the platform, each actuator and the mobile ba
 
 ![system architecture](media/imgs/system_architecure.png)
 
-#### CAD Model
-In order to better understand the operation of the platform and have the parts modeled in an open source CAD program, the model was made in OnShape, a Software-as-a-Service (SaaS) product development platform that combines CAD, built-in data management, real-time collaboration tools, and business analytics[<sup>9</sup>](#references-and-resources).
-
-<p align="center">
-    <a href="https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6">
-        <img src="media/imgs/cadModel.png" alt="Cad Model"/>
-    </a>
-</p>
-
-This model was built based on the design plans of Francisco Villate and the models found in the catalogs of commercial parts.
-
-### Contributors
-* Alexandra - Laboratory Technician
-* Jorge Andrés Acero - Laboratory Technician
-* William ... - Laboratory Technician
-
 
 
 ### (work in progress) Parties involved 
 * Edgar Bolivar
 * Francisco Javier Villate Gaona
 * DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
+
+## Contributors
+* Alexandra - Laboratory Technician
+* Jorge Andrés Acero - Laboratory Technician
+* William ... - Laboratory Technician
+
 
 ## References and Resources
 
