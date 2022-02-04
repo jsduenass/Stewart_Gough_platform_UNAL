@@ -119,7 +119,7 @@ With the board repaired, we connected 1 driver and 1 of the motors and the conne
 
 <p align="center">
     <img src="media/imgs/twoLedDriver.png" alt="LEDs in drivers"/> <br/>
-    <img src="media/imgs/warning.png" alt="Warning message" width="45%"/>
+    <img src="media/imgs/warning.png" alt="Warning message" width="55%"/>
 </p>
 
 
