@@ -1,4 +1,3 @@
-markdown: kramdown
 # Stewart Gough platform upkeep project 
 
 This repo documents the diagnostic and maintenance process of the PRISMMATIC platform (Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
@@ -15,7 +14,7 @@ This repo documents the diagnostic and maintenance process of the PRISMMATIC pla
 * [References and resources](#references-and-resources)
 
 ## (Tentative) Objectives
-### Main Objective
+### Primary Objective
 The main objective of this work is to upkeep and bring back to service the inactive PRISMMATIC platform. Recovering this asset in the mechatronic's laboratory can proof to be a useful platform for current and future students to work with parallel robots. 
 
 ### Secondary objectives
@@ -77,7 +76,7 @@ env.TargetBoot = 'DOSLoader';
 env.TcpIpTargetAddress = '192.168.1.12';
 env.TcpIpSubNetMask = '255.255.255.0';
 ```
-> The first two lines are very important because they define the default target that the toolbox will use and if it is not configured correctly, some commands will probably throw errors when using them. To confirm that the correct target is configured, the `tg.getTargetNames` command can be used to view the names of the installed target.
+> The first two lines are very important because they define the default target that the toolbox will use and if it is not configured correctly, some commands will probably throw errors when using them. To confirm that the correct target is configured, the `tg.getTargetNames` command can be used to view the names of the installed targets.
 
 The next step is to set the IP address of the host PC to 192.168.1.13 with subnet mask 255.255.255.0. Finally, to move the platform, run the **GUI_V3.m** file from the *'Software\GUI_V3'* folder.
 
@@ -107,71 +106,83 @@ tg.start
 
 
 ### Platform troubleshooting
-Initially, when we tried to manually move the platform using the pushbuttons integrated in the PC104 to STM32 board, these did not work, therefore, we decided to disassemble it from the electrical panel and check continuity between its pins using the schematic as a reference. When checking the connections, we observed that two tracks of the PCB were raised and one of them was broken, so with the help of the lab technician from the mechatronics laboratory of the Universidad Nacional de Colombia, we repaired and cleaned with isopropyl alcohol the PCB (in addition, the board had flux and in some occasions it can become an electrical conductor over time).
+Initially, when we tried to manually move the platform using the pushbuttons integrated in the PC104 to STM32 board, these did not work, therefore, we decided to dismount the board out from the electrical panel, remove the drivers and check continuity between its pins using the schematic as a reference. When checking the connections, we observed that two tracks of the PCB were raised and one of them was broken. With the help of the lab technician [Alexa](#contributors) the mechatronics lab, who repaired the PCB, by a process involving cleaning it with isopropyl alcohol, inspecting the soldering points and repairing the damaged traces (Concerns about old flux were raise, where do to wear the board might present a short circuit).
+
+The following table displays the two problematic traces before and after the repair
 
 | PC104 to STM32F4 Board | Top view | Bottom view |
 | :------- | :----: | :----: |
 | Received | ![](media/imgs/top_view_PC104_to_STM32F4_Board.jpg) | ![](media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg) | 
 | Repaired | ![](media/imgs/top_view_repaired_PC104_to_STM32F4_Board.jpg) | ![](media/imgs/bottom_view_repaired_PC104_to_STM32F4_Board.jpg) | 
 
-With the board repaired, we connected 3 drivers and 3 motors but one track broke again, which indicated that there was a short circuit somewhere. So we repaired the PC104 to STM32 Board again and connected each motor with its driver, one by one; this did not work, so we decided to disassemble the platform to do a mechanical review.
+With the board repaired, we connected 1 driver and 1 of the motors and the connections from the STM32 and the PC 104 boards. Once we turn on the power we saw both lEDs in the driver turn on. This LEDs turn out to indicate the direction the motor was being energized, on LED indicate move forward and the other backwards. This in turn means that board was receiving contradictory signals producing a current overload.  At the time we weren't aware of the meaning of the driver's LEDs so we assumed the board had been repaired, as every time we power it on the motor made a little move.
 
-#### Mechanical Review
-To rule out mechanical failures in the platform, each actuator was disassembled from the mobile plate to release the loads of each one and connect them directly to a direct current source.
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<p align="center" width="60%">
+    <img src="media/imgs/twoLedDriver.png" alt="LEDs in drivers" /> <br/>
+    <div class="w3-panel w3-red">
+        <h3>Warning:</h3>
+        <p>Turn off immediately if both LEDs of the driver are ON  </p>
+    </div> 
+</p>
+
+We then tested connecting 3 drivers and 3 motors.  This produced a greater current overload which broke again one of the tracks. With the help of the lab technician Alexa we repaired the PC104 to STM32 Board. Meanwhile we follow the suggestion of the lab technician [William](#contributors) who suggested testing and checking the motors directly without tacking into account the electronic part, in order to  first discard the possibility of a malfunctioning in any of the actuators. We disassemble the top platform and began mechanical check-up of each of the motors.
+
+#### Mechanical Check-up
+To rule out mechanical failures in the platform, each actuator was disassembled from the top platform to release the loads of each one, then each one was powered directly to power supply.
 <p align="center">
-    <img src="media/imgs/actuatorTestDCSource.png" alt="Actuators disassembled"/>
+    <img src="media/imgs/actuatorTestDCSource.png" alt="Actuators disassembled" />
 </p>
 
 At the time of testing each actuator, we found that for a forward voltage of **8.9V**, the current values for each actuator were as follows:
 
 | Current [A] | Actuator 1 | Actuator 2 | Actuator 3 | Actuator 4 | Actuator 5 | Actuator 6 |
 | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
-| Up | 0.73 | 0.78 | 0.63 | 1.06 | 0.74 | 0.49 |
-| Down | 0.6 | 0.73 | 0.53 | 0.92 | 0.7 | 0.67 |
+| Up   | 0.73 | 0.78 | 0.63 | 1.06 | 0.74 | 0.49 |
+| Down | 0.60 | 0.73 | 0.53 | 0.92 | 0.7 | 0.67 |
 
 As some actuators presented a high current, the stem of each one was removed and they were lubricated. Finally, new current values were obtained
 
 | Current [A] | Actuator 1 | Actuator 2 | Actuator 3 | Actuator 4 | Actuator 5 | Actuator 6 |
 | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
-| Up |  |  |  |  |  |  |
-| Down |  |  |  |  |  |  |
+| Up   |  0.63|  0.75|  0.63|  1.01|  0.68|  0.58|
+| Down |  0.60|  0.67|  0.53|  0.87|  0.63|  061|
 
+>It is important to note that during the testing of the actuators some where found to present rocking and vibrations specially the cylinders 1 and 4. Which might raise a little concern but all the motors worked as intended.
 
 #### Manual motion from board
-With the mechanical tests and the direct connection to the DC source carried out on the actuators, we ruled out that the problems were mechanical, so we disconnected, leaving only one actuator to avoid burning the PC104 to STM32 Board again, and we began to carry out tests. With the control connectors connected, we realized that after cleaning the drivers' LEDs turned on.
-<p align="center">
-    <img src="media/imgs/twoLedDriver.png" alt="LEDs in drivers"/>
-</p>
+With the mechanical tests and the direct connection to the DC source carried out on the actuators, we ruled out that the problems were mechanical, so we disconnected the connectors to and from the PC104 and STM32 Boards. We also connect a single actuator with a single drive to avoid burning the PC104 to STM32 Board again. We began to carry out the tests.
 
-Even so, the actuators did not work with the buttons on the PCB, so we disconnected the entire control part and left only the power part connected. With these connections the actuators finally worked, although we found something very important and that is that each LED of the drivers indicates a direction, that is, one LED indicates that the stem of the actuators is coming out and the other indicates that it is going in. This means that **IF THE TWO LEDs ON THE DRIVERS ARE ON, THE PLATFORM MUST BE POWERED OFF IMMEDIATELY**, as it can cause the PC104 to STM32 Board to burn again.
+With these connections the actuators finally worked, this is where we found the very important information that each LED of the drivers indicates a direction, that is, one LED indicates that the stem of the actuators is coming out and the other indicates that it is going in. This means that **IF THE TWO LEDs ON THE DRIVERS ARE ON, THE PLATFORM MUST BE POWERED OFF IMMEDIATELY**, as it can cause the PC104 to STM32 Board to burn again.
 
 <p align="center">
     <a href="https://youtu.be/IWlgqmLl4kY" target="_blank">
-        <img src="media/imgs/videoPlay.png" alt="Video manual motion"/>
+        <img src="media/imgs/videoPlay.png" alt="Video manual motion" width="80%" />
     </a>
 </p>
 
 
 #### PC104 connector verification
-Reviewing the datasheet of the Diamond MM 16 AT expansion card, we find that its first 16 pins are for analog inputs and the next 16 are mostly for ground and analog outputs.
+The connections marked as J7 and J8 between the Diamond MM 16 AT expansion card and the STM32 produced suspicion, even though they were marked they seemed to be intertwined. Reviewing the datasheet of the Diamond MM 16 AT expansion card, we find that its first 16 pins are for analog inputs and the next 16 are mostly for ground and analog outputs.
 
 <p align="center">
-    <img src="media/imgs/DiamondPC104connections.png" alt="Diamond connections"/>
+    <img src="media/imgs/DiamondPC104connections.png" alt="Diamond connections" width="60%" />
 </p>
 
 Comparing these pins with the connectors J7, J8 and J9 of the PC104 to STM32 board, the first 16 pins of the Diamond board are connected to J7, the next 16 to J8 and finally, J9 to the following 8. **When we received the platform, pins J7 and J8 were inverted**. The information of the drivers could not be found, we believe that the schematic is open source and the construction was at the Universidad Nacional de Colombia.
 
 <p align="center">
-    <img src="media/imgs/schePC2STMBoard.png" alt="Schematic connectors PC104"/> <br/>
+    <img src="media/imgs/schePC2STMBoard.png" alt="Schematic connectors PC104" width="60%"  /> <br/>
     Schematic elaborated by Edgar Bolívar
 </p>
 
 
 #### STM32F4 board verification
-As with the PC104 to STM32 Board, the STM32 Baseboard was also cleaned with isopropyl alcohol due to excess flux and to avoid possible errors. After cleaning and mounting on the electrical panel, two leds on the STM32F4 Discovery development board lit up, reviewing the datasheet, one of the leds is a power indicator and the other is a VBUS connection indicator; From the above, we concluded that the cleaning on the STM32 baseboard worked, but we found a new fault, the STM32F103C8T6 chip was overheating and the PCB around the chip was black.
+As with the PC104 to STM32 Board, the STM32 Baseboard was also cleaned with isopropyl alcohol due to excess flux and to avoid possible errors. After cleaning and mounting on the electrical panel, two LEDs on the STM32F4 Discovery development board lit up, reviewing the datasheet, one of the LEDs is a power indicator and the other is a VBUS connection indicator; From the above, we concluded that the cleaning on the STM32 baseboard clear out an defect that prevent it from turning on, but quickly after it turned on we found a new defect, the STM32F103C8T6 chip was overheating and the PCB around the chip was black.
 
 <p align="center">
-    <img src="media/imgs/STM32F4_burn.jpg" alt="STM32F4 Discovery burned"/>
+    <img src="media/imgs/STM32F4_burn.jpg" alt="STM32F4 Discovery burned" width="60%" />
 </p>
 
 To verify that it was not a problem in the connection to the electrical panel, the STM32F4 was connected directly to a computer through a USB-A to mini USB-B cable, but the chip continued to overheat.
@@ -208,6 +219,7 @@ This model was built based on the design plans of Francisco Villate and the mode
 ### (work in progress) Parties involved 
 * Edgar Bolivar
 * Francisco Javier Villate Gaona
+* Daniel Andres Ramirez Rodriguez 
 * DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
 
 
@@ -256,3 +268,10 @@ This model was built based on the design plans of Francisco Villate and the mode
 7. [STM32 Microcontroller Support ](https://www.mathworks.com/products/hardware/stmicroelectronics.html)
 8. [Matlab 2011a release](https://www.mathworks.com/downloads/?release=R2011a) 
 9. [Onshape home page](https://www.onshape.com/en/)
+10. Ramírez Rodríguez, D. (2010). Diseño de una plataforma robótica paralela de 6 dof para asistente quirúrgico en cirugías de reconstrucción cráneo-facial. \[[online](https://repositorio.unal.edu.co/handle/unal/6931)\]
+11. Villate Gaona, F. (2015). Diseño y construcción de prototipo para mecanizado multiejes en materiales blandos utilizando arquitectura paralela Stewart-Gough. \[[online](https://repositorio.unal.edu.co/handle/unal/55527)\]
+12. [Stewart Gough videos](https://www.youtube.com/user/MechatronicsRagde/videos)
+
+
+
+
