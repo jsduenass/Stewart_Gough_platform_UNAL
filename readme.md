@@ -123,8 +123,18 @@ With the board repaired, we connected 1 driver and 1 of the motors and the conne
     <img src="media/imgs/twoLedDriver.png" alt="LEDs in drivers" /> <br/>
 </p>
 
->:warning: [!WARNING]
->Turn off immediately if both LEDs of the driver are ON
+
+# :warning: 
+
+![Warning message](media/imgs/warning.png)
+<!---
+
+<div class="w3-panel w3-red">
+        <h3>Warning:</h3>
+        <p>Turn off immediately if both LEDs of the driver are ON  </p>
+    </div> 
+-->
+
 
 We then tested connecting 3 drivers and 3 motors.  This produced a greater current overload which broke again one of the tracks. With the help of the lab technician Alexa we repaired the PC104 to STM32 Board. Meanwhile we follow the suggestion of the lab technician [William](#contributors) who suggested testing and checking the motors directly without tacking into account the electronic part, in order to  first discard the possibility of a malfunctioning in any of the actuators. We disassemble the top platform and began mechanical check-up of each of the motors.
 
