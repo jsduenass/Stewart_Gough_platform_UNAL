@@ -2,7 +2,7 @@
 
 This repo documents the diagnostic and maintenance process of the PRISMMATIC platform (Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. This work is done as part of the final project of the class _Sensors and Actuators_ Semester 2021-II. 
 
-![SG platform](media/imgs/SG_platform.jpg)
+![SG platform](media/images/SG_platform.jpg)
 
 
 ## Table of contents
@@ -112,14 +112,14 @@ The following table displays the two problematic traces before and after the rep
 
 | PC104 to STM32F4 Board | Top view | Bottom view |
 | :------- | :----: | :----: |
-| Received | ![](media/imgs/top_view_PC104_to_STM32F4_Board.jpg) | ![](media/imgs/bottom_view_PC104_to_STM32F4_Board.jpg) | 
-| Repaired | ![](media/imgs/top_view_repaired_PC104_to_STM32F4_Board.jpg) | ![](media/imgs/bottom_view_repaired_PC104_to_STM32F4_Board.jpg) | 
+| Received | ![](media/images/top_view_PC104_to_STM32F4_Board.jpg) | ![](media/images/bottom_view_PC104_to_STM32F4_Board.jpg) | 
+| Repaired | ![](media/images/top_view_repaired_PC104_to_STM32F4_Board.jpg) | ![](media/images/bottom_view_repaired_PC104_to_STM32F4_Board.jpg) | 
 
 With the board repaired, we connected 1 driver and 1 of the motors and the connections from the STM32 and the PC 104 boards. Once we turn on the power we saw both lEDs in the driver turn on. This LEDs turn out to indicate the direction the motor was being energized, on LED indicate move forward and the other backwards. This in turn means that board was receiving contradictory signals producing a current overload.  At the time we weren't aware of the meaning of the driver's LEDs so we assumed the board had been repaired, as every time we power it on the motor made a little move.
 
 <p align="center">
-    <img src="media/imgs/twoLedDriver.png" alt="LEDs in drivers"/> <br/>
-    <img src="media/imgs/warning.png" alt="Warning message" width="55%"/>
+    <img src="media/images/twoLedDriver.png" alt="LEDs in drivers"/> <br/>
+    <img src="media/images/warning.png" alt="Warning message" width="55%"/>
 </p>
 
 
@@ -128,7 +128,7 @@ We then tested connecting 3 drivers and 3 motors.  This produced a greater curre
 #### Mechanical Check-up
 To rule out mechanical failures in the platform, each actuator was disassembled from the top platform to release the loads of each one, then each one was powered directly to power supply.
 <p align="center">
-    <img src="media/imgs/actuatorTestDCSource.png" alt="Actuators disassembled" />
+    <img src="media/images/actuatorTestDCSource.png" alt="Actuators disassembled" />
 </p>
 
 At the time of testing each actuator, we found that for a forward voltage of **8.9V**, the current values for each actuator were as follows:
@@ -154,7 +154,7 @@ With these connections the actuators finally worked, this is where we found the 
 
 <p align="center">
     <a href="https://youtu.be/IWlgqmLl4kY" target="_blank">
-        <img src="media/imgs/videoPlay.png" alt="Video manual motion" width="80%" />
+        <img src="media/images/videoPlay.png" alt="Video manual motion" width="80%" />
     </a>
 </p>
 
@@ -163,13 +163,13 @@ With these connections the actuators finally worked, this is where we found the 
 The connections marked as J7 and J8 between the Diamond MM 16 AT expansion card and the STM32 produced suspicion, even though they were marked they seemed to be intertwined. Reviewing the datasheet of the Diamond MM 16 AT expansion card, we find that its first 16 pins are for analog inputs and the next 16 are mostly for ground and analog outputs.
 
 <p align="center">
-    <img src="media/imgs/DiamondPC104connections.png" alt="Diamond connections" width="60%" />
+    <img src="media/images/DiamondPC104connections.png" alt="Diamond connections" width="60%" />
 </p>
 
 Comparing these pins with the connectors J7, J8 and J9 of the PC104 to STM32 board, the first 16 pins of the Diamond board are connected to J7, the next 16 to J8 and finally, J9 to the following 8. **When we received the platform, pins J7 and J8 were inverted**. The information of the drivers could not be found, we believe that the schematic is open source and the construction was at the Universidad Nacional de Colombia.
 
 <p align="center">
-    <img src="media/imgs/schePC2STMBoard.png" alt="Schematic connectors PC104" width="60%"  /> <br/>
+    <img src="media/images/schePC2STMBoard.png" alt="Schematic connectors PC104" width="60%"  /> <br/>
     Schematic elaborated by Edgar Bolívar
 </p>
 
@@ -178,7 +178,7 @@ Comparing these pins with the connectors J7, J8 and J9 of the PC104 to STM32 boa
 As with the PC104 to STM32 Board, the STM32 Baseboard was also cleaned with isopropyl alcohol due to excess flux and to avoid possible errors. After cleaning and mounting on the electrical panel, two LEDs on the STM32F4 Discovery development board lit up, reviewing the datasheet, one of the LEDs is a power indicator and the other is a VBUS connection indicator; From the above, we concluded that the cleaning on the STM32 baseboard clear out an defect that prevent it from turning on, but quickly after it turned on we found a new defect, the STM32F103C8T6 chip was overheating and the PCB around the chip was black.
 
 <p align="center">
-    <img src="media/imgs/STM32F4_burn.jpg" alt="STM32F4 Discovery burned" width="60%" />
+    <img src="media/images/STM32F4_burn.jpg" alt="STM32F4 Discovery burned" width="60%" />
 </p>
 
 To verify that it was not a problem in the connection to the electrical panel, the STM32F4 was connected directly to a computer through a USB-A to mini USB-B cable, but the chip continued to overheat.
@@ -199,7 +199,7 @@ In order to better understand the operation of the platform and have the parts m
 
 <p align="center">
     <a href="https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6" target="_blank">
-        <img src="media/imgs/cadModel.png" alt="Cad Model" width="50%"/> <br/>
+        <img src="media/images/cadModel.png" alt="Cad Model" width="50%"/> <br/>
         Onshape CAD Model
     </a>
 </p>
@@ -222,7 +222,7 @@ This model was built based on the design plans of Francisco Villate and the mode
 
 ## Components:
 <p align="center">
-    <img src="media/imgs/system_architecure.png" alt="system architecture" width="80%"/>
+    <img src="media/images/system_architecure.png" alt="system architecture" width="80%"/>
 </p>
 
 
