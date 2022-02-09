@@ -153,9 +153,7 @@ With the mechanical tests and the direct connection to the DC source carried out
 With these connections the actuators finally worked, this is where we found the very important information that each LED of the drivers indicates a direction, that is, one LED indicates that the stem of the actuators is coming out and the other indicates that it is going in. This means that **IF THE TWO LEDs ON THE DRIVERS ARE ON, THE PLATFORM MUST BE POWERED OFF IMMEDIATELY**, as it can cause the PC104 to STM32 Board to burn again.
 
 <p align="center">
-    <a href="https://youtu.be/IWlgqmLl4kY" target="_blank">
-        <img src="media/images/videoPlay.png" alt="Video manual motion" width="80%" />
-    </a>
+    https://github.com/jsduenass/Stewart_Gough_platform_UNAL/blob/main/media/videos/MoveSG.mp4?raw=true 
 </p>
 
 
