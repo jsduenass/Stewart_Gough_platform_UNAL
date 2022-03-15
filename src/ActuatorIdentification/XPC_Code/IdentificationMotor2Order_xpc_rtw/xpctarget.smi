@@ -1,0 +1,17 @@
+#include "IdentificationMotor2Order.bio"
+#include "IdentificationMotor2Order.lbl"
+#include "IdentificationMotor2Order.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {IdentificationMotor2Order_BIO},
+      {IdentificationMotor2Order_SID},
+      {IdentificationMotor2Order_LBL},
+      "",
+      "IdentificationMotor2Order",
+      0,
+      2403,
+    },
+  };

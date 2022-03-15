@@ -1,0 +1,28 @@
+Serial:				2329584
+Coil resistance: 		1.7 +- 0.2 Ohms 	(Measured resistance with potentiometer)
+Noise without filter:		+- 12.51 mV		(Measured from steady state position, max value minus minimum value)
+Noise with filter @20Hz:	+- 4.10 mV		(Measured from steady state position, max value minus minimum value)
+
+
+Measure		Position (mm +- 1mm)		Voltage (Volts)
+1		38.9				4.589
+2		77.3				4.029
+3		121.3				3.3775				
+4		142.7				3.0625
+5		299.8				0.755---just for testing, not suitable for interpolation (calibrator range)
+
+
+**************************LINEAR EQUATION
+y = Position in (mm)
+x = Voltage (Volts)
+
+y = p1*x + p2 
+
+Coefficients:
+  p1 = -67.943
+  p2 = 350.82
+
+Norm of residuals = 
+     0.2646
+
+

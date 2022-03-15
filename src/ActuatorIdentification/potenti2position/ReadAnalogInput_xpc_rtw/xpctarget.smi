@@ -1,0 +1,17 @@
+#include "ReadAnalogInput.bio"
+#include "ReadAnalogInput.lbl"
+#include "ReadAnalogInput.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {ReadAnalogInput_BIO},
+      {ReadAnalogInput_SID},
+      {ReadAnalogInput_LBL},
+      "",
+      "ReadAnalogInput",
+      0,
+      17,
+    },
+  };
