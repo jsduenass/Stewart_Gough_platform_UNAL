@@ -9,7 +9,7 @@ doc xpctarget               % open the documentation on xpc target
 
 %% Setup  the default xpc target properties           
 tgs = xpctarget.targets;
-tgs.makeDefault('TargetPC1');
+tgs.makeDefault('TargetPC2');
 env.TargetBoot = 'DOSLoader';
 env.TcpIpTargetAddress = '192.168.1.12';
 env.TcpIpSubNetMask = '255.255.255.0';
@@ -19,11 +19,14 @@ tgs.DefaultTarget                       % check properties of the default target
 %%   stablish  connection  with xpc target
 % If deault is not configured 
 tg = xpctarget.xpc('TCPIP','192.168.1.12','22222')  %defined the properties in the xpc target 
+%%
 % If deault is configured  
 tg = xpctarget.xpc;
  
 tg.targetping           % check conectivity
 tg.Application          % check application status
+tg.load('Code2XPCtarget\GUI_User_V1_3')
+
 % check other properties 
 tg.StateLog
 tg.Status
@@ -32,13 +35,18 @@ tg.StopTime
 %% Run the application 
 tg.load('Code2XPCtarget\GUI_User_V1_3')
 tg.start
-%% test generated position signals 
-X=0,        Y=0,        Z=0;
-Roll=pi/3,  Pitch=0;,   Yaw=0;
+%% test generated position signals
+tg=xpctarget.xpc;
+
+X=0,        Y=0,        Z=0.12;
+Roll=0,  Pitch=0;,   Yaw=0;
 % based on modified MoveSG function 
-[d,ActuatorsIndx] =MoveSG( X,Y,Z,Roll,Pitch,Yaw)
+%[d,ActuatorsIndx] =
+move( X,Y,Z,Roll,Pitch,Yaw)
 
-
+tg.start
+input('Presione Enter para terminar')
+tg.stop
 
 
 

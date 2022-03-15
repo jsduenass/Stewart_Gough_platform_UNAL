@@ -181,6 +181,10 @@ To verify that it was not a problem in the connection to the electrical panel, t
 
 Looking at the datasheet, this chip is in charge of providing a clock source for the main chip of the STM32F4 Discovery; so we decided to change the clock source to a quartz oscillator integrated in the PCB, disconnecting the resistor R25 as indicated in the datasheet. With this configured the chip kept overheating and the development board could not be fixed.
 
+<p align="center">
+    <img src="media/images/stm32_Termal_Image.jpg" alt="STM32F4 Termal Image" width="60%" />
+</p>
+
 ## Inquiries 
 
 * Software license the project is licensed under.
@@ -209,44 +213,79 @@ This model was built based on the design plans of Francisco Villate and the mode
 * __xPC Target (deprecated)__: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. produces __.dlm__ files. [<sup>1</sup>](#references-and-resources)
 
 ### (work in progress) Parties involved 
+* Daniel Andres Ramirez Rodriguez 
 * Edgar Bolivar
 * Francisco Javier Villate Gaona
-* Daniel Andres Ramirez Rodriguez 
+* Luis Miguel Mendez - Academic supervisor 
+* Jorge Sofrony - Academic supervisor
+* Juan David Muñoz 
+* Juan Diego Galeano 
+* Ubaldo Gracia Zaragoza
+* Juan David Ramirez
+* Jorge Andrés Acero - Laboratory Technician
 * DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
 
 
 
 ## Components:
+
 <p align="center">
     <img src="media/images/system_architecure.png" alt="system architecture" width="80%"/>
 </p>
 
+The previos diagram the relation between the subsystems and their interaction in the control loop.
 
-### Electronics
-#### Generic:
-* Single board computer (SBC) PCM-4153.
-* PC104 expansion card Diamond MM 16-AT.
-* STM32F407 microcontroller.
-#### Custom-made:
-* PC104 to STM32F4 board.
-* STM32F4 Baseboard.
+<table style="width:80%">
+    <caption>Components </caption> 
 
-### Mechanical
-#### Generic:
-* Actuators Firgelli Automation FA-PO-35-12-12".
-* Spherical Joints Hephaist SRJ012C.
+    <tr>
+        <th> Component type </th>
+        <th> Generic </th>
+        <th> Costum made </th>
+    </tr>
 
-#### Custom-made:
-* Base plate.
-* Mobile plate.
-* Manual press.
-* Universal joints.
+  <tr> <th>Electronic </th>
+        <th><ul>         
+            <li> Single board computer (SBC) PCM-4153.  </li>
+            <li> PC104 expansion card Diamond MM 16-AT. </li>
+            <li> STM32F407 microcontroller.             </li>
+        </ul></th>
+        <th><ul>
+            <li> PC104 to STM32F4 board.</li>
+            <li> STM32F4 Baseboard.     </li>
+        </ul></th>    
+  </tr>
+  
+  <tr> <th>Mechanical</th>
+        <th><ul>
+            <li> Actuators Firgelli Automation FA-PO-35-12-12". </li>
+            <li> Spherical Joints Hephaist SRJ012C.             </li>
+        </ul></th>
+        <th><ul>
+            <li> Base plate.       </li>
+            <li> Mobile plate.     </li>
+            <li> Manual press.     </li>
+            <li> Universal joints. </li>           
+        </ul></th>
+  </tr>
+
+  <tr> <th>Software </th>
+        <th><ul>            
+            <li> STM32F4 OS real time: ChibiOS/RT</li> 
+        </ul></th>
+        <th><ul>
+            <li> XPC third party drivers </li>
+            <li> Stewart_Gough_library   </li>
+        </ul></th>
+  </tr>
+</table>
+<!-- add links to libraries -->
 
 
 ## Contributors
 * Alexandra - Laboratory Technician
 * Jorge Andrés Acero - Laboratory Technician
-* William ... - Laboratory Technician
+* Alvaro William Roa Gutierrez- Laboratory Technician
 
 
 ## References and Resources
@@ -262,7 +301,10 @@ This model was built based on the design plans of Francisco Villate and the mode
 9. [Onshape home page](https://www.onshape.com/en/)
 10. Ramírez Rodríguez, D. (2010). Diseño de una plataforma robótica paralela de 6 dof para asistente quirúrgico en cirugías de reconstrucción cráneo-facial. \[[online](https://repositorio.unal.edu.co/handle/unal/6931)\]
 11. Villate Gaona, F. (2015). Diseño y construcción de prototipo para mecanizado multiejes en materiales blandos utilizando arquitectura paralela Stewart-Gough. \[[online](https://repositorio.unal.edu.co/handle/unal/55527)\]
-12. [Stewart Gough videos](https://www.youtube.com/user/MechatronicsRagde/videos)
+12. [Stewart Gough videos](https://youtube.com/playlist?list=PL1-Z9ArJBD7uetQ7_8bsNCHkSw-kKsfF8)
+13. [Google drive's extended documentation folder](https://drive.google.com/drive/folders/1fW6-u03ogQynEGwKbBM8Ii7BDrmoT2iq?usp=sharing)
+
+
 
 
 
