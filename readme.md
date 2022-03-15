@@ -236,49 +236,50 @@ This model was built based on the design plans of Francisco Villate and the mode
 The previos diagram the relation between the subsystems and their interaction in the control loop.
 
 <table style="width:80%">
-    <caption>Components </caption> 
+<caption>Components </caption> 
 
-    <tr>
-        <th> Component type </th>
-        <th> Generic </th>
-        <th> Costum made </th>
-    </tr>
+<tr>
+    <th> Component type </th>
+    <th> Generic </th>
+    <th> Costum made </th>
+</tr>
 
-  <tr> <th>Electronic </th>
-        <th><ul>         
-            <li> Single board computer (SBC) PCM-4153.  </li>
-            <li> PC104 expansion card Diamond MM 16-AT. </li>
-            <li> STM32F407 microcontroller.             </li>
-        </ul></th>
-        <th><ul>
-            <li> PC104 to STM32F4 board.</li>
-            <li> STM32F4 Baseboard.     </li>
-        </ul></th>    
-  </tr>
-  
-  <tr> <th>Mechanical</th>
-        <th><ul>
-            <li> Actuators Firgelli Automation FA-PO-35-12-12". </li>
-            <li> Spherical Joints Hephaist SRJ012C.             </li>
-        </ul></th>
-        <th><ul>
-            <li> Base plate.       </li>
-            <li> Mobile plate.     </li>
-            <li> Manual press.     </li>
-            <li> Universal joints. </li>           
-        </ul></th>
-  </tr>
+<tr> <th>Electronic </th>
+    <th><ul>         
+        <li> Single board computer (SBC) PCM-4153.  </li>
+        <li> PC104 expansion card Diamond MM 16-AT. </li>
+        <li> STM32F407 microcontroller.             </li>
+    </ul></th>
+    <th><ul>
+        <li> PC104 to STM32F4 board.</li>
+        <li> STM32F4 Baseboard.     </li>
+    </ul></th>    
+</tr>
 
-  <tr> <th>Software </th>
-        <th><ul>            
-            <li> STM32F4 OS real time: ChibiOS/RT</li> 
-        </ul></th>
-        <th><ul>
-            <li> XPC third party drivers </li>
-            <li> Stewart_Gough_library   </li>
-        </ul></th>
-  </tr>
+<tr> <th>Mechanical</th>
+    <th><ul>
+        <li> Actuators Firgelli Automation FA-PO-35-12-12". </li>
+        <li> Spherical Joints Hephaist SRJ012C.             </li>
+    </ul></th>
+    <th><ul>
+        <li> Base plate.       </li>
+        <li> Mobile plate.     </li>
+        <li> Manual press.     </li>
+        <li> Universal joints. </li>           
+    </ul></th>
+</tr>
+
+<tr> <th>Software </th>
+    <th><ul>            
+        <li> STM32F4 OS real time: ChibiOS/RT</li> 
+    </ul></th>
+    <th><ul>
+        <li> XPC third party drivers </li>
+        <li> Stewart_Gough_library   </li>
+    </ul></th>
+</tr>
 </table>
+
 <!-- add links to libraries -->
 
 
