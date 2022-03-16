@@ -241,7 +241,7 @@ The previos diagram the relation between the subsystems and their interaction in
 <tr>
     <th> Component type </th>
     <th> Generic </th>
-    <th> Costum made </th>
+    <th> Custom made </th>
 </tr>
 
 <tr> <th>Electronic </th>

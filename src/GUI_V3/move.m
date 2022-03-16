@@ -1,4 +1,4 @@
-function move( X,Y,Z,Roll,Pitch,Yaw)
+function [d,ActuatorsIndx]=move( X,Y,Z,Roll,Pitch,Yaw)
 %MOVESG Summary of this function goes here
 %   Detailed explanation goes here
 
