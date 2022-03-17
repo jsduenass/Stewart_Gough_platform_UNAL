@@ -143,7 +143,7 @@ As some actuators presented a high current, the stem of each one was removed and
 | Current [A] | Actuator 1 | Actuator 2 | Actuator 3 | Actuator 4 | Actuator 5 | Actuator 6 |
 | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
 | Up   |  0.63|  0.75|  0.63|  1.01|  0.68|  0.58|
-| Down |  0.60|  0.67|  0.53|  0.87|  0.63|  061|
+| Down |  0.60|  0.67|  0.53|  0.87|  0.63|  0.61|
 
 >It is important to note that during the testing of the actuators some where found to present rocking and vibrations specially the cylinders 1 and 4. Which might raise a little concern but all the motors worked as intended.
 
@@ -170,7 +170,7 @@ Comparing these pins with the connectors J7, J8 and J9 of the PC104 to STM32 boa
 </p>
 
 
-#### STM32F4 board verification
+#### STM32F4 board repair
 As with the PC104 to STM32 Board, the STM32 Baseboard was also cleaned with isopropyl alcohol due to excess flux and to avoid possible errors. After cleaning and mounting on the electrical panel, two LEDs on the STM32F4 Discovery development board lit up, reviewing the datasheet, one of the LEDs is a power indicator and the other is a VBUS connection indicator; From the above, we concluded that the cleaning on the STM32 baseboard clear out an defect that prevent it from turning on, but quickly after it turned on we found a new defect, the STM32F103C8T6 chip was overheating and the PCB around the chip was black.
 
 <p align="center">
@@ -179,20 +179,22 @@ As with the PC104 to STM32 Board, the STM32 Baseboard was also cleaned with isop
 
 To verify that it was not a problem in the connection to the electrical panel, the STM32F4 was connected directly to a computer through a USB-A to mini USB-B cable, but the chip continued to overheat.
 
-Looking at the datasheet, this chip is in charge of providing a clock source for the main chip of the STM32F4 Discovery; so we decided to change the clock source to a quartz oscillator integrated in the PCB, disconnecting the resistor R25 as indicated in the datasheet. With this configured the chip kept overheating and the development board could not be fixed.
-
 <p align="center">
     <img src="media/images/stm32_Termal_Image.jpg" alt="STM32F4 Termal Image" width="60%" />
 </p>
 
-## Inquiries 
+Looking at the datasheet, this chip is in charge of providing a clock source for the main chip of the STM32F4 Discovery; so we decided to change the clock source to a quartz oscillator integrated in the PCB, disconnecting the resistor R25 as indicated in the datasheet. With this configured the chip kept overheating and the development board could not be fixed.
 
-* Software license the project is licensed under.
-* History, participants and their contributions.
-* Components and system architecture.
-* Is Matlab 2017a compatible? 
+Finally, the decision was made to buy a new STM32 and load the ChibiOS (the operating system that the previous board had). According to the developers of ChibiOS, the operating system and all the code is loaded by a modification of EclipseIDE, called ChibiStudio but we decided not to modify the code that was in the folder with the STM32 Firmware and upload the binary file directly to the STM32 with the ST-Link utility software.
 
-<!-- Hoja de ruta -->
+<p align="center">
+    <img src="media/images/STlink.png" alt="STM32 programming" width="50%" />
+</p>
+
+## Restoration Completion
+
+
+
 
 ## CAD Model
 In order to better understand the operation of the platform and have the parts modeled in an open source CAD program, the model was made in OnShape, a Software-as-a-Service (SaaS) product development platform that combines CAD, built-in data management, real-time collaboration tools, and business analytics[<sup>9</sup>](#references-and-resources).
@@ -205,27 +207,6 @@ In order to better understand the operation of the platform and have the parts m
 </p>
 
 This model was built based on the design plans of Francisco Villate and the models found in the catalogs of commercial parts.
-
-## Information about legacy system 
-
-### System requirements
-* Matlab 2011a 
-* __xPC Target (deprecated)__: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. produces __.dlm__ files. [<sup>1</sup>](#references-and-resources)
-
-### (work in progress) Parties involved 
-* Daniel Andres Ramirez Rodriguez 
-* Edgar Bolivar
-* Francisco Javier Villate Gaona
-* Luis Miguel Mendez - Academic supervisor 
-* Jorge Sofrony - Academic supervisor
-* Juan David Muñoz 
-* Juan Diego Galeano 
-* Ubaldo Gracia Zaragoza
-* Juan David Ramirez
-* Jorge Andrés Acero - Laboratory Technician
-* DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
-
-
 
 ## Components:
 
@@ -282,11 +263,29 @@ The previos diagram the relation between the subsystems and their interaction in
 
 <!-- add links to libraries -->
 
+## Information about legacy system 
+
+### System requirements
+* Matlab 2011a 
+* __xPC Target (deprecated)__: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. produces __.dlm__ files. [<sup>1</sup>](#references-and-resources)
+
+### (work in progress) Parties involved 
+* Daniel Andres Ramirez Rodriguez 
+* Edgar Bolivar
+* Francisco Javier Villate Gaona
+* Luis Miguel Mendez - Academic supervisor 
+* Jorge Sofrony - Academic supervisor
+* Juan David Muñoz 
+* Juan Diego Galeano 
+* Ubaldo Gracia Zaragoza
+* Juan David Ramirez
+* Jorge Andrés Acero - Laboratory Technician
+* DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
 
 ## Contributors
-* Alexandra - Laboratory Technician
+* Alexandra Ocampo - Laboratory Technician
 * Jorge Andrés Acero - Laboratory Technician
-* Alvaro William Roa Gutierrez- Laboratory Technician
+* <a href="mailto:awroag@unal.edu.co">Alvaro William Roa Gutierrez</a> - Laboratory Technician
 
 
 ## References and Resources
