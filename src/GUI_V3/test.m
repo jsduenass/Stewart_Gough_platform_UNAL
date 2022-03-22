@@ -15,57 +15,41 @@ if connectivity =='success'
     tg.StopTime
 end
 
-
+% create scopes
 % 'target' 'host' 'file'
 sc1 = addscope(tg,'target',1)
 sc2 = addscope(tg,'target',2)
 sc3 = addscope(tg,'target',3)
 sc4 = addscope(tg,'target',4)
-%% test generated position signals
-
-X=-20,        Y=0,        Z=0;
-Roll=0,  Pitch=0;,   Yaw=0;
-% based on modified MoveSG function 
-%[d,ActuatorsIndx] =
-
-[d,ActuatorsIndx] = move( X,Y,Z,Roll,Pitch,Yaw)
-%d=[-319 ,-319,-319,-319,-319,-319];
-d=[0 ,0,0,0,0,0];
-%d=[419 ,419,419,419,419,419];
-
-for j=1:6
-    tg.setparam(ActuatorsIndx(j),d(j));      %set_param('GUI_User_V1_3/If Action Subsystem5/Set1','ActLen',['[',num2str(d'),']']);
-end
-d
-%tg.setparam(0,1);              %set_param('GUI_User_V1_3/Constant1','Value','1');      
-
-Constant1 = 0;
-tg.start
-output=tg.OutputLog();
-tg.setparam(Constant1,1);
-input('Presione Enter para terminar')
-tg.setparam(Constant1,0);
 
 
 
-%% signals id
-id=[];
+%% input signal id
+id_input=[];
 
 for k=1:12
     name = ['SG-ADC Sensors/MM-16-AT Analog Input/p',num2str(k)];
-    id(k)=getsignalid(tg,name);
+    id_input(k)=getsignalid(tg,name);
 end
 
-id_distance= id(1:2:11);   
-id_currents = id( 2:2:12);
+id_distance= id_input(1:2:11);   
+id_currents = id_input(2:2:12);
 
-%% Read signals
+%% PWM signal id 
+id_PWM=[];
+
+for k=2:7
+    name = ['If Action Subsystem6/Referece/From File1/s',num2str(k)];
+    id_PWM(k)=getsignalid(tg,name);
+end
+
+
+%% Read signals into scopes 
 sc1=tg.getscope(1)
 sc1.set('Grid', 'on')
 sc1.addsignal(id_distance)
 sc1.YLimit = [0 5];
 sc1.start;
-
 
 sc2 = tg.getscope(2);
 sc2.addsignal (id_distance);
@@ -78,11 +62,35 @@ sc3.addsignal(id_currents)
 sc3.YLimit = [0 5];
 sc3.start;
 
-
 sc4 = tg.getscope(4);
-sc4.addsignal (id_currents);
-sc4.DisplayMode = 'Numerical';
+sc4.addsignal (id_PWM);
+%sc4.DisplayMode = 'Numerical';
 sc4.start;
+
+Constant1 = 0;
+tg.start
+
+%% run movements
+
+X=0,        Y=0,        Z=750;
+Roll=-40,  Pitch=-40,   Yaw=0;
+
+% based on modified MoveSG function 
+[d,id_PWM] = move( X,Y,Z,Roll,Pitch,Yaw)
+
+
+for j=1:6
+    tg.setparam(id_PWM(j),d(j));      %set_param('GUI_User_V1_3/If Action Subsystem5/Set1','ActLen',['[',num2str(d'),']']);
+end
+
+%tg.setparam(0,1);              %set_param('GUI_User_V1_3/Constant1','Value','1');      
+
+output=tg.OutputLog();
+tg.setparam(Constant1,1);      % enable movement
+input('Presione Enter para terminar')
+tg.setparam(Constant1,0);      % stop movement 
+
+
 %% log
 saveData=false;
 
