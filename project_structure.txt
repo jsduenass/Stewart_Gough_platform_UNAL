@@ -1,959 +1,959 @@
 .
-¦   User_Manual_StewartGoughV1_2.pdf
-¦   README.txt
-¦   project_structure.txt
-¦   
+Â¦   User_Manual_StewartGoughV1_2.pdf
+Â¦   README.txt
+Â¦   project_structure.txt
+Â¦   
 +---CosimulationNX
-¦   ¦   6185PART1.prt
-¦   ¦   6185.prt
-¦   ¦   3_8_unc_igs.prt
-¦   ¦   3_8_unc.prt
-¦   ¦   3_8_unc.igs
-¦   ¦   3200A2ZTN9MT33PART6.prt
-¦   ¦   Pasador.prt
-¦   ¦   m5_igs.prt
-¦   ¦   M505-F30_dwg.prt
-¦   ¦   m5.prt
-¦   ¦   m5.igs
-¦   ¦   Junta_Universal_Actuador_der.prt
-¦   ¦   ACME.prt
-¦   ¦   3200A2ZTN9MT33PART5.prt
-¦   ¦   3200A2ZTN9MT33PART4.prt
-¦   ¦   3200A2ZTN9MT33PART3.prt
-¦   ¦   3200A2ZTN9MT33PART2.prt
-¦   ¦   3200A2ZTN9MT33PART1.prt
-¦   ¦   m5.log
-¦   ¦   3_8_unc.log
-¦   ¦   soporte_II.prt
-¦   ¦   Soporte_I.prt
-¦   ¦   r_motor.prt
-¦   ¦   r_acme.prt
-¦   ¦   r_1.prt
-¦   ¦   PSG.prt
-¦   ¦   Prueba.prt
-¦   ¦   6185PART3.prt
-¦   ¦   6185PART2.prt
-¦   ¦   Junta_Universal.prt
-¦   ¦   Junta.prt
-¦   ¦   Hex Nut Metric M5 x 0,8.prt
-¦   ¦   Hex Nut - Inch 3_8 - 16.prt
-¦   ¦   FA-PO_dxf.prt
-¦   ¦   cruceta.prt
-¦   ¦   Anillo_Movil.prt
-¦   ¦   Anillo_Base.prt
-¦   ¦   actuador_pist_par.prt
-¦   ¦   Actuador_ensamble.prt
-¦   ¦   actuador_cil_ens_inercia_par.prt
-¦   ¦   Actuador_base.prt
-¦   ¦   Actuador.prt
-¦   ¦   Vastago.prt
-¦   ¦   Tuerca.prt
-¦   ¦   tornillo_junta.prt
-¦   ¦   Act.prt
-¦   ¦   Junta_Universal_Actuador.prt
-¦   ¦   3200A2ZTN9MT33.prt
-¦   ¦   Tornillo_Base.prt
-¦   ¦   
-¦   +---PSG
-¦   ¦       PSG.afu
-¦   ¦       NXMotion_Plant_Library.mdl
-¦   ¦       ModeloCosimulacion.mdl.r2011a
-¦   ¦       mainCosimulacion.m
-¦   ¦       c_z_c_z_c_z_.bat
-¦   ¦       ForKinematics.mexw64
-¦   ¦       ModeloCosimulacion.mdl
-¦   ¦       CS2G_CS1_PlantIO.m
-¦   ¦       CS2G_CS1_Plant.m
-¦   ¦       CS2G.sim
-¦   ¦       cs2g-cs1.rplt
-¦   ¦       cs2g-cs1.rmd
-¦   ¦       cs2g-cs1.rad
-¦   ¦       cs2g-cs1.msg
-¦   ¦       
-¦   +---Junta_Universal
-¦           Junta_Universal.afu
-¦           
+Â¦   Â¦   6185PART1.prt
+Â¦   Â¦   6185.prt
+Â¦   Â¦   3_8_unc_igs.prt
+Â¦   Â¦   3_8_unc.prt
+Â¦   Â¦   3_8_unc.igs
+Â¦   Â¦   3200A2ZTN9MT33PART6.prt
+Â¦   Â¦   Pasador.prt
+Â¦   Â¦   m5_igs.prt
+Â¦   Â¦   M505-F30_dwg.prt
+Â¦   Â¦   m5.prt
+Â¦   Â¦   m5.igs
+Â¦   Â¦   Junta_Universal_Actuador_der.prt
+Â¦   Â¦   ACME.prt
+Â¦   Â¦   3200A2ZTN9MT33PART5.prt
+Â¦   Â¦   3200A2ZTN9MT33PART4.prt
+Â¦   Â¦   3200A2ZTN9MT33PART3.prt
+Â¦   Â¦   3200A2ZTN9MT33PART2.prt
+Â¦   Â¦   3200A2ZTN9MT33PART1.prt
+Â¦   Â¦   m5.log
+Â¦   Â¦   3_8_unc.log
+Â¦   Â¦   soporte_II.prt
+Â¦   Â¦   Soporte_I.prt
+Â¦   Â¦   r_motor.prt
+Â¦   Â¦   r_acme.prt
+Â¦   Â¦   r_1.prt
+Â¦   Â¦   PSG.prt
+Â¦   Â¦   Prueba.prt
+Â¦   Â¦   6185PART3.prt
+Â¦   Â¦   6185PART2.prt
+Â¦   Â¦   Junta_Universal.prt
+Â¦   Â¦   Junta.prt
+Â¦   Â¦   Hex Nut Metric M5 x 0,8.prt
+Â¦   Â¦   Hex Nut - Inch 3_8 - 16.prt
+Â¦   Â¦   FA-PO_dxf.prt
+Â¦   Â¦   cruceta.prt
+Â¦   Â¦   Anillo_Movil.prt
+Â¦   Â¦   Anillo_Base.prt
+Â¦   Â¦   actuador_pist_par.prt
+Â¦   Â¦   Actuador_ensamble.prt
+Â¦   Â¦   actuador_cil_ens_inercia_par.prt
+Â¦   Â¦   Actuador_base.prt
+Â¦   Â¦   Actuador.prt
+Â¦   Â¦   Vastago.prt
+Â¦   Â¦   Tuerca.prt
+Â¦   Â¦   tornillo_junta.prt
+Â¦   Â¦   Act.prt
+Â¦   Â¦   Junta_Universal_Actuador.prt
+Â¦   Â¦   3200A2ZTN9MT33.prt
+Â¦   Â¦   Tornillo_Base.prt
+Â¦   Â¦   
+Â¦   +---PSG
+Â¦   Â¦       PSG.afu
+Â¦   Â¦       NXMotion_Plant_Library.mdl
+Â¦   Â¦       ModeloCosimulacion.mdl.r2011a
+Â¦   Â¦       mainCosimulacion.m
+Â¦   Â¦       c_z_c_z_c_z_.bat
+Â¦   Â¦       ForKinematics.mexw64
+Â¦   Â¦       ModeloCosimulacion.mdl
+Â¦   Â¦       CS2G_CS1_PlantIO.m
+Â¦   Â¦       CS2G_CS1_Plant.m
+Â¦   Â¦       CS2G.sim
+Â¦   Â¦       cs2g-cs1.rplt
+Â¦   Â¦       cs2g-cs1.rmd
+Â¦   Â¦       cs2g-cs1.rad
+Â¦   Â¦       cs2g-cs1.msg
+Â¦   Â¦       
+Â¦   +---Junta_Universal
+Â¦           Junta_Universal.afu
+Â¦           
 +---Documentation
-¦   ¦   presentation_2013_06_13_V2.pdf
-¦   ¦   User_Manual_StewartGoughV1_3.pdf
-¦   ¦   presentation_xPCT.pdf
-¦   ¦   ReportSGJovenInvestigadorV4.pdf
-¦   ¦   
-¦   +---Orcad
-¦   ¦   +---PC104_V2_STM
-¦   ¦   ¦   ¦   Cotización materiales_Edgar.xlsx
-¦   ¦   ¦   ¦   
-¦   ¦   ¦   +---BOARD
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.DRD
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.ERR
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.GND
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.SMB
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.DTS
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.BOT
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.SMT
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.SST
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.AST
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.TOP
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.PWR
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.lis
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.GTD
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.MAX
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.GND
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.DTS
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.DRD
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.BOT
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL.AST
-¦   ¦   ¦   ¦       PC104_STM32F4-PRIOR_ROUTING.MAX
-¦   ¦   ¦   ¦       Orcad.ps
-¦   ¦   ¦   ¦       BACKUP4 (LAB_Mecatronica_s conflicted copy 2012-10-26).MAX
-¦   ¦   ¦   ¦       Orcad.pdf
-¦   ¦   ¦   ¦       Orcad.log
-¦   ¦   ¦   ¦       BACKUP3.MAX
-¦   ¦   ¦   ¦       BACKUP3 (eabolivarn-PC_s conflicted copy 2012-10-26).MAX
-¦   ¦   ¦   ¦       PC104_STM32F4-1.MAX
-¦   ¦   ¦   ¦       PC104_STM32F4-1.SWP
-¦   ¦   ¦   ¦       LocationLayout
-¦   ¦   ¦   ¦       layout.log
-¦   ¦   ¦   ¦       BACKUP2.MAX
-¦   ¦   ¦   ¦       BACKUP2 (eabolivarn-PC_s conflicted copy 2012-10-26).MAX
-¦   ¦   ¦   ¦       layout (eabolivarn-PC_s conflicted copy 2012-10-26).log
-¦   ¦   ¦   ¦       FinalVersion
-¦   ¦   ¦   ¦       PC104_STM32F4-1.LIS
-¦   ¦   ¦   ¦       PC104_STM32F4-1.ERR
-¦   ¦   ¦   ¦       BACKUP1.MAX
-¦   ¦   ¦   ¦       backanno.max
-¦   ¦   ¦   ¦       BACKUP1 (eabolivarn-PC_s conflicted copy 2012-10-26).MAX
-¦   ¦   ¦   ¦       Backup0.max
-¦   ¦   ¦   ¦       BACKUP5.MAX
-¦   ¦   ¦   ¦       BACKUP5 (LAB_Mecatronica_s conflicted copy 2012-10-26).MAX
-¦   ¦   ¦   ¦       BACKUP5 (LAB_Mecatronica_s conflicted copy 2012-10-26)(1).MAX
-¦   ¦   ¦   ¦       BACKUP4.MAX
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.TOP
-¦   ¦   ¦   ¦       thruhole.tap
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.SSB
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.SST
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.SMT
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.SMB
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.PWR
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.lis
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.MAX
-¦   ¦   ¦   ¦       PC104_STM32F4-VFINAL2.GTD
-¦   ¦   ¦   ¦       
-¦   ¦   ¦   +---SCH
-¦   ¦   ¦   ¦       Pag3 STM32F4.ps
-¦   ¦   ¦   ¦       Pag3 STM32F4.eps
-¦   ¦   ¦   ¦       Pag2 Regulator.ps
-¦   ¦   ¦   ¦       Pag2 Regulator.eps
-¦   ¦   ¦   ¦       Pag1 OpenServo Connectors.eps
-¦   ¦   ¦   ¦       layout.log
-¦   ¦   ¦   ¦       Test1.ps
-¦   ¦   ¦   ¦       Test1.eps
-¦   ¦   ¦   ¦       Tablero13
-¦   ¦   ¦   ¦       PC104_STM32F4_0.DBK
-¦   ¦   ¦   ¦       PC104_STM32F4.opj
-¦   ¦   ¦   ¦       PC104_STM32F4.MNL
-¦   ¦   ¦   ¦       PC104_STM32F4.EXP
-¦   ¦   ¦   ¦       PC104_STM32F4.DSN
-¦   ¦   ¦   ¦       PC104_STM32F4.BOM
-¦   ¦   ¦   ¦       ps2eps.2964
-¦   ¦   ¦   ¦       PC104_STM32F4-1.LIS
-¦   ¦   ¦   ¦       PC104_STM32F4-1.ERR
-¦   ¦   ¦   ¦       
-¦   ¦   ¦   +---GERBERS
-¦   ¦   ¦   ¦   ¦   PC104_STM32F4-VFINAL2.TOP
-¦   ¦   ¦   ¦   ¦   PC104_STM32F4-VFINAL2.SSB
-¦   ¦   ¦   ¦   ¦   PC104_STM32F4-VFINAL2.SMT
-¦   ¦   ¦   ¦   ¦   PC104_STM32F4-VFINAL2.SST
-¦   ¦   ¦   ¦   ¦   PC104_STM32F4-VFINAL2.SMB
-¦   ¦   ¦   ¦   ¦   PC104_STM32F4-VFINAL2.DRD
-¦   ¦   ¦   ¦   ¦   PC104_STM32F4-VFINAL2.BOT
-¦   ¦   ¦   ¦   ¦   
-¦   ¦   ¦   ¦   +---MicroEnsambles_PC104_V2
-¦   ¦   ¦   ¦           thruhole.tap
-¦   ¦   ¦   ¦           PC104_STM32F4-VFINAL2.TOP
-¦   ¦   ¦   ¦           PC104_STM32F4-VFINAL2.SST
-¦   ¦   ¦   ¦           PC104_STM32F4-VFINAL2.SSB
-¦   ¦   ¦   ¦           PC104_STM32F4-VFINAL2.SMT
-¦   ¦   ¦   ¦           PC104_STM32F4-VFINAL2.SMB
-¦   ¦   ¦   ¦           PC104_STM32F4-VFINAL2.DRD
-¦   ¦   ¦   ¦           PC104_STM32F4-VFINAL2.BOT
-¦   ¦   ¦   ¦           
-¦   ¦   ¦   +---COMPS_Datasheet
-¦   ¦   ¦           MOCD213_Optocoupler_principles.pdf
-¦   ¦   ¦           MOCD213_Optocoupler.pdf
-¦   ¦   ¦           LM2576_5V_Regulator.pdf
-¦   ¦   ¦           Land_Pattern_Resistors.pdf
-¦   ¦   ¦           Land_Pattern_Capacitors_aluminum_app_dne.pdf
-¦   ¦   ¦           1N5822_Schottky_rectifier.pdf
-¦   ¦   ¦           
-¦   ¦   +---Libraries
-¦   ¦   ¦   +---Simbols_sch
-¦   ¦   ¦   ¦       PC104_SCHEMATIC.OLB
-¦   ¦   ¦   ¦       PC104_SCHEMATIC.OBK
-¦   ¦   ¦   ¦       
-¦   ¦   ¦   +---Footprints
-¦   ¦   ¦           STM32_TO_POWERV2.LLB
-¦   ¦   ¦           BACKUP2.MAX
-¦   ¦   ¦           layout.log
-¦   ¦   ¦           BACKUP1.MAX
-¦   ¦   ¦           
-¦   ¦   +---STM32_F4_Base
-¦   ¦   ¦   ¦   SCHEMATIC1 _ BASE_BOARD.pdf
-¦   ¦   ¦   ¦   
-¦   ¦   ¦   +---SCH
-¦   ¦   ¦   ¦       Tablero14
-¦   ¦   ¦   ¦       STM32_F4_BASEBOARD.opj
-¦   ¦   ¦   ¦       STM32_F4_BASEBOARD_0.DBK
-¦   ¦   ¦   ¦       STM32_F4_BASEBOARD.MNL
-¦   ¦   ¦   ¦       STM32F4_Board.ps
-¦   ¦   ¦   ¦       STM32F4_Board.eps
-¦   ¦   ¦   ¦       Oct2_Test2.ps
-¦   ¦   ¦   ¦       STM32_F4_BASEBOARD.DSN
-¦   ¦   ¦   ¦       STM32_F4_BASEBOARD.BOM
-¦   ¦   ¦   ¦       Oct2_Test2.pdf
-¦   ¦   ¦   ¦       
-¦   ¦   ¦   +---GERBERS
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.AST
-¦   ¦   ¦   ¦   ¦   thruhole.tap
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.TOP
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.SSB
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.SST
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.SMT
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.SMB
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.DTS
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.GTD
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.LIS
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.DRD
-¦   ¦   ¦   ¦   ¦   STM32_F4_BASEBOARD-1.BOT
-¦   ¦   ¦   ¦   ¦   
-¦   ¦   ¦   ¦   +---MicroEnsambres_STM32_F4
-¦   ¦   ¦   ¦           thruhole.tap
-¦   ¦   ¦   ¦           STM32_F4_BASEBOARD-1.TOP
-¦   ¦   ¦   ¦           STM32_F4_BASEBOARD-1.SMT
-¦   ¦   ¦   ¦           STM32_F4_BASEBOARD-1.SSB
-¦   ¦   ¦   ¦           STM32_F4_BASEBOARD-1.SMB
-¦   ¦   ¦   ¦           STM32_F4_BASEBOARD-1.DRD
-¦   ¦   ¦   ¦           STM32_F4_BASEBOARD-1.SST
-¦   ¦   ¦   ¦           STM32_F4_BASEBOARD-1.BOT
-¦   ¦   ¦   ¦           
-¦   ¦   ¦   +---COMPS_Datasheet
-¦   ¦   ¦   ¦       STM32_F4_Discovery.pdf
-¦   ¦   ¦   ¦       
-¦   ¦   ¦   +---BOARD
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.TOP
-¦   ¦   ¦           thruhole.tap
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.GTD
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.lis
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.ERR
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.GND
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.DTS
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.DRD
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.BOT
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.AST
-¦   ¦   ¦           layout.log
-¦   ¦   ¦           LayaoutTest
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.SST
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.SMB
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.SMT
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.SSB
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.PWR
-¦   ¦   ¦           BACKUP5.MAX
-¦   ¦   ¦           BACKUP4.MAX
-¦   ¦   ¦           BACKUP3.MAX
-¦   ¦   ¦           BACKUP2.MAX
-¦   ¦   ¦           BACKUP1.MAX
-¦   ¦   ¦           STM32_F4_BASEBOARD-1.MAX
-¦   ¦   ¦           
-¦   ¦   +---Tablero
-¦   ¦       +---sch
-¦   ¦               LIBRARY1.OLB
-¦   ¦               TABLEROELECTRICO.DSN
-¦   ¦               TableroElectrico.opj
-¦   ¦               LIBRARY1.OBK
-¦   ¦               
-¦   +---Q-Electrotech
-¦       ¦   README.txt
-¦       ¦   
-¦       +---Tablero
-¦           ¦   QELECTRO - tablero_sg.png
-¦           ¦   QELECTRO - control.svg
-¦           ¦   conexiones_externas.png
-¦           ¦   QELECTRO - tablero_sg.svg
-¦           ¦   SCH_Tablero.qet
-¦           ¦   QELECTRO -control.png
-¦           ¦   
-¦           +---Elementos
-¦                   PC104.elmt
-¦                   Fuente14V.elmt
-¦                   PC104toPower.elmt
-¦                   BaseStm32F4.elmt
-¦                   
+Â¦   Â¦   presentation_2013_06_13_V2.pdf
+Â¦   Â¦   User_Manual_StewartGoughV1_3.pdf
+Â¦   Â¦   presentation_xPCT.pdf
+Â¦   Â¦   ReportSGJovenInvestigadorV4.pdf
+Â¦   Â¦   
+Â¦   +---Orcad
+Â¦   Â¦   +---PC104_V2_STM
+Â¦   Â¦   Â¦   Â¦   CotizaciÃ³n materiales_Edgar.xlsx
+Â¦   Â¦   Â¦   Â¦   
+Â¦   Â¦   Â¦   +---BOARD
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.DRD
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.ERR
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.GND
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.SMB
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.DTS
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.BOT
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.SMT
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.SST
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.AST
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.TOP
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.PWR
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.lis
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.GTD
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.MAX
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.GND
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.DTS
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.DRD
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.BOT
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL.AST
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-PRIOR_ROUTING.MAX
+Â¦   Â¦   Â¦   Â¦       Orcad.ps
+Â¦   Â¦   Â¦   Â¦       BACKUP4 (LAB_Mecatronica_s conflicted copy 2012-10-26).MAX
+Â¦   Â¦   Â¦   Â¦       Orcad.pdf
+Â¦   Â¦   Â¦   Â¦       Orcad.log
+Â¦   Â¦   Â¦   Â¦       BACKUP3.MAX
+Â¦   Â¦   Â¦   Â¦       BACKUP3 (eabolivarn-PC_s conflicted copy 2012-10-26).MAX
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-1.MAX
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-1.SWP
+Â¦   Â¦   Â¦   Â¦       LocationLayout
+Â¦   Â¦   Â¦   Â¦       layout.log
+Â¦   Â¦   Â¦   Â¦       BACKUP2.MAX
+Â¦   Â¦   Â¦   Â¦       BACKUP2 (eabolivarn-PC_s conflicted copy 2012-10-26).MAX
+Â¦   Â¦   Â¦   Â¦       layout (eabolivarn-PC_s conflicted copy 2012-10-26).log
+Â¦   Â¦   Â¦   Â¦       FinalVersion
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-1.LIS
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-1.ERR
+Â¦   Â¦   Â¦   Â¦       BACKUP1.MAX
+Â¦   Â¦   Â¦   Â¦       backanno.max
+Â¦   Â¦   Â¦   Â¦       BACKUP1 (eabolivarn-PC_s conflicted copy 2012-10-26).MAX
+Â¦   Â¦   Â¦   Â¦       Backup0.max
+Â¦   Â¦   Â¦   Â¦       BACKUP5.MAX
+Â¦   Â¦   Â¦   Â¦       BACKUP5 (LAB_Mecatronica_s conflicted copy 2012-10-26).MAX
+Â¦   Â¦   Â¦   Â¦       BACKUP5 (LAB_Mecatronica_s conflicted copy 2012-10-26)(1).MAX
+Â¦   Â¦   Â¦   Â¦       BACKUP4.MAX
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.TOP
+Â¦   Â¦   Â¦   Â¦       thruhole.tap
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.SSB
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.SST
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.SMT
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.SMB
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.PWR
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.lis
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.MAX
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-VFINAL2.GTD
+Â¦   Â¦   Â¦   Â¦       
+Â¦   Â¦   Â¦   +---SCH
+Â¦   Â¦   Â¦   Â¦       Pag3 STM32F4.ps
+Â¦   Â¦   Â¦   Â¦       Pag3 STM32F4.eps
+Â¦   Â¦   Â¦   Â¦       Pag2 Regulator.ps
+Â¦   Â¦   Â¦   Â¦       Pag2 Regulator.eps
+Â¦   Â¦   Â¦   Â¦       Pag1 OpenServo Connectors.eps
+Â¦   Â¦   Â¦   Â¦       layout.log
+Â¦   Â¦   Â¦   Â¦       Test1.ps
+Â¦   Â¦   Â¦   Â¦       Test1.eps
+Â¦   Â¦   Â¦   Â¦       Tablero13
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4_0.DBK
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4.opj
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4.MNL
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4.EXP
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4.DSN
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4.BOM
+Â¦   Â¦   Â¦   Â¦       ps2eps.2964
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-1.LIS
+Â¦   Â¦   Â¦   Â¦       PC104_STM32F4-1.ERR
+Â¦   Â¦   Â¦   Â¦       
+Â¦   Â¦   Â¦   +---GERBERS
+Â¦   Â¦   Â¦   Â¦   Â¦   PC104_STM32F4-VFINAL2.TOP
+Â¦   Â¦   Â¦   Â¦   Â¦   PC104_STM32F4-VFINAL2.SSB
+Â¦   Â¦   Â¦   Â¦   Â¦   PC104_STM32F4-VFINAL2.SMT
+Â¦   Â¦   Â¦   Â¦   Â¦   PC104_STM32F4-VFINAL2.SST
+Â¦   Â¦   Â¦   Â¦   Â¦   PC104_STM32F4-VFINAL2.SMB
+Â¦   Â¦   Â¦   Â¦   Â¦   PC104_STM32F4-VFINAL2.DRD
+Â¦   Â¦   Â¦   Â¦   Â¦   PC104_STM32F4-VFINAL2.BOT
+Â¦   Â¦   Â¦   Â¦   Â¦   
+Â¦   Â¦   Â¦   Â¦   +---MicroEnsambles_PC104_V2
+Â¦   Â¦   Â¦   Â¦           thruhole.tap
+Â¦   Â¦   Â¦   Â¦           PC104_STM32F4-VFINAL2.TOP
+Â¦   Â¦   Â¦   Â¦           PC104_STM32F4-VFINAL2.SST
+Â¦   Â¦   Â¦   Â¦           PC104_STM32F4-VFINAL2.SSB
+Â¦   Â¦   Â¦   Â¦           PC104_STM32F4-VFINAL2.SMT
+Â¦   Â¦   Â¦   Â¦           PC104_STM32F4-VFINAL2.SMB
+Â¦   Â¦   Â¦   Â¦           PC104_STM32F4-VFINAL2.DRD
+Â¦   Â¦   Â¦   Â¦           PC104_STM32F4-VFINAL2.BOT
+Â¦   Â¦   Â¦   Â¦           
+Â¦   Â¦   Â¦   +---COMPS_Datasheet
+Â¦   Â¦   Â¦           MOCD213_Optocoupler_principles.pdf
+Â¦   Â¦   Â¦           MOCD213_Optocoupler.pdf
+Â¦   Â¦   Â¦           LM2576_5V_Regulator.pdf
+Â¦   Â¦   Â¦           Land_Pattern_Resistors.pdf
+Â¦   Â¦   Â¦           Land_Pattern_Capacitors_aluminum_app_dne.pdf
+Â¦   Â¦   Â¦           1N5822_Schottky_rectifier.pdf
+Â¦   Â¦   Â¦           
+Â¦   Â¦   +---Libraries
+Â¦   Â¦   Â¦   +---Simbols_sch
+Â¦   Â¦   Â¦   Â¦       PC104_SCHEMATIC.OLB
+Â¦   Â¦   Â¦   Â¦       PC104_SCHEMATIC.OBK
+Â¦   Â¦   Â¦   Â¦       
+Â¦   Â¦   Â¦   +---Footprints
+Â¦   Â¦   Â¦           STM32_TO_POWERV2.LLB
+Â¦   Â¦   Â¦           BACKUP2.MAX
+Â¦   Â¦   Â¦           layout.log
+Â¦   Â¦   Â¦           BACKUP1.MAX
+Â¦   Â¦   Â¦           
+Â¦   Â¦   +---STM32_F4_Base
+Â¦   Â¦   Â¦   Â¦   SCHEMATIC1 _ BASE_BOARD.pdf
+Â¦   Â¦   Â¦   Â¦   
+Â¦   Â¦   Â¦   +---SCH
+Â¦   Â¦   Â¦   Â¦       Tablero14
+Â¦   Â¦   Â¦   Â¦       STM32_F4_BASEBOARD.opj
+Â¦   Â¦   Â¦   Â¦       STM32_F4_BASEBOARD_0.DBK
+Â¦   Â¦   Â¦   Â¦       STM32_F4_BASEBOARD.MNL
+Â¦   Â¦   Â¦   Â¦       STM32F4_Board.ps
+Â¦   Â¦   Â¦   Â¦       STM32F4_Board.eps
+Â¦   Â¦   Â¦   Â¦       Oct2_Test2.ps
+Â¦   Â¦   Â¦   Â¦       STM32_F4_BASEBOARD.DSN
+Â¦   Â¦   Â¦   Â¦       STM32_F4_BASEBOARD.BOM
+Â¦   Â¦   Â¦   Â¦       Oct2_Test2.pdf
+Â¦   Â¦   Â¦   Â¦       
+Â¦   Â¦   Â¦   +---GERBERS
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.AST
+Â¦   Â¦   Â¦   Â¦   Â¦   thruhole.tap
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.TOP
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.SSB
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.SST
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.SMT
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.SMB
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.DTS
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.GTD
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.LIS
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.DRD
+Â¦   Â¦   Â¦   Â¦   Â¦   STM32_F4_BASEBOARD-1.BOT
+Â¦   Â¦   Â¦   Â¦   Â¦   
+Â¦   Â¦   Â¦   Â¦   +---MicroEnsambres_STM32_F4
+Â¦   Â¦   Â¦   Â¦           thruhole.tap
+Â¦   Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.TOP
+Â¦   Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.SMT
+Â¦   Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.SSB
+Â¦   Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.SMB
+Â¦   Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.DRD
+Â¦   Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.SST
+Â¦   Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.BOT
+Â¦   Â¦   Â¦   Â¦           
+Â¦   Â¦   Â¦   +---COMPS_Datasheet
+Â¦   Â¦   Â¦   Â¦       STM32_F4_Discovery.pdf
+Â¦   Â¦   Â¦   Â¦       
+Â¦   Â¦   Â¦   +---BOARD
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.TOP
+Â¦   Â¦   Â¦           thruhole.tap
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.GTD
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.lis
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.ERR
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.GND
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.DTS
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.DRD
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.BOT
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.AST
+Â¦   Â¦   Â¦           layout.log
+Â¦   Â¦   Â¦           LayaoutTest
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.SST
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.SMB
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.SMT
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.SSB
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.PWR
+Â¦   Â¦   Â¦           BACKUP5.MAX
+Â¦   Â¦   Â¦           BACKUP4.MAX
+Â¦   Â¦   Â¦           BACKUP3.MAX
+Â¦   Â¦   Â¦           BACKUP2.MAX
+Â¦   Â¦   Â¦           BACKUP1.MAX
+Â¦   Â¦   Â¦           STM32_F4_BASEBOARD-1.MAX
+Â¦   Â¦   Â¦           
+Â¦   Â¦   +---Tablero
+Â¦   Â¦       +---sch
+Â¦   Â¦               LIBRARY1.OLB
+Â¦   Â¦               TABLEROELECTRICO.DSN
+Â¦   Â¦               TableroElectrico.opj
+Â¦   Â¦               LIBRARY1.OBK
+Â¦   Â¦               
+Â¦   +---Q-Electrotech
+Â¦       Â¦   README.txt
+Â¦       Â¦   
+Â¦       +---Tablero
+Â¦           Â¦   QELECTRO - tablero_sg.png
+Â¦           Â¦   QELECTRO - control.svg
+Â¦           Â¦   conexiones_externas.png
+Â¦           Â¦   QELECTRO - tablero_sg.svg
+Â¦           Â¦   SCH_Tablero.qet
+Â¦           Â¦   QELECTRO -control.png
+Â¦           Â¦   
+Â¦           +---Elementos
+Â¦                   PC104.elmt
+Â¦                   Fuente14V.elmt
+Â¦                   PC104toPower.elmt
+Â¦                   BaseStm32F4.elmt
+Â¦                   
 +---Software
     +---ActuatorIdentification
-    ¦   ¦   README.txt
-    ¦   ¦   order2Param2.m
-    ¦   ¦   u_motor.mat
-    ¦   ¦   resample_edV2.m
-    ¦   ¦   MainIdentification2Order.m
-    ¦   ¦   
-    ¦   +---potenti2position
-    ¦   ¦   ¦   README.txt
-    ¦   ¦   ¦   ReadAnalogInputpt.m
-    ¦   ¦   ¦   ReadAnalogInputref.m
-    ¦   ¦   ¦   ReadAnalogInputbio.m
-    ¦   ¦   ¦   ReadAnalogInput.dlm
-    ¦   ¦   ¦   ReadAnalogInput.mdl
-    ¦   ¦   ¦   GatherData.m
-    ¦   ¦   ¦   
-    ¦   ¦   +---ReadAnalogInput_xpc_rtw
-    ¦   ¦   ¦       build_exception.mat
-    ¦   ¦   ¦       buildInfo.mat
-    ¦   ¦   ¦       modelsources.txt
-    ¦   ¦   ¦       defines.txt
-    ¦   ¦   ¦       addiamondmm16atcustom.obj
-    ¦   ¦   ¦       rt_nonfinite.h
-    ¦   ¦   ¦       xpcoptions.h
-    ¦   ¦   ¦       xpctarget.pt
-    ¦   ¦   ¦       xpctarget.obj
-    ¦   ¦   ¦       xpctarget.lbl
-    ¦   ¦   ¦       xpctarget.bio
-    ¦   ¦   ¦       xpcptLoader.pts
-    ¦   ¦   ¦       xpcoptions.m
-    ¦   ¦   ¦       xpcPCFunctions.obj
-    ¦   ¦   ¦       xpcimports.obj
-    ¦   ¦   ¦       xpcruntime.lib
-    ¦   ¦   ¦       rt_nonfinite.obj
-    ¦   ¦   ¦       rt_printf.obj
-    ¦   ¦   ¦       xpc_datatype_ground.c
-    ¦   ¦   ¦       xpc_datatype_ground.obj
-    ¦   ¦   ¦       rtGetInf.c
-    ¦   ¦   ¦       rtGetNaN.c
-    ¦   ¦   ¦       rtmodel.h
-    ¦   ¦   ¦       rtGetInf.h
-    ¦   ¦   ¦       rtGetNaN.h
-    ¦   ¦   ¦       rtwtypes.h
-    ¦   ¦   ¦       xpcvcdll.def
-    ¦   ¦   ¦       xpctarget.sid
-    ¦   ¦   ¦       rt_nonfinite.c
-    ¦   ¦   ¦       xpctarget.xz
-    ¦   ¦   ¦       xpctarget.smi
-    ¦   ¦   ¦       xpcextralibs.mk
-    ¦   ¦   ¦       rt_logging_mmi.obj
-    ¦   ¦   ¦       rt_logging.obj
-    ¦   ¦   ¦       rt_matrx.obj
-    ¦   ¦   ¦       rtw_proj.tmw
-    ¦   ¦   ¦       rtGetNaN.obj
-    ¦   ¦   ¦       rtwtypeschksum.mat
-    ¦   ¦   ¦       ReadAnalogInput_xpc.lib
-    ¦   ¦   ¦       rtw_modelmap_utils.obj
-    ¦   ¦   ¦       rtGetInf.obj
-    ¦   ¦   ¦       ReadAnalogInput_types.h
-    ¦   ¦   ¦       ReadAnalogInput_dt.h
-    ¦   ¦   ¦       ReadAnalogInput_private.h
-    ¦   ¦   ¦       ReadAnalogInput_data.c
-    ¦   ¦   ¦       ReadAnalogInput_xpc.exp
-    ¦   ¦   ¦       ReadAnalogInput_targ_data_map.m
-    ¦   ¦   ¦       ReadAnalogInput_xpc.dll
-    ¦   ¦   ¦       ReadAnalogInput_capi.obj
-    ¦   ¦   ¦       ReadAnalogInput_data.obj
-    ¦   ¦   ¦       ReadAnalogInput.h
-    ¦   ¦   ¦       ReadAnalogInput_capi.c
-    ¦   ¦   ¦       ReadAnalogInput.c
-    ¦   ¦   ¦       ReadAnalogInput_capi.h
-    ¦   ¦   ¦       ReadAnalogInput_ref.rsp
-    ¦   ¦   ¦       ReadAnalogInput.obj
-    ¦   ¦   ¦       ReadAnalogInput.lbl
-    ¦   ¦   ¦       ReadAnalogInput.sid
-    ¦   ¦   ¦       ReadAnalogInput.mk
-    ¦   ¦   ¦       ReadAnalogInput.bio
-    ¦   ¦   ¦       ReadAnalogInput.bat
-    ¦   ¦   ¦       
-    ¦   ¦   +---Data FA-PO-35-12-12
-    ¦   ¦   ¦       motor - 2329584.txt
-    ¦   ¦   ¦       
-    ¦   ¦   +---slprj
-    ¦   ¦       ¦   sl_proj.tmw
-    ¦   ¦       ¦   
-    ¦   ¦       +---xpctarget
-    ¦   ¦           +---_sharedutils
-    ¦   ¦           ¦       tflSUInfo.mat
-    ¦   ¦           ¦       
-    ¦   ¦           +---ReadAnalogInput
-    ¦   ¦               +---tmwinternal
-    ¦   ¦                       binfo.mat
-    ¦   ¦                       minfo.mat
-    ¦   ¦                       
-    ¦   +---XPC_Code
-    ¦       ¦   IdentificationMotor2Orderref.m
-    ¦       ¦   IdentificationMotor2Orderpt.m
-    ¦       ¦   IdentificationMotor2Orderbio.m
-    ¦       ¦   IdentificationMotor2Order.xml
-    ¦       ¦   IdentificationMotor2Order.mdl
-    ¦       ¦   IdentificationMotor2Order.dlm
-    ¦       ¦   
-    ¦       +---IdentificationMotor2Order_xpc_rtw
-    ¦       ¦       rtwtypes.h
-    ¦       ¦       rtGetNaN.h
-    ¦       ¦       rtmodel.h
-    ¦       ¦       rtGetInf.c
-    ¦       ¦       rtGetInf.h
-    ¦       ¦       rtGetNaN.c
-    ¦       ¦       modelsources.txt
-    ¦       ¦       IdentificationMotor2Order_types.h
-    ¦       ¦       rtGetInf.obj
-    ¦       ¦       rtGetNaN.obj
-    ¦       ¦       rtwtypeschksum.mat
-    ¦       ¦       IdentificationMotor2Order_xpc.lib
-    ¦       ¦       IdentificationMotor2Order_xpc.dll
-    ¦       ¦       IdentificationMotor2Order_xpc.exp
-    ¦       ¦       xpctarget.pt
-    ¦       ¦       xpctarget.obj
-    ¦       ¦       xpctarget.lbl
-    ¦       ¦       xpctarget.bio
-    ¦       ¦       xpcptLoader.pts
-    ¦       ¦       xpcruntime.lib
-    ¦       ¦       xpcPCFunctions.obj
-    ¦       ¦       xpcoptions.m
-    ¦       ¦       rt_printf.obj
-    ¦       ¦       Set2Zero.obj
-    ¦       ¦       rt_matrx.obj
-    ¦       ¦       sersetupbase.obj
-    ¦       ¦       rt_nonfinite.obj
-    ¦       ¦       xpcimports.obj
-    ¦       ¦       IdentificationMotor2Order_targ_data_map.m
-    ¦       ¦       xpc_datatype_ground.obj
-    ¦       ¦       rt_nonfinite.c
-    ¦       ¦       rt_nonfinite.h
-    ¦       ¦       xpcoptions.h
-    ¦       ¦       xpctarget.sid
-    ¦       ¦       xpctarget.smi
-    ¦       ¦       xpctarget.xz
-    ¦       ¦       xpcvcdll.def
-    ¦       ¦       xpc_datatype_ground.c
-    ¦       ¦       rt_logging_mmi.obj
-    ¦       ¦       IdentificationMotor2Order_dt.h
-    ¦       ¦       IdentificationMotor2Order_private.h
-    ¦       ¦       IdentificationMotor2Order_data.c
-    ¦       ¦       IdentificationMotor2Order_capi.h
-    ¦       ¦       IdentificationMotor2Order_capi.c
-    ¦       ¦       IdentificationMotor2Order.h
-    ¦       ¦       IdentificationMotor2Order.c
-    ¦       ¦       defines.txt
-    ¦       ¦       IdentificationMotor2Order.mk
-    ¦       ¦       IdentificationMotor2Order.lbl
-    ¦       ¦       IdentificationMotor2Order.bat
-    ¦       ¦       IdentificationMotor2Order.bio
-    ¦       ¦       fiforead.obj
-    ¦       ¦       asciiencode.obj
-    ¦       ¦       fifowrite.obj
-    ¦       ¦       buildInfo.mat
-    ¦       ¦       build_exception.mat
-    ¦       ¦       xpcextralibs.mk
-    ¦       ¦       rtw_proj.tmw
-    ¦       ¦       rt_logging.obj
-    ¦       ¦       rtw_modelmap_utils.obj
-    ¦       ¦       IdentificationMotor2Order_data.obj
-    ¦       ¦       IdentificationMotor2Order_capi.obj
-    ¦       ¦       IdentificationMotor2Order.sid
-    ¦       ¦       addiamondmm16atcustom.obj
-    ¦       ¦       IdentificationMotor2Order_ref.rsp
-    ¦       ¦       IdentificationMotor2Order.obj
-    ¦       ¦       
-    ¦       +---slprj
-    ¦           ¦   sl_proj.tmw
-    ¦           ¦   
-    ¦           +---xpctarget
-    ¦               +---_sharedutils
-    ¦               ¦       tflSUInfo.mat
-    ¦               ¦       
-    ¦               +---IdentificationMotor2Order
-    ¦                   +---tmwinternal
-    ¦                           minfo.mat
-    ¦                           binfo.mat
-    ¦                           
+    Â¦   Â¦   README.txt
+    Â¦   Â¦   order2Param2.m
+    Â¦   Â¦   u_motor.mat
+    Â¦   Â¦   resample_edV2.m
+    Â¦   Â¦   MainIdentification2Order.m
+    Â¦   Â¦   
+    Â¦   +---potenti2position
+    Â¦   Â¦   Â¦   README.txt
+    Â¦   Â¦   Â¦   ReadAnalogInputpt.m
+    Â¦   Â¦   Â¦   ReadAnalogInputref.m
+    Â¦   Â¦   Â¦   ReadAnalogInputbio.m
+    Â¦   Â¦   Â¦   ReadAnalogInput.dlm
+    Â¦   Â¦   Â¦   ReadAnalogInput.mdl
+    Â¦   Â¦   Â¦   GatherData.m
+    Â¦   Â¦   Â¦   
+    Â¦   Â¦   +---ReadAnalogInput_xpc_rtw
+    Â¦   Â¦   Â¦       build_exception.mat
+    Â¦   Â¦   Â¦       buildInfo.mat
+    Â¦   Â¦   Â¦       modelsources.txt
+    Â¦   Â¦   Â¦       defines.txt
+    Â¦   Â¦   Â¦       addiamondmm16atcustom.obj
+    Â¦   Â¦   Â¦       rt_nonfinite.h
+    Â¦   Â¦   Â¦       xpcoptions.h
+    Â¦   Â¦   Â¦       xpctarget.pt
+    Â¦   Â¦   Â¦       xpctarget.obj
+    Â¦   Â¦   Â¦       xpctarget.lbl
+    Â¦   Â¦   Â¦       xpctarget.bio
+    Â¦   Â¦   Â¦       xpcptLoader.pts
+    Â¦   Â¦   Â¦       xpcoptions.m
+    Â¦   Â¦   Â¦       xpcPCFunctions.obj
+    Â¦   Â¦   Â¦       xpcimports.obj
+    Â¦   Â¦   Â¦       xpcruntime.lib
+    Â¦   Â¦   Â¦       rt_nonfinite.obj
+    Â¦   Â¦   Â¦       rt_printf.obj
+    Â¦   Â¦   Â¦       xpc_datatype_ground.c
+    Â¦   Â¦   Â¦       xpc_datatype_ground.obj
+    Â¦   Â¦   Â¦       rtGetInf.c
+    Â¦   Â¦   Â¦       rtGetNaN.c
+    Â¦   Â¦   Â¦       rtmodel.h
+    Â¦   Â¦   Â¦       rtGetInf.h
+    Â¦   Â¦   Â¦       rtGetNaN.h
+    Â¦   Â¦   Â¦       rtwtypes.h
+    Â¦   Â¦   Â¦       xpcvcdll.def
+    Â¦   Â¦   Â¦       xpctarget.sid
+    Â¦   Â¦   Â¦       rt_nonfinite.c
+    Â¦   Â¦   Â¦       xpctarget.xz
+    Â¦   Â¦   Â¦       xpctarget.smi
+    Â¦   Â¦   Â¦       xpcextralibs.mk
+    Â¦   Â¦   Â¦       rt_logging_mmi.obj
+    Â¦   Â¦   Â¦       rt_logging.obj
+    Â¦   Â¦   Â¦       rt_matrx.obj
+    Â¦   Â¦   Â¦       rtw_proj.tmw
+    Â¦   Â¦   Â¦       rtGetNaN.obj
+    Â¦   Â¦   Â¦       rtwtypeschksum.mat
+    Â¦   Â¦   Â¦       ReadAnalogInput_xpc.lib
+    Â¦   Â¦   Â¦       rtw_modelmap_utils.obj
+    Â¦   Â¦   Â¦       rtGetInf.obj
+    Â¦   Â¦   Â¦       ReadAnalogInput_types.h
+    Â¦   Â¦   Â¦       ReadAnalogInput_dt.h
+    Â¦   Â¦   Â¦       ReadAnalogInput_private.h
+    Â¦   Â¦   Â¦       ReadAnalogInput_data.c
+    Â¦   Â¦   Â¦       ReadAnalogInput_xpc.exp
+    Â¦   Â¦   Â¦       ReadAnalogInput_targ_data_map.m
+    Â¦   Â¦   Â¦       ReadAnalogInput_xpc.dll
+    Â¦   Â¦   Â¦       ReadAnalogInput_capi.obj
+    Â¦   Â¦   Â¦       ReadAnalogInput_data.obj
+    Â¦   Â¦   Â¦       ReadAnalogInput.h
+    Â¦   Â¦   Â¦       ReadAnalogInput_capi.c
+    Â¦   Â¦   Â¦       ReadAnalogInput.c
+    Â¦   Â¦   Â¦       ReadAnalogInput_capi.h
+    Â¦   Â¦   Â¦       ReadAnalogInput_ref.rsp
+    Â¦   Â¦   Â¦       ReadAnalogInput.obj
+    Â¦   Â¦   Â¦       ReadAnalogInput.lbl
+    Â¦   Â¦   Â¦       ReadAnalogInput.sid
+    Â¦   Â¦   Â¦       ReadAnalogInput.mk
+    Â¦   Â¦   Â¦       ReadAnalogInput.bio
+    Â¦   Â¦   Â¦       ReadAnalogInput.bat
+    Â¦   Â¦   Â¦       
+    Â¦   Â¦   +---Data FA-PO-35-12-12
+    Â¦   Â¦   Â¦       motor - 2329584.txt
+    Â¦   Â¦   Â¦       
+    Â¦   Â¦   +---slprj
+    Â¦   Â¦       Â¦   sl_proj.tmw
+    Â¦   Â¦       Â¦   
+    Â¦   Â¦       +---xpctarget
+    Â¦   Â¦           +---_sharedutils
+    Â¦   Â¦           Â¦       tflSUInfo.mat
+    Â¦   Â¦           Â¦       
+    Â¦   Â¦           +---ReadAnalogInput
+    Â¦   Â¦               +---tmwinternal
+    Â¦   Â¦                       binfo.mat
+    Â¦   Â¦                       minfo.mat
+    Â¦   Â¦                       
+    Â¦   +---XPC_Code
+    Â¦       Â¦   IdentificationMotor2Orderref.m
+    Â¦       Â¦   IdentificationMotor2Orderpt.m
+    Â¦       Â¦   IdentificationMotor2Orderbio.m
+    Â¦       Â¦   IdentificationMotor2Order.xml
+    Â¦       Â¦   IdentificationMotor2Order.mdl
+    Â¦       Â¦   IdentificationMotor2Order.dlm
+    Â¦       Â¦   
+    Â¦       +---IdentificationMotor2Order_xpc_rtw
+    Â¦       Â¦       rtwtypes.h
+    Â¦       Â¦       rtGetNaN.h
+    Â¦       Â¦       rtmodel.h
+    Â¦       Â¦       rtGetInf.c
+    Â¦       Â¦       rtGetInf.h
+    Â¦       Â¦       rtGetNaN.c
+    Â¦       Â¦       modelsources.txt
+    Â¦       Â¦       IdentificationMotor2Order_types.h
+    Â¦       Â¦       rtGetInf.obj
+    Â¦       Â¦       rtGetNaN.obj
+    Â¦       Â¦       rtwtypeschksum.mat
+    Â¦       Â¦       IdentificationMotor2Order_xpc.lib
+    Â¦       Â¦       IdentificationMotor2Order_xpc.dll
+    Â¦       Â¦       IdentificationMotor2Order_xpc.exp
+    Â¦       Â¦       xpctarget.pt
+    Â¦       Â¦       xpctarget.obj
+    Â¦       Â¦       xpctarget.lbl
+    Â¦       Â¦       xpctarget.bio
+    Â¦       Â¦       xpcptLoader.pts
+    Â¦       Â¦       xpcruntime.lib
+    Â¦       Â¦       xpcPCFunctions.obj
+    Â¦       Â¦       xpcoptions.m
+    Â¦       Â¦       rt_printf.obj
+    Â¦       Â¦       Set2Zero.obj
+    Â¦       Â¦       rt_matrx.obj
+    Â¦       Â¦       sersetupbase.obj
+    Â¦       Â¦       rt_nonfinite.obj
+    Â¦       Â¦       xpcimports.obj
+    Â¦       Â¦       IdentificationMotor2Order_targ_data_map.m
+    Â¦       Â¦       xpc_datatype_ground.obj
+    Â¦       Â¦       rt_nonfinite.c
+    Â¦       Â¦       rt_nonfinite.h
+    Â¦       Â¦       xpcoptions.h
+    Â¦       Â¦       xpctarget.sid
+    Â¦       Â¦       xpctarget.smi
+    Â¦       Â¦       xpctarget.xz
+    Â¦       Â¦       xpcvcdll.def
+    Â¦       Â¦       xpc_datatype_ground.c
+    Â¦       Â¦       rt_logging_mmi.obj
+    Â¦       Â¦       IdentificationMotor2Order_dt.h
+    Â¦       Â¦       IdentificationMotor2Order_private.h
+    Â¦       Â¦       IdentificationMotor2Order_data.c
+    Â¦       Â¦       IdentificationMotor2Order_capi.h
+    Â¦       Â¦       IdentificationMotor2Order_capi.c
+    Â¦       Â¦       IdentificationMotor2Order.h
+    Â¦       Â¦       IdentificationMotor2Order.c
+    Â¦       Â¦       defines.txt
+    Â¦       Â¦       IdentificationMotor2Order.mk
+    Â¦       Â¦       IdentificationMotor2Order.lbl
+    Â¦       Â¦       IdentificationMotor2Order.bat
+    Â¦       Â¦       IdentificationMotor2Order.bio
+    Â¦       Â¦       fiforead.obj
+    Â¦       Â¦       asciiencode.obj
+    Â¦       Â¦       fifowrite.obj
+    Â¦       Â¦       buildInfo.mat
+    Â¦       Â¦       build_exception.mat
+    Â¦       Â¦       xpcextralibs.mk
+    Â¦       Â¦       rtw_proj.tmw
+    Â¦       Â¦       rt_logging.obj
+    Â¦       Â¦       rtw_modelmap_utils.obj
+    Â¦       Â¦       IdentificationMotor2Order_data.obj
+    Â¦       Â¦       IdentificationMotor2Order_capi.obj
+    Â¦       Â¦       IdentificationMotor2Order.sid
+    Â¦       Â¦       addiamondmm16atcustom.obj
+    Â¦       Â¦       IdentificationMotor2Order_ref.rsp
+    Â¦       Â¦       IdentificationMotor2Order.obj
+    Â¦       Â¦       
+    Â¦       +---slprj
+    Â¦           Â¦   sl_proj.tmw
+    Â¦           Â¦   
+    Â¦           +---xpctarget
+    Â¦               +---_sharedutils
+    Â¦               Â¦       tflSUInfo.mat
+    Â¦               Â¦       
+    Â¦               +---IdentificationMotor2Order
+    Â¦                   +---tmwinternal
+    Â¦                           minfo.mat
+    Â¦                           binfo.mat
+    Â¦                           
     +---FirmwareV2_STM32F4
-    ¦   ¦   mcuconf.h
-    ¦   ¦   main.c
-    ¦   ¦   halconf.h
-    ¦   ¦   Makefile
-    ¦   ¦   chconf.h
-    ¦   ¦   
-    ¦   +---.dep
-    ¦   ¦       chcore.o(1).d
-    ¦   ¦       chcond.o.d
-    ¦   ¦       can.o(1).d
-    ¦   ¦       chcond.o(1).d
-    ¦   ¦       adc.o.d
-    ¦   ¦       board.o(1).d
-    ¦   ¦       can.o.d
-    ¦   ¦       adc_lld.o.d
-    ¦   ¦       can_lld.o.d
-    ¦   ¦       can_lld.o(1).d
-    ¦   ¦       board.o.d
-    ¦   ¦       adc_lld.o(1).d
-    ¦   ¦       adc.o(1).d
-    ¦   ¦       chcore.o.d
-    ¦   ¦       chheap.o(1).d
-    ¦   ¦       pwm.o.d
-    ¦   ¦       icu_lld.o.d
-    ¦   ¦       i2c.o(1).d
-    ¦   ¦       hal_lld.o.d
-    ¦   ¦       mac.o.d
-    ¦   ¦       mac.o(1).d
-    ¦   ¦       i2c.o.d
-    ¦   ¦       icu_lld.o(1).d
-    ¦   ¦       i2c_lld.o(1).d
-    ¦   ¦       hal_lld.o(1).d
-    ¦   ¦       icu.o(1).d
-    ¦   ¦       icu.o.d
-    ¦   ¦       i2c_lld.o.d
-    ¦   ¦       hal.o.d
-    ¦   ¦       nvic.o(1).d
-    ¦   ¦       mmc_spi.o.d
-    ¦   ¦       pal.o(1).d
-    ¦   ¦       pal.o.d
-    ¦   ¦       nvic.o.d
-    ¦   ¦       pal_lld.o(1).d
-    ¦   ¦       mmc_spi.o(1).d
-    ¦   ¦       mmcsd.o.d
-    ¦   ¦       mmcsd.o(1).d
-    ¦   ¦       main.o.d
-    ¦   ¦       main.o(1).d
-    ¦   ¦       mac_lld.o(1).d
-    ¦   ¦       ext_lld_isr.o.d
-    ¦   ¦       ext_lld.o(1).d
-    ¦   ¦       gpt.o.d
-    ¦   ¦       gpt_lld.o.d
-    ¦   ¦       ext_lld_isr.o(1).d
-    ¦   ¦       ext_lld.o.d
-    ¦   ¦       ext.o.d
-    ¦   ¦       gpt_lld.o(1).d
-    ¦   ¦       gpt.o(1).d
-    ¦   ¦       hal.o(1).d
-    ¦   ¦       mac_lld.o.d
-    ¦   ¦       ext.o(1).d
-    ¦   ¦       crt0.o.d
-    ¦   ¦       crt0.o(1).d
-    ¦   ¦       chschd.o.d
-    ¦   ¦       chschd.o(1).d
-    ¦   ¦       chsem.o(1).d
-    ¦   ¦       chsem.o.d
-    ¦   ¦       chregistry.o.d
-    ¦   ¦       chvt.o.d
-    ¦   ¦       chvt.o(1).d
-    ¦   ¦       chthreads.o(1).d
-    ¦   ¦       chsys.o.d
-    ¦   ¦       chsys.o(1).d
-    ¦   ¦       chregistry.o(1).d
-    ¦   ¦       chmtx.o(1).d
-    ¦   ¦       chmemcore.o(1).d
-    ¦   ¦       chmtx.o.d
-    ¦   ¦       chmempools.o.d
-    ¦   ¦       chmemcore.o.d
-    ¦   ¦       chmsg.o.d
-    ¦   ¦       chmboxes.o.d
-    ¦   ¦       chmsg.o(1).d
-    ¦   ¦       chthreads.o.d
-    ¦   ¦       chqueues.o(1).d
-    ¦   ¦       chprintf.o.d
-    ¦   ¦       chqueues.o.d
-    ¦   ¦       chprintf.o(1).d
-    ¦   ¦       chmempools.o(1).d
-    ¦   ¦       chdebug.o(1).d
-    ¦   ¦       chcore_v7m.o.d
-    ¦   ¦       chcore_v7m.o(1).d
-    ¦   ¦       chlists.o(1).d
-    ¦   ¦       chdynamic.o.d
-    ¦   ¦       chdebug.o.d
-    ¦   ¦       chdynamic.o(1).d
-    ¦   ¦       chevents.o(1).d
-    ¦   ¦       chlists.o.d
-    ¦   ¦       chheap.o.d
-    ¦   ¦       chevents.o.d
-    ¦   ¦       chmboxes.o(1).d
-    ¦   ¦       vectors.o.d
-    ¦   ¦       usb_lld.o.d
-    ¦   ¦       usb_lld.o(1).d
-    ¦   ¦       usb.o(1).d
-    ¦   ¦       usb.o.d
-    ¦   ¦       vectors.o(1).d
-    ¦   ¦       uart_lld.o.d
-    ¦   ¦       testevt.o.d
-    ¦   ¦       testdyn.o.d
-    ¦   ¦       testdyn.o(1).d
-    ¦   ¦       testheap.o(1).d
-    ¦   ¦       testmsg.o.d
-    ¦   ¦       testmbox.o(1).d
-    ¦   ¦       testevt.o(1).d
-    ¦   ¦       testmsg.o(1).d
-    ¦   ¦       testmtx.o.d
-    ¦   ¦       testmbox.o.d
-    ¦   ¦       testmtx.o(1).d
-    ¦   ¦       uart.o(1).d
-    ¦   ¦       testbmk.o.d
-    ¦   ¦       testthd.o(1).d
-    ¦   ¦       tm.o.d
-    ¦   ¦       uart_lld.o(1).d
-    ¦   ¦       testsem.o.d
-    ¦   ¦       uart.o.d
-    ¦   ¦       testqueues.o(1).d
-    ¦   ¦       testthd.o.d
-    ¦   ¦       tm.o(1).d
-    ¦   ¦       testsem.o(1).d
-    ¦   ¦       testqueues.o.d
-    ¦   ¦       serial_usb.o(1).d
-    ¦   ¦       testpools.o(1).d
-    ¦   ¦       testpools.o.d
-    ¦   ¦       pwm.o(1).d
-    ¦   ¦       pal_lld.o.d
-    ¦   ¦       spi.o.d
-    ¦   ¦       testheap.o.d
-    ¦   ¦       test.o.d
-    ¦   ¦       stm32_dma.o(1).d
-    ¦   ¦       stm32_dma.o.d
-    ¦   ¦       spi_lld.o.d
-    ¦   ¦       spi_lld.o(1).d
-    ¦   ¦       test.o(1).d
-    ¦   ¦       testbmk.o(1).d
-    ¦   ¦       sdc_lld.o.d
-    ¦   ¦       rtc.o.d
-    ¦   ¦       pwm_lld.o(1).d
-    ¦   ¦       sdc.o(1).d
-    ¦   ¦       sdc.o.d
-    ¦   ¦       rtc_lld.o(1).d
-    ¦   ¦       rtc.o(1).d
-    ¦   ¦       rtc_lld.o.d
-    ¦   ¦       pwm_lld.o.d
-    ¦   ¦       sdc_lld.o(1).d
-    ¦   ¦       serial.o.d
-    ¦   ¦       serial.o(1).d
-    ¦   ¦       serial_lld.o.d
-    ¦   ¦       spi.o(1).d
-    ¦   ¦       serial_usb.o.d
-    ¦   ¦       serial_lld.o(1).d
-    ¦   ¦       
-    ¦   +---build
-    ¦       ¦   ch.map
-    ¦       ¦   ch.elf
-    ¦       ¦   ch.hex
-    ¦       ¦   ch.dmp
-    ¦       ¦   ch.bin
-    ¦       ¦   
-    ¦       +---lst
-    ¦       ¦       ext_lld.lst
-    ¦       ¦       ext_lld_isr.lst
-    ¦       ¦       gpt.lst
-    ¦       ¦       ext.lst
-    ¦       ¦       chregistry.lst
-    ¦       ¦       chqueues.lst
-    ¦       ¦       chprintf.lst
-    ¦       ¦       chmsg.lst
-    ¦       ¦       chmtx.lst
-    ¦       ¦       chcore.lst
-    ¦       ¦       chcond.lst
-    ¦       ¦       can_lld.lst
-    ¦       ¦       can.lst
-    ¦       ¦       board.lst
-    ¦       ¦       adc_lld.lst
-    ¦       ¦       chmempools.lst
-    ¦       ¦       adc.lst
-    ¦       ¦       vectors.lst
-    ¦       ¦       usb_lld.lst
-    ¦       ¦       usb.lst
-    ¦       ¦       uart_lld.lst
-    ¦       ¦       uart.lst
-    ¦       ¦       tm.lst
-    ¦       ¦       testthd.lst
-    ¦       ¦       testqueues.lst
-    ¦       ¦       testsem.lst
-    ¦       ¦       testpools.lst
-    ¦       ¦       testmtx.lst
-    ¦       ¦       testmsg.lst
-    ¦       ¦       testmbox.lst
-    ¦       ¦       testheap.lst
-    ¦       ¦       testevt.lst
-    ¦       ¦       testdyn.lst
-    ¦       ¦       testbmk.lst
-    ¦       ¦       test.lst
-    ¦       ¦       stm32_dma.lst
-    ¦       ¦       pal.lst
-    ¦       ¦       pal_lld.lst
-    ¦       ¦       mmc_spi.lst
-    ¦       ¦       nvic.lst
-    ¦       ¦       spi_lld.lst
-    ¦       ¦       serial_usb.lst
-    ¦       ¦       spi.lst
-    ¦       ¦       serial_lld.lst
-    ¦       ¦       sdc.lst
-    ¦       ¦       serial.lst
-    ¦       ¦       sdc_lld.lst
-    ¦       ¦       rtc_lld.lst
-    ¦       ¦       mmcsd.lst
-    ¦       ¦       main.lst
-    ¦       ¦       icu_lld.lst
-    ¦       ¦       mac_lld.lst
-    ¦       ¦       i2c_lld.lst
-    ¦       ¦       icu.lst
-    ¦       ¦       mac.lst
-    ¦       ¦       i2c.lst
-    ¦       ¦       hal_lld.lst
-    ¦       ¦       hal.lst
-    ¦       ¦       rtc.lst
-    ¦       ¦       pwm_lld.lst
-    ¦       ¦       gpt_lld.lst
-    ¦       ¦       pwm.lst
-    ¦       ¦       chvt.lst
-    ¦       ¦       chthreads.lst
-    ¦       ¦       chsem.lst
-    ¦       ¦       chsys.lst
-    ¦       ¦       chschd.lst
-    ¦       ¦       crt0.lst
-    ¦       ¦       chmemcore.lst
-    ¦       ¦       chlists.lst
-    ¦       ¦       chmboxes.lst
-    ¦       ¦       chheap.lst
-    ¦       ¦       chevents.lst
-    ¦       ¦       chcore_v7m.lst
-    ¦       ¦       chdynamic.lst
-    ¦       ¦       chdebug.lst
-    ¦       ¦       
-    ¦       +---obj
-    ¦               pwm.o
-    ¦               pwm_lld.o
-    ¦               pal_lld.o
-    ¦               icu.o
-    ¦               i2c.o
-    ¦               hal_lld.o
-    ¦               i2c_lld.o
-    ¦               chvt.o
-    ¦               hal.o
-    ¦               ext_lld.o
-    ¦               crt0.o
-    ¦               ext.o
-    ¦               gpt.o
-    ¦               ext_lld_isr.o
-    ¦               gpt_lld.o
-    ¦               chsem.o
-    ¦               chsys.o
-    ¦               chqueues.o
-    ¦               chregistry.o
-    ¦               chschd.o
-    ¦               chthreads.o
-    ¦               chmtx.o
-    ¦               chprintf.o
-    ¦               chlists.o
-    ¦               chmsg.o
-    ¦               chevents.o
-    ¦               chmboxes.o
-    ¦               chmempools.o
-    ¦               chheap.o
-    ¦               chmemcore.o
-    ¦               chdynamic.o
-    ¦               chdebug.o
-    ¦               adc_lld.o
-    ¦               board.o
-    ¦               chcore_v7m.o
-    ¦               chcore.o
-    ¦               can_lld.o
-    ¦               can.o
-    ¦               chcond.o
-    ¦               adc.o
-    ¦               testheap.o
-    ¦               testsem.o
-    ¦               testqueues.o
-    ¦               testthd.o
-    ¦               testpools.o
-    ¦               testmbox.o
-    ¦               testmsg.o
-    ¦               testmtx.o
-    ¦               testbmk.o
-    ¦               testdyn.o
-    ¦               tm.o
-    ¦               vectors.o
-    ¦               uart_lld.o
-    ¦               usb.o
-    ¦               usb_lld.o
-    ¦               spi.o
-    ¦               serial_lld.o
-    ¦               spi_lld.o
-    ¦               serial_usb.o
-    ¦               sdc.o
-    ¦               rtc_lld.o
-    ¦               serial.o
-    ¦               stm32_dma.o
-    ¦               sdc_lld.o
-    ¦               uart.o
-    ¦               testevt.o
-    ¦               test.o
-    ¦               rtc.o
-    ¦               nvic.o
-    ¦               mac.o
-    ¦               main.o
-    ¦               mmcsd.o
-    ¦               mac_lld.o
-    ¦               pal.o
-    ¦               icu_lld.o
-    ¦               mmc_spi.o
-    ¦               
+    Â¦   Â¦   mcuconf.h
+    Â¦   Â¦   main.c
+    Â¦   Â¦   halconf.h
+    Â¦   Â¦   Makefile
+    Â¦   Â¦   chconf.h
+    Â¦   Â¦   
+    Â¦   +---.dep
+    Â¦   Â¦       chcore.o(1).d
+    Â¦   Â¦       chcond.o.d
+    Â¦   Â¦       can.o(1).d
+    Â¦   Â¦       chcond.o(1).d
+    Â¦   Â¦       adc.o.d
+    Â¦   Â¦       board.o(1).d
+    Â¦   Â¦       can.o.d
+    Â¦   Â¦       adc_lld.o.d
+    Â¦   Â¦       can_lld.o.d
+    Â¦   Â¦       can_lld.o(1).d
+    Â¦   Â¦       board.o.d
+    Â¦   Â¦       adc_lld.o(1).d
+    Â¦   Â¦       adc.o(1).d
+    Â¦   Â¦       chcore.o.d
+    Â¦   Â¦       chheap.o(1).d
+    Â¦   Â¦       pwm.o.d
+    Â¦   Â¦       icu_lld.o.d
+    Â¦   Â¦       i2c.o(1).d
+    Â¦   Â¦       hal_lld.o.d
+    Â¦   Â¦       mac.o.d
+    Â¦   Â¦       mac.o(1).d
+    Â¦   Â¦       i2c.o.d
+    Â¦   Â¦       icu_lld.o(1).d
+    Â¦   Â¦       i2c_lld.o(1).d
+    Â¦   Â¦       hal_lld.o(1).d
+    Â¦   Â¦       icu.o(1).d
+    Â¦   Â¦       icu.o.d
+    Â¦   Â¦       i2c_lld.o.d
+    Â¦   Â¦       hal.o.d
+    Â¦   Â¦       nvic.o(1).d
+    Â¦   Â¦       mmc_spi.o.d
+    Â¦   Â¦       pal.o(1).d
+    Â¦   Â¦       pal.o.d
+    Â¦   Â¦       nvic.o.d
+    Â¦   Â¦       pal_lld.o(1).d
+    Â¦   Â¦       mmc_spi.o(1).d
+    Â¦   Â¦       mmcsd.o.d
+    Â¦   Â¦       mmcsd.o(1).d
+    Â¦   Â¦       main.o.d
+    Â¦   Â¦       main.o(1).d
+    Â¦   Â¦       mac_lld.o(1).d
+    Â¦   Â¦       ext_lld_isr.o.d
+    Â¦   Â¦       ext_lld.o(1).d
+    Â¦   Â¦       gpt.o.d
+    Â¦   Â¦       gpt_lld.o.d
+    Â¦   Â¦       ext_lld_isr.o(1).d
+    Â¦   Â¦       ext_lld.o.d
+    Â¦   Â¦       ext.o.d
+    Â¦   Â¦       gpt_lld.o(1).d
+    Â¦   Â¦       gpt.o(1).d
+    Â¦   Â¦       hal.o(1).d
+    Â¦   Â¦       mac_lld.o.d
+    Â¦   Â¦       ext.o(1).d
+    Â¦   Â¦       crt0.o.d
+    Â¦   Â¦       crt0.o(1).d
+    Â¦   Â¦       chschd.o.d
+    Â¦   Â¦       chschd.o(1).d
+    Â¦   Â¦       chsem.o(1).d
+    Â¦   Â¦       chsem.o.d
+    Â¦   Â¦       chregistry.o.d
+    Â¦   Â¦       chvt.o.d
+    Â¦   Â¦       chvt.o(1).d
+    Â¦   Â¦       chthreads.o(1).d
+    Â¦   Â¦       chsys.o.d
+    Â¦   Â¦       chsys.o(1).d
+    Â¦   Â¦       chregistry.o(1).d
+    Â¦   Â¦       chmtx.o(1).d
+    Â¦   Â¦       chmemcore.o(1).d
+    Â¦   Â¦       chmtx.o.d
+    Â¦   Â¦       chmempools.o.d
+    Â¦   Â¦       chmemcore.o.d
+    Â¦   Â¦       chmsg.o.d
+    Â¦   Â¦       chmboxes.o.d
+    Â¦   Â¦       chmsg.o(1).d
+    Â¦   Â¦       chthreads.o.d
+    Â¦   Â¦       chqueues.o(1).d
+    Â¦   Â¦       chprintf.o.d
+    Â¦   Â¦       chqueues.o.d
+    Â¦   Â¦       chprintf.o(1).d
+    Â¦   Â¦       chmempools.o(1).d
+    Â¦   Â¦       chdebug.o(1).d
+    Â¦   Â¦       chcore_v7m.o.d
+    Â¦   Â¦       chcore_v7m.o(1).d
+    Â¦   Â¦       chlists.o(1).d
+    Â¦   Â¦       chdynamic.o.d
+    Â¦   Â¦       chdebug.o.d
+    Â¦   Â¦       chdynamic.o(1).d
+    Â¦   Â¦       chevents.o(1).d
+    Â¦   Â¦       chlists.o.d
+    Â¦   Â¦       chheap.o.d
+    Â¦   Â¦       chevents.o.d
+    Â¦   Â¦       chmboxes.o(1).d
+    Â¦   Â¦       vectors.o.d
+    Â¦   Â¦       usb_lld.o.d
+    Â¦   Â¦       usb_lld.o(1).d
+    Â¦   Â¦       usb.o(1).d
+    Â¦   Â¦       usb.o.d
+    Â¦   Â¦       vectors.o(1).d
+    Â¦   Â¦       uart_lld.o.d
+    Â¦   Â¦       testevt.o.d
+    Â¦   Â¦       testdyn.o.d
+    Â¦   Â¦       testdyn.o(1).d
+    Â¦   Â¦       testheap.o(1).d
+    Â¦   Â¦       testmsg.o.d
+    Â¦   Â¦       testmbox.o(1).d
+    Â¦   Â¦       testevt.o(1).d
+    Â¦   Â¦       testmsg.o(1).d
+    Â¦   Â¦       testmtx.o.d
+    Â¦   Â¦       testmbox.o.d
+    Â¦   Â¦       testmtx.o(1).d
+    Â¦   Â¦       uart.o(1).d
+    Â¦   Â¦       testbmk.o.d
+    Â¦   Â¦       testthd.o(1).d
+    Â¦   Â¦       tm.o.d
+    Â¦   Â¦       uart_lld.o(1).d
+    Â¦   Â¦       testsem.o.d
+    Â¦   Â¦       uart.o.d
+    Â¦   Â¦       testqueues.o(1).d
+    Â¦   Â¦       testthd.o.d
+    Â¦   Â¦       tm.o(1).d
+    Â¦   Â¦       testsem.o(1).d
+    Â¦   Â¦       testqueues.o.d
+    Â¦   Â¦       serial_usb.o(1).d
+    Â¦   Â¦       testpools.o(1).d
+    Â¦   Â¦       testpools.o.d
+    Â¦   Â¦       pwm.o(1).d
+    Â¦   Â¦       pal_lld.o.d
+    Â¦   Â¦       spi.o.d
+    Â¦   Â¦       testheap.o.d
+    Â¦   Â¦       test.o.d
+    Â¦   Â¦       stm32_dma.o(1).d
+    Â¦   Â¦       stm32_dma.o.d
+    Â¦   Â¦       spi_lld.o.d
+    Â¦   Â¦       spi_lld.o(1).d
+    Â¦   Â¦       test.o(1).d
+    Â¦   Â¦       testbmk.o(1).d
+    Â¦   Â¦       sdc_lld.o.d
+    Â¦   Â¦       rtc.o.d
+    Â¦   Â¦       pwm_lld.o(1).d
+    Â¦   Â¦       sdc.o(1).d
+    Â¦   Â¦       sdc.o.d
+    Â¦   Â¦       rtc_lld.o(1).d
+    Â¦   Â¦       rtc.o(1).d
+    Â¦   Â¦       rtc_lld.o.d
+    Â¦   Â¦       pwm_lld.o.d
+    Â¦   Â¦       sdc_lld.o(1).d
+    Â¦   Â¦       serial.o.d
+    Â¦   Â¦       serial.o(1).d
+    Â¦   Â¦       serial_lld.o.d
+    Â¦   Â¦       spi.o(1).d
+    Â¦   Â¦       serial_usb.o.d
+    Â¦   Â¦       serial_lld.o(1).d
+    Â¦   Â¦       
+    Â¦   +---build
+    Â¦       Â¦   ch.map
+    Â¦       Â¦   ch.elf
+    Â¦       Â¦   ch.hex
+    Â¦       Â¦   ch.dmp
+    Â¦       Â¦   ch.bin
+    Â¦       Â¦   
+    Â¦       +---lst
+    Â¦       Â¦       ext_lld.lst
+    Â¦       Â¦       ext_lld_isr.lst
+    Â¦       Â¦       gpt.lst
+    Â¦       Â¦       ext.lst
+    Â¦       Â¦       chregistry.lst
+    Â¦       Â¦       chqueues.lst
+    Â¦       Â¦       chprintf.lst
+    Â¦       Â¦       chmsg.lst
+    Â¦       Â¦       chmtx.lst
+    Â¦       Â¦       chcore.lst
+    Â¦       Â¦       chcond.lst
+    Â¦       Â¦       can_lld.lst
+    Â¦       Â¦       can.lst
+    Â¦       Â¦       board.lst
+    Â¦       Â¦       adc_lld.lst
+    Â¦       Â¦       chmempools.lst
+    Â¦       Â¦       adc.lst
+    Â¦       Â¦       vectors.lst
+    Â¦       Â¦       usb_lld.lst
+    Â¦       Â¦       usb.lst
+    Â¦       Â¦       uart_lld.lst
+    Â¦       Â¦       uart.lst
+    Â¦       Â¦       tm.lst
+    Â¦       Â¦       testthd.lst
+    Â¦       Â¦       testqueues.lst
+    Â¦       Â¦       testsem.lst
+    Â¦       Â¦       testpools.lst
+    Â¦       Â¦       testmtx.lst
+    Â¦       Â¦       testmsg.lst
+    Â¦       Â¦       testmbox.lst
+    Â¦       Â¦       testheap.lst
+    Â¦       Â¦       testevt.lst
+    Â¦       Â¦       testdyn.lst
+    Â¦       Â¦       testbmk.lst
+    Â¦       Â¦       test.lst
+    Â¦       Â¦       stm32_dma.lst
+    Â¦       Â¦       pal.lst
+    Â¦       Â¦       pal_lld.lst
+    Â¦       Â¦       mmc_spi.lst
+    Â¦       Â¦       nvic.lst
+    Â¦       Â¦       spi_lld.lst
+    Â¦       Â¦       serial_usb.lst
+    Â¦       Â¦       spi.lst
+    Â¦       Â¦       serial_lld.lst
+    Â¦       Â¦       sdc.lst
+    Â¦       Â¦       serial.lst
+    Â¦       Â¦       sdc_lld.lst
+    Â¦       Â¦       rtc_lld.lst
+    Â¦       Â¦       mmcsd.lst
+    Â¦       Â¦       main.lst
+    Â¦       Â¦       icu_lld.lst
+    Â¦       Â¦       mac_lld.lst
+    Â¦       Â¦       i2c_lld.lst
+    Â¦       Â¦       icu.lst
+    Â¦       Â¦       mac.lst
+    Â¦       Â¦       i2c.lst
+    Â¦       Â¦       hal_lld.lst
+    Â¦       Â¦       hal.lst
+    Â¦       Â¦       rtc.lst
+    Â¦       Â¦       pwm_lld.lst
+    Â¦       Â¦       gpt_lld.lst
+    Â¦       Â¦       pwm.lst
+    Â¦       Â¦       chvt.lst
+    Â¦       Â¦       chthreads.lst
+    Â¦       Â¦       chsem.lst
+    Â¦       Â¦       chsys.lst
+    Â¦       Â¦       chschd.lst
+    Â¦       Â¦       crt0.lst
+    Â¦       Â¦       chmemcore.lst
+    Â¦       Â¦       chlists.lst
+    Â¦       Â¦       chmboxes.lst
+    Â¦       Â¦       chheap.lst
+    Â¦       Â¦       chevents.lst
+    Â¦       Â¦       chcore_v7m.lst
+    Â¦       Â¦       chdynamic.lst
+    Â¦       Â¦       chdebug.lst
+    Â¦       Â¦       
+    Â¦       +---obj
+    Â¦               pwm.o
+    Â¦               pwm_lld.o
+    Â¦               pal_lld.o
+    Â¦               icu.o
+    Â¦               i2c.o
+    Â¦               hal_lld.o
+    Â¦               i2c_lld.o
+    Â¦               chvt.o
+    Â¦               hal.o
+    Â¦               ext_lld.o
+    Â¦               crt0.o
+    Â¦               ext.o
+    Â¦               gpt.o
+    Â¦               ext_lld_isr.o
+    Â¦               gpt_lld.o
+    Â¦               chsem.o
+    Â¦               chsys.o
+    Â¦               chqueues.o
+    Â¦               chregistry.o
+    Â¦               chschd.o
+    Â¦               chthreads.o
+    Â¦               chmtx.o
+    Â¦               chprintf.o
+    Â¦               chlists.o
+    Â¦               chmsg.o
+    Â¦               chevents.o
+    Â¦               chmboxes.o
+    Â¦               chmempools.o
+    Â¦               chheap.o
+    Â¦               chmemcore.o
+    Â¦               chdynamic.o
+    Â¦               chdebug.o
+    Â¦               adc_lld.o
+    Â¦               board.o
+    Â¦               chcore_v7m.o
+    Â¦               chcore.o
+    Â¦               can_lld.o
+    Â¦               can.o
+    Â¦               chcond.o
+    Â¦               adc.o
+    Â¦               testheap.o
+    Â¦               testsem.o
+    Â¦               testqueues.o
+    Â¦               testthd.o
+    Â¦               testpools.o
+    Â¦               testmbox.o
+    Â¦               testmsg.o
+    Â¦               testmtx.o
+    Â¦               testbmk.o
+    Â¦               testdyn.o
+    Â¦               tm.o
+    Â¦               vectors.o
+    Â¦               uart_lld.o
+    Â¦               usb.o
+    Â¦               usb_lld.o
+    Â¦               spi.o
+    Â¦               serial_lld.o
+    Â¦               spi_lld.o
+    Â¦               serial_usb.o
+    Â¦               sdc.o
+    Â¦               rtc_lld.o
+    Â¦               serial.o
+    Â¦               stm32_dma.o
+    Â¦               sdc_lld.o
+    Â¦               uart.o
+    Â¦               testevt.o
+    Â¦               test.o
+    Â¦               rtc.o
+    Â¦               nvic.o
+    Â¦               mac.o
+    Â¦               main.o
+    Â¦               mmcsd.o
+    Â¦               mac_lld.o
+    Â¦               pal.o
+    Â¦               icu_lld.o
+    Â¦               mmc_spi.o
+    Â¦               
     +---GUI_V3
-    ¦   ¦   README.txt
-    ¦   ¦   Trajec2.dat
-    ¦   ¦   MoveSG.m
-    ¦   ¦   exportFile2XPc.m
-    ¦   ¦   GUI_V3.m
-    ¦   ¦   GUI_V3.fig
-    ¦   ¦   BuildXPC.m
-    ¦   ¦   
-    ¦   +---Code2XPCtarget
-    ¦   ¦   ¦   GUI_User_V1_3ref.m
-    ¦   ¦   ¦   GUI_User_V1_3pt.m
-    ¦   ¦   ¦   GUI_User_V1_3bio.m
-    ¦   ¦   ¦   GUI_User_V1_3.xml
-    ¦   ¦   ¦   GUI_User_V1_3.mdl
-    ¦   ¦   ¦   GUI_User_V1_3.dlm
-    ¦   ¦   ¦   
-    ¦   ¦   +---GUI_User_V1_3_xpc_rtw
-    ¦   ¦   ¦       rtGetInf.h
-    ¦   ¦   ¦       modelsources.txt
-    ¦   ¦   ¦       GUI_User_V1_3_xpc.lib
-    ¦   ¦   ¦       rtGetInf.c
-    ¦   ¦   ¦       GUI_User_V1_3_xpc.exp
-    ¦   ¦   ¦       GUI_User_V1_3_xpc.dll
-    ¦   ¦   ¦       GUI_User_V1_3_types.h
-    ¦   ¦   ¦       rtwtypes.h
-    ¦   ¦   ¦       GUI_User_V1_3_dt.h
-    ¦   ¦   ¦       GUI_User_V1_3_private.h
-    ¦   ¦   ¦       GUI_User_V1_3_data.c
-    ¦   ¦   ¦       rtmodel.h
-    ¦   ¦   ¦       rtGetNaN.c
-    ¦   ¦   ¦       rtGetNaN.h
-    ¦   ¦   ¦       rtGetNaN.obj
-    ¦   ¦   ¦       GUI_User_V1_3_targ_data_map.m
-    ¦   ¦   ¦       GUI_User_V1_3_data.obj
-    ¦   ¦   ¦       GUI_User_V1_3_capi.obj
-    ¦   ¦   ¦       rtGetInf.obj
-    ¦   ¦   ¦       GUI_User_V1_3_capi.h
-    ¦   ¦   ¦       GUI_User_V1_3_capi.c
-    ¦   ¦   ¦       GUI_User_V1_3.h
-    ¦   ¦   ¦       GUI_User_V1_3_ref.rsp
-    ¦   ¦   ¦       GUI_User_V1_3.sid
-    ¦   ¦   ¦       GUI_User_V1_3.lbl
-    ¦   ¦   ¦       GUI_User_V1_3.mk
-    ¦   ¦   ¦       GUI_User_V1_3.obj
-    ¦   ¦   ¦       GUI_User_V1_3.c
-    ¦   ¦   ¦       defines.txt
-    ¦   ¦   ¦       buildInfo.mat
-    ¦   ¦   ¦       fifowrite.obj
-    ¦   ¦   ¦       asciiencode.obj
-    ¦   ¦   ¦       fiforead.obj
-    ¦   ¦   ¦       GUI_User_V1_3.bio
-    ¦   ¦   ¦       GUI_User_V1_3.bat
-    ¦   ¦   ¦       addiamondmm16atcustom.obj
-    ¦   ¦   ¦       xpctarget.xz
-    ¦   ¦   ¦       xpc_datatype_ground.obj
-    ¦   ¦   ¦       xpctarget.smi
-    ¦   ¦   ¦       xpcvcdll.def
-    ¦   ¦   ¦       xpc_datatype_ground.c
-    ¦   ¦   ¦       xpctarget.sid
-    ¦   ¦   ¦       xpctarget.pt
-    ¦   ¦   ¦       xpctarget.obj
-    ¦   ¦   ¦       xpcPCFunctions.obj
-    ¦   ¦   ¦       xpctarget.bio
-    ¦   ¦   ¦       xpctarget.lbl
-    ¦   ¦   ¦       xpcruntime.lib
-    ¦   ¦   ¦       xpcptLoader.pts
-    ¦   ¦   ¦       xpcoptions.m
-    ¦   ¦   ¦       xpcoptions.h
-    ¦   ¦   ¦       rt_nonfinite.h
-    ¦   ¦   ¦       rt_nonfinite.c
-    ¦   ¦   ¦       rt_printf.obj
-    ¦   ¦   ¦       rt_nonfinite.obj
-    ¦   ¦   ¦       xpcimports.obj
-    ¦   ¦   ¦       sersetupbase.obj
-    ¦   ¦   ¦       rt_matrx.obj
-    ¦   ¦   ¦       xpcfromfile.obj
-    ¦   ¦   ¦       xpcextralibs.mk
-    ¦   ¦   ¦       rtwtypeschksum.mat
-    ¦   ¦   ¦       rtw_modelmap_utils.obj
-    ¦   ¦   ¦       rtw_proj.tmw
-    ¦   ¦   ¦       rt_logging.obj
-    ¦   ¦   ¦       rt_logging_mmi.obj
-    ¦   ¦   ¦       
-    ¦   ¦   +---slprj
-    ¦   ¦       ¦   sl_proj.tmw
-    ¦   ¦       ¦   
-    ¦   ¦       +---xpctarget
-    ¦   ¦           +---_sharedutils
-    ¦   ¦           ¦       tflSUInfo.mat
-    ¦   ¦           ¦       
-    ¦   ¦           +---GUI_User_V1_3
-    ¦   ¦               +---tmwinternal
-    ¦   ¦                       minfo.mat
-    ¦   ¦                       binfo.mat
-    ¦   ¦                       
-    ¦   +---SampleTrajectories
-    ¦   ¦       Triangle22s.dat
-    ¦   ¦       Triangulo_3s.dat
-    ¦   ¦       mat2dat.m
-    ¦   ¦       Cross.dat
-    ¦   ¦       
-    ¦   +---slprj
-    ¦       ¦   sl_proj.tmw
-    ¦       ¦   
-    ¦       +---modeladvisor
-    ¦           +---UpgradeAdv_
-    ¦               +---GUI_User_V1_3
-    ¦                       ModelAdvisorData
-    ¦                       
+    Â¦   Â¦   README.txt
+    Â¦   Â¦   Trajec2.dat
+    Â¦   Â¦   MoveSG.m
+    Â¦   Â¦   exportFile2XPc.m
+    Â¦   Â¦   GUI_V3.m
+    Â¦   Â¦   GUI_V3.fig
+    Â¦   Â¦   BuildXPC.m
+    Â¦   Â¦   
+    Â¦   +---Code2XPCtarget
+    Â¦   Â¦   Â¦   GUI_User_V1_3ref.m
+    Â¦   Â¦   Â¦   GUI_User_V1_3pt.m
+    Â¦   Â¦   Â¦   GUI_User_V1_3bio.m
+    Â¦   Â¦   Â¦   GUI_User_V1_3.xml
+    Â¦   Â¦   Â¦   GUI_User_V1_3.mdl
+    Â¦   Â¦   Â¦   GUI_User_V1_3.dlm
+    Â¦   Â¦   Â¦   
+    Â¦   Â¦   +---GUI_User_V1_3_xpc_rtw
+    Â¦   Â¦   Â¦       rtGetInf.h
+    Â¦   Â¦   Â¦       modelsources.txt
+    Â¦   Â¦   Â¦       GUI_User_V1_3_xpc.lib
+    Â¦   Â¦   Â¦       rtGetInf.c
+    Â¦   Â¦   Â¦       GUI_User_V1_3_xpc.exp
+    Â¦   Â¦   Â¦       GUI_User_V1_3_xpc.dll
+    Â¦   Â¦   Â¦       GUI_User_V1_3_types.h
+    Â¦   Â¦   Â¦       rtwtypes.h
+    Â¦   Â¦   Â¦       GUI_User_V1_3_dt.h
+    Â¦   Â¦   Â¦       GUI_User_V1_3_private.h
+    Â¦   Â¦   Â¦       GUI_User_V1_3_data.c
+    Â¦   Â¦   Â¦       rtmodel.h
+    Â¦   Â¦   Â¦       rtGetNaN.c
+    Â¦   Â¦   Â¦       rtGetNaN.h
+    Â¦   Â¦   Â¦       rtGetNaN.obj
+    Â¦   Â¦   Â¦       GUI_User_V1_3_targ_data_map.m
+    Â¦   Â¦   Â¦       GUI_User_V1_3_data.obj
+    Â¦   Â¦   Â¦       GUI_User_V1_3_capi.obj
+    Â¦   Â¦   Â¦       rtGetInf.obj
+    Â¦   Â¦   Â¦       GUI_User_V1_3_capi.h
+    Â¦   Â¦   Â¦       GUI_User_V1_3_capi.c
+    Â¦   Â¦   Â¦       GUI_User_V1_3.h
+    Â¦   Â¦   Â¦       GUI_User_V1_3_ref.rsp
+    Â¦   Â¦   Â¦       GUI_User_V1_3.sid
+    Â¦   Â¦   Â¦       GUI_User_V1_3.lbl
+    Â¦   Â¦   Â¦       GUI_User_V1_3.mk
+    Â¦   Â¦   Â¦       GUI_User_V1_3.obj
+    Â¦   Â¦   Â¦       GUI_User_V1_3.c
+    Â¦   Â¦   Â¦       defines.txt
+    Â¦   Â¦   Â¦       buildInfo.mat
+    Â¦   Â¦   Â¦       fifowrite.obj
+    Â¦   Â¦   Â¦       asciiencode.obj
+    Â¦   Â¦   Â¦       fiforead.obj
+    Â¦   Â¦   Â¦       GUI_User_V1_3.bio
+    Â¦   Â¦   Â¦       GUI_User_V1_3.bat
+    Â¦   Â¦   Â¦       addiamondmm16atcustom.obj
+    Â¦   Â¦   Â¦       xpctarget.xz
+    Â¦   Â¦   Â¦       xpc_datatype_ground.obj
+    Â¦   Â¦   Â¦       xpctarget.smi
+    Â¦   Â¦   Â¦       xpcvcdll.def
+    Â¦   Â¦   Â¦       xpc_datatype_ground.c
+    Â¦   Â¦   Â¦       xpctarget.sid
+    Â¦   Â¦   Â¦       xpctarget.pt
+    Â¦   Â¦   Â¦       xpctarget.obj
+    Â¦   Â¦   Â¦       xpcPCFunctions.obj
+    Â¦   Â¦   Â¦       xpctarget.bio
+    Â¦   Â¦   Â¦       xpctarget.lbl
+    Â¦   Â¦   Â¦       xpcruntime.lib
+    Â¦   Â¦   Â¦       xpcptLoader.pts
+    Â¦   Â¦   Â¦       xpcoptions.m
+    Â¦   Â¦   Â¦       xpcoptions.h
+    Â¦   Â¦   Â¦       rt_nonfinite.h
+    Â¦   Â¦   Â¦       rt_nonfinite.c
+    Â¦   Â¦   Â¦       rt_printf.obj
+    Â¦   Â¦   Â¦       rt_nonfinite.obj
+    Â¦   Â¦   Â¦       xpcimports.obj
+    Â¦   Â¦   Â¦       sersetupbase.obj
+    Â¦   Â¦   Â¦       rt_matrx.obj
+    Â¦   Â¦   Â¦       xpcfromfile.obj
+    Â¦   Â¦   Â¦       xpcextralibs.mk
+    Â¦   Â¦   Â¦       rtwtypeschksum.mat
+    Â¦   Â¦   Â¦       rtw_modelmap_utils.obj
+    Â¦   Â¦   Â¦       rtw_proj.tmw
+    Â¦   Â¦   Â¦       rt_logging.obj
+    Â¦   Â¦   Â¦       rt_logging_mmi.obj
+    Â¦   Â¦   Â¦       
+    Â¦   Â¦   +---slprj
+    Â¦   Â¦       Â¦   sl_proj.tmw
+    Â¦   Â¦       Â¦   
+    Â¦   Â¦       +---xpctarget
+    Â¦   Â¦           +---_sharedutils
+    Â¦   Â¦           Â¦       tflSUInfo.mat
+    Â¦   Â¦           Â¦       
+    Â¦   Â¦           +---GUI_User_V1_3
+    Â¦   Â¦               +---tmwinternal
+    Â¦   Â¦                       minfo.mat
+    Â¦   Â¦                       binfo.mat
+    Â¦   Â¦                       
+    Â¦   +---SampleTrajectories
+    Â¦   Â¦       Triangle22s.dat
+    Â¦   Â¦       Triangulo_3s.dat
+    Â¦   Â¦       mat2dat.m
+    Â¦   Â¦       Cross.dat
+    Â¦   Â¦       
+    Â¦   +---slprj
+    Â¦       Â¦   sl_proj.tmw
+    Â¦       Â¦   
+    Â¦       +---modeladvisor
+    Â¦           +---UpgradeAdv_
+    Â¦               +---GUI_User_V1_3
+    Â¦                       ModelAdvisorData
+    Â¦                       
     +---thirdpartydrivers
-    ¦       sample_supported.m
-    ¦       sample_xpcblocks.m
-    ¦       slblocks.m
-    ¦       dodiamond16at_custom.c
-    ¦       dadiamondmm16at_custom.c
-    ¦       addiamondmm16atcustom.c
-    ¦       mdodiamond16at_custom.m
-    ¦       maskdiamondmm16.m
-    ¦       mdadiamondmm16at_custom.m
-    ¦       sample_int.m
-    ¦       dodiamond16at_custom.mexw64
-    ¦       Diamond16AT_UNAL.mdl
-    ¦       dadiamondmm16at_custom.mexw64
-    ¦       addiamondmm16atcustom.mexw64
-    ¦       xPCTargetFunctionLibraryQuickReference.pdf
-    ¦       UNAL_lib_xpcblocks.m
-    ¦       
+    Â¦       sample_supported.m
+    Â¦       sample_xpcblocks.m
+    Â¦       slblocks.m
+    Â¦       dodiamond16at_custom.c
+    Â¦       dadiamondmm16at_custom.c
+    Â¦       addiamondmm16atcustom.c
+    Â¦       mdodiamond16at_custom.m
+    Â¦       maskdiamondmm16.m
+    Â¦       mdadiamondmm16at_custom.m
+    Â¦       sample_int.m
+    Â¦       dodiamond16at_custom.mexw64
+    Â¦       Diamond16AT_UNAL.mdl
+    Â¦       dadiamondmm16at_custom.mexw64
+    Â¦       addiamondmm16atcustom.mexw64
+    Â¦       xPCTargetFunctionLibraryQuickReference.pdf
+    Â¦       UNAL_lib_xpcblocks.m
+    Â¦       
     +---Stewart_Gough_library
-        ¦   rtwtypesCustom.h
-        ¦   ForKinematics.c
-        ¦   DynamicDiscretePWM.c
-        ¦   antiDeadBand.mexw64
-        ¦   DynamicDiscretePWM.mexw64
-        ¦   ForKinematics.mexw64
-        ¦   antiDeadBand.c
-        ¦   Stewart_Gough_LibraryV2.mdl
-        ¦   Stewart_Gough_Library.mdl
-        ¦   SMC_Test_Simulation_sfun.mexw64
-        ¦   SMC_V_C.mexw64
-        ¦   SMC2XPCT.mexw64
-        ¦   slblocks.m
-        ¦   Set2Zero.mexw64
-        ¦   SMC2XPCT.c
-        ¦   Set2Zero.c
-        ¦   Stewart_Gough_LibraryV2.mdl.r2011a
-        ¦   
+        Â¦   rtwtypesCustom.h
+        Â¦   ForKinematics.c
+        Â¦   DynamicDiscretePWM.c
+        Â¦   antiDeadBand.mexw64
+        Â¦   DynamicDiscretePWM.mexw64
+        Â¦   ForKinematics.mexw64
+        Â¦   antiDeadBand.c
+        Â¦   Stewart_Gough_LibraryV2.mdl
+        Â¦   Stewart_Gough_Library.mdl
+        Â¦   SMC_Test_Simulation_sfun.mexw64
+        Â¦   SMC_V_C.mexw64
+        Â¦   SMC2XPCT.mexw64
+        Â¦   slblocks.m
+        Â¦   Set2Zero.mexw64
+        Â¦   SMC2XPCT.c
+        Â¦   Set2Zero.c
+        Â¦   Stewart_Gough_LibraryV2.mdl.r2011a
+        Â¦   
         +---Trajectories
-        ¦   ¦   Cross.mat
-        ¦   ¦   Triangulo_3s.mat
-        ¦   ¦   Triangle_Perpendicular.mat
-        ¦   ¦   Triangle22s.mat
-        ¦   ¦   Cross_sourceData.mat
-        ¦   ¦   Cross20Seg.mat
-        ¦   ¦   
-        ¦   +---VersionBeforeCalibration
-        ¦           Triangulo_3s.mat
-        ¦           Triangle22s.mat
-        ¦           
+        Â¦   Â¦   Cross.mat
+        Â¦   Â¦   Triangulo_3s.mat
+        Â¦   Â¦   Triangle_Perpendicular.mat
+        Â¦   Â¦   Triangle22s.mat
+        Â¦   Â¦   Cross_sourceData.mat
+        Â¦   Â¦   Cross20Seg.mat
+        Â¦   Â¦   
+        Â¦   +---VersionBeforeCalibration
+        Â¦           Triangulo_3s.mat
+        Â¦           Triangle22s.mat
+        Â¦           
         +---Functions
                 Trapezo_Inter.m
                 CircleXZ_Primitive.m
