@@ -1,7 +1,21 @@
-src/GUI_V3/dumpOutput
+# VSCode files
 .vscode
 .vs
-desktop.ini
-realTime_gettingStarted.m
-*.asv
+
+# GDrive files
+*desktop.ini
 *.ini
+
+# MATLAB files
+*.asv
+## XPCTarget additional build files
+*xpc_rtw/
+*slprj/
+*.xml
+*bio.m
+*pt.m
+*ref.m
+
+## Trajectory data files
+*dumpOutput/
+

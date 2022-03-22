@@ -1,4 +1,4 @@
-*.docx binary
+*.docx binary diff=word
 *.exe binary
 *.jpg binary
 *.pdf binary

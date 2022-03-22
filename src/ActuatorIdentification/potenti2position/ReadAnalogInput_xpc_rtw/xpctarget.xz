@@ -1,4 +1,0 @@
-const unsigned char xmlfile[] = {
-      "NULL"
-};
-const int *xmlsize = (int *)0;

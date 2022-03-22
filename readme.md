@@ -1,4 +1,4 @@
-# Stewart Gough platform upkeep project 
+# Stewart Gough platform
 
 This repo documents the ... process of the PRISMMATIC platform (Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. 
 

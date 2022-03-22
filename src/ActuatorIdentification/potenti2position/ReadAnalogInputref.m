@@ -1,2 +1,0 @@
-function child=ReadAnalogInputref
-child = [];
