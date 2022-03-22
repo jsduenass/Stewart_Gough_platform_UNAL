@@ -1,6 +1,10 @@
+# VSCode files
 .vscode
 .vs
-desktop.ini
-realTime_gettingStarted.m
-*.asv
+
+# GDrive files
+*desktop.ini
 *.ini
+
+# MATLAB files
+*.asv
