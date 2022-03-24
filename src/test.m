@@ -2,12 +2,11 @@ clear, clc, close all
 %% Set up
 % If deault is configured  
 tg = xpctarget.xpc;
-modelName = 'testModels/GUI_V2';
-tg.unload()
+modelName = 'motionControlModel';
  
 connectivity = tg.targetping;           % check conectivity
 if strcmp(connectivity,'success')
-    rtwbuild(modelName);    
+    %rtwbuild(modelName);    
     tg.load(modelName);
     %open_system(modelName);
     tg.stop;
@@ -24,7 +23,7 @@ sc2 = addscope(tg,'target',2);
 sc3 = addscope(tg,'target',3);
 sc4 = addscope(tg,'target',4);
 
-sc5 = addscope(tg,'target',5);
+sc5 = addscope(tg,'host',5);
 %% Input signal id
 id_input = zeros(12,1);
 
@@ -69,24 +68,27 @@ tg.setparam(id_mode,0);
 id_kp = tg.getparamid('Discrete PID Controller/Proportional Gain','Gain');
 id_ki = tg.getparamid('Discrete PID Controller/Integral Gain','Gain');
 
+tg.setparam(id_kp, 80);
+tg.setparam(id_ki,10);
 
-id_ref = tg.getparamid('Reference','Value');
+
+id_ref = tg.getparamid('Reference pose','Value');
 
 %% Spy
 %xpctargetspy
 %% Run movements
 tg.start;
 input('Empezar?')
-X=0;        Y=0;        Z=0.75;
+X=0;        Y=0;        Z=0.8;
 Roll=0;  Pitch=-0;   Yaw=0;
+pose= [X Y Z Roll Pitch Yaw];
 
 % measured distance
 id_dist_m = tg.getsignalidsfromlabel('dist_input');
 d_measured = tg.getsignal(id_dist_m)'
 
 % based on modified MoveSG function 
-[d,~] = inverse_kinematics([X Y Z]', [Roll Pitch Yaw])
-tg.setparam(id_ref, d); 
+tg.setparam(id_ref, pose); 
 
 tg.setparam(id_mode,1);      % enable movement
 input('Presione Enter para terminar')

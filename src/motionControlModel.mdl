@@ -11,7 +11,7 @@ Model {
       Name		      "ASCII"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.25"
+    ComputedModelVersion    "1.29"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -40,11 +40,11 @@ Model {
   Creator		  "crist"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "crist"
+  LastModifiedBy	  "Sebastian"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Mar 24 14:07:44 2022"
-  RTWModifiedTimeStamp	  570031656
-  ModelVersionFormat	  "1.%<AutoIncrement:25>"
+  LastModifiedDate	  "Thu Mar 24 15:55:27 2022"
+  RTWModifiedTimeStamp	  570036790
+  ModelVersionFormat	  "1.%<AutoIncrement:29>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -81,6 +81,7 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "GUI_V4"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -88,6 +89,7 @@ Model {
       Cell		      "GUI_V4"
       PropName		      "logAsSpecifiedByModels_"
     }
+    logAsSpecifiedByModelsSSIDs_ []
   }
   RecordCoverage	  off
   CovPath		  "/"
@@ -893,7 +895,125 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "36"
+    SIDHighWatermark	    "39"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Direc kinematic"
+      SID		      "39"
+      Ports		      [1, 1]
+      Position		      [285, 321, 390, 379]
+      BlockMirror	      on
+      BackgroundColor	      "orange"
+      LibraryVersion	      "1.32"
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('pr"
+      "ivate/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'direct_kinematics']);"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "normalized"
+      System {
+	Name			"Direc kinematic"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"19"
+	Block {
+	  BlockType		  Inport
+	  Name			  "d"
+	  SID			  "39::18"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "39::15"
+	  Ports			  [1, 1]
+	  Position		  [270, 160, 320, 200]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "39::14"
+	  Tag			  "Stateflow S-Function motionControlModel 3"
+	  Ports			  [1, 2]
+	  Position		  [180, 100, 230, 160]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 2]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "pose"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "39::17"
+	  Position		  [460, 171, 480, 189]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "pose"
+	  SID			  "39::19"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "d"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "pose"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "pose"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
     Block {
       BlockType		      Reference
       Name		      "Discrete PID Controller"
@@ -1011,6 +1131,129 @@ Model {
       FilterContinuousStateAttributes "''"
       FilterStateMustResolveToSignalObject off
       FilterRTWStateStorageClass "Auto"
+      Port {
+	PortNumber		1
+	Name			"control"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Inverse kinematic"
+      SID		      "38"
+      Ports		      [1, 1]
+      Position		      [285, 146, 390, 204]
+      BackgroundColor	      "orange"
+      LibraryVersion	      "1.32"
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('pr"
+      "ivate/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'inverse_kinematics']);"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "normalized"
+      System {
+	Name			"Inverse kinematic"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"17"
+	Block {
+	  BlockType		  Inport
+	  Name			  "pose"
+	  SID			  "38::1"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "38::15"
+	  Ports			  [1, 1]
+	  Position		  [270, 160, 320, 200]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "38::14"
+	  Tag			  "Stateflow S-Function motionControlModel 2"
+	  Ports			  [1, 2]
+	  Position		  [180, 100, 230, 160]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 2]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "d"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "38::17"
+	  Position		  [460, 171, 480, 189]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "d"
+	  SID			  "38::5"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "pose"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "d"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "d"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
     }
     Block {
       BlockType		      Reference
@@ -3156,9 +3399,9 @@ Model {
     }
     Block {
       BlockType		      Constant
-      Name		      "Reference"
+      Name		      "Reference pose"
       SID		      "25"
-      Position		      [250, 159, 345, 191]
+      Position		      [100, 159, 195, 191]
       BackgroundColor	      "orange"
       Value		      "[0 0 0 0 0 0]"
     }
@@ -3182,6 +3425,12 @@ Model {
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
+      Port {
+	PortNumber		1
+	Name			"error"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Terminator
@@ -3217,7 +3466,7 @@ Model {
       Name		      "Vdistance"
       SID		      "22"
       Ports		      [1, 1]
-      Position		      [790, 331, 830, 369]
+      Position		      [790, 336, 830, 374]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       NumberOfDimensions      "2"
@@ -3231,7 +3480,7 @@ Model {
       Name		      "volt2distance"
       SID		      "17"
       Ports		      [1, 1]
-      Position		      [665, 327, 735, 373]
+      Position		      [615, 323, 735, 377]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       LibraryVersion	      "1.32"
@@ -3257,7 +3506,7 @@ Model {
       MaskIconUnits	      "normalized"
       Port {
 	PortNumber		1
-	Name			"d_measured"
+	Name			"dist_input"
 	PropagatedSignals	"dist_input"
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
@@ -3386,9 +3635,9 @@ Model {
     Line {
       SrcBlock		      "Mux"
       SrcPort		      1
-      Points		      [-45, 0; 0, -55]
+      Points		      [-45, 0; 0, -50]
       Branch {
-	Points			[0, 110]
+	Points			[0, 105]
 	DstBlock		"Vcurrents"
 	DstPort			1
       }
@@ -3470,21 +3719,25 @@ Model {
       DstPort		      1
     }
     Line {
+      Name		      "control"
+      Labels		      [0, 0]
       SrcBlock		      "Discrete PID Controller"
       SrcPort		      1
       DstBlock		      "Multiport\nSwitch"
       DstPort		      3
     }
     Line {
+      Name		      "error"
+      Labels		      [0, 0]
       SrcBlock		      "Sum"
       SrcPort		      1
       DstBlock		      "Discrete PID Controller"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Reference"
+      SrcBlock		      "Reference pose"
       SrcPort		      1
-      DstBlock		      "Sum"
+      DstBlock		      "Inverse kinematic"
       DstPort		      1
     }
     Line {
@@ -3508,19 +3761,33 @@ Model {
       DstPort		      1
     }
     Line {
-      Name		      "d_measured"
-      Labels		      [1, 1]
+      Name		      "dist_input"
+      Labels		      [0, 0]
       SrcBlock		      "volt2distance"
       SrcPort		      1
-      Points		      [-210, 0; 0, 0]
+      Points		      [-160, 0]
       Branch {
 	DstBlock		"Sum"
 	DstPort			2
       }
       Branch {
-	DstBlock		"Terminator1"
+	Labels			[1, 0]
+	DstBlock		"Direc kinematic"
 	DstPort			1
       }
+    }
+    Line {
+      SrcBlock		      "Inverse kinematic"
+      SrcPort		      1
+      DstBlock		      "Sum"
+      DstPort		      1
+    }
+    Line {
+      Labels		      [1, 0]
+      SrcBlock		      "Direc kinematic"
+      SrcPort		      1
+      DstBlock		      "Terminator1"
+      DstPort		      1
     }
     Annotation {
       Position		      [1081, 18]
@@ -3540,11 +3807,15 @@ Model {
       Position		      [1055, 279]
       BackgroundColor	      "cyan"
     }
+    Annotation {
+      Name		      "[x,y,z,roll,pitch,yaw]"
+      Position		      [149, 140]
+    }
   }
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Mar  5 2011, 00:01:50
+#    Stateflow Version 7.5 (R2010a) dated Mar  4 2011, 22:36:02
 #
 #
 
@@ -3555,7 +3826,7 @@ Stateflow {
     name		    "motionControlModel"
     created		    "23-Mar-2022 12:39:31"
     isLibrary		    0
-    firstTarget		    9
+    firstTarget		    23
     sfVersion		    75014001
   }
   chart {
@@ -3593,9 +3864,9 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function dist_input = volt2distance(v)\n\nm=[-0.068432671	-0.06935123	-0.06993007	-0.068736142	-0"
-      ".068432671	-0.068888889]';\nb=[0.897373068	0.900514541	0.876083916	0.900243902	0.898741722	0.901]';\n\ndist_inpu"
-      "t = m.*v + b;\n\n\n"
+      script		      "function dist_input = volt2distance(v)\n\nm=[-0.069042316 -0.069042316 -0.070056497 -0.069506726 "
+      "-0.06950672 -0.069196429]';\nb=[0.894164811 0.894164811 0.87 0.896412556 0.895717489 0.895602679]';\ndist_input "
+      "= m.*v + b;\n\n\n"
       editorLayout	      "100 M4x1[65 65 768 450]"
     }
   }
@@ -3674,17 +3945,266 @@ Stateflow {
     machine		    1
     chart		    2
   }
-  target {
+  chart {
     id			    9
+    name		    "Inverse kinematic"
+    windowPosition	    [330.747 300 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1536 864 1.333333333333333]
+    treeNode		    [0 10 0 0]
+    firstTransition	    12
+    firstJunction	    11
+    viewObj		    9
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    5
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    13
+    chartFileNumber	    2
+    disableImplicitCasting  1
+    eml {
+      name		      "inverse_kinematics"
+    }
+  }
+  state {
+    id			    10
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    9
+    treeNode		    [9 0 0 0]
+    superState		    SUBCHART
+    subviewer		    9
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function d = inverse_kinematics(pose)\n% INVERSEKINEMATICS Inverse kinematics of PRISMMATIC, a SG"
+      " platform of \n% the Universidad Nacional de Colombia\n%\n% [d,S] = inverseKinematics(P, aRb) returns the length"
+      " and direction of \n% each actuator so that the mobile base reaches a desired position P and \n% orientation aRb"
+      ".\nP=pose(1:3);\nR=pose(4:6);\n\n    a = [0.0260    0.1410    0.1149   -0.1149   -0.1410   -0.0260;...\n        "
+      " 0.1477   -0.0513   -0.0964   -0.0964   -0.0513    0.1477;...\n         0.0380    0.0380    0.0380    0.0380    "
+      "0.0380    0.0380];\n   \n    b = [0.0636    0.0869    0.0233   -0.0233   -0.0869   -0.0636;...\n         0.0636 "
+      "   0.0233   -0.0869   -0.0869    0.0233    0.0636;...\n        -0.0620   -0.0620   -0.0620   -0.0620   -0.0620  "
+      " -0.0620];\n\n    d = zeros(6,1);\n    S = zeros(3,6);\n    \n    \n    Rx = [1         0          0;\n         "
+      " 0 cos(R(1)) -sin(R(1));\n          0 sin(R(1))  cos(R(1))];\n    \n    Ry = [cos(R(2)) 0 sin(R(2));\n          "
+      "        0 1         0;\n         -sin(R(2)) 0 cos(R(2))];\n      \n    Rz = [cos(R(3)) -sin(R(3)) 0;\n          "
+      "sin(R(3))  cos(R(3)) 0;\n                  0          0 1];\n    aRb = Rz*Ry*Rx;\n\n    for i=1:6\n        AB = "
+      "P+aRb*b(:,i)-a(:,i);\n        d(i) = norm(AB);\n        S(:,i) = AB/d(i);\n    end\nend"
+      editorLayout	      "100 M4x1[65 65 768 450]"
+    }
+  }
+  junction {
+    id			    11
+    position		    [23.5747 49.5747 7]
+    chart		    9
+    linkNode		    [9 0 0]
+    subviewer		    9
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    12
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      11
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    9
+    linkNode		    [9 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    9
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    13
+    ssIdNumber		    4
+    name		    "pose"
+    linkNode		    [9 0 14]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    14
+    ssIdNumber		    5
+    name		    "d"
+    linkNode		    [9 13 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    15
+    name		    "Inverse kinematic"
+    machine		    1
+    chart		    9
+  }
+  chart {
+    id			    16
+    name		    "Direc kinematic"
+    windowPosition	    [345.747 285 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1536 864 1.333333333333333]
+    treeNode		    [0 17 0 0]
+    firstTransition	    19
+    firstJunction	    18
+    viewObj		    16
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    5
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    20
+    chartFileNumber	    3
+    disableImplicitCasting  1
+    eml {
+      name		      "direct_kinematics"
+    }
+  }
+  state {
+    id			    17
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    16
+    treeNode		    [16 0 0 0]
+    superState		    SUBCHART
+    subviewer		    16
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function pose = direct_kinematics(d)\n% DIRECTKINEMATIC\n\n% pose = direct_kinematics(d)\n\n    a"
+      " = [0.0260    0.1410    0.1149   -0.1149   -0.1410   -0.0260;...\n         0.1477   -0.0513   -0.0964   -0.0964 "
+      "  -0.0513    0.1477;...\n         0.0380    0.0380    0.0380    0.0380    0.0380    0.0380];\n   \n    b = [0.06"
+      "36    0.0869    0.0233   -0.0233   -0.0869   -0.0636;...\n         0.0636    0.0233   -0.0869   -0.0869    0.023"
+      "3    0.0636;...\n        -0.0620   -0.0620   -0.0620   -0.0620   -0.0620   -0.0620];\n\n   pose = zeros(6,1);\n "
+      "  \n    \n   \nend"
+      editorLayout	      "100 M4x1[65 65 768 450]"
+    }
+  }
+  junction {
+    id			    18
+    position		    [23.5747 49.5747 7]
+    chart		    16
+    linkNode		    [16 0 0]
+    subviewer		    16
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    19
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      18
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    16
+    linkNode		    [16 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    16
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    20
+    ssIdNumber		    4
+    name		    "pose"
+    linkNode		    [16 0 21]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    21
+    ssIdNumber		    5
+    name		    "d"
+    linkNode		    [16 20 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    22
+    name		    "Direc kinematic"
+    machine		    1
+    chart		    16
+  }
+  target {
+    id			    23
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 10]
+    linkNode		    [1 0 24]
   }
   target {
-    id			    10
+    id			    24
     name		    "rtw"
     machine		    1
-    linkNode		    [1 9 0]
+    linkNode		    [1 23 0]
   }
 }

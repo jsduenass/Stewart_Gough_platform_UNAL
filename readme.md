@@ -23,6 +23,26 @@ The project has the following secondary objectives:
 
 ## Process
 
+## Simulink model 
+
+block reference
+* MM-16-AT Analog Input : [addiamondmm16atcustom](./ext/thirdpartydrivers/addiamondmm16atcustom.c) 
+
+
+* SG-ADC Sensors: wrapper of MM-16-AT Analog Input. reordering ports and filtering and scaling.
+* Motors-F4 STM - PWM
+  * Baseboard Serial
+  * fiforead from xpc target library 
+  * sertxenablebase from xpc target library
+
+__Signal PWM__
+name s2 - s7
+```If Action Subsystem6/Referece/From File1/s2```
+
+__Signal input__ distance/current direct without wrapper 
+name p1 - p12
+```SG-ADC Sensors/MM-16-AT Analog Input/p1```
+
 ### Compiling c files with mex
 
 ``` 

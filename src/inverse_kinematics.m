@@ -16,15 +16,18 @@ function [d, S] = inverse_kinematics(P, R)
     d = zeros(6,1);
     S = zeros(3,6);
     
+    
+    Rx = [1         0          0;
+          0 cos(R(1)) -sin(R(1));
+          0 sin(R(1))  cos(R(1))];
+    
+    Ry = [cos(R(2)) 0 sin(R(2));
+                  0 1         0;
+         -sin(R(2)) 0 cos(R(2))];
+      
     Rz = [cos(R(3)) -sin(R(3)) 0;
           sin(R(3))  cos(R(3)) 0;
                   0          0 1];
-    Ry = [cos(R(3)) 0 sin(R(3));
-                  0 1         0;
-         -sin(R(3)) 0 cos(R(3))];
-    Rx = [1         0          0;
-          0 cos(R(3)) -sin(R(3));
-          0 sin(R(3))  cos(R(3))];
     aRb = Rz*Ry*Rx;
 
     for i=1:6
