@@ -1,12 +1,17 @@
 Model {
-  Name			  "GUI_V4"
+  Name			  "motionControlModel"
   Version		  7.7
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
-    NumRootOutports	    0
+    NumRootOutports	    1
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "ASCII"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.15"
+    ComputedModelVersion    "1.25"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -18,7 +23,7 @@ Model {
       Type		      "Cell"
       Dimension		      2
       Cell		      "HDLSubsystem"
-      Cell		      "GUI_V4"
+      Cell		      "motionControlModel"
       PropName		      "mdlProps"
     }
   }
@@ -37,9 +42,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "crist"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Mar 23 14:11:14 2022"
-  RTWModifiedTimeStamp	  569944865
-  ModelVersionFormat	  "1.%<AutoIncrement:15>"
+  LastModifiedDate	  "Thu Mar 24 14:07:44 2022"
+  RTWModifiedTimeStamp	  570031656
+  ModelVersionFormat	  "1.%<AutoIncrement:25>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -679,6 +684,12 @@ Model {
   }
   BlockParameterDefaults {
     Block {
+      BlockType		      ActionPort
+      InitializeStates	      "held"
+      PropagateVarSize	      "Only when execution is resumed"
+      ActionType	      "unset"
+    }
+    Block {
       BlockType		      Constant
       Value		      "1"
       VectorParams1D	      on
@@ -698,6 +709,32 @@ Model {
       BusSelectionMode	      off
     }
     Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Ground
+    }
+    Block {
+      BlockType		      If
+      NumInputs		      "1"
+      IfExpression	      "u1 > 0"
+      ShowElse		      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Inport
       Port		      "1"
       OutputFunctionCall      off
@@ -714,6 +751,13 @@ Model {
       LatchByDelayingOutsideSignal off
       LatchInputForFeedbackSignals off
       Interpolate	      on
+    }
+    Block {
+      BlockType		      Merge
+      Inputs		      "2"
+      InitialOutput	      "[]"
+      AllowUnequalInputPortWidths off
+      InputPortOffsets	      "[]"
     }
     Block {
       BlockType		      MultiPortSwitch
@@ -758,11 +802,31 @@ Model {
       InitialOutput	      "[]"
     }
     Block {
+      BlockType		      Rounding
+      Operator		      "floor"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      S-Function
       FunctionName	      "system"
       SFunctionModules	      "''"
       PortCounts	      "[]"
       SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimitSource	      "Dialog"
+      UpperLimit	      "0.5"
+      LowerLimitSource	      "Dialog"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
     }
     Block {
       BlockType		      Selector
@@ -814,7 +878,7 @@ Model {
     }
   }
   System {
-    Name		    "GUI_V4"
+    Name		    "motionControlModel"
     Location		    [2, 83, 1348, 707]
     Open		    on
     ModelBrowserVisibility  off
@@ -829,7 +893,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "28"
+    SIDHighWatermark	    "36"
     Block {
       BlockType		      Reference
       Name		      "Discrete PID Controller"
@@ -951,11 +1015,11 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "MM-16-AT Analog Input"
-      SID		      "18"
+      SID		      "33"
       Ports		      [0, 12]
-      Position		      [1040, 275, 1140, 535]
+      Position		      [1045, 275, 1145, 535]
       BlockMirror	      on
-      BackgroundColor	      "yellow"
+      BackgroundColor	      "cyan"
       LibraryVersion	      "1.24"
       SourceBlock	      "Diamond16AT_UNAL/Diamond MM-16-AT/MM-16-AT Analog Input"
       SourceType	      ""
@@ -975,33 +1039,2093 @@ Model {
       Value		      "0"
     }
     Block {
-      BlockType		      Reference
+      BlockType		      SubSystem
       Name		      "Motors - F4\n STM - PWM"
       SID		      "8"
-      Ports		      [1]
-      Position		      [1190, 144, 1265, 196]
+      Ports		      [1, 1]
+      Position		      [1140, 130, 1260, 210]
       BackgroundColor	      "lightBlue"
-      LibraryVersion	      "1.24"
-      SourceBlock	      "Diamond16AT_UNAL/PWM Generation/Motors - F4\n STM - PWM"
-      SourceType	      "Protocol for PWM generation through STM-F4"
-      ShowPortLabels	      "FromPortIcon"
-      SystemSampleTime	      "-1"
+      AncestorBlock	      "Diamond16AT_UNAL/PWM Generation/Motors - F4\n STM - PWM"
+      LibraryVersion	      "*1.24"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
-      GeneratePreprocessorConditionals off
-      Satura		      "80"
-      SamTime		      "0.001"
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Protocol for PWM generation through STM-F4"
+      MaskDescription	      "Comunication protocol for PWM generation. This block communicates a STM-F4 through serial"
+      " RS-232 comunication. The STM-F4 generates the PWMs required for motor control.\n\nINPUT:  [6x1] Percentage of d"
+      "uty cycle for each of the six motors.\nOUTPUT: PWM signal to the H-Bridge"
+      MaskHelp		      "Comunication protocol for PWM generation. This block communicates a STM-F4 through serial RS-23"
+      "2 comunication. The STM-F4 generates the PWMs required for motor control.\n\nINPUT:  [6x1] Percentage of duty cy"
+      "cle for each of the six motors.\nOUTPUT: PWM signal to the H-Bridge"
+      MaskPromptString	      "Saturation (%):|Sample Time (s):"
+      MaskStyleString	      "edit,edit"
+      MaskVariables	      "Satura=@1;SamTime=@2;"
+      MaskTunableValueString  "on,on"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "80|0.001"
+      System {
+	Name			"Motors - F4\n STM - PWM"
+	Location		[2, 83, 1331, 739]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"85"
+	SIDHighWatermark	"134"
+	SIDPrevWatermark	"133"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Control Signals"
+	  SID			  "8:19"
+	  Position		  [80, 553, 110, 567]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "ASCII Encode "
+	  SID			  "8:20"
+	  Ports			  [6, 1]
+	  Position		  [590, 86, 675, 1139]
+	  LibraryVersion	  "1.15"
+	  SourceBlock		  "xpcseriallib/ASCII Encode "
+	  SourceType		  "ASCII Encode"
+	  format		  "s%c%c%c%c%c%c"
+	  nvars			  "6"
+	  maxlength		  "9"
+	  vartypes		  "{ 'double' }"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Baseboard\nSerial1"
+	  SID			  "8:21"
+	  Ports			  [2, 2]
+	  Position		  [755, 579, 830, 721]
+	  LibraryVersion	  "1.15"
+	  SourceBlock		  "xpcseriallib/Mainboard/Baseboard\nSerial"
+	  SourceType		  "Baseboard RS232 Send Receive"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	  group			  "Board Setup"
+	  port			  "1"
+	  irqnum		  "4"
+	  saddr1		  "0x3f8"
+	  saddr2		  "0x3e8"
+	  config		  "Com1/none"
+	  baud1			  "115200"
+	  parity1		  "None"
+	  ndata1		  "8"
+	  nstop1		  "1"
+	  fifomode1		  "16 deep"
+	  rlevel1		  "half full"
+	  automode1		  off
+	  xmtfifosize1		  "1024"
+	  xmtdatatype1		  "8 bit uint null terminated"
+	  rcvfifosize1		  "1024"
+	  rcvmaxread1		  "1024"
+	  rcvminread1		  "1"
+	  rcvusedelim1		  on
+	  rcvdelim1		  "13"
+	  rcvdatatype1		  "count+16 bit uint"
+	  rcvsampletime1	  ".001"
+	  baud2			  "115200"
+	  parity2		  "None"
+	  ndata2		  "8"
+	  nstop2		  "1"
+	  fifomode2		  "16 deep"
+	  rlevel2		  "half full"
+	  automode2		  off
+	  xmtfifosize2		  "1024"
+	  xmtdatatype2		  "8 bit uint null terminated"
+	  rcvfifosize2		  "1024"
+	  rcvmaxread2		  "1024"
+	  rcvminread2		  "1"
+	  rcvusedelim2		  on
+	  rcvdelim2		  "13"
+	  rcvdatatype2		  "count+16 bit uint"
+	  rcvsampletime2	  ".001"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  SID			  "8:22"
+	  Ports			  [1, 6]
+	  Position		  [190, 17, 200, 1103]
+	  ShowName		  off
+	  Outputs		  "6"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Ground
+	  Name			  "Ground"
+	  SID			  "8:23"
+	  Position		  [720, 675, 740, 695]
+	}
+	Block {
+	  BlockType		  If
+	  Name			  "If"
+	  SID			  "8:24"
+	  Ports			  [1, 2]
+	  Position		  [315, 90, 365, 130]
+	  IfExpression		  "u1 >= 0 & u1<=100"
+	  ElseIfExpressions	  "u1 <0 & u1 >= -100"
+	  ShowElse		  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem"
+	  SID			  "8:25"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [400, 132, 470, 168]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem"
+	    Location		    [342, 471, 840, 771]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:26"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:27"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:28"
+	      Position		      [170, 105, 200, 135]
+	      Value		      "50"
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:29"
+	      Position		      [255, 70, 285, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:30"
+	      Ports		      [2, 1]
+	      Position		      [210, 75, 230, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:31"
+	      Position		      [325, 78, 355, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem1"
+	  SID			  "8:32"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [335, 182, 405, 218]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem1"
+	    Location		    [272, 271, 770, 571]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:33"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:34"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "elseif"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:35"
+	      Position		      [140, 130, 170, 160]
+	      Value		      "150"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "8:36"
+	      Position		      [140, 70, 170, 100]
+	      Gain		      "-1"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:37"
+	      Position		      [270, 70, 300, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:38"
+	      Ports		      [2, 1]
+	      Position		      [190, 75, 210, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:39"
+	      Position		      [350, 78, 380, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem10"
+	  SID			  "8:40"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [415, 1032, 485, 1068]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem10"
+	    Location		    [342, 471, 840, 771]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:41"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:42"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:43"
+	      Position		      [170, 105, 200, 135]
+	      Value		      "50"
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:44"
+	      Position		      [255, 70, 285, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:45"
+	      Ports		      [2, 1]
+	      Position		      [210, 75, 230, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:46"
+	      Position		      [325, 78, 355, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem11"
+	  SID			  "8:47"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [350, 1082, 420, 1118]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem11"
+	    Location		    [272, 271, 770, 571]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:48"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:49"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "elseif"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:50"
+	      Position		      [140, 130, 170, 160]
+	      Value		      "150"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "8:51"
+	      Position		      [140, 70, 170, 100]
+	      Gain		      "-1"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:52"
+	      Position		      [270, 70, 300, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:53"
+	      Ports		      [2, 1]
+	      Position		      [190, 75, 210, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:54"
+	      Position		      [350, 78, 380, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem2"
+	  SID			  "8:55"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [375, 312, 445, 348]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem2"
+	    Location		    [342, 471, 840, 771]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:56"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:57"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:58"
+	      Position		      [170, 105, 200, 135]
+	      Value		      "50"
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:59"
+	      Position		      [255, 70, 285, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:60"
+	      Ports		      [2, 1]
+	      Position		      [210, 75, 230, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:61"
+	      Position		      [325, 78, 355, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem3"
+	  SID			  "8:62"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [310, 362, 380, 398]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem3"
+	    Location		    [272, 271, 770, 571]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:63"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:64"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "elseif"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:65"
+	      Position		      [140, 130, 170, 160]
+	      Value		      "150"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "8:66"
+	      Position		      [140, 70, 170, 100]
+	      Gain		      "-1"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:67"
+	      Position		      [270, 70, 300, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:68"
+	      Ports		      [2, 1]
+	      Position		      [190, 75, 210, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:69"
+	      Position		      [350, 78, 380, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem4"
+	  SID			  "8:70"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [395, 492, 465, 528]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem4"
+	    Location		    [342, 471, 840, 771]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:71"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:72"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:73"
+	      Position		      [170, 105, 200, 135]
+	      Value		      "50"
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:74"
+	      Position		      [255, 70, 285, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:75"
+	      Ports		      [2, 1]
+	      Position		      [210, 75, 230, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:76"
+	      Position		      [325, 78, 355, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem5"
+	  SID			  "8:77"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [330, 542, 400, 578]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem5"
+	    Location		    [272, 271, 770, 571]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:78"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:79"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "elseif"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:80"
+	      Position		      [140, 130, 170, 160]
+	      Value		      "150"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "8:81"
+	      Position		      [140, 70, 170, 100]
+	      Gain		      "-1"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:82"
+	      Position		      [270, 70, 300, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:83"
+	      Ports		      [2, 1]
+	      Position		      [190, 75, 210, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:84"
+	      Position		      [350, 78, 380, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem6"
+	  SID			  "8:85"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [415, 672, 485, 708]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem6"
+	    Location		    [342, 471, 840, 771]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:86"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:87"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:88"
+	      Position		      [170, 105, 200, 135]
+	      Value		      "50"
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:89"
+	      Position		      [255, 70, 285, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:90"
+	      Ports		      [2, 1]
+	      Position		      [210, 75, 230, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:91"
+	      Position		      [325, 78, 355, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem7"
+	  SID			  "8:92"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [350, 722, 420, 758]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem7"
+	    Location		    [272, 271, 770, 571]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:93"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:94"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "elseif"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:95"
+	      Position		      [140, 130, 170, 160]
+	      Value		      "150"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "8:96"
+	      Position		      [140, 70, 170, 100]
+	      Gain		      "-1"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:97"
+	      Position		      [270, 70, 300, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:98"
+	      Ports		      [2, 1]
+	      Position		      [190, 75, 210, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:99"
+	      Position		      [350, 78, 380, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem8"
+	  SID			  "8:100"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [415, 852, 485, 888]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem8"
+	    Location		    [342, 471, 840, 771]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:101"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:102"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:103"
+	      Position		      [170, 105, 200, 135]
+	      Value		      "50"
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:104"
+	      Position		      [255, 70, 285, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:105"
+	      Ports		      [2, 1]
+	      Position		      [210, 75, 230, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:106"
+	      Position		      [325, 78, 355, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem9"
+	  SID			  "8:107"
+	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
+	  Position		  [350, 902, 420, 938]
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem9"
+	    Location		    [272, 271, 770, 571]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In1"
+	      SID		      "8:108"
+	      Position		      [75, 78, 105, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "8:109"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "elseif"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant8"
+	      SID		      "8:110"
+	      Position		      [140, 130, 170, 160]
+	      Value		      "150"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "8:111"
+	      Position		      [140, 70, 170, 100]
+	      Gain		      "-1"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Rounding
+	      Name		      "Rounding\nFunction"
+	      SID		      "8:112"
+	      Position		      [270, 70, 300, 100]
+	      Operator		      "ceil"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "8:113"
+	      Ports		      [2, 1]
+	      Position		      [190, 75, 210, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out1"
+	      SID		      "8:114"
+	      Position		      [350, 78, 380, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rounding\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Rounding\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant8"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In1"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  If
+	  Name			  "If1"
+	  SID			  "8:115"
+	  Ports			  [1, 2]
+	  Position		  [290, 270, 340, 310]
+	  IfExpression		  "u1 >= 0 & u1<=100"
+	  ElseIfExpressions	  "u1 <0 & u1 >= -100"
+	  ShowElse		  off
+	}
+	Block {
+	  BlockType		  If
+	  Name			  "If2"
+	  SID			  "8:116"
+	  Ports			  [1, 2]
+	  Position		  [310, 450, 360, 490]
+	  IfExpression		  "u1 >= 0 & u1<=100"
+	  ElseIfExpressions	  "u1 <0 & u1 >= -100"
+	  ShowElse		  off
+	}
+	Block {
+	  BlockType		  If
+	  Name			  "If3"
+	  SID			  "8:117"
+	  Ports			  [1, 2]
+	  Position		  [330, 630, 380, 670]
+	  IfExpression		  "u1 >= 0 & u1<=100"
+	  ElseIfExpressions	  "u1 <0 & u1 >= -100"
+	  ShowElse		  off
+	}
+	Block {
+	  BlockType		  If
+	  Name			  "If4"
+	  SID			  "8:118"
+	  Ports			  [1, 2]
+	  Position		  [330, 810, 380, 850]
+	  IfExpression		  "u1 >= 0 & u1<=100"
+	  ElseIfExpressions	  "u1 <0 & u1 >= -100"
+	  ShowElse		  off
+	}
+	Block {
+	  BlockType		  If
+	  Name			  "If5"
+	  SID			  "8:119"
+	  Ports			  [1, 2]
+	  Position		  [330, 990, 380, 1030]
+	  IfExpression		  "u1 >= 0 & u1<=100"
+	  ElseIfExpressions	  "u1 <0 & u1 >= -100"
+	  ShowElse		  off
+	}
+	Block {
+	  BlockType		  Merge
+	  Name			  "Merge"
+	  SID			  "8:120"
+	  Ports			  [2, 1]
+	  Position		  [490, 155, 530, 195]
+	}
+	Block {
+	  BlockType		  Merge
+	  Name			  "Merge1"
+	  SID			  "8:121"
+	  Ports			  [2, 1]
+	  Position		  [465, 335, 505, 375]
+	}
+	Block {
+	  BlockType		  Merge
+	  Name			  "Merge2"
+	  SID			  "8:122"
+	  Ports			  [2, 1]
+	  Position		  [485, 515, 525, 555]
+	}
+	Block {
+	  BlockType		  Merge
+	  Name			  "Merge3"
+	  SID			  "8:123"
+	  Ports			  [2, 1]
+	  Position		  [505, 695, 545, 735]
+	}
+	Block {
+	  BlockType		  Merge
+	  Name			  "Merge4"
+	  SID			  "8:124"
+	  Ports			  [2, 1]
+	  Position		  [505, 875, 545, 915]
+	}
+	Block {
+	  BlockType		  Merge
+	  Name			  "Merge5"
+	  SID			  "8:125"
+	  Ports			  [2, 1]
+	  Position		  [505, 1055, 545, 1095]
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "8:126"
+	  Ports			  [1, 1]
+	  Position		  [245, 95, 275, 125]
+	  InputPortMap		  "u0"
+	  UpperLimit		  "Satura"
+	  LowerLimit		  "-Satura"
+	  SampleTime		  "SamTime"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "8:127"
+	  Ports			  [1, 1]
+	  Position		  [225, 275, 255, 305]
+	  InputPortMap		  "u0"
+	  UpperLimit		  "Satura"
+	  LowerLimit		  "-Satura"
+	  SampleTime		  "SamTime"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation2"
+	  SID			  "8:128"
+	  Ports			  [1, 1]
+	  Position		  [240, 455, 270, 485]
+	  InputPortMap		  "u0"
+	  UpperLimit		  "Satura"
+	  LowerLimit		  "-Satura"
+	  SampleTime		  "SamTime"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation3"
+	  SID			  "8:129"
+	  Ports			  [1, 1]
+	  Position		  [260, 635, 290, 665]
+	  InputPortMap		  "u0"
+	  UpperLimit		  "Satura"
+	  LowerLimit		  "-Satura"
+	  SampleTime		  "SamTime"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation4"
+	  SID			  "8:130"
+	  Ports			  [1, 1]
+	  Position		  [260, 815, 290, 845]
+	  InputPortMap		  "u0"
+	  UpperLimit		  "Satura"
+	  LowerLimit		  "-Satura"
+	  SampleTime		  "SamTime"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation5"
+	  SID			  "8:131"
+	  Ports			  [1, 1]
+	  Position		  [260, 995, 290, 1025]
+	  InputPortMap		  "u0"
+	  UpperLimit		  "Satura"
+	  LowerLimit		  "-Satura"
+	  SampleTime		  "SamTime"
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  SID			  "8:132"
+	  Position		  [860, 675, 880, 695]
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator1"
+	  SID			  "8:133"
+	  Position		  [860, 605, 880, 625]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ASCIIOut"
+	  SID			  "8:134"
+	  Position		  [960, 318, 990, 332]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  6
+	  DstBlock		  "Saturation5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  5
+	  DstBlock		  "Saturation4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  4
+	  DstBlock		  "Saturation3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  3
+	  DstBlock		  "Saturation2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Merge5"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  DstBlock		  "ASCII Encode "
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Merge4"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  DstBlock		  "ASCII Encode "
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Merge3"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  DstBlock		  "ASCII Encode "
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Merge2"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, -10]
+	  DstBlock		  "ASCII Encode "
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Merge1"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "ASCII Encode "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Saturation5"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    Points		    [0, 40]
+	    Branch {
+	      Points		      [0, 50]
+	      DstBlock		      "If Action\nSubsystem11"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "If Action\nSubsystem10"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "If5"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem10"
+	  SrcPort		  1
+	  DstBlock		  "Merge5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem11"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "Merge5"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "If5"
+	  SrcPort		  2
+	  DstBlock		  "If Action\nSubsystem11"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "If5"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "If Action\nSubsystem10"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "Saturation4"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    Points		    [0, 40]
+	    Branch {
+	      Points		      [0, 50]
+	      DstBlock		      "If Action\nSubsystem9"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "If Action\nSubsystem8"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "If4"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem8"
+	  SrcPort		  1
+	  DstBlock		  "Merge4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem9"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "Merge4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "If4"
+	  SrcPort		  2
+	  DstBlock		  "If Action\nSubsystem9"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "If4"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "If Action\nSubsystem8"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "Saturation3"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    Points		    [0, 40]
+	    Branch {
+	      Points		      [0, 50]
+	      DstBlock		      "If Action\nSubsystem7"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "If Action\nSubsystem6"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "If3"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem6"
+	  SrcPort		  1
+	  DstBlock		  "Merge3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem7"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "Merge3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "If3"
+	  SrcPort		  2
+	  DstBlock		  "If Action\nSubsystem7"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "If3"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "If Action\nSubsystem6"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "Saturation2"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    Points		    [0, 40]
+	    Branch {
+	      Points		      [0, 50]
+	      DstBlock		      "If Action\nSubsystem5"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "If Action\nSubsystem4"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "If2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem4"
+	  SrcPort		  1
+	  DstBlock		  "Merge2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem5"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "Merge2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "If2"
+	  SrcPort		  2
+	  DstBlock		  "If Action\nSubsystem5"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "If2"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "If Action\nSubsystem4"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    Points		    [0, 40]
+	    Branch {
+	      Points		      [0, 50]
+	      DstBlock		      "If Action\nSubsystem3"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "If Action\nSubsystem2"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "If1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem2"
+	  SrcPort		  1
+	  DstBlock		  "Merge1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem3"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "Merge1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "If1"
+	  SrcPort		  2
+	  DstBlock		  "If Action\nSubsystem3"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "If1"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "If Action\nSubsystem2"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    Points		    [0, 40]
+	    Branch {
+	      Points		      [0, 50]
+	      DstBlock		      "If Action\nSubsystem1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "If Action\nSubsystem"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "If"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Merge"
+	  SrcPort		  1
+	  DstBlock		  "ASCII Encode "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem"
+	  SrcPort		  1
+	  DstBlock		  "Merge"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem1"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "Merge"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "If"
+	  SrcPort		  2
+	  DstBlock		  "If Action\nSubsystem1"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "If"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "If Action\nSubsystem"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "Control Signals"
+	  SrcPort		  1
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Ground"
+	  SrcPort		  1
+	  DstBlock		  "Baseboard\nSerial1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Baseboard\nSerial1"
+	  SrcPort		  1
+	  DstBlock		  "Terminator1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Baseboard\nSerial1"
+	  SrcPort		  2
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "ASCII Encode "
+	  SrcPort		  1
+	  Points		  [35, 0]
+	  Branch {
+	    DstBlock		    "Baseboard\nSerial1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -290]
+	    DstBlock		    "ASCIIOut"
+	    DstPort		    1
+	  }
+	}
+	Annotation {
+	  Name			  "Motor connectr's order 6,4,2,5,3,1"
+	  Position		  [810, 187]
+	}
+      }
     }
     Block {
       BlockType		      MultiPortSwitch
       Name		      "Multiport\nSwitch"
       SID		      "27"
       Ports		      [4, 1]
-      Position		      [1105, 141, 1140, 194]
+      Position		      [1075, 141, 1110, 194]
       BackgroundColor	      "lightBlue"
       DataPortOrder	      "Specify indices"
       DataPortIndices	      "{2,1,0}"
@@ -1017,7 +3141,7 @@ Model {
       Ports		      [12, 1]
       Position		      [930, 286, 940, 524]
       BlockMirror	      on
-      BackgroundColor	      "yellow"
+      BackgroundColor	      "cyan"
       ShowName		      off
       Inputs		      "12"
       DisplayOption	      "bar"
@@ -1065,6 +3189,14 @@ Model {
       SID		      "20"
       Position		      [715, 450, 735, 470]
       BlockMirror	      on
+      BackgroundColor	      "cyan"
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator1"
+      SID		      "36"
+      Position		      [120, 340, 140, 360]
+      BlockMirror	      on
       BackgroundColor	      "yellow"
     }
     Block {
@@ -1074,7 +3206,7 @@ Model {
       Ports		      [1, 1]
       Position		      [790, 441, 830, 479]
       BlockMirror	      on
-      BackgroundColor	      "yellow"
+      BackgroundColor	      "cyan"
       InputPortWidth	      "12"
       IndexOptions	      "Index vector (dialog)"
       Indices		      "[2 4 6 8 10 12]"
@@ -1087,7 +3219,7 @@ Model {
       Ports		      [1, 1]
       Position		      [790, 331, 830, 369]
       BlockMirror	      on
-      BackgroundColor	      "yellow"
+      BackgroundColor	      "cyan"
       NumberOfDimensions      "2"
       InputPortWidth	      "12"
       IndexOptions	      "Index vector (dialog),Index vector (dialog)"
@@ -1101,7 +3233,7 @@ Model {
       Ports		      [1, 1]
       Position		      [665, 327, 735, 373]
       BlockMirror	      on
-      BackgroundColor	      "yellow"
+      BackgroundColor	      "cyan"
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -1165,7 +3297,7 @@ Model {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
 	  SID			  "17::14"
-	  Tag			  "Stateflow S-Function GUI_V4 1"
+	  Tag			  "Stateflow S-Function motionControlModel 1"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
 	  FunctionName		  "sf_sfun"
@@ -1218,6 +3350,13 @@ Model {
 	  DstPort		  1
 	}
       }
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "ASCII"
+      SID		      "30"
+      Position		      [1295, 163, 1325, 177]
+      IconDisplay	      "Port number"
     }
     Line {
       SrcBlock		      "Multiport\nSwitch"
@@ -1343,15 +3482,6 @@ Model {
       DstPort		      1
     }
     Line {
-      Name		      "d_measured"
-      Labels		      [1, 1]
-      SrcBlock		      "volt2distance"
-      SrcPort		      1
-      Points		      [-210, 0]
-      DstBlock		      "Sum"
-      DstPort		      2
-    }
-    Line {
       SrcBlock		      "Reference"
       SrcPort		      1
       DstBlock		      "Sum"
@@ -1371,6 +3501,27 @@ Model {
       DstBlock		      "Multiport\nSwitch"
       DstPort		      4
     }
+    Line {
+      SrcBlock		      "Motors - F4\n STM - PWM"
+      SrcPort		      1
+      DstBlock		      "ASCII"
+      DstPort		      1
+    }
+    Line {
+      Name		      "d_measured"
+      Labels		      [1, 1]
+      SrcBlock		      "volt2distance"
+      SrcPort		      1
+      Points		      [-210, 0; 0, 0]
+      Branch {
+	DstBlock		"Sum"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Terminator1"
+	DstPort			1
+      }
+    }
     Annotation {
       Position		      [1081, 18]
       BackgroundColor	      "lightBlue"
@@ -1382,11 +3533,18 @@ Model {
     Annotation {
       Position		      [613, 142]
     }
+    Annotation {
+      Position		      [1267, 387]
+    }
+    Annotation {
+      Position		      [1055, 279]
+      BackgroundColor	      "cyan"
+    }
   }
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Mar  4 2011, 22:36:02
+#    Stateflow Version 7.5 (R2010a) dated Mar  5 2011, 00:01:50
 #
 #
 
@@ -1394,7 +3552,7 @@ Model {
 Stateflow {
   machine {
     id			    1
-    name		    "GUI_V4"
+    name		    "motionControlModel"
     created		    "23-Mar-2022 12:39:31"
     isLibrary		    0
     firstTarget		    9

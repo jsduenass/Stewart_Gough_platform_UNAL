@@ -31,7 +31,7 @@ Model {
       Name		      "distRef"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1084"
+    ComputedModelVersion    "1.1090"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -63,9 +63,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "crist"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Mar 23 11:50:48 2022"
-  RTWModifiedTimeStamp	  569937041
-  ModelVersionFormat	  "1.%<AutoIncrement:1084>"
+  LastModifiedDate	  "Thu Mar 24 14:16:49 2022"
+  RTWModifiedTimeStamp	  570031879
+  ModelVersionFormat	  "1.%<AutoIncrement:1090>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -102,6 +102,7 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "GUI_User_V1_3"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -888,7 +889,7 @@ Model {
   }
   System {
     Name		    "GUI_V2"
-    Location		    [2, 83, 1331, 739]
+    Location		    [2, 75, 1347, 699]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -927,9 +928,9 @@ Model {
       IntegratorMethod	      "Forward Euler"
       FilterMethod	      "Forward Euler"
       Form		      "Parallel"
-      P			      "kp"
-      I			      "ki"
-      D			      "kd"
+      P			      "50"
+      I			      "10"
+      D			      "0"
       N			      "100"
       InitialConditionSource  "internal"
       InitialConditionForIntegrator "0"
@@ -1075,10 +1076,17 @@ Model {
       Lockdown		      off
     }
     Block {
+      BlockType		      Constant
+      Name		      "Frame"
+      SID		      "3137"
+      Position		      [50, 594, 175, 626]
+      Value		      "[0 0 0.7 0 0 0]"
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "MATLAB Function"
       SID		      "3136"
-      Ports		      [2, 2]
+      Ports		      [1, 2]
       Position		      [260, 561, 475, 654]
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1125,14 +1133,6 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Block {
-	  BlockType		  Inport
-	  Name			  "R"
-	  SID			  "3136::18"
-	  Position		  [20, 136, 40, 154]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
 	  SID			  "3136::15"
@@ -1145,10 +1145,10 @@ Model {
 	  Name			  " SFunction "
 	  SID			  "3136::14"
 	  Tag			  "Stateflow S-Function GUI_V2 2"
-	  Ports			  [2, 3]
+	  Ports			  [1, 3]
 	  Position		  [180, 100, 230, 180]
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[2 3]"
+	  PortCounts		  "[1 3]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
@@ -1191,12 +1191,6 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "R"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  2
-	}
-	Line {
 	  Name			  "d"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
@@ -1206,7 +1200,7 @@ Model {
 	}
 	Line {
 	  Name			  "S"
-	  Labels		  [0, 0]
+	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
 	  DstBlock		  "S"
@@ -1363,20 +1357,6 @@ Model {
       GeneratePreprocessorConditionals off
       Satura		      "80"
       SamTime		      "0.001"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Position"
-      SID		      "3137"
-      Position		      [135, 570, 165, 600]
-      Value		      "P"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Rotation"
-      SID		      "3138"
-      Position		      [135, 615, 165, 645]
-      Value		      "R"
     }
     Block {
       BlockType		      SubSystem
@@ -2669,16 +2649,10 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "Position"
+      SrcBlock		      "Frame"
       SrcPort		      1
       DstBlock		      "MATLAB Function"
       DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Rotation"
-      SrcPort		      1
-      DstBlock		      "MATLAB Function"
-      DstPort		      2
     }
     Line {
       SrcBlock		      "MATLAB Function"
@@ -2841,7 +2815,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Mar  4 2011, 22:36:02
+#    Stateflow Version 7.5 (R2010a) dated Mar  5 2011, 00:01:50
 #
 #
 
@@ -2852,7 +2826,7 @@ Stateflow {
     name		    "GUI_V2"
     created		    "02-Mar-2022 11:48:32"
     isLibrary		    0
-    firstTarget		    18
+    firstTarget		    17
     sfVersion		    75014001
   }
   chart {
@@ -3005,19 +2979,19 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [d, S] = inverseKinematics(P, R)\n% INVERSEKINEMATICS Inverse kinematics of PRISMMATIC, "
-      "a SG platform of \n% the Universidad Nacional de Colombia\n%\n% [d,S] = inverseKinematics(P, aRb) returns the le"
-      "ngth and direction of \n% each actuator so that the mobile base reaches a desired position P and \n% orientation"
-      " aRb.\n    a = [0.0260    0.1410    0.1149   -0.1149   -0.1410   -0.0260;...\n         0.1477   -0.0513   -0.096"
-      "4   -0.0964   -0.0513    0.1477;...\n         0.0380    0.0380    0.0380    0.0380    0.0380    0.0380];\n   \n "
-      "   b = [0.0636    0.0869    0.0233   -0.0233   -0.0869   -0.0636;...\n         0.0636    0.0233   -0.0869   -0.0"
-      "869    0.0233    0.0636;...\n        -0.0620   -0.0620   -0.0620   -0.0620   -0.0620   -0.0620];\n\n    d = zero"
-      "s(6,1);\n    S = zeros(3,6);\n    \n    Rz = [cos(R(3)) -sin(R(3)) 0;\n          sin(R(3))  cos(R(3)) 0;\n      "
-      "            0          0 1];\n    Ry = [cos(R(3)) 0 sin(R(3));\n                  0 1         0;\n         -sin("
-      "R(3)) 0 cos(R(3))];\n    Rx = [1         0          0;\n          0 cos(R(3)) -sin(R(3));\n          0 sin(R(3))"
-      "  cos(R(3))];\n    aRb = Rz*Ry*Rx;\n\n    for i=1:6\n        AB = P+aRb*b(:,i)-a(:,i);\n        d(i) = norm(AB);"
-      "\n        S(:,i) = AB/d(i);\n    end\nend"
-      editorLayout	      "100 M4x1[205 227 1382 736]"
+      script		      "function [d, S] = inverseKinematics(P)\n% INVERSEKINEMATICS Inverse kinematics of PRISMMATIC, a S"
+      "G platform of \n% the Universidad Nacional de Colombia\n%\n% [d,S] = inverseKinematics(P, aRb) returns the lengt"
+      "h and direction of \n% each actuator so that the mobile base reaches a desired position P and \n% orientation aR"
+      "b.\n    a = [0.0260    0.1410    0.1149   -0.1149   -0.1410   -0.0260;...\n         0.1477   -0.0513   -0.0964  "
+      " -0.0964   -0.0513    0.1477;...\n         0.0380    0.0380    0.0380    0.0380    0.0380    0.0380];\n   \n    "
+      "b = [0.0636    0.0869    0.0233   -0.0233   -0.0869   -0.0636;...\n         0.0636    0.0233   -0.0869   -0.0869"
+      "    0.0233    0.0636;...\n        -0.0620   -0.0620   -0.0620   -0.0620   -0.0620   -0.0620];\n\n    d = zeros(6"
+      ",1);\n    S = zeros(3,6);\n    \n    Rz = [cos(P(6)) -sin(P(6)) 0;\n          sin(P(6))  cos(P(6)) 0;\n         "
+      "         0          0 1];\n    Ry = [cos(P(5)) 0 sin(P(5));\n                  0 1         0;\n         -sin(P(5"
+      ")) 0 cos(P(5))];\n    Rx = [1         0          0;\n          0 cos(P(4)) -sin(P(4));\n          0 sin(P(4))  c"
+      "os(P(4))];\n    aRb = Rz*Ry*Rx;\n\n    for i=1:6\n        AB = P(1:3)+aRb*b(:,i)-a(:,i);\n        d(i) = norm(AB"
+      ");\n        S(:,i) = AB/d(i);\n    end\nend"
+      editorLayout	      "100 M4x1[14 14 1382 736]"
     }
   }
   junction {
@@ -3091,31 +3065,9 @@ Stateflow {
   }
   data {
     id			    15
-    ssIdNumber		    6
-    name		    "R"
-    linkNode		    [9 14 16]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    16
     ssIdNumber		    7
     name		    "S"
-    linkNode		    [9 15 0]
+    linkNode		    [9 14 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -3134,22 +3086,22 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    17
+    id			    16
     name		    "MATLAB Function"
     machine		    1
     chart		    9
   }
   target {
-    id			    18
+    id			    17
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 19]
+    linkNode		    [1 0 18]
   }
   target {
-    id			    19
+    id			    18
     name		    "rtw"
     machine		    1
-    linkNode		    [1 18 0]
+    linkNode		    [1 17 0]
   }
 }

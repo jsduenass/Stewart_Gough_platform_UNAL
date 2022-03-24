@@ -15,8 +15,8 @@
 *bio.m
 *pt.m
 *ref.m
-*s_fun.mexw64
-*s_fun.mexw32
+*_sfun.mexw64
+*_sfun.mexw32
 
 ## Trajectory data files
 *dumpOutput/
