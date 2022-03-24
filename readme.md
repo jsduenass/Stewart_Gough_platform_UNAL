@@ -23,6 +23,14 @@ The project has the following secondary objectives:
 
 ## Process
 
+### Compiling c files with mex
+
+``` 
+mex addiamondmm16atcustom.c
+mex dadiamondmm16at_custom.c
+mex dodiamond16at_custom.c
+```
+
 
 
 ## CAD Model
