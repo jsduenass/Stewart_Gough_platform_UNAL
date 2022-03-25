@@ -30,7 +30,7 @@ The project has the following secondary objectives:
 ### Getting to know the system
 The process started by getting acquaintance with the platform. After an onsite visit of the platform, the team received the corresponding documentation and produced a [file](project_structure.txt) containing a log with every one of the files received.
 
-```
+```Bat
 tree /f > project_structure.txt
 ```
 > Note: the previous terminal command produces the log file, it is encoded in windows 1252 encoding format
@@ -41,7 +41,7 @@ This analysis proof fruitful and provided a starting path *'/Software'* to begin
 #### Search of xPC usage
 To find out how and where the xPC toolbox was used, instances of the XPCTarget toolbox were searched in the *'Software\GUI_V3'* folder. The matches found were logged in the [xpcMatch](xpcMatch.txt) file.
 
-```
+```Bat
 findstr /i /n /s "xpc" *.m > xpcMatch.txt
 ```
 
@@ -69,7 +69,7 @@ In order to program the single board computer PCM-4153 it is necessary to instal
 
 Once the C compiler was installed, MATLAB recognized it and proceeded with the network configuration of the card.
 
-```
+```MATLAB
 tgs = xpctarget.targets;
 tgs.makeDefault('TargetPC1');
 env.TargetBoot = 'DOSLoader';
@@ -84,14 +84,14 @@ The next step is to set the IP address of the host PC to 192.168.1.13 with subne
 ### Testing the connection
 When the first connection to the platform was attempted in the lab, the code returned several errors. The first one was "wrong IP address" and the xpctarget.xpc object could not be created in MATLAB; reviewing the documentation we found that the definition `tg =  xpctarget.xpc()` produced an error if a default target had not been specified correctly, so the following command explicitly starting the settings of the target was used:
 
-```
+```MATLAB
 tg =  xpctarget.xpc('TCPIP','192.168.1.12','22222')
 ```
 
 With this command the connection was established and then the GUI was executed, but it produced the error "application not loaded", and therefore, we decided to investigate in the **BuildXPC.m** file where a little more information was found.
 
 Two useful commands we found to handle the connection to the target were
-```
+```MATLAB
 tg.targetping
 tg.Application
 ```
