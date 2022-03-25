@@ -6,7 +6,7 @@ modelName = 'motionControlModel';
  
 connectivity = tg.targetping;           % check conectivity
 if strcmp(connectivity,'success')
-    %rtwbuild(modelName);    
+    rtwbuild(modelName);    
     tg.load(modelName);
     %open_system(modelName);
     tg.stop;
@@ -24,6 +24,7 @@ sc3 = addscope(tg,'target',3);
 sc4 = addscope(tg,'target',4);
 
 sc5 = addscope(tg,'host',5);
+sc6 = addscope(tg,'host',6);
 %% Input signal id
 id_input = zeros(12,1);
 
@@ -61,25 +62,27 @@ sc4.start;
 
 Constant1 = 0;
 tg.start
-%% Get IDs
+%% Get simulation parameters IDs and set values
 id_mode = tg.getparamid('Mode','Value');
 tg.setparam(id_mode,0);
 
 id_kp = tg.getparamid('Discrete PID Controller/Proportional Gain','Gain');
 id_ki = tg.getparamid('Discrete PID Controller/Integral Gain','Gain');
 
-tg.setparam(id_kp, 80);
-tg.setparam(id_ki,10);
-
+tg.setparam(id_kp, 3);
+tg.setparam(id_ki,0.01);
+%tg.setparam(id_ki,0.01);
 
 id_ref = tg.getparamid('Reference pose','Value');
 
 %% Spy
 %xpctargetspy
+%xpcwwwenable
+
 %% Run movements
 tg.start;
 input('Empezar?')
-X=0;        Y=0;        Z=0.8;
+X=0;        Y=0;        Z=0.7;
 Roll=0;  Pitch=-0;   Yaw=0;
 pose= [X Y Z Roll Pitch Yaw];
 
@@ -95,20 +98,21 @@ input('Presione Enter para terminar')
 tg.setparam(id_mode,0);      % stop movement 
 
 %% log
-% saveData=false;
-% 
-% if saveData
-%     
-% prefix=datestr( now ,'mm_dd_HH_MM_');
-% title='data.mat';
-% fileName=['./dumpOutput/', prefix , title]
-% 
-% end
+saveData=false;
 
-tg.stop;
 data = tg.OutputLog(:,2:7)-50;
-% Shape
-% s%c%c%c%c%c%c
-%%
-plot(data)
-legend('1','2','3','4','5','6')
+
+if saveData
+    
+    prefix=datestr( now ,'mm_dd_HH_MM_');
+    title='data.mat';
+    fileName=['./dumpOutput/', prefix , title]
+    save(fileName,data)
+    
+    plot(data)
+    legend('1','2','3','4','5','6')
+    
+    tg.stop;
+
+end
+

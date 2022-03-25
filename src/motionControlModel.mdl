@@ -4,14 +4,32 @@ Model {
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
-    NumRootOutports	    1
+    NumRootOutports	    4
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
       Name		      "ASCII"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      SignalName	      "control"
+      Name		      "control"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      SignalName	      "error"
+      Name		      "error"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      SignalName	      "dist_input"
+      Name		      "dist_input"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.29"
+    ComputedModelVersion    "1.37"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -42,9 +60,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Sebastian"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Mar 24 15:55:27 2022"
-  RTWModifiedTimeStamp	  570036790
-  ModelVersionFormat	  "1.%<AutoIncrement:29>"
+  LastModifiedDate	  "Fri Mar 25 12:28:45 2022"
+  RTWModifiedTimeStamp	  570111382
+  ModelVersionFormat	  "1.%<AutoIncrement:37>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -185,7 +203,7 @@ Model {
 	  LoadInitialState	  off
 	  SaveFinalState	  off
 	  SaveCompleteFinalSimState off
-	  SaveFormat		  "Array"
+	  SaveFormat		  "StructureWithTime"
 	  SignalLoggingSaveFormat "ModelDataLogs"
 	  SaveOutput		  on
 	  SaveState		  off
@@ -644,7 +662,7 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Code Generation"
+      CurrentDlgPage	      "Data Import//Export"
       ConfigPrmDlgPosition     [ 243, 69, 1123, 699 ] 
     }
     PropName		    "ConfigurationSets"
@@ -711,6 +729,11 @@ Model {
       BusSelectionMode	      off
     }
     Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
+    }
+    Block {
       BlockType		      Gain
       Gain		      "1"
       Multiplication	      "Element-wise(K.*u)"
@@ -724,6 +747,10 @@ Model {
       RndMeth		      "Floor"
       SaturateOnIntegerOverflow	on
       SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
     }
     Block {
       BlockType		      Ground
@@ -881,7 +908,7 @@ Model {
   }
   System {
     Name		    "motionControlModel"
-    Location		    [2, 83, 1348, 707]
+    Location		    [2, 83, 1518, 811]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -895,13 +922,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "39"
+    SIDHighWatermark	    "62"
     Block {
       BlockType		      SubSystem
-      Name		      "Direc kinematic"
+      Name		      "Direct kinematic"
       SID		      "39"
       Ports		      [1, 1]
-      Position		      [285, 321, 390, 379]
+      Position		      [230, 471, 335, 529]
       BlockMirror	      on
       BackgroundColor	      "orange"
       LibraryVersion	      "1.32"
@@ -926,7 +953,7 @@ Model {
       MaskPortRotate	      "default"
       MaskIconUnits	      "normalized"
       System {
-	Name			"Direc kinematic"
+	Name			"Direct kinematic"
 	Location		[257, 457, 812, 717]
 	Open			off
 	ModelBrowserVisibility	off
@@ -1019,7 +1046,7 @@ Model {
       Name		      "Discrete PID Controller"
       SID		      "23"
       Ports		      [1, 1]
-      Position		      [595, 157, 635, 193]
+      Position		      [705, 312, 745, 348]
       BackgroundColor	      "green"
       LibraryVersion	      "1.236"
       SourceBlock	      "simulink/Continuous/PID Controller"
@@ -1039,8 +1066,8 @@ Model {
       IntegratorMethod	      "Forward Euler"
       FilterMethod	      "Forward Euler"
       Form		      "Parallel"
-      P			      "100"
-      I			      "25"
+      P			      "3"
+      I			      "0"
       D			      "0"
       N			      "100"
       InitialConditionSource  "internal"
@@ -1139,11 +1166,93 @@ Model {
       }
     }
     Block {
+      BlockType		      From
+      Name		      "From"
+      SID		      "56"
+      Position		      [50, 260, 190, 290]
+      GotoTag		      "Mode"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From1"
+      SID		      "57"
+      Position		      [880, 359, 985, 381]
+      GotoTag		      "stop"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From2"
+      SID		      "58"
+      Position		      [880, 277, 995, 303]
+      GotoTag		      "ReferencePWM"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From3"
+      SID		      "59"
+      Position		      [45, 323, 185, 357]
+      GotoTag		      "ReferenceDistance"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From4"
+      SID		      "60"
+      Position		      [50, 402, 190, 428]
+      GotoTag		      "ReferencePose"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From5"
+      SID		      "61"
+      Position		      [880, 213, 980, 237]
+      GotoTag		      "Mode"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto"
+      SID		      "50"
+      Position		      [345, 80, 385, 110]
+      GotoTag		      "Mode"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto1"
+      SID		      "51"
+      Position		      [355, 140, 395, 170]
+      GotoTag		      "Stop"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto2"
+      SID		      "52"
+      Position		      [630, 44, 770, 76]
+      GotoTag		      "ReferencePWM"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto3"
+      SID		      "53"
+      Position		      [635, 129, 770, 161]
+      GotoTag		      "ReferenceDistance"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto4"
+      SID		      "54"
+      Position		      [635, 225, 765, 255]
+      GotoTag		      "ReferencePose"
+      TagVisibility	      "local"
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "Inverse kinematic"
       SID		      "38"
       Ports		      [1, 1]
-      Position		      [285, 146, 390, 204]
+      Position		      [230, 386, 335, 444]
       BackgroundColor	      "orange"
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1260,7 +1369,7 @@ Model {
       Name		      "MM-16-AT Analog Input"
       SID		      "33"
       Ports		      [0, 12]
-      Position		      [1045, 275, 1145, 535]
+      Position		      [1040, 425, 1140, 685]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       LibraryVersion	      "1.24"
@@ -1277,7 +1386,7 @@ Model {
       BlockType		      Constant
       Name		      "Mode"
       SID		      "13"
-      Position		      [990, 60, 1020, 90]
+      Position		      [220, 80, 250, 110]
       BackgroundColor	      "lightBlue"
       Value		      "0"
     }
@@ -1286,7 +1395,7 @@ Model {
       Name		      "Motors - F4\n STM - PWM"
       SID		      "8"
       Ports		      [1, 1]
-      Position		      [1140, 130, 1260, 210]
+      Position		      [1185, 270, 1305, 350]
       BackgroundColor	      "lightBlue"
       AncestorBlock	      "Diamond16AT_UNAL/PWM Generation/Motors - F4\n STM - PWM"
       LibraryVersion	      "*1.24"
@@ -3367,11 +3476,25 @@ Model {
       BlockType		      MultiPortSwitch
       Name		      "Multiport\nSwitch"
       SID		      "27"
-      Ports		      [4, 1]
-      Position		      [1075, 141, 1110, 194]
+      Ports		      [3, 1]
+      Position		      [380, 313, 415, 367]
       BackgroundColor	      "lightBlue"
       DataPortOrder	      "Specify indices"
-      DataPortIndices	      "{2,1,0}"
+      DataPortIndices	      "{2,1}"
+      DiagnosticForDefault    "Warning"
+      zeroidx		      off
+      InputSameDT	      off
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      MultiPortSwitch
+      Name		      "Multiport\nSwitch1"
+      SID		      "46"
+      Ports		      [4, 1]
+      Position		      [1080, 228, 1140, 392]
+      BackgroundColor	      "lightBlue"
+      DataPortOrder	      "Specify indices"
+      DataPortIndices	      "{3,[2,1],0}"
       DiagnosticForDefault    "Warning"
       zeroidx		      off
       InputSameDT	      off
@@ -3382,7 +3505,7 @@ Model {
       Name		      "Mux"
       SID		      "19"
       Ports		      [12, 1]
-      Position		      [930, 286, 940, 524]
+      Position		      [925, 436, 935, 674]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       ShowName		      off
@@ -3391,9 +3514,17 @@ Model {
     }
     Block {
       BlockType		      Constant
-      Name		      "PWM Manual"
+      Name		      "Reference  distance"
+      SID		      "48"
+      Position		      [475, 129, 570, 161]
+      BackgroundColor	      "orange"
+      Value		      "[0 0 0 0 0 0]"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Reference PWM"
       SID		      "28"
-      Position		      [845, 104, 940, 136]
+      Position		      [485, 44, 580, 76]
       BackgroundColor	      "magenta"
       Value		      "[0 0 0 0 0 0]"
     }
@@ -3401,7 +3532,7 @@ Model {
       BlockType		      Constant
       Name		      "Reference pose"
       SID		      "25"
-      Position		      [100, 159, 195, 191]
+      Position		      [475, 224, 570, 256]
       BackgroundColor	      "orange"
       Value		      "[0 0 0 0 0 0]"
     }
@@ -3409,7 +3540,7 @@ Model {
       BlockType		      Constant
       Name		      "Stop"
       SID		      "14"
-      Position		      [995, 215, 1025, 245]
+      Position		      [220, 140, 250, 170]
       BackgroundColor	      "lightBlue"
       Value		      "0"
     }
@@ -3418,25 +3549,19 @@ Model {
       Name		      "Sum"
       SID		      "24"
       Ports		      [2, 1]
-      Position		      [440, 165, 460, 185]
+      Position		      [460, 320, 480, 340]
       ShowName		      off
       IconShape		      "round"
       Inputs		      "|+-"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
-      Port {
-	PortNumber		1
-	Name			"error"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
     }
     Block {
       BlockType		      Terminator
       Name		      "Terminator"
       SID		      "20"
-      Position		      [715, 450, 735, 470]
+      Position		      [710, 600, 730, 620]
       BlockMirror	      on
       BackgroundColor	      "cyan"
     }
@@ -3444,7 +3569,7 @@ Model {
       BlockType		      Terminator
       Name		      "Terminator1"
       SID		      "36"
-      Position		      [120, 340, 140, 360]
+      Position		      [185, 490, 205, 510]
       BlockMirror	      on
       BackgroundColor	      "yellow"
     }
@@ -3453,7 +3578,7 @@ Model {
       Name		      "Vcurrents"
       SID		      "21"
       Ports		      [1, 1]
-      Position		      [790, 441, 830, 479]
+      Position		      [785, 591, 825, 629]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       InputPortWidth	      "12"
@@ -3466,7 +3591,7 @@ Model {
       Name		      "Vdistance"
       SID		      "22"
       Ports		      [1, 1]
-      Position		      [790, 336, 830, 374]
+      Position		      [785, 481, 825, 519]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       NumberOfDimensions      "2"
@@ -3476,11 +3601,27 @@ Model {
       OutputSizes	      "1,1"
     }
     Block {
+      BlockType		      Gain
+      Name		      "mt2cm"
+      SID		      "40"
+      Position		      [520, 313, 560, 347]
+      Gain		      "100"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+      Port {
+	PortNumber		1
+	Name			"error"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "volt2distance"
       SID		      "17"
       Ports		      [1, 1]
-      Position		      [615, 323, 735, 377]
+      Position		      [610, 473, 730, 527]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       LibraryVersion	      "1.32"
@@ -3604,21 +3745,32 @@ Model {
       BlockType		      Outport
       Name		      "ASCII"
       SID		      "30"
-      Position		      [1295, 163, 1325, 177]
+      Position		      [1405, 303, 1435, 317]
       IconDisplay	      "Port number"
     }
-    Line {
-      SrcBlock		      "Multiport\nSwitch"
-      SrcPort		      1
-      DstBlock		      "Motors - F4\n STM - PWM"
-      DstPort		      1
+    Block {
+      BlockType		      Outport
+      Name		      "control"
+      SID		      "41"
+      Position		      [850, 418, 880, 432]
+      Port		      "2"
+      IconDisplay	      "Port number"
     }
-    Line {
-      SrcBlock		      "Mode"
-      SrcPort		      1
-      Points		      [20, 0; 0, 70]
-      DstBlock		      "Multiport\nSwitch"
-      DstPort		      1
+    Block {
+      BlockType		      Outport
+      Name		      "error"
+      SID		      "43"
+      Position		      [640, 418, 670, 432]
+      Port		      "3"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "dist_input"
+      SID		      "45"
+      Position		      [550, 628, 580, 642]
+      Port		      "4"
+      IconDisplay	      "Port number"
     }
     Line {
       SrcBlock		      "Vcurrents"
@@ -3642,6 +3794,7 @@ Model {
 	DstPort			1
       }
       Branch {
+	Points			[0, -5]
 	DstBlock		"Vdistance"
 	DstPort			1
       }
@@ -3723,35 +3876,149 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "Discrete PID Controller"
       SrcPort		      1
+      Points		      [55, 0]
+      Branch {
+	Points			[0, 95]
+	DstBlock		"control"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"Multiport\nSwitch1"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Sum"
+      SrcPort		      1
+      DstBlock		      "mt2cm"
+      DstPort		      1
+    }
+    Line {
+      Name		      "dist_input"
+      Labels		      [0, 0]
+      SrcBlock		      "volt2distance"
+      SrcPort		      1
+      Points		      [-110, 0]
+      Branch {
+	Points			[-25, 0]
+	Branch {
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Branch {
+	  Labels		  [1, 0]
+	  DstBlock		  "Direct kinematic"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	Points			[-25, 0; 0, 135]
+	DstBlock		"dist_input"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Inverse kinematic"
+      SrcPort		      1
+      Points		      [25, 0]
       DstBlock		      "Multiport\nSwitch"
       DstPort		      3
     }
     Line {
+      Labels		      [1, 0]
+      SrcBlock		      "Direct kinematic"
+      SrcPort		      1
+      DstBlock		      "Terminator1"
+      DstPort		      1
+    }
+    Line {
       Name		      "error"
       Labels		      [0, 0]
-      SrcBlock		      "Sum"
+      SrcBlock		      "mt2cm"
       SrcPort		      1
-      DstBlock		      "Discrete PID Controller"
+      Points		      [40, 0]
+      Branch {
+	DstBlock		"Discrete PID Controller"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 95]
+	DstBlock		"error"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Mode"
+      SrcPort		      1
+      DstBlock		      "Goto"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Multiport\nSwitch1"
+      SrcPort		      1
+      DstBlock		      "Motors - F4\n STM - PWM"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Stop"
+      SrcPort		      1
+      DstBlock		      "Goto1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Reference PWM"
+      SrcPort		      1
+      DstBlock		      "Goto2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Reference  distance"
+      SrcPort		      1
+      DstBlock		      "Goto3"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Reference pose"
       SrcPort		      1
+      DstBlock		      "Goto4"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From4"
+      SrcPort		      1
       DstBlock		      "Inverse kinematic"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "PWM Manual"
+      SrcBlock		      "Multiport\nSwitch"
       SrcPort		      1
-      Points		      [40, 0; 0, 40]
+      Points		      [0, -10]
+      DstBlock		      "Sum"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From3"
+      SrcPort		      1
       DstBlock		      "Multiport\nSwitch"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "Stop"
+      SrcBlock		      "From5"
       SrcPort		      1
-      Points		      [20, 0; 0, -40]
-      DstBlock		      "Multiport\nSwitch"
+      Points		      [0, 25]
+      DstBlock		      "Multiport\nSwitch1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From2"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "From1"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch1"
       DstPort		      4
     }
     Line {
@@ -3761,55 +4028,30 @@ Model {
       DstPort		      1
     }
     Line {
-      Name		      "dist_input"
-      Labels		      [0, 0]
-      SrcBlock		      "volt2distance"
+      SrcBlock		      "From"
       SrcPort		      1
-      Points		      [-160, 0]
-      Branch {
-	DstBlock		"Sum"
-	DstPort			2
-      }
-      Branch {
-	Labels			[1, 0]
-	DstBlock		"Direc kinematic"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Inverse kinematic"
-      SrcPort		      1
-      DstBlock		      "Sum"
-      DstPort		      1
-    }
-    Line {
-      Labels		      [1, 0]
-      SrcBlock		      "Direc kinematic"
-      SrcPort		      1
-      DstBlock		      "Terminator1"
+      Points		      [85, 0; 0, 45]
+      DstBlock		      "Multiport\nSwitch"
       DstPort		      1
     }
     Annotation {
-      Position		      [1081, 18]
+      Position		      [1026, 38]
       BackgroundColor	      "lightBlue"
     }
     Annotation {
-      Position		      [1078, 63]
-      BackgroundColor	      "lightBlue"
+      Position		      [708, 132]
     }
     Annotation {
-      Position		      [613, 142]
-    }
-    Annotation {
-      Position		      [1267, 387]
-    }
-    Annotation {
-      Position		      [1055, 279]
+      Position		      [1090, 404]
       BackgroundColor	      "cyan"
     }
     Annotation {
       Name		      "[x,y,z,roll,pitch,yaw]"
-      Position		      [149, 140]
+      Position		      [529, 210]
+    }
+    Annotation {
+      Name		      "[d1,d2,d3,d4,d5,d6]"
+      Position		      [528, 117]
     }
   }
 }
@@ -3956,8 +4198,6 @@ Stateflow {
     firstJunction	    11
     viewObj		    9
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -4074,7 +4314,7 @@ Stateflow {
   }
   chart {
     id			    16
-    name		    "Direc kinematic"
+    name		    "Direct kinematic"
     windowPosition	    [345.747 285 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1536 864 1.333333333333333]
@@ -4083,8 +4323,6 @@ Stateflow {
     firstJunction	    18
     viewObj		    16
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -4190,7 +4428,7 @@ Stateflow {
   }
   instance {
     id			    22
-    name		    "Direc kinematic"
+    name		    "Direct kinematic"
     machine		    1
     chart		    16
   }

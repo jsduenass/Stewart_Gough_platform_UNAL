@@ -25,6 +25,15 @@ The project has the following secondary objectives:
 
 ## Simulink model 
 
+![Motion control Simulink Model](./media/images/motionControlModel.png)
+
+mode: controls de mode of operation de model  
+* 0: disable PWM
+* 1: Pose control
+* 2: Actuator distance
+* 3: manually set PWM signal
+   
+
 block reference
 * MM-16-AT Analog Input : [addiamondmm16atcustom](./ext/thirdpartydrivers/addiamondmm16atcustom.c) 
 
@@ -42,6 +51,13 @@ name s2 - s7
 __Signal input__ distance/current direct without wrapper 
 name p1 - p12
 ```SG-ADC Sensors/MM-16-AT Analog Input/p1```
+
+## Controler PID
+Start by performing proportional control. the linear actuator have a range of 30 cm and the PWM goes from -100 to 100.
+As a starting point a controller with kP=3 and input signal in centimeters. When there is maximum error 30 cm the PWM signal goes to 90. There is the possibility to increase kP as see fit by testing.
+
+100=Ki*(30*n) and n=t/Ts therefore Ki=(100*Ts)/(30*t) where Ts=0.01 and a stimated t=3 that results in Ki=0.01
+
 
 ### Compiling c files with mex
 
