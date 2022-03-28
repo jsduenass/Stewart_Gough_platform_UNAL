@@ -6,7 +6,7 @@ modelName = 'motionControlModel';
  
 connectivity = tg.targetping;           % check conectivity
 if strcmp(connectivity,'success')
-    rtwbuild(modelName);    
+    %rtwbuild(modelName);    
     tg.load(modelName);
     %open_system(modelName);
     tg.stop;
@@ -22,7 +22,6 @@ sc1 = addscope(tg,'target',1);
 sc2 = addscope(tg,'target',2);
 sc3 = addscope(tg,'target',3);
 sc4 = addscope(tg,'target',4);
-
 sc5 = addscope(tg,'host',5);
 sc6 = addscope(tg,'host',6);
 %% Input signal id
@@ -39,10 +38,18 @@ id_currents = id_input(2:2:12);
 id_PWM = zeros(6,1);
 
 for k=1:6
-    name = ['Multiport Switch/s',num2str(k)];    
+    name = ['Multiport Switch1/s',num2str(k)];    
     id_PWM(k) = getsignalid(tg,name);
 end
-%% Read signals into scopes 
+%% error signal id 
+id_error = zeros(6,1);
+
+for k=1:6
+    name = ['m2cm/s',num2str(k)];    
+    id_error(k) = getsignalid(tg,name);
+end
+
+%% Read signals into scopes
 sc1.addsignal (id_distance);
 sc1.DisplayMode = 'Numerical';
 sc1.start;
@@ -53,10 +60,10 @@ sc2.YLimit = [0 5];
 sc2.start;
 
 sc3.addsignal(id_PWM);
-%sc4.DisplayMode = 'Numerical';
+sc3.DisplayMode = 'Numerical';
 sc3.start;
 
-sc4.addsignal(id_PWM);
+sc4.addsignal(id_error);
 sc4.DisplayMode = 'Numerical';
 sc4.start;
 
@@ -68,10 +75,11 @@ tg.setparam(id_mode,0);
 
 id_kp = tg.getparamid('Discrete PID Controller/Proportional Gain','Gain');
 id_ki = tg.getparamid('Discrete PID Controller/Integral Gain','Gain');
+id_kd = tg.getparamid('Discrete PID Controller/Derivative Gain','Gain');
 
-tg.setparam(id_kp, 3);
-tg.setparam(id_ki,0.01);
-%tg.setparam(id_ki,0.01);
+tg.setparam(id_kp, 5);
+tg.setparam(id_ki,0.5);
+tg.setparam(id_kd,0.01);
 
 id_ref = tg.getparamid('Reference pose','Value');
 
@@ -80,9 +88,8 @@ id_ref = tg.getparamid('Reference pose','Value');
 %xpcwwwenable
 
 %% Run movements
-tg.start;
-input('Empezar?')
-X=0;        Y=0;        Z=0.7;
+
+X=0.0;        Y=0.0;        Z=0.7;
 Roll=0;  Pitch=-0;   Yaw=0;
 pose= [X Y Z Roll Pitch Yaw];
 
@@ -93,21 +100,36 @@ d_measured = tg.getsignal(id_dist_m)'
 % based on modified MoveSG function 
 tg.setparam(id_ref, pose); 
 
+input('Empezar?')
+
+tg.start;
 tg.setparam(id_mode,1);      % enable movement
 input('Presione Enter para terminar')
 tg.setparam(id_mode,0);      % stop movement 
 
 %% log
+close all 
 saveData=false;
+tg.stop;
+data = tg.OutputLog;
 
-data = tg.OutputLog(:,2:7)-50;
+control=data(:,1:6);
+error=data(:,7:12);
+dist_input=data(:,13:18);
+v_input=gradient(dist_input);
+subplot(2,1,1)
+plot( error,control)
+subplot(2,1,2)
+
+plot(control,v_input)
+legend;
 
 if saveData
     
     prefix=datestr( now ,'mm_dd_HH_MM_');
     title='data.mat';
     fileName=['./dumpOutput/', prefix , title]
-    save(fileName,data)
+    %save(fileName,data)
     
     plot(data)
     legend('1','2','3','4','5','6')

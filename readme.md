@@ -27,11 +27,11 @@ The project has the following secondary objectives:
 
 ![Motion control Simulink Model](./media/images/motionControlModel.png)
 
-mode: controls de mode of operation de model  
+mode: controls de mode of operation of the model  
 * 0: disable PWM
 * 1: Pose control
-* 2: Actuator distance
-* 3: manually set PWM signal
+* 2: Actuator distance control
+* 3: manually set PWM signal control
    
 
 block reference
