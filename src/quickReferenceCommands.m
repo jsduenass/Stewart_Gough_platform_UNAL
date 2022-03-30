@@ -11,14 +11,14 @@ doc xpctarget               % open the documentation on xpc target
 tgs = xpctarget.targets;
 tgs.makeDefault('TargetPC1');
 env.TargetBoot = 'DOSLoader';
-env.TcpIpTargetAddress = '192.168.0.12';
-env.TcpIpSubNetMask = '255.255.255.0';
+env.TcpIpTargetAddress = '168.176.26.12';
+env.TcpIpSubNetMask = '255.255.254.0';
 
 tgs.DefaultTarget                       % check properties of the default target
 
 %%   stablish  connection  with xpc target
 % If deault is not configured 
-tg = xpctarget.xpc('TCPIP','192.168.0.12','22222')  %defined the properties in the xpc target 
+tg = xpctarget.xpc('TCPIP','1168.176.26.12','22222')  %defined the properties in the xpc target 
 
 %%
 % If deault is configured  
@@ -38,4 +38,5 @@ mex '../ext/thirdpartydrivers/dodiamond16at_custom.c'
 
 
 % dbstop if error
+% dbquit
  

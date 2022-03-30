@@ -77,7 +77,7 @@ id_kp = tg.getparamid('Discrete PID Controller/Proportional Gain','Gain');
 id_ki = tg.getparamid('Discrete PID Controller/Integral Gain','Gain');
 id_kd = tg.getparamid('Discrete PID Controller/Derivative Gain','Gain');
 
-kp=5,ki=0.5,kd=0.1;
+kp=5; ki=0.5; kd=0.1;
 
 kPID=[kp,ki,kd];
 tg.setparam(id_kp, kp);
@@ -92,10 +92,11 @@ id_ref = tg.getparamid('Reference pose','Value');
 
 %% Run movements
 
-X=0.05;        Y=-0.1;        Z=0.75;
+X=0.05;        Y=0.05;        Z=0.78;
 Roll=0;  Pitch=-0;   Yaw=0;
 pose= [X Y Z Roll Pitch Yaw];
 home= [0 0 0.7 0 0 0];
+pose= home
 
 % measured distance
 id_dist_m = tg.getsignalidsfromlabel('dist_input');
@@ -113,6 +114,7 @@ tg.setparam(id_mode,0);      % stop movement
 
 %% log
 close all 
+tg.stop
 saveData = command==1;
 
 data = tg.OutputLog;
