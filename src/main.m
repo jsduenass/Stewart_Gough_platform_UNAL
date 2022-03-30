@@ -77,9 +77,12 @@ id_kp = tg.getparamid('Discrete PID Controller/Proportional Gain','Gain');
 id_ki = tg.getparamid('Discrete PID Controller/Integral Gain','Gain');
 id_kd = tg.getparamid('Discrete PID Controller/Derivative Gain','Gain');
 
-tg.setparam(id_kp, 5);
-tg.setparam(id_ki,0.5);
-tg.setparam(id_kd,0.01);
+kp=5,ki=0.5,kd=0.1;
+
+kPID=[kp,ki,kd];
+tg.setparam(id_kp, kp);
+tg.setparam(id_ki,ki);
+tg.setparam(id_kd,kd);
 
 id_ref = tg.getparamid('Reference pose','Value');
 
@@ -89,9 +92,10 @@ id_ref = tg.getparamid('Reference pose','Value');
 
 %% Run movements
 
-X=0.0;        Y=0.0;        Z=0.7;
+X=0.05;        Y=-0.1;        Z=0.75;
 Roll=0;  Pitch=-0;   Yaw=0;
 pose= [X Y Z Roll Pitch Yaw];
+home= [0 0 0.7 0 0 0];
 
 % measured distance
 id_dist_m = tg.getsignalidsfromlabel('dist_input');
@@ -104,13 +108,13 @@ input('Empezar?')
 
 tg.start;
 tg.setparam(id_mode,1);      % enable movement
-input('Presione Enter para terminar')
+command = input('Presione Enter para terminar [1] para guardar ')
 tg.setparam(id_mode,0);      % stop movement 
 
 %% log
 close all 
-saveData=false;
-tg.stop;
+saveData = command==1;
+
 data = tg.OutputLog;
 
 control=data(:,1:6);
@@ -126,13 +130,11 @@ legend;
 
 if saveData
     
-    prefix=datestr( now ,'mm_dd_HH_MM_');
+    prefix = datestr( now ,'mm_dd_HH_MM_');
     title='data.mat';
     fileName=['./dumpOutput/', prefix , title]
-    %save(fileName,data)
+    save(fileName,'control','error','dist_input','v_input','kPID','pose')
     
-    plot(data)
-    legend('1','2','3','4','5','6')
     
     tg.stop;
 

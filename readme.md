@@ -61,13 +61,18 @@ As a starting point a controller with kP=3 and input signal in centimeters. When
 
 ### Compiling c files with mex
 
-``` 
+```MATLAB
 mex addiamondmm16atcustom.c
 mex dadiamondmm16at_custom.c
 mex dodiamond16at_custom.c
 ```
 
+## PCM-4153 (Single Board Computer) files
 
+```
+xpcboot GUI_Us~1.rtb
+```
+access via ssh
 
 ## CAD Model
 In order to better understand the operation of the platform and have the parts modeled in an open source CAD program, the model was made in OnShape, a Software-as-a-Service (SaaS) product development platform that combines CAD, built-in data management, real-time collaboration tools, and business analytics[<sup>9</sup>](#references-and-resources).
@@ -179,7 +184,7 @@ The previos diagram the relation between the subsystems and their interaction in
 11. Villate Gaona, F. (2015). Diseño y construcción de prototipo para mecanizado multiejes en materiales blandos utilizando arquitectura paralela Stewart-Gough. \[[online](https://repositorio.unal.edu.co/handle/unal/55527)\]
 12. [Stewart Gough videos](https://youtube.com/playlist?list=PL1-Z9ArJBD7uetQ7_8bsNCHkSw-kKsfF8)
 13. [Google drive's extended documentation folder](https://drive.google.com/drive/folders/1fW6-u03ogQynEGwKbBM8Ii7BDrmoT2iq?usp=sharing)
-
+14. Puentes Valencia, D. (2010). Desarrollo de sistema embebido en tiempo real. \[[online](https://repositorio.unal.edu.co/handle/unal/11129)\]
 
 
 
