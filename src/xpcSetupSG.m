@@ -23,6 +23,7 @@ sc3 = addscope(tg,'target',3);
 sc4 = addscope(tg,'target',4);
 sc5 = addscope(tg,'host',5);
 sc6 = addscope(tg,'host',6);
+sc_file = addscope(tg,'file',7);
 %% Input signal id
 id_input = zeros(12,1);
 

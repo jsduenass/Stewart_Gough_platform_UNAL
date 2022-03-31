@@ -9,24 +9,27 @@ id_kp = tg.getparamid('Controller/Discrete PID Controller/Proportional Gain','Ga
 id_ki = tg.getparamid('Controller/Discrete PID Controller/Integral Gain','Gain');
 id_kd = tg.getparamid('Controller/Discrete PID Controller/Derivative Gain','Gain');
 
-kp=5; ki=0.5; kd=0.1;
+id_kb = tg.getparamid('Controller/Discrete PID Controller/Kb','Gain');
 
-kp=10; ki=1; kd=1;
+kp=15; ki=6; kd=0.1;
+
+kb=0.7*ki;
 
 kPID=[kp,ki,kd];
 tg.setparam(id_kp, kp);
 tg.setparam(id_ki,ki);
 tg.setparam(id_kd,kd);
+tg.setparam(id_kb,kb);
 
 id_ref = tg.getparamid('Reference pose','Value');
 
 %% Run movements
 
-X=0.0;        Y=0.0;        Z=0.78;
-Roll=0;  Pitch=-0;   Yaw=0;
+X=0.0;        Y=0.0;        Z=0.7;
+Roll=-50;  Pitch=-0;   Yaw=0;
 pose= [X Y Z Roll Pitch Yaw];
 home= [0 0 0.7 0 0 0];
-pose= home
+ %pose= home
 
 % measured distance
 id_dist_m = tg.getsignalidsfromlabel('dist_input');
@@ -74,25 +77,25 @@ tg.setparam(id_mode,3);      % enable movement
 
 
 %% Plot logged data
-run 'plot_log_info'
+%run 'plot_log_info'
 
 %% Manual PWM
-
-id_PWM = tg.getparamid('Reference PWM','Value');
-y = 'y'; n='n';
-while true
-    PWM = input('Ingrese el valor de PWM en forma de vector 1x6:\n[Enter para pausar]\n');
-    
-    if isempty(PWM)
-        PWM = zeros(1,6);
-        tg.setparam(id_PWM, [0 0 0 0 0 0])
-        tg.setparam(id_mode,0);      % stop movement 
-        if input('Continuar(y/n)\n') ~= 'y'
-            break
-        else
-            tg.setparam(id_mode,3);  
-        end
-    end
-    tg.setparam(id_PWM, PWM)
-    tg.stop
-end
+% 
+% id_PWM = tg.getparamid('Reference PWM','Value');
+% y = 'y'; n='n';
+% while true
+%     PWM = input('Ingrese el valor de PWM en forma de vector 1x6:\n[Enter para pausar]\n');
+%     
+%     if isempty(PWM)
+%         PWM = zeros(1,6);
+%         tg.setparam(id_PWM, [0 0 0 0 0 0])
+%         tg.setparam(id_mode,0);      % stop movement 
+%         if input('Continuar(y/n)\n') ~= 'y'
+%             break
+%         else
+%             tg.setparam(id_mode,3);  
+%         end
+%     end
+%     tg.setparam(id_PWM, PWM)
+%     tg.stop
+% end
