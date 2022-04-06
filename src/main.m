@@ -26,10 +26,10 @@ id_ref = tg.getparamid('Reference pose','Value');
 %% Run movements
 
 X=0.0;        Y=0.0;        Z=0.7;
-Roll=-50;  Pitch=-0;   Yaw=0;
+Roll=-20;  Pitch=-0;   Yaw=0;
 pose= [X Y Z Roll Pitch Yaw];
 home= [0 0 0.7 0 0 0];
- %pose= home
+pose= home
 
 % measured distance
 id_dist_m = tg.getsignalidsfromlabel('dist_input');
@@ -47,34 +47,41 @@ tg.setparam(id_mode,0);      % stop movement
 
 %% log
 tg.stop
+
 saveData = command==1;
 
-data = tg.OutputLog;
-dt=0.1;
+
+fid = filesys.fopen(sc_file.FileName);
+BinaryData = filesys.fread(fid);
+% Close the file
+filesys.fclose(fid);
+% Convert to MATLAB format
+MLData = readxpcfile(BinaryData);
+data = MLData.data;
+t=data(:,end);
+
 control=data(:,1:6);
 e=data(:,7:12);
 dist_input=data(:,13:18);
 current_input=data(:,19:24);
-
+    
+dt=t(2)
 v_input=gradient(dist_input,dt);
-N = size(e,1);
-t= 0:dt:(dt*(N-1));
 
 if saveData
     
+    sc_file.stop;
+    tg.stop
+
     prefix = datestr( now ,'mm_dd_HH_MM_');
     title='data.mat';
     fileName=['./dumpOutput/', prefix , title]
     save(fileName,'t','control','e','dist_input','v_input','kPID','pose','current_input')
     
-    
-    tg.stop;
+   
 
 end
-%% Plot logged data
-%run 'plot_log_info'
 
-%% Scope file
-sc7 = addscope(tg,'file',7);
-sc7.addsignal(id_distance);
-sc7.start;
+%% Plot logged data
+run 'plot_log_info'
+

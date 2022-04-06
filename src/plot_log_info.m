@@ -1,11 +1,13 @@
 %% plot
 close all
+
+
 logDir='./dumpOutput/'
 logData = ls(logDir);
 logData = logData(3:end,:)
 n=0;
 load([logDir,logData(end-n,:)]);
-grid on
+
 
 subplot(2,2,1)
 plot(t,dist_input)
