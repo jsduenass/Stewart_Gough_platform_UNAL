@@ -26,7 +26,7 @@ id_ref = tg.getparamid('Reference pose','Value');
 %% Run movements
 
 X=0.0;        Y=0.0;        Z=0.8;
-Roll=-20;  Pitch=-0;   Yaw=0;
+Roll=-20;  Pitch=10;   Yaw=0;
 pose= [X Y Z Roll Pitch Yaw];
 home= [0 0 0.7 0 0 0];
 pose= home
@@ -64,12 +64,16 @@ control=data(:,1:6);
 e=data(:,7:12);
 dist_input=data(:,13:18);
 current_input=data(:,19:24);
+v_input = data(:,25:30);
+a_input = data(:,31:36);
 
+v_input(1,:)=zeros(1,6);
+
+a_input(1,:)=zeros(1,6);
 dt=t(2)-t(1);
 
 dist_filtered=dist_input;
-v_input=gradient(dist_filtered',dt)';
-
+vel=gradient(dist_input,dt);
 %%
 if saveData
     
@@ -79,7 +83,7 @@ if saveData
     prefix = datestr( now ,'mm_dd_HH_MM_');
     title='data.mat';
     fileName=['./dumpOutput/', prefix , title]
-    save(fileName,'t','control','e','dist_input','v_input','kPID','pose','current_input')
+    save(fileName,'t','control','e','dist_input','v_input','kPID','pose','current_input','v_input','a_input')
     
    
 

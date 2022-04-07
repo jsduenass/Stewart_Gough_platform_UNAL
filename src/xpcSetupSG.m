@@ -2,6 +2,7 @@
 % If deault is configured  
 tg = xpctarget.xpc('TCPIP','168.176.26.12','22222');
 modelName = 'motionControlModel';
+%        set_param(hSrcPort,'ShowPropagatedSignals','on');
 
 connectivity = tg.targetping;           % check conectivity
 if strcmp(connectivity,'success')
@@ -33,7 +34,11 @@ sc_file = addscope(tg,'file',7);
 %%  signal id
 % Input
 id_distance= tg.getsignalidsfromlabel('dist_input');
-%id_currents = tg.getsignalidsfromlabel('current_input');
+
+id_vel= tg.getsignalidsfromlabel('vel_input');
+
+id_acel= tg.getsignalidsfromlabel('acel_input');
+id_currents = tg.getsignalidsfromlabel('current_input');
 
 for k=1:12
     name = ['MM-16-AT Analog Input/p',num2str(k)];
@@ -69,7 +74,7 @@ sc4.start;
 Constant1 = 0;
 
 %% Scope file
-id_all=[ id_PWM id_e id_distance  id_currents];
+id_all=[ id_PWM id_e id_distance  id_currents id_vel id_acel];
     
 
 sc_file.addsignal(id_all);

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.56"
+    ComputedModelVersion    "1.92"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -37,9 +37,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Sebastian"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 07 16:37:57 2022"
-  RTWModifiedTimeStamp	  571246956
-  ModelVersionFormat	  "1.%<AutoIncrement:56>"
+  LastModifiedDate	  "Thu Apr 07 18:38:36 2022"
+  RTWModifiedTimeStamp	  571255518
+  ModelVersionFormat	  "1.%<AutoIncrement:92>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -75,16 +75,21 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "GUI_V4"
+    model_		    "motionControlModel"
     signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "GUI_V4"
+      Cell		      "motionControlModel"
       PropName		      "logAsSpecifiedByModels_"
     }
-    logAsSpecifiedByModelsSSIDs_ []
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      []
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
   }
   RecordCoverage	  off
   CovPath		  "/"
@@ -706,6 +711,34 @@ Model {
       BusSelectionMode	      off
     }
     Block {
+      BlockType		      DiscreteFilter
+      Numerator		      "[1]"
+      Denominator	      "[1 0.5]"
+      InputProcessing	      "Elements as channels (sample based)"
+      InitialStates	      "0"
+      SampleTime	      "-1"
+      a0EqualsOne	      off
+      NumCoefMin	      "[]"
+      NumCoefMax	      "[]"
+      DenCoefMin	      "[]"
+      DenCoefMax	      "[]"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      StateDataTypeStr	      "Inherit: Same as input"
+      NumCoefDataTypeStr      "Inherit: Inherit via internal rule"
+      DenCoefDataTypeStr      "Inherit: Inherit via internal rule"
+      NumProductDataTypeStr   "Inherit: Inherit via internal rule"
+      DenProductDataTypeStr   "Inherit: Inherit via internal rule"
+      NumAccumDataTypeStr     "Inherit: Inherit via internal rule"
+      DenAccumDataTypeStr     "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	off
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+    Block {
       BlockType		      From
       IconDisplay	      "Tag"
       TagVisibility	      "local"
@@ -891,10 +924,14 @@ Model {
     Block {
       BlockType		      Terminator
     }
+    Block {
+      BlockType		      ZeroOrderHold
+      SampleTime	      "1"
+    }
   }
   System {
     Name		    "motionControlModel"
-    Location		    [2, 75, 1534, 803]
+    Location		    [2, 83, 1518, 811]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -908,13 +945,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "77"
+    SIDHighWatermark	    "108"
     Block {
       BlockType		      SubSystem
       Name		      "Controller"
       SID		      "67"
-      Ports		      [1, 1]
-      Position		      [660, 294, 755, 366]
+      Ports		      [2, 3]
+      Position		      [655, 305, 780, 395]
       BackgroundColor	      "green"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -925,8 +962,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Controller"
-	Location		[2, 83, 1518, 811]
-	Open			off
+	Location		[0, 83, 1516, 835]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -942,15 +979,91 @@ Model {
 	  BlockType		  Inport
 	  Name			  "e"
 	  SID			  "68"
-	  Position		  [430, 368, 460, 382]
+	  Position		  [405, 563, 435, 577]
 	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dis_input"
+	  SID			  "86"
+	  Position		  [315, 178, 345, 192]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Discrete Derivative"
+	  SID			  "90"
+	  Ports			  [1, 1]
+	  Position		  [515, 167, 575, 203]
+	  LibraryVersion	  "1.236"
+	  SourceBlock		  "simulink/Discrete/Discrete Derivative"
+	  SourceType		  "Discrete Derivative"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	  gainval		  "1.0"
+	  ICPrevScaledInput	  "0.0"
+	  OutMin		  "[]"
+	  OutMax		  "[]"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutputDataTypeScalingMode "Inherit via internal rule"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^-10"
+	  LockScale		  off
+	  RndMeth		  "Floor"
+	  DoSatur		  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Discrete Derivative1"
+	  SID			  "91"
+	  Ports			  [1, 1]
+	  Position		  [715, 252, 775, 288]
+	  LibraryVersion	  "1.236"
+	  SourceBlock		  "simulink/Discrete/Discrete Derivative"
+	  SourceType		  "Discrete Derivative"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	  gainval		  "1.0"
+	  ICPrevScaledInput	  "0.0"
+	  OutMin		  "[]"
+	  OutMax		  "[]"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutputDataTypeScalingMode "Inherit via internal rule"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^-10"
+	  LockScale		  off
+	  RndMeth		  "Floor"
+	  DoSatur		  off
+	}
+	Block {
+	  BlockType		  DiscreteFilter
+	  Name			  "Discrete Filter"
+	  SID			  "108"
+	  Position		  [405, 167, 465, 203]
+	  Numerator		  "[600]"
+	  Denominator		  "[600 1]"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Discrete PID Controller"
 	  SID			  "23"
 	  Ports			  [1, 1]
-	  Position		  [645, 357, 685, 393]
+	  Position		  [620, 552, 660, 588]
 	  BackgroundColor	  "green"
 	  LibraryVersion	  "1.236"
 	  SourceBlock		  "simulink/Continuous/PID Controller"
@@ -1071,15 +1184,53 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
+	  Name			  "v"
+	  SID			  "106"
+	  Position		  [1005, 178, 1035, 192]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "a"
+	  SID			  "107"
+	  Position		  [1005, 263, 1035, 277]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
 	  Name			  "control_signal"
 	  SID			  "69"
-	  Position		  [1030, 368, 1060, 382]
+	  Position		  [1010, 563, 1040, 577]
+	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Line {
 	  SrcBlock		  "e"
 	  SrcPort		  1
 	  DstBlock		  "Discrete PID Controller"
+	  DstPort		  1
+	}
+	Line {
+	  Labels		  [2, 0]
+	  SrcBlock		  "Discrete Derivative"
+	  SrcPort		  1
+	  Points		  [65, 0; 0, 5]
+	  Branch {
+	    Points		    [0, 80]
+	    DstBlock		    "Discrete Derivative1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -5]
+	    DstBlock		    "v"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "dis_input"
+	  SrcPort		  1
+	  DstBlock		  "Discrete Filter"
 	  DstPort		  1
 	}
 	Line {
@@ -1090,8 +1241,26 @@ Model {
 	  DstBlock		  "control_signal"
 	  DstPort		  1
 	}
+	Line {
+	  SrcBlock		  "Discrete Derivative1"
+	  SrcPort		  1
+	  DstBlock		  "a"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Discrete Filter"
+	  SrcPort		  1
+	  DstBlock		  "Discrete Derivative"
+	  DstPort		  1
+	}
 	Annotation {
-	  Position		  [831, 243]
+	  Position		  [831, 238]
+	}
+	Annotation {
+	  Position		  [1033, 308]
+	}
+	Annotation {
+	  Position		  [553, 438]
 	}
       }
     }
@@ -1224,14 +1393,14 @@ Model {
       BlockType		      From
       Name		      "From1"
       SID		      "57"
-      Position		      [925, 359, 1030, 381]
+      Position		      [925, 379, 1030, 401]
       GotoTag		      "Stop"
     }
     Block {
       BlockType		      From
       Name		      "From2"
       SID		      "58"
-      Position		      [920, 277, 1035, 303]
+      Position		      [920, 297, 1035, 323]
       GotoTag		      "ReferencePWM"
     }
     Block {
@@ -1252,7 +1421,7 @@ Model {
       BlockType		      From
       Name		      "From5"
       SID		      "61"
-      Position		      [925, 213, 1025, 237]
+      Position		      [925, 233, 1025, 257]
       GotoTag		      "Mode"
     }
     Block {
@@ -1413,6 +1582,172 @@ Model {
       }
     }
     Block {
+      BlockType		      SubSystem
+      Name		      "MATLAB Function"
+      SID		      "102"
+      Ports		      [2, 2]
+      Position		      [925, 101, 1065, 174]
+      LibraryVersion	      "1.32"
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('pr"
+      "ivate/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "normalized"
+      Port {
+	PortNumber		1
+	Name			"vel_input"
+	PropagatedSignals	"vel_input"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		2
+	Name			"acel_input"
+	PropagatedSignals	"acel_input"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      System {
+	Name			"MATLAB Function"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"22"
+	Block {
+	  BlockType		  Inport
+	  Name			  "v"
+	  SID			  "102::19"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "a"
+	  SID			  "102::20"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "102::15"
+	  Ports			  [1, 1]
+	  Position		  [270, 205, 320, 245]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "102::14"
+	  Tag			  "Stateflow S-Function motionControlModel 4"
+	  Ports			  [2, 3]
+	  Position		  [180, 104, 230, 206]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[2 3]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "vel_input"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "acel_input"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "102::17"
+	  Position		  [460, 216, 480, 234]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "vel_input"
+	  SID			  "102::21"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "acel_input"
+	  SID			  "102::22"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "v"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "a"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "vel_input"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "vel_input"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "acel_input"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "acel_input"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
       BlockType		      Reference
       Name		      "MM-16-AT Analog Input"
       SID		      "33"
@@ -1441,9 +1776,9 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Motors - F4\n STM - PWM"
-      SID		      "8"
+      SID		      "97"
       Ports		      [1, 1]
-      Position		      [1285, 270, 1405, 350]
+      Position		      [1295, 290, 1415, 370]
       BackgroundColor	      "lightBlue"
       AncestorBlock	      "Diamond16AT_UNAL/PWM Generation/Motors - F4\n STM - PWM"
       LibraryVersion	      "*1.24"
@@ -1495,14 +1830,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "Control Signals"
-	  SID			  "8:19"
+	  SID			  "97:19"
 	  Position		  [80, 553, 110, 567]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "ASCII Encode "
-	  SID			  "8:20"
+	  SID			  "97:20"
 	  Ports			  [6, 1]
 	  Position		  [590, 86, 675, 1139]
 	  LibraryVersion	  "1.15"
@@ -1516,7 +1851,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Baseboard\nSerial1"
-	  SID			  "8:21"
+	  SID			  "97:21"
 	  Ports			  [2, 2]
 	  Position		  [755, 579, 830, 721]
 	  LibraryVersion	  "1.15"
@@ -1573,7 +1908,7 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  "Demux"
-	  SID			  "8:22"
+	  SID			  "97:22"
 	  Ports			  [1, 6]
 	  Position		  [190, 17, 200, 1103]
 	  ShowName		  off
@@ -1583,13 +1918,13 @@ Model {
 	Block {
 	  BlockType		  Ground
 	  Name			  "Ground"
-	  SID			  "8:23"
+	  SID			  "97:23"
 	  Position		  [720, 675, 740, 695]
 	}
 	Block {
 	  BlockType		  If
 	  Name			  "If"
-	  SID			  "8:24"
+	  SID			  "97:24"
 	  Ports			  [1, 2]
 	  Position		  [315, 90, 365, 130]
 	  IfExpression		  "u1 >= 0 & u1<=100"
@@ -1599,7 +1934,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem"
-	  SID			  "8:25"
+	  SID			  "97:25"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [400, 132, 470, 168]
 	  TreatAsAtomicUnit	  on
@@ -1628,35 +1963,35 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:26"
+	      SID		      "97:26"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:27"
+	      SID		      "97:27"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:28"
+	      SID		      "97:28"
 	      Position		      [170, 105, 200, 135]
 	      Value		      "50"
 	    }
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:29"
+	      SID		      "97:29"
 	      Position		      [255, 70, 285, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:30"
+	      SID		      "97:30"
 	      Ports		      [2, 1]
 	      Position		      [210, 75, 230, 95]
 	      ShowName		      off
@@ -1669,7 +2004,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:31"
+	      SID		      "97:31"
 	      Position		      [325, 78, 355, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -1703,7 +2038,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem1"
-	  SID			  "8:32"
+	  SID			  "97:32"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [335, 182, 405, 218]
 	  TreatAsAtomicUnit	  on
@@ -1732,28 +2067,28 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:33"
+	      SID		      "97:33"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:34"
+	      SID		      "97:34"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "elseif"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:35"
+	      SID		      "97:35"
 	      Position		      [140, 130, 170, 160]
 	      Value		      "150"
 	    }
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "8:36"
+	      SID		      "97:36"
 	      Position		      [140, 70, 170, 100]
 	      Gain		      "-1"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1763,14 +2098,14 @@ Model {
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:37"
+	      SID		      "97:37"
 	      Position		      [270, 70, 300, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:38"
+	      SID		      "97:38"
 	      Ports		      [2, 1]
 	      Position		      [190, 75, 210, 95]
 	      ShowName		      off
@@ -1783,7 +2118,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:39"
+	      SID		      "97:39"
 	      Position		      [350, 78, 380, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -1823,7 +2158,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem10"
-	  SID			  "8:40"
+	  SID			  "97:40"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [415, 1032, 485, 1068]
 	  TreatAsAtomicUnit	  on
@@ -1852,35 +2187,35 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:41"
+	      SID		      "97:41"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:42"
+	      SID		      "97:42"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:43"
+	      SID		      "97:43"
 	      Position		      [170, 105, 200, 135]
 	      Value		      "50"
 	    }
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:44"
+	      SID		      "97:44"
 	      Position		      [255, 70, 285, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:45"
+	      SID		      "97:45"
 	      Ports		      [2, 1]
 	      Position		      [210, 75, 230, 95]
 	      ShowName		      off
@@ -1893,7 +2228,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:46"
+	      SID		      "97:46"
 	      Position		      [325, 78, 355, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -1927,7 +2262,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem11"
-	  SID			  "8:47"
+	  SID			  "97:47"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [350, 1082, 420, 1118]
 	  TreatAsAtomicUnit	  on
@@ -1956,28 +2291,28 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:48"
+	      SID		      "97:48"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:49"
+	      SID		      "97:49"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "elseif"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:50"
+	      SID		      "97:50"
 	      Position		      [140, 130, 170, 160]
 	      Value		      "150"
 	    }
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "8:51"
+	      SID		      "97:51"
 	      Position		      [140, 70, 170, 100]
 	      Gain		      "-1"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1987,14 +2322,14 @@ Model {
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:52"
+	      SID		      "97:52"
 	      Position		      [270, 70, 300, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:53"
+	      SID		      "97:53"
 	      Ports		      [2, 1]
 	      Position		      [190, 75, 210, 95]
 	      ShowName		      off
@@ -2007,7 +2342,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:54"
+	      SID		      "97:54"
 	      Position		      [350, 78, 380, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2047,7 +2382,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem2"
-	  SID			  "8:55"
+	  SID			  "97:55"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [375, 312, 445, 348]
 	  TreatAsAtomicUnit	  on
@@ -2076,35 +2411,35 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:56"
+	      SID		      "97:56"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:57"
+	      SID		      "97:57"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:58"
+	      SID		      "97:58"
 	      Position		      [170, 105, 200, 135]
 	      Value		      "50"
 	    }
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:59"
+	      SID		      "97:59"
 	      Position		      [255, 70, 285, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:60"
+	      SID		      "97:60"
 	      Ports		      [2, 1]
 	      Position		      [210, 75, 230, 95]
 	      ShowName		      off
@@ -2117,7 +2452,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:61"
+	      SID		      "97:61"
 	      Position		      [325, 78, 355, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2151,7 +2486,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem3"
-	  SID			  "8:62"
+	  SID			  "97:62"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [310, 362, 380, 398]
 	  TreatAsAtomicUnit	  on
@@ -2180,28 +2515,28 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:63"
+	      SID		      "97:63"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:64"
+	      SID		      "97:64"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "elseif"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:65"
+	      SID		      "97:65"
 	      Position		      [140, 130, 170, 160]
 	      Value		      "150"
 	    }
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "8:66"
+	      SID		      "97:66"
 	      Position		      [140, 70, 170, 100]
 	      Gain		      "-1"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2211,14 +2546,14 @@ Model {
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:67"
+	      SID		      "97:67"
 	      Position		      [270, 70, 300, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:68"
+	      SID		      "97:68"
 	      Ports		      [2, 1]
 	      Position		      [190, 75, 210, 95]
 	      ShowName		      off
@@ -2231,7 +2566,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:69"
+	      SID		      "97:69"
 	      Position		      [350, 78, 380, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2271,7 +2606,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem4"
-	  SID			  "8:70"
+	  SID			  "97:70"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [395, 492, 465, 528]
 	  TreatAsAtomicUnit	  on
@@ -2300,35 +2635,35 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:71"
+	      SID		      "97:71"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:72"
+	      SID		      "97:72"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:73"
+	      SID		      "97:73"
 	      Position		      [170, 105, 200, 135]
 	      Value		      "50"
 	    }
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:74"
+	      SID		      "97:74"
 	      Position		      [255, 70, 285, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:75"
+	      SID		      "97:75"
 	      Ports		      [2, 1]
 	      Position		      [210, 75, 230, 95]
 	      ShowName		      off
@@ -2341,7 +2676,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:76"
+	      SID		      "97:76"
 	      Position		      [325, 78, 355, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2375,7 +2710,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem5"
-	  SID			  "8:77"
+	  SID			  "97:77"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [330, 542, 400, 578]
 	  TreatAsAtomicUnit	  on
@@ -2404,28 +2739,28 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:78"
+	      SID		      "97:78"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:79"
+	      SID		      "97:79"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "elseif"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:80"
+	      SID		      "97:80"
 	      Position		      [140, 130, 170, 160]
 	      Value		      "150"
 	    }
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "8:81"
+	      SID		      "97:81"
 	      Position		      [140, 70, 170, 100]
 	      Gain		      "-1"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2435,14 +2770,14 @@ Model {
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:82"
+	      SID		      "97:82"
 	      Position		      [270, 70, 300, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:83"
+	      SID		      "97:83"
 	      Ports		      [2, 1]
 	      Position		      [190, 75, 210, 95]
 	      ShowName		      off
@@ -2455,7 +2790,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:84"
+	      SID		      "97:84"
 	      Position		      [350, 78, 380, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2495,7 +2830,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem6"
-	  SID			  "8:85"
+	  SID			  "97:85"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [415, 672, 485, 708]
 	  TreatAsAtomicUnit	  on
@@ -2524,35 +2859,35 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:86"
+	      SID		      "97:86"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:87"
+	      SID		      "97:87"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:88"
+	      SID		      "97:88"
 	      Position		      [170, 105, 200, 135]
 	      Value		      "50"
 	    }
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:89"
+	      SID		      "97:89"
 	      Position		      [255, 70, 285, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:90"
+	      SID		      "97:90"
 	      Ports		      [2, 1]
 	      Position		      [210, 75, 230, 95]
 	      ShowName		      off
@@ -2565,7 +2900,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:91"
+	      SID		      "97:91"
 	      Position		      [325, 78, 355, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2599,7 +2934,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem7"
-	  SID			  "8:92"
+	  SID			  "97:92"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [350, 722, 420, 758]
 	  TreatAsAtomicUnit	  on
@@ -2628,28 +2963,28 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:93"
+	      SID		      "97:93"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:94"
+	      SID		      "97:94"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "elseif"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:95"
+	      SID		      "97:95"
 	      Position		      [140, 130, 170, 160]
 	      Value		      "150"
 	    }
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "8:96"
+	      SID		      "97:96"
 	      Position		      [140, 70, 170, 100]
 	      Gain		      "-1"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2659,14 +2994,14 @@ Model {
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:97"
+	      SID		      "97:97"
 	      Position		      [270, 70, 300, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:98"
+	      SID		      "97:98"
 	      Ports		      [2, 1]
 	      Position		      [190, 75, 210, 95]
 	      ShowName		      off
@@ -2679,7 +3014,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:99"
+	      SID		      "97:99"
 	      Position		      [350, 78, 380, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2719,7 +3054,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem8"
-	  SID			  "8:100"
+	  SID			  "97:100"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [415, 852, 485, 888]
 	  TreatAsAtomicUnit	  on
@@ -2748,35 +3083,35 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:101"
+	      SID		      "97:101"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:102"
+	      SID		      "97:102"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:103"
+	      SID		      "97:103"
 	      Position		      [170, 105, 200, 135]
 	      Value		      "50"
 	    }
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:104"
+	      SID		      "97:104"
 	      Position		      [255, 70, 285, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:105"
+	      SID		      "97:105"
 	      Ports		      [2, 1]
 	      Position		      [210, 75, 230, 95]
 	      ShowName		      off
@@ -2789,7 +3124,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:106"
+	      SID		      "97:106"
 	      Position		      [325, 78, 355, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2823,7 +3158,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem9"
-	  SID			  "8:107"
+	  SID			  "97:107"
 	  Ports			  [1, 1, 0, 0, 0, 0, 0, 1]
 	  Position		  [350, 902, 420, 938]
 	  TreatAsAtomicUnit	  on
@@ -2852,28 +3187,28 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In1"
-	      SID		      "8:108"
+	      SID		      "97:108"
 	      Position		      [75, 78, 105, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "8:109"
+	      SID		      "97:109"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "elseif"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant8"
-	      SID		      "8:110"
+	      SID		      "97:110"
 	      Position		      [140, 130, 170, 160]
 	      Value		      "150"
 	    }
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "8:111"
+	      SID		      "97:111"
 	      Position		      [140, 70, 170, 100]
 	      Gain		      "-1"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2883,14 +3218,14 @@ Model {
 	    Block {
 	      BlockType		      Rounding
 	      Name		      "Rounding\nFunction"
-	      SID		      "8:112"
+	      SID		      "97:112"
 	      Position		      [270, 70, 300, 100]
 	      Operator		      "ceil"
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "8:113"
+	      SID		      "97:113"
 	      Ports		      [2, 1]
 	      Position		      [190, 75, 210, 95]
 	      ShowName		      off
@@ -2903,7 +3238,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out1"
-	      SID		      "8:114"
+	      SID		      "97:114"
 	      Position		      [350, 78, 380, 92]
 	      IconDisplay	      "Port number"
 	    }
@@ -2943,7 +3278,7 @@ Model {
 	Block {
 	  BlockType		  If
 	  Name			  "If1"
-	  SID			  "8:115"
+	  SID			  "97:115"
 	  Ports			  [1, 2]
 	  Position		  [290, 270, 340, 310]
 	  IfExpression		  "u1 >= 0 & u1<=100"
@@ -2953,7 +3288,7 @@ Model {
 	Block {
 	  BlockType		  If
 	  Name			  "If2"
-	  SID			  "8:116"
+	  SID			  "97:116"
 	  Ports			  [1, 2]
 	  Position		  [310, 450, 360, 490]
 	  IfExpression		  "u1 >= 0 & u1<=100"
@@ -2963,7 +3298,7 @@ Model {
 	Block {
 	  BlockType		  If
 	  Name			  "If3"
-	  SID			  "8:117"
+	  SID			  "97:117"
 	  Ports			  [1, 2]
 	  Position		  [330, 630, 380, 670]
 	  IfExpression		  "u1 >= 0 & u1<=100"
@@ -2973,7 +3308,7 @@ Model {
 	Block {
 	  BlockType		  If
 	  Name			  "If4"
-	  SID			  "8:118"
+	  SID			  "97:118"
 	  Ports			  [1, 2]
 	  Position		  [330, 810, 380, 850]
 	  IfExpression		  "u1 >= 0 & u1<=100"
@@ -2983,7 +3318,7 @@ Model {
 	Block {
 	  BlockType		  If
 	  Name			  "If5"
-	  SID			  "8:119"
+	  SID			  "97:119"
 	  Ports			  [1, 2]
 	  Position		  [330, 990, 380, 1030]
 	  IfExpression		  "u1 >= 0 & u1<=100"
@@ -2993,49 +3328,49 @@ Model {
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge"
-	  SID			  "8:120"
+	  SID			  "97:120"
 	  Ports			  [2, 1]
 	  Position		  [490, 155, 530, 195]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge1"
-	  SID			  "8:121"
+	  SID			  "97:121"
 	  Ports			  [2, 1]
 	  Position		  [465, 335, 505, 375]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge2"
-	  SID			  "8:122"
+	  SID			  "97:122"
 	  Ports			  [2, 1]
 	  Position		  [485, 515, 525, 555]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge3"
-	  SID			  "8:123"
+	  SID			  "97:123"
 	  Ports			  [2, 1]
 	  Position		  [505, 695, 545, 735]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge4"
-	  SID			  "8:124"
+	  SID			  "97:124"
 	  Ports			  [2, 1]
 	  Position		  [505, 875, 545, 915]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge5"
-	  SID			  "8:125"
+	  SID			  "97:125"
 	  Ports			  [2, 1]
 	  Position		  [505, 1055, 545, 1095]
 	}
 	Block {
 	  BlockType		  Saturate
 	  Name			  "Saturation"
-	  SID			  "8:126"
+	  SID			  "97:126"
 	  Ports			  [1, 1]
 	  Position		  [245, 95, 275, 125]
 	  InputPortMap		  "u0"
@@ -3046,7 +3381,7 @@ Model {
 	Block {
 	  BlockType		  Saturate
 	  Name			  "Saturation1"
-	  SID			  "8:127"
+	  SID			  "97:127"
 	  Ports			  [1, 1]
 	  Position		  [225, 275, 255, 305]
 	  InputPortMap		  "u0"
@@ -3057,7 +3392,7 @@ Model {
 	Block {
 	  BlockType		  Saturate
 	  Name			  "Saturation2"
-	  SID			  "8:128"
+	  SID			  "97:128"
 	  Ports			  [1, 1]
 	  Position		  [240, 455, 270, 485]
 	  InputPortMap		  "u0"
@@ -3068,7 +3403,7 @@ Model {
 	Block {
 	  BlockType		  Saturate
 	  Name			  "Saturation3"
-	  SID			  "8:129"
+	  SID			  "97:129"
 	  Ports			  [1, 1]
 	  Position		  [260, 635, 290, 665]
 	  InputPortMap		  "u0"
@@ -3079,7 +3414,7 @@ Model {
 	Block {
 	  BlockType		  Saturate
 	  Name			  "Saturation4"
-	  SID			  "8:130"
+	  SID			  "97:130"
 	  Ports			  [1, 1]
 	  Position		  [260, 815, 290, 845]
 	  InputPortMap		  "u0"
@@ -3090,7 +3425,7 @@ Model {
 	Block {
 	  BlockType		  Saturate
 	  Name			  "Saturation5"
-	  SID			  "8:131"
+	  SID			  "97:131"
 	  Ports			  [1, 1]
 	  Position		  [260, 995, 290, 1025]
 	  InputPortMap		  "u0"
@@ -3101,19 +3436,19 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  "Terminator"
-	  SID			  "8:132"
+	  SID			  "97:132"
 	  Position		  [860, 675, 880, 695]
 	}
 	Block {
 	  BlockType		  Terminator
 	  Name			  "Terminator1"
-	  SID			  "8:133"
+	  SID			  "97:133"
 	  Position		  [860, 605, 880, 625]
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "ASCIIOut"
-	  SID			  "8:134"
+	  SID			  "97:134"
 	  Position		  [960, 318, 990, 332]
 	  IconDisplay		  "Port number"
 	}
@@ -3545,7 +3880,7 @@ Model {
       Name		      "Multiport\nSwitch1"
       SID		      "46"
       Ports		      [4, 1]
-      Position		      [1080, 228, 1140, 392]
+      Position		      [1080, 248, 1140, 412]
       BackgroundColor	      "lightBlue"
       DataPortOrder	      "Specify indices"
       DataPortIndices	      "{3,[2,1],0}"
@@ -3600,7 +3935,8 @@ Model {
       BlockType		      Step
       Name		      "Step"
       SID		      "73"
-      Position		      [495, 15, 525, 45]
+      Position		      [340, 15, 370, 45]
+      After		      "100"
       SampleTime	      "0"
     }
     Block {
@@ -3632,17 +3968,9 @@ Model {
     }
     Block {
       BlockType		      Terminator
-      Name		      "Terminator"
-      SID		      "77"
-      Position		      [630, 610, 650, 630]
-      BlockMirror	      on
-      BackgroundColor	      "yellow"
-    }
-    Block {
-      BlockType		      Terminator
       Name		      "Terminator1"
       SID		      "36"
-      Position		      [185, 490, 205, 510]
+      Position		      [110, 490, 130, 510]
       BlockMirror	      on
       BackgroundColor	      "yellow"
     }
@@ -3650,7 +3978,7 @@ Model {
       BlockType		      Terminator
       Name		      "Terminator2"
       SID		      "63"
-      Position		      [1465, 300, 1485, 320]
+      Position		      [1470, 320, 1490, 340]
       BackgroundColor	      "yellow"
       NamePlacement	      "alternate"
     }
@@ -3658,7 +3986,31 @@ Model {
       BlockType		      Terminator
       Name		      "Terminator3"
       SID		      "74"
-      Position		      [685, 20, 705, 40]
+      Position		      [590, 110, 610, 130]
+      BackgroundColor	      "yellow"
+      NamePlacement	      "alternate"
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator4"
+      SID		      "99"
+      Position		      [320, 590, 340, 610]
+      BlockMirror	      on
+      BackgroundColor	      "yellow"
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator5"
+      SID		      "103"
+      Position		      [1175, 155, 1195, 175]
+      BackgroundColor	      "yellow"
+      NamePlacement	      "alternate"
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator6"
+      SID		      "104"
+      Position		      [1175, 85, 1195, 105]
       BackgroundColor	      "yellow"
       NamePlacement	      "alternate"
     }
@@ -3667,7 +4019,7 @@ Model {
       Name		      "Vcurrents"
       SID		      "21"
       Ports		      [1, 1]
-      Position		      [855, 601, 895, 639]
+      Position		      [855, 561, 895, 599]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       InputPortWidth	      "12"
@@ -3676,7 +4028,7 @@ Model {
       OutputSizes	      "1"
       Port {
 	PortNumber		1
-	Name			"current_input"
+	Name			"current"
 	PropagatedSignals	", , , , , "
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
@@ -3696,11 +4048,17 @@ Model {
       OutputSizes	      "1"
     }
     Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold"
+      SID		      "79"
+      Position		      [405, 15, 440, 45]
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "volt2distance"
       SID		      "17"
-      Ports		      [1, 1]
-      Position		      [610, 473, 730, 527]
+      Ports		      [2, 2]
+      Position		      [560, 470, 730, 590]
       BlockMirror	      on
       BackgroundColor	      "cyan"
       LibraryVersion	      "1.32"
@@ -3746,7 +4104,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"17"
+	SIDHighWatermark	"21"
 	Block {
 	  BlockType		  Inport
 	  Name			  "v"
@@ -3755,11 +4113,19 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Block {
+	  BlockType		  Inport
+	  Name			  "current"
+	  SID			  "17::20"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
 	  SID			  "17::15"
 	  Ports			  [1, 1]
-	  Position		  [270, 160, 320, 200]
+	  Position		  [270, 180, 320, 220]
 	  Outputs		  "1"
 	}
 	Block {
@@ -3767,14 +4133,20 @@ Model {
 	  Name			  " SFunction "
 	  SID			  "17::14"
 	  Tag			  "Stateflow S-Function motionControlModel 1"
-	  Ports			  [1, 2]
-	  Position		  [180, 100, 230, 160]
+	  Ports			  [2, 3]
+	  Position		  [180, 100, 230, 180]
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[1 2]"
+	  PortCounts		  "[2 3]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
 	    Name		    "dist_input"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "current_input"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -3783,13 +4155,21 @@ Model {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
 	  SID			  "17::17"
-	  Position		  [460, 171, 480, 189]
+	  Position		  [460, 191, 480, 209]
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "dist_input"
 	  SID			  "17::5"
 	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "current_input"
+	  SID			  "17::21"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -3799,11 +4179,25 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  SrcBlock		  "current"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
 	  Name			  "dist_input"
-	  Labels		  [0, 0]
+	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
 	  DstBlock		  "dist_input"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "current_input"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "current_input"
 	  DstPort		  1
 	}
 	Line {
@@ -3821,12 +4215,13 @@ Model {
       }
     }
     Line {
-      Name		      "current_input"
+      Name		      "current"
       Labels		      [0, 0]
       SrcBlock		      "Vcurrents"
       SrcPort		      1
-      DstBlock		      "Terminator"
-      DstPort		      1
+      Points		      [-105, 0]
+      DstBlock		      "volt2distance"
+      DstPort		      2
     }
     Line {
       SrcBlock		      "Vdistance"
@@ -3837,15 +4232,15 @@ Model {
     Line {
       SrcBlock		      "Mux"
       SrcPort		      1
-      Points		      [-35, 0; 0, 5]
+      Points		      [-35, 0]
       Branch {
-	Points			[0, 50]
-	DstBlock		"Vcurrents"
+	Points			[0, -65]
+	DstBlock		"Vdistance"
 	DstPort			1
       }
       Branch {
-	Points			[0, -70]
-	DstBlock		"Vdistance"
+	Points			[0, 15]
+	DstBlock		"Vcurrents"
 	DstPort			1
       }
     }
@@ -3922,12 +4317,6 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Controller"
-      SrcPort		      1
-      DstBlock		      "Multiport\nSwitch1"
-      DstPort		      3
-    }
-    Line {
       Name		      "e"
       Labels		      [1, 0]
       SrcBlock		      "Sum"
@@ -3940,15 +4329,22 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "volt2distance"
       SrcPort		      1
-      Points		      [-135, 0]
-      Branch {
-	DstBlock		"Sum"
-	DstPort			2
-      }
+      Points		      [-85, 0]
       Branch {
 	Labels			[1, 0]
 	DstBlock		"Direct kinematic"
 	DstPort			1
+      }
+      Branch {
+	Points			[0, -125]
+	Branch {
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Branch {
+	  DstBlock		  "Controller"
+	  DstPort		  2
+	}
       }
     }
     Line {
@@ -3983,12 +4379,6 @@ Model {
       SrcBlock		      "Stop"
       SrcPort		      1
       DstBlock		      "Goto1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Reference PWM"
-      SrcPort		      1
-      DstBlock		      "Goto2"
       DstPort		      1
     }
     Line {
@@ -4058,8 +4448,68 @@ Model {
     Line {
       SrcBlock		      "Step"
       SrcPort		      1
+      DstBlock		      "Zero-Order\nHold"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Reference PWM"
+      SrcPort		      1
+      Points		      [10, 0]
       DstBlock		      "Terminator3"
       DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold"
+      SrcPort		      1
+      Points		      [145, 0; 0, 50]
+      DstBlock		      "Goto2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "volt2distance"
+      SrcPort		      2
+      Points		      [-105, 0; 0, 40]
+      DstBlock		      "Terminator4"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Controller"
+      SrcPort		      1
+      Points		      [25, 0; 0, -200]
+      DstBlock		      "MATLAB Function"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Controller"
+      SrcPort		      2
+      Points		      [60, 0; 0, -195]
+      DstBlock		      "MATLAB Function"
+      DstPort		      2
+    }
+    Line {
+      Name		      "vel_input"
+      Labels		      [2, 0]
+      SrcBlock		      "MATLAB Function"
+      SrcPort		      1
+      Points		      [0, -25]
+      DstBlock		      "Terminator6"
+      DstPort		      1
+    }
+    Line {
+      Name		      "acel_input"
+      Labels		      [2, 0]
+      SrcBlock		      "MATLAB Function"
+      SrcPort		      2
+      Points		      [0, 10]
+      DstBlock		      "Terminator5"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Controller"
+      SrcPort		      3
+      Points		      [115, 0; 0, -30]
+      DstBlock		      "Multiport\nSwitch1"
+      DstPort		      3
     }
     Annotation {
       Position		      [1026, 38]
@@ -4083,6 +4533,12 @@ Model {
     Annotation {
       Position		      [600, 629]
     }
+    Annotation {
+      Position		      [516, 39]
+    }
+    Annotation {
+      Position		      [511, 36]
+    }
   }
 }
 # Finite State Machines
@@ -4098,7 +4554,7 @@ Stateflow {
     name		    "motionControlModel"
     created		    "23-Mar-2022 12:39:31"
     isLibrary		    0
-    firstTarget		    23
+    firstTarget		    34
     sfVersion		    75014001
   }
   chart {
@@ -4112,7 +4568,7 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    5
+    ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
@@ -4136,9 +4592,9 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function dist_input = volt2distance(v)\n% v: voltaje [v]\n% dist_input: actuator distance [cm]\nm"
-      "=[-6.90	-6.90	-7.01	-6.95	-6.95	-6.92]';\nb=[33.42	33.42	31.00	33.64	33.57	33.56]';\n\ndist_input = m.*v + b;\n\n"
-      "\n"
+      script		      "function [dist_input,current_input] = volt2distance(v,current)\n% v: voltaje [v]\n% dist_input: a"
+      "ctuator distance [cm]\nm=[-6.90	-6.90	-7.01	-6.95	-6.95	-6.92]';\nb=[33.42	33.42	31.00	33.64	33.57	33.56]';\n\nd"
+      "ist_input = m.*v + b;\n\n\ncurrent_input=current;\n\n"
       editorLayout	      "100 M4x1[65 65 768 450]"
     }
   }
@@ -4195,7 +4651,7 @@ Stateflow {
     id			    7
     ssIdNumber		    5
     name		    "dist_input"
-    linkNode		    [2 6 0]
+    linkNode		    [2 6 8]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4211,27 +4667,71 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  instance {
+  data {
     id			    8
+    ssIdNumber		    6
+    name		    "current_input"
+    linkNode		    [2 7 9]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    9
+    ssIdNumber		    8
+    name		    "current"
+    linkNode		    [2 8 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    10
     name		    "volt2distance"
     machine		    1
     chart		    2
   }
   chart {
-    id			    9
+    id			    11
     name		    "Inverse kinematic"
     windowPosition	    [330.747 300 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1536 864 1.333333333333333]
-    treeNode		    [0 10 0 0]
-    firstTransition	    12
-    firstJunction	    11
-    viewObj		    9
+    treeNode		    [0 12 0 0]
+    firstTransition	    14
+    firstJunction	    13
+    viewObj		    11
     machine		    1
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    13
+    firstData		    15
     chartFileNumber	    2
     disableImplicitCasting  1
     eml {
@@ -4239,14 +4739,14 @@ Stateflow {
     }
   }
   state {
-    id			    10
+    id			    12
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    9
-    treeNode		    [9 0 0 0]
+    chart		    11
+    treeNode		    [11 0 0 0]
     superState		    SUBCHART
-    subviewer		    9
+    subviewer		    11
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4270,16 +4770,16 @@ Stateflow {
     }
   }
   junction {
-    id			    11
+    id			    13
     position		    [23.5747 49.5747 7]
-    chart		    9
-    linkNode		    [9 0 0]
-    subviewer		    9
+    chart		    11
+    linkNode		    [11 0 0]
+    subviewer		    11
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    12
+    id			    14
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4287,23 +4787,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      11
+      id		      13
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    9
-    linkNode		    [9 0 0]
+    chart		    11
+    linkNode		    [11 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    9
+    subviewer		    11
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    13
+    id			    15
     ssIdNumber		    4
     name		    "pose"
-    linkNode		    [9 0 14]
+    linkNode		    [11 0 16]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4319,10 +4819,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    14
+    id			    16
     ssIdNumber		    5
     name		    "d"
-    linkNode		    [9 13 0]
+    linkNode		    [11 15 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4339,26 +4839,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    15
+    id			    17
     name		    "Inverse kinematic"
     machine		    1
-    chart		    9
+    chart		    11
   }
   chart {
-    id			    16
+    id			    18
     name		    "Direct kinematic"
     windowPosition	    [345.747 285 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1536 864 1.333333333333333]
-    treeNode		    [0 17 0 0]
-    firstTransition	    19
-    firstJunction	    18
-    viewObj		    16
+    treeNode		    [0 19 0 0]
+    firstTransition	    21
+    firstJunction	    20
+    viewObj		    18
     machine		    1
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    20
+    firstData		    22
     chartFileNumber	    3
     disableImplicitCasting  1
     eml {
@@ -4366,14 +4866,14 @@ Stateflow {
     }
   }
   state {
-    id			    17
+    id			    19
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    16
-    treeNode		    [16 0 0 0]
+    chart		    18
+    treeNode		    [18 0 0 0]
     superState		    SUBCHART
-    subviewer		    16
+    subviewer		    18
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4389,16 +4889,16 @@ Stateflow {
     }
   }
   junction {
-    id			    18
+    id			    20
     position		    [23.5747 49.5747 7]
-    chart		    16
-    linkNode		    [16 0 0]
-    subviewer		    16
+    chart		    18
+    linkNode		    [18 0 0]
+    subviewer		    18
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    19
+    id			    21
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4406,23 +4906,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      18
+      id		      20
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    16
-    linkNode		    [16 0 0]
+    chart		    18
+    linkNode		    [18 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    16
+    subviewer		    18
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    20
+    id			    22
     ssIdNumber		    4
     name		    "pose"
-    linkNode		    [16 0 21]
+    linkNode		    [18 0 23]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4439,10 +4939,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    21
+    id			    23
     ssIdNumber		    5
     name		    "d"
-    linkNode		    [16 20 0]
+    linkNode		    [18 22 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4459,22 +4959,184 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    22
+    id			    24
     name		    "Direct kinematic"
     machine		    1
-    chart		    16
+    chart		    18
+  }
+  chart {
+    id			    25
+    name		    "MATLAB Function"
+    windowPosition	    [294.869 284.974 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1536 864 1.611111111111111]
+    treeNode		    [0 26 0 0]
+    firstTransition	    28
+    firstJunction	    27
+    viewObj		    25
+    machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    ssIdHighWaterMark	    8
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    29
+    chartFileNumber	    4
+    disableImplicitCasting  1
+    eml {
+      name		      "fcn"
+    }
+  }
+  state {
+    id			    26
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    25
+    treeNode		    [25 0 0 0]
+    superState		    SUBCHART
+    subviewer		    25
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [vel_input,acel_input]=fcn(v,a)\n%#codegen\nvel_input=v;\nacel_input=a;\n\nend"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    27
+    position		    [23.5747 49.5747 7]
+    chart		    25
+    linkNode		    [25 0 0]
+    subviewer		    25
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    28
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      27
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    25
+    linkNode		    [25 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    25
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    29
+    ssIdNumber		    4
+    name		    "vel_input"
+    linkNode		    [25 0 30]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    30
+    ssIdNumber		    6
+    name		    "acel_input"
+    linkNode		    [25 29 31]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    31
+    ssIdNumber		    7
+    name		    "v"
+    linkNode		    [25 30 32]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    32
+    ssIdNumber		    8
+    name		    "a"
+    linkNode		    [25 31 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    33
+    name		    "MATLAB Function"
+    machine		    1
+    chart		    25
   }
   target {
-    id			    23
+    id			    34
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 24]
+    linkNode		    [1 0 35]
   }
   target {
-    id			    24
+    id			    35
     name		    "rtw"
     machine		    1
-    linkNode		    [1 23 0]
+    linkNode		    [1 34 0]
   }
 }
