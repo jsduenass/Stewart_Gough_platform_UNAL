@@ -64,7 +64,7 @@ control=data(:,1:6);
 e=data(:,7:12);
 dist_input=data(:,13:18);
 current_input=data(:,19:24);
-    
+
 dt=t(2)
 v_input=gradient(dist_input,dt);
 

@@ -56,6 +56,7 @@ function getxpcFileData(ModelName,OutFilePath,Description)
 %   $Revision: 10 $  $Date: 2007-07-26 15:56:29 -0400 (Thu, 26 Jul 2007) $
 % -------------------------------------------------------------------------
 % Check input arguments
+
 if nargin < 1
     ModelName = bdroot;
     
@@ -99,6 +100,10 @@ hFileScopes = find_system(ModelName,'LookUnderMasks','all',...
 ScopeFileNames = get_param(hFileScopes,'filename');
 % Get the scope numbers
 ScopeNumbers = get_param(hFileScopes,'scopeno');
+
+%ScopeId=tg.Scopes;
+
+
 % Make a list of variable names (e.g. 'xpcdata1','xpcdata4', where '1','4'
 % correspond to the xPC scope numbers
 VarNames = strcat({'xpcdata'},ScopeNumbers);
@@ -214,3 +219,5 @@ cr = sprintf('\n');
 disp(['Successfully saved target file scope data to ''' OutFilePath '''. ' cr...
     'Click <a href="matlab: load(''' OutFilePath...
     ''');">here</a> to load this file into the MATLAB workspace.']);
+
+end

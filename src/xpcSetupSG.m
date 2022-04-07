@@ -29,12 +29,13 @@ sc5 = addscope(tg,'host',5);
 sc6 = addscope(tg,'host',6);
 sc_file = addscope(tg,'file',7);
 
+sc_file.Decimation=1000;
+sc_file.NumSamples=10000;
 
-sc_file.FileName='log2.dat';
-sc_file.Decimation=100;
+sc_file.FileName='log.dat';
 
 filesys = tg.fs;
-
+%filesys.removefile('log.dat')
 filesys.dir
 % tg.start
 % 
@@ -88,7 +89,8 @@ Constant1 = 0;
 
 %% Scope file
 %sc_file.NumSamples=
-id_all=[id_e; id_distance ; id_currents; id_PWM];
+id_all=[ id_PWM; id_e; id_distance ; id_currents];
+    
 
 sc_file.addsignal(id_all);
 sc_file.Decimation=10;       % down sampling 10x
