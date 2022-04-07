@@ -29,43 +29,24 @@ sc5 = addscope(tg,'host',5);
 sc6 = addscope(tg,'host',6);
 sc_file = addscope(tg,'file',7);
 
-sc_file.Decimation=1000;
-sc_file.NumSamples=10000;
 
-sc_file.FileName='log.dat';
-
-filesys = tg.fs;
-%filesys.removefile('log.dat')
-filesys.dir
-% tg.start
-% 
-% input('wait')
-% tg.stop
-%% Input signal id
-id_input = zeros(12,1);
+%%  signal id
+% Input
+id_distance= tg.getsignalidsfromlabel('dist_input');
+%id_currents = tg.getsignalidsfromlabel('current_input');
 
 for k=1:12
     name = ['MM-16-AT Analog Input/p',num2str(k)];
     id_input(k)=getsignalid(tg,name);
 end
-
-id_distance= id_input(1:2:11);   
+  
 id_currents = id_input(2:2:12);
-%% PWM signal id 
-id_PWM = zeros(6,1);
 
+% PWM signal id 
+id_PWM = tg.getsignalidsfromlabel('control_sig');
 
-for k=1:6
-    name = ['Multiport Switch1/s',num2str(k)];    
-    id_PWM(k) = getsignalid(tg,name);
-end
-%% e signal id 
-id_e = zeros(6,1);
-
-for k=1:6
-    name = ['m2cm/s',num2str(k)];    
-    id_e(k) = getsignalid(tg,name);
-end
+% e signal id 
+id_e = tg.getsignalidsfromlabel('e');
 
 %% Read signals into scopes
 %sc1.addsignal (id_distance);
@@ -88,22 +69,20 @@ sc4.start;
 Constant1 = 0;
 
 %% Scope file
-%sc_file.NumSamples=
-id_all=[ id_PWM; id_e; id_distance ; id_currents];
+id_all=[ id_PWM id_e id_distance  id_currents];
     
 
 sc_file.addsignal(id_all);
+sc_file.NumSamples=10000;
 sc_file.Decimation=10;       % down sampling 10x
+sc_file.FileName='log.dat';
+
+sc_file.start;
 
 %sc_file.DynamicFileMode
-sc_file.start;
-%sc_file.FileName='log.dat';
-%fileName=sc_file.FileName
 
 filesys = tg.fs;
-
-%fid = filesys.fopen(fileName);
-
+filesys.dir
 
  %%
 % tg = xpctarget.xpc('TCPIP','168.176.26.12','22222');

@@ -25,7 +25,7 @@ id_ref = tg.getparamid('Reference pose','Value');
 
 %% Run movements
 
-X=0.0;        Y=0.0;        Z=0.7;
+X=0.0;        Y=0.0;        Z=0.8;
 Roll=-20;  Pitch=-0;   Yaw=0;
 pose= [X Y Z Roll Pitch Yaw];
 home= [0 0 0.7 0 0 0];
@@ -65,9 +65,12 @@ e=data(:,7:12);
 dist_input=data(:,13:18);
 current_input=data(:,19:24);
 
-dt=t(2)
-v_input=gradient(dist_input,dt);
+dt=t(2)-t(1);
 
+dist_filtered=dist_input;
+v_input=gradient(dist_filtered',dt)';
+
+%%
 if saveData
     
     sc_file.stop;
