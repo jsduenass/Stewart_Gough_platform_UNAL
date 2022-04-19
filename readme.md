@@ -8,52 +8,43 @@ The mechatronic lab at Universidad Nacional de Colombia has a Stewart Gough plat
 
 ## Installation
 
-* __MATLAB__: Install an old version of MATLAB that supports XPCTarget toolbox is required. MATLAB R2011a is recommended [^matlab_downloads].   
-* __xPC Target__:Install XPCTarget toolbox version 5.0.
-*  __C++ compiler__: Install C++ compiler compatible with XPC. Getting it by installing visual studio is recommended.  
+### Requirements
+* __MATLAB:__ Install an old version of MATLAB that supports XPCTarget toolbox is required. MATLAB R2011a is recommended [^matlab_downloads].   
+* __xPC Target:__ Install XPCTarget toolbox version 5.0.
+* __C++ compiler:__ Install C++ compiler compatible with XPC. Getting it by installing visual studio is recommended.
     ```matlab 
-    >> xpcgetCC('supported')
+    xpcgetCC('supported')
+    ```
+    <img alt="output supported compilers" src="https://user-images.githubusercontent.com/30636259/164089791-397af774-a305-4b0b-9a17-9a633765be1c.png" width="650px"/>
 
-    List of C++ Compilers supported by xPC Target:
+    > Testing with various Microsoft compilers, we found that some versions of Microsoft Visual C++ are not recognized by MATLAB and are difficult to find. Therefore, the [Open Watcom](http://www.openwatcom.org/) compiler is recommended.
+    > > _Note: Download the version specified by MATLAB (in R2011a, __Open Watcom version 1.8__)_.
 
-    Name                                              Version                       Service Packs                 
-    Microsoft Visual C++ Compilers 1998               6.0                           1,2,3,4,5                     
-    Microsoft Visual C++ Compilers 2005               8.0                           1                             
-    Microsoft Visual C++ Compilers 2008               9.0                           1                             
-    Microsoft Visual C++ Compilers 2010               10.0                                                        
-    Microsoft Visual C++ Compilers (Express) 2010     10.0                                                        
-    Open Watcom                                       1.8                                                         
+
+### Set-up custom libraries
+Once the required programs are installed. Get a copy of this repo and set up the custom libraries located in the _ext_ folder. 
+
+1. Copy the folder _thirdpartydrivers_ folder into the XPC toolbox folder located at _matlabroot_. Then write the command `rehash toolbox` to update the files MATLAB toolbox is referencing.
+    ```matlab
+    driverSource = '..\ext\thirdpartydrivers';
+    driverDestination = strcat(matlabroot,'\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers')
+    copyfile(driverSource, driverDestination)
+    rehash toolbox
+    ```
+1. Add to MATLAB's search path the Simulink's custom Stewart Gough library
+    ```matlab
+    savepath('..\ext\Stewart_Gough_library')
+    savepath('..\ext\Stewart_Gough_library\Trajectories')
+    savepath('..\ext\Stewart_Gough_library\Functions')
     ```
 
-    > Testing with various compilers from Microsoft, we found that the Microsoft Visual C++ versions are difficult to find. Therefore, [Open Watcom](http://www.openwatcom.org/) compiler is recommended. 
-    > > _Note: Download the version specified by MATLAB (in R2011a, version 1.8)_.
-
-
-### set up custom libraries
-Once the required programs are installed. Get a copy of this repo and set up the custom libraries located in the ```ext``` folder. 
-
-* Copy the folder thirdpartydrivers into the  XPC toolbox folder ```\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers``` located at matlabroot. Then write the command ```rehash toolbox``` to update the files MATLAB toolbox is referencing.
-
-```matlab
-driverSource='..\ext\thirdpartydrivers';
-driverDestination=strcat(matlabroot,'\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers')
-copyfile(driverSource,driverDestination)
-rehash toolbox
-```
-
-*  Add to MATLAB's search path  simulink's custom Stewart Gough library
-```
-savepath('..\ext\Stewart_Gough_library')
-savepath('..\ext\Stewart_Gough_library\Trajectories')
-savepath('..\ext\Stewart_Gough_library\Functions')
-```
-
-## setup xpc Compiler
-Run ```xpcsetCC('setup')```  to choose from list of valid compilers and ```xpcgetCC('installed')``` to check the available compilers.
-
-
+## Setup xPC Compiler
+Run `xpcsetCC('setup')`  to choose from list of valid compilers and `xpcgetCC('installed')` to check the available compilers.
 
 > The file [quickReferenceCommand](src/quickReferenceCommands.m) is a MATLAB script that contains useful commands for setting up the environment.
+
+
+
 
 ## Getting started
 
