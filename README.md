@@ -20,8 +20,7 @@ The mechatronic lab at Universidad Nacional de Colombia has a Stewart Gough plat
     > Testing with various Microsoft compilers, we found that some versions of Microsoft Visual C++ are not recognized by MATLAB and are difficult to find. Therefore, the [Open Watcom](http://www.openwatcom.org/) compiler is recommended.
     > > _Note: Download the version specified by MATLAB (in R2011a, __Open Watcom version 1.8__)_.
 
-
-### Set-up custom libraries
+### Set up custom libraries
 Once the required programs are installed. Get a copy of this repo and set up the custom libraries located in the _ext_ folder. 
 
 1. Copy the folder _thirdpartydrivers_ folder into the XPC toolbox folder located at _matlabroot_. Then write the command `rehash toolbox` to update the files MATLAB toolbox is referencing.
@@ -38,7 +37,7 @@ Once the required programs are installed. Get a copy of this repo and set up the
     savepath('..\ext\Stewart_Gough_library\Functions')
     ```
 
-## Setup xPC Compiler
+## Set up xPC Compiler
 Run `xpcsetCC('setup')`  to choose from list of valid compilers and `xpcgetCC('installed')` to check the available compilers.
 
 > The file [quickReferenceCommand](src/quickReferenceCommands.m) is a MATLAB script that contains useful commands for setting up the environment.
