@@ -25,22 +25,25 @@ Once the required programs are installed. Get a copy of this repo and set up the
 
 1. Copy the folder _thirdpartydrivers_ folder into the XPC toolbox folder located at _matlabroot_. Then write the command `rehash toolbox` to update the files MATLAB toolbox is referencing.
     ```matlab
-    driverSource = '..\ext\thirdpartydrivers';
+    driverSource = 'ext\thirdpartydrivers';
     driverDestination = strcat(matlabroot,'\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers')
     copyfile(driverSource, driverDestination)
     rehash toolbox
     ```
+    > Run MATLAB as administrator if _matlabroot_ is a protected folder (error "No matching files were found.").
 1. Add to MATLAB's search path the Simulink's custom Stewart Gough library
     ```matlab
-    savepath('..\ext\Stewart_Gough_library')
-    savepath('..\ext\Stewart_Gough_library\Trajectories')
-    savepath('..\ext\Stewart_Gough_library\Functions')
+    savepath('ext\Stewart_Gough_library')
+    savepath('ext\Stewart_Gough_library\Trajectories')
+    savepath('ext\Stewart_Gough_library\Functions')
     ```
 
-## Set up xPC Compiler
+### Set up xPC Compiler
 Run `xpcsetCC('setup')`  to choose from list of valid compilers and `xpcgetCC('installed')` to check the available compilers.
 
 > The file [quickReferenceCommand](src/quickReferenceCommands.m) is a MATLAB script that contains useful commands for setting up the environment.
+
+### Default target configuration
 
 
 
