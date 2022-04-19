@@ -1,4 +1,22 @@
 clc, clear, close all
+
+%%  Install costum libraries
+
+% Install thirdparydrivers
+activeFilename = matlab.desktop.editor.getActiveFilename;
+activePath = fileparts(activeFilename) 
+cd(activePath)
+driverSource='..\ext\thirdpartydrivers';
+driverDestination=strcat(matlabroot,'\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers')
+
+copyfile(driverSource,driverDestination)
+rehash toolbox
+
+% Add to search path  simulink's custom Stewart Gough library
+savepath('..\ext\Stewart_Gough_library')
+savepath('..\ext\Stewart_Gough_library\Trajectories')
+savepath('..\ext\Stewart_Gough_library\Functions')
+
 %% setup xpc Compiler
 xpcgetCC('supported')       % get suppoerted Compiler list
 xpcgetCC('installed')       % get list of compilers available in your machine

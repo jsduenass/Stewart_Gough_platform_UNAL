@@ -1,27 +1,66 @@
-# Stewart Gough platform
+# Stewart Gough platform (Legacy system)
 
-This repo documents the ... process of the PRISMMATIC platform (Parallel Robot Interface for Simulation of Machining Multi-Axis Trajectories and Integral Control), an Stewart Gough platform at Universidad Nacional de Colombia. 
+The mechatronic lab at Universidad Nacional de Colombia has a Stewart Gough platform, a six Degrees Of Freedom parallel manipulator powered by lineal actuators. This repo contains the legacy system used to control this robot.
 
-![SG platform](media/images/SG_platform.jpg)
+<p align="center">
+    <img alt="XPC Interface" src="https://user-images.githubusercontent.com/30636259/164065189-5919d6cb-fb75-4dbe-b450-4dbaf8083977.png"/>
+</p>
+
+## Installation
+
+* __MATLAB__: Install an old version of MATLAB that supports XPCTarget toolbox is required. MATLAB R2011a is recommended [^matlab_downloads].   
+* __xPC Target__:Install XPCTarget toolbox version 5.0.
+*  __C++ compiler__: Install C++ compiler compatible with XPC. Getting it by installing visual studio is recommended.  
+    ```matlab 
+    >> xpcgetCC('supported')
+
+    List of C++ Compilers supported by xPC Target:
+
+    Name                                              Version                       Service Packs                 
+    Microsoft Visual C++ Compilers 1998               6.0                           1,2,3,4,5                     
+    Microsoft Visual C++ Compilers 2005               8.0                           1                             
+    Microsoft Visual C++ Compilers 2008               9.0                           1                             
+    Microsoft Visual C++ Compilers 2010               10.0                                                        
+    Microsoft Visual C++ Compilers (Express) 2010     10.0                                                        
+    Open Watcom                                       1.8                                                         
+    ```
+
+    > Testing with various compilers from Microsoft, we found that the Microsoft Visual C++ versions are difficult to find. Therefore, [Open Watcom](http://www.openwatcom.org/) compiler is recommended. 
+    > > _Note: Download the version specified by MATLAB (in R2011a, version 1.8)_.
 
 
-## Table of contents
+### set up custom libraries
+Once the required programs are installed. Get a copy of this repo and set up the custom libraries located in the ```ext``` folder. 
 
-* [Process](#process)
-* [Inquires](#inquiries) 
-* [Information about legacy system](#information-about-legacy-system)
-* [Components](#components)
-* [References and resources](#references-and-resources)
+* Copy the folder thirdpartydrivers into the  XPC toolbox folder ```\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers``` located at matlabroot. Then write the command ```rehash toolbox``` to update the files MATLAB toolbox is referencing.
 
-## Objectives
-### Primary Objective
-The main objective of this work is to perform a motion interface with MATLAB R2011a for the SG platform in order to be a useful platform for current and future students to work with parallel robots. 
+```matlab
+driverSource='..\ext\thirdpartydrivers';
+driverDestination=strcat(matlabroot,'\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers')
+copyfile(driverSource,driverDestination)
+rehash toolbox
+```
 
-### Secondary objectives
-The project has the following secondary objectives:
-* Document 
+*  Add to MATLAB's search path  simulink's custom Stewart Gough library
+```
+savepath('..\ext\Stewart_Gough_library')
+savepath('..\ext\Stewart_Gough_library\Trajectories')
+savepath('..\ext\Stewart_Gough_library\Functions')
+```
 
-## Process
+## setup xpc Compiler
+Run ```xpcsetCC('setup')```  to choose from list of valid compilers and ```xpcgetCC('installed')``` to check the available compilers.
+
+
+
+> The file [quickReferenceCommand](src/quickReferenceCommands.m) is a MATLAB script that contains useful commands for setting up the environment.
+
+## Getting started
+
+
+
+
+
 
 ## Simulink model 
 
@@ -69,10 +108,7 @@ mex dodiamond16at_custom.c
 
 ## PCM-4153 (Single Board Computer) files
 
-```
-xpcboot GUI_Us~1.rtb
-```
-access via ssh
+
 
 ## CAD Model
 In order to better understand the operation of the platform and have the parts modeled in an open source CAD program, the model was made in OnShape, a Software-as-a-Service (SaaS) product development platform that combines CAD, built-in data management, real-time collaboration tools, and business analytics[<sup>9</sup>](#references-and-resources).
@@ -86,24 +122,7 @@ In order to better understand the operation of the platform and have the parts m
 
 This model was built based on the design plans of Francisco Villate and the models found in the catalogs of commercial parts.
 
-## Information about legacy system 
 
-### System requirements
-* Matlab 2011a 
-* __xPC Target (deprecated)__: Mathworks toolbox for real time model HIL (Hardware in the Loop) simulation. produces __.dlm__ files. [<sup>1</sup>](#references-and-resources)
-
-### (work in progress) Parties involved 
-* Daniel Andres Ramirez Rodriguez 
-* Edgar Bolivar
-* Francisco Javier Villate Gaona
-* Luis Miguel Mendez - Academic supervisor 
-* Jorge Sofrony - Academic supervisor
-* Juan David Muñoz 
-* Juan Diego Galeano 
-* Ubaldo Gracia Zaragoza
-* Juan David Ramirez
-* Jorge Andrés Acero - Laboratory Technician
-* DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
 
 
 
@@ -162,6 +181,20 @@ The previos diagram the relation between the subsystems and their interaction in
 
 <!-- add links to libraries -->
 
+### (work in progress) Parties involved 
+* Daniel Andres Ramirez Rodriguez 
+* Edgar Bolivar
+* Francisco Javier Villate Gaona
+* Luis Miguel Mendez - Academic supervisor 
+* Jorge Sofrony - Academic supervisor
+* Juan David Muñoz 
+* Juan Diego Galeano 
+* Ubaldo Gracia Zaragoza
+* Juan David Ramirez
+* Jorge Andrés Acero - Laboratory Technician
+* DIMAUN (Grupo de Trabajo en Nuevas Tecnologías Diseño, Manufactura y Automatización)
+
+
 
 ## Contributors
 * Alexandra - Laboratory Technician
@@ -170,15 +203,16 @@ The previos diagram the relation between the subsystems and their interaction in
 
 
 ## References and Resources
+[^matlab_downloads]: [Matlab 2011a release](https://www.mathworks.com/downloads/?release=R2011a) 
 
-1. [Forum xPC question](https://www.mathworks.com/matlabcentral/answers/479843-about-xpc-target-and-supproted-ioboard).
+<!-- 1. [Forum xPC question](https://www.mathworks.com/matlabcentral/answers/479843-about-xpc-target-and-supproted-ioboard).
 2. [MATLAB real time/xPC successor](https://www.mathworks.com/products/simulink-real-time.html?s_tid=FX_PR_info).
 3. [Real time MATLAB laboratory](http://tsakalis.faculty.asu.edu/coursea/481LAB2015.pdf).
 4. Frank González-Morphy (2022). [xPC Target Quick Reference Guide](https://www.mathworks.com/matlabcentral/fileexchange/6414-xpc-target-quick-reference-guide), MATLAB Central File Exchange. Retrieved January 23, 2022. 
 5. [xPC target User guide Version 2](http://www.bmed.mcgill.ca/reklab/manual/common/xpc/documentation/xpc_target_ug%5B1%5D.pdf). Retrieved January 23, 2022.
 6. [MATLAB Real time documentation](https://www.mathworks.com/help/pdf_doc/slrealtime/index.html).
 7. [STM32 Microcontroller Support ](https://www.mathworks.com/products/hardware/stmicroelectronics.html)
-8. [Matlab 2011a release](https://www.mathworks.com/downloads/?release=R2011a) 
+
 9. [Onshape home page](https://www.onshape.com/en/)
 10. Ramírez Rodríguez, D. (2010). Diseño de una plataforma robótica paralela de 6 dof para asistente quirúrgico en cirugías de reconstrucción cráneo-facial. \[[online](https://repositorio.unal.edu.co/handle/unal/6931)\]
 11. Villate Gaona, F. (2015). Diseño y construcción de prototipo para mecanizado multiejes en materiales blandos utilizando arquitectura paralela Stewart-Gough. \[[online](https://repositorio.unal.edu.co/handle/unal/55527)\]
@@ -186,7 +220,7 @@ The previos diagram the relation between the subsystems and their interaction in
 13. [Google drive's extended documentation folder](https://drive.google.com/drive/folders/1fW6-u03ogQynEGwKbBM8Ii7BDrmoT2iq?usp=sharing)
 14. Puentes Valencia, D. (2010). Desarrollo de sistema embebido en tiempo real. \[[online](https://repositorio.unal.edu.co/handle/unal/11129)\]
 
-15. Michael Burke (2007). (xPC File Scope Tools)[https://www.mathworks.com/matlabcentral/fileexchange/15715-xpc-file-scope-tools], MATLAB Central File Exchange. Retrieved April 5, 2022. 
+15. Michael Burke (2007). (xPC File Scope Tools)[https://www.mathworks.com/matlabcentral/fileexchange/15715-xpc-file-scope-tools], MATLAB Central File Exchange. Retrieved April 5, 2022.  -->
 
 
 
