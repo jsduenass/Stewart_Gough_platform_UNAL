@@ -108,7 +108,7 @@ In order to better understand the operation of the platform and have the parts m
 
 <p align="center">
     <a href="https://cad.onshape.com/documents/0fb14dbddb7adb0e8dacd4ba/w/41542f3fda26bca8164b05d2/e/ca1944bdd5da46a1797ada5e?configuration=default&renderMode=0&uiState=61f9581f168a0f2540c61bf6" target="_blank">
-        <img src="media/images/cadModel.png" alt="Cad Model" width="50%"/> <br/>
+        <img src="images/cadModel.png" alt="Cad Model" width="50%"/> <br/>
         Onshape CAD Model
     </a>
 </p>
@@ -122,7 +122,7 @@ This model was built based on the design plans of Francisco Villate and the mode
 ## Components:
 
 <p align="center">
-    <img src="media/images/system_architecure.png" alt="system architecture" width="80%"/>
+    <img src="images/system_architecure.png" alt="system architecture" width="80%"/>
 </p>
 
 The previos diagram the relation between the subsystems and their interaction in the control loop.
