@@ -1,0 +1,1214 @@
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"chmemcore.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._core_init,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.global	_core_init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	_core_init, %function
+  25              	_core_init:
+  26              	.LFB7:
+  27              		.file 1 "../../os/kernel/src/chmemcore.c"
+  28              		.loc 1 59 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 63 0
+  34 0000 054A     		ldr	r2, .L2
+  35 0002 064B     		ldr	r3, .L2+4
+  36 0004 22F00702 		bic	r2, r2, #7
+  37 0008 1A60     		str	r2, [r3, #0]
+  38              		.loc 1 64 0
+  39 000a 054A     		ldr	r2, .L2+8
+  40 000c 054B     		ldr	r3, .L2+12
+  41 000e 22F00702 		bic	r2, r2, #7
+  42 0012 1A60     		str	r2, [r3, #0]
+  43 0014 7047     		bx	lr
+  44              	.L3:
+  45 0016 00BF     		.align	2
+  46              	.L2:
+  47 0018 07000000 		.word	__heap_base__+7
+  48 001c 00000000 		.word	.LANCHOR0
+  49 0020 00000000 		.word	__heap_end__
+  50 0024 00000000 		.word	.LANCHOR1
+  51              		.cfi_endproc
+  52              	.LFE7:
+  53              		.size	_core_init, .-_core_init
+  54 0028 AFF30080 		.section	.text.chCoreAlloc,"ax",%progbits
+  54      AFF30080 
+  55              		.align	2
+  56              		.p2align 4,,15
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 2
+
+
+  57              		.global	chCoreAlloc
+  58              		.thumb
+  59              		.thumb_func
+  60              		.type	chCoreAlloc, %function
+  61              	chCoreAlloc:
+  62              	.LFB8:
+  63              		.loc 1 84 0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		@ link register save eliminated.
+  68              	.LVL0:
+  69              	.LBB6:
+  70              		.loc 1 87 0
+  71 0000 2023     		movs	r3, #32
+  72              	.LVL1:
+  73              	@ 87 "../../os/kernel/src/chmemcore.c" 1
+  74 0002 83F31188 		msr     BASEPRI, r3
+  75              	@ 0 "" 2
+  76              	.LVL2:
+  77              		.thumb
+  78              	.LBE6:
+  79              	.LBB7:
+  80              	.LBB8:
+  81              		.loc 1 111 0
+  82 0006 094B     		ldr	r3, .L7
+  83              	.LVL3:
+  84 0008 0949     		ldr	r1, .L7+4
+  85 000a 1A68     		ldr	r2, [r3, #0]
+  86 000c 0968     		ldr	r1, [r1, #0]
+  87              		.loc 1 110 0
+  88 000e 0730     		adds	r0, r0, #7
+  89              	.LVL4:
+  90 0010 20F00700 		bic	r0, r0, #7
+  91              	.LVL5:
+  92              		.loc 1 111 0
+  93 0014 891A     		subs	r1, r1, r2
+  94 0016 8842     		cmp	r0, r1
+  95              	.LVL6:
+  96              		.loc 1 114 0
+  97 0018 9ABF     		itte	ls
+  98 001a 1018     		addls	r0, r2, r0
+  99              	.LVL7:
+ 100 001c 1860     		strls	r0, [r3, #0]
+ 101              		.loc 1 112 0
+ 102 001e 0022     		movhi	r2, #0
+ 103              	.LVL8:
+ 104              	.LBE8:
+ 105              	.LBE7:
+ 106              	.LBB9:
+ 107              		.loc 1 89 0
+ 108 0020 0023     		movs	r3, #0
+ 109              	.LVL9:
+ 110              	@ 89 "../../os/kernel/src/chmemcore.c" 1
+ 111 0022 83F31188 		msr     BASEPRI, r3
+ 112              	@ 0 "" 2
+ 113              	.LVL10:
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 3
+
+
+ 114              		.thumb
+ 115              	.LBE9:
+ 116              		.loc 1 91 0
+ 117 0026 1046     		mov	r0, r2
+ 118 0028 7047     		bx	lr
+ 119              	.L8:
+ 120 002a 00BF     		.align	2
+ 121              	.L7:
+ 122 002c 00000000 		.word	.LANCHOR0
+ 123 0030 00000000 		.word	.LANCHOR1
+ 124              		.cfi_endproc
+ 125              	.LFE8:
+ 126              		.size	chCoreAlloc, .-chCoreAlloc
+ 127 0034 AFF30080 		.section	.text.chCoreAllocI,"ax",%progbits
+ 127      AFF30080 
+ 127      AFF30080 
+ 128              		.align	2
+ 129              		.p2align 4,,15
+ 130              		.global	chCoreAllocI
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.type	chCoreAllocI, %function
+ 134              	chCoreAllocI:
+ 135              	.LFB9:
+ 136              		.loc 1 105 0
+ 137              		.cfi_startproc
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140              		@ link register save eliminated.
+ 141              	.LVL11:
+ 142              		.loc 1 111 0
+ 143 0000 074A     		ldr	r2, .L12
+ 144 0002 0849     		ldr	r1, .L12+4
+ 145 0004 1368     		ldr	r3, [r2, #0]
+ 146 0006 0968     		ldr	r1, [r1, #0]
+ 147              		.loc 1 110 0
+ 148 0008 0730     		adds	r0, r0, #7
+ 149              	.LVL12:
+ 150 000a 20F00700 		bic	r0, r0, #7
+ 151              	.LVL13:
+ 152              		.loc 1 111 0
+ 153 000e C91A     		subs	r1, r1, r3
+ 154 0010 8842     		cmp	r0, r1
+ 155              	.LVL14:
+ 156              		.loc 1 114 0
+ 157 0012 9ABF     		itte	ls
+ 158 0014 1818     		addls	r0, r3, r0
+ 159              	.LVL15:
+ 160 0016 1060     		strls	r0, [r2, #0]
+ 161              		.loc 1 112 0
+ 162 0018 0023     		movhi	r3, #0
+ 163              	.LVL16:
+ 164              		.loc 1 116 0
+ 165 001a 1846     		mov	r0, r3
+ 166 001c 7047     		bx	lr
+ 167              	.L13:
+ 168 001e 00BF     		.align	2
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 4
+
+
+ 169              	.L12:
+ 170 0020 00000000 		.word	.LANCHOR0
+ 171 0024 00000000 		.word	.LANCHOR1
+ 172              		.cfi_endproc
+ 173              	.LFE9:
+ 174              		.size	chCoreAllocI, .-chCoreAllocI
+ 175 0028 AFF30080 		.section	.text.chCoreStatus,"ax",%progbits
+ 175      AFF30080 
+ 176              		.align	2
+ 177              		.p2align 4,,15
+ 178              		.global	chCoreStatus
+ 179              		.thumb
+ 180              		.thumb_func
+ 181              		.type	chCoreStatus, %function
+ 182              	chCoreStatus:
+ 183              	.LFB10:
+ 184              		.loc 1 125 0
+ 185              		.cfi_startproc
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              		@ link register save eliminated.
+ 189              		.loc 1 127 0
+ 190 0000 024B     		ldr	r3, .L15
+ 191 0002 1868     		ldr	r0, [r3, #0]
+ 192 0004 024B     		ldr	r3, .L15+4
+ 193 0006 1B68     		ldr	r3, [r3, #0]
+ 194              		.loc 1 128 0
+ 195 0008 C01A     		subs	r0, r0, r3
+ 196 000a 7047     		bx	lr
+ 197              	.L16:
+ 198              		.align	2
+ 199              	.L15:
+ 200 000c 00000000 		.word	.LANCHOR1
+ 201 0010 00000000 		.word	.LANCHOR0
+ 202              		.cfi_endproc
+ 203              	.LFE10:
+ 204              		.size	chCoreStatus, .-chCoreStatus
+ 205 0014 AFF30080 		.section	.bss.endmem,"aw",%nobits
+ 205      AFF30080 
+ 205      AFF30080 
+ 206              		.align	2
+ 207              		.set	.LANCHOR1,. + 0
+ 208              		.type	endmem, %object
+ 209              		.size	endmem, 4
+ 210              	endmem:
+ 211 0000 00000000 		.space	4
+ 212              		.section	.bss.nextmem,"aw",%nobits
+ 213              		.align	2
+ 214              		.set	.LANCHOR0,. + 0
+ 215              		.type	nextmem, %object
+ 216              		.size	nextmem, 4
+ 217              	nextmem:
+ 218 0000 00000000 		.space	4
+ 219              		.text
+ 220              	.Letext0:
+ 221              		.file 2 "c:\\program files (x86)\\codesourcery\\sourcery_codebench_lite_for_arm_eabi\\bin\\../lib/
+ 222              		.file 3 "c:\\program files (x86)\\codesourcery\\sourcery_codebench_lite_for_arm_eabi\\bin\\../lib/
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 5
+
+
+ 223              		.section	.debug_info,"",%progbits
+ 224              	.Ldebug_info0:
+ 225 0000 24020000 		.4byte	0x224
+ 226 0004 0200     		.2byte	0x2
+ 227 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 228 000a 04       		.byte	0x4
+ 229 000b 01       		.uleb128 0x1
+ 230 000c 4B000000 		.4byte	.LASF18
+ 231 0010 01       		.byte	0x1
+ 232 0011 B9000000 		.4byte	.LASF19
+ 233 0015 E0000000 		.4byte	.LASF20
+ 234 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 235 001d 00000000 		.4byte	0
+ 236 0021 00000000 		.4byte	0
+ 237 0025 00000000 		.4byte	.Ldebug_line0
+ 238 0029 02       		.uleb128 0x2
+ 239 002a 04       		.byte	0x4
+ 240 002b 05       		.byte	0x5
+ 241 002c 696E7400 		.ascii	"int\000"
+ 242 0030 03       		.uleb128 0x3
+ 243 0031 21000000 		.4byte	.LASF2
+ 244 0035 02       		.byte	0x2
+ 245 0036 D5       		.byte	0xd5
+ 246 0037 3B000000 		.4byte	0x3b
+ 247 003b 04       		.uleb128 0x4
+ 248 003c 04       		.byte	0x4
+ 249 003d 07       		.byte	0x7
+ 250 003e 2F010000 		.4byte	.LASF0
+ 251 0042 04       		.uleb128 0x4
+ 252 0043 01       		.byte	0x1
+ 253 0044 06       		.byte	0x6
+ 254 0045 09010000 		.4byte	.LASF1
+ 255 0049 03       		.uleb128 0x3
+ 256 004a 80000000 		.4byte	.LASF3
+ 257 004e 03       		.byte	0x3
+ 258 004f 2A       		.byte	0x2a
+ 259 0050 54000000 		.4byte	0x54
+ 260 0054 04       		.uleb128 0x4
+ 261 0055 01       		.byte	0x1
+ 262 0056 08       		.byte	0x8
+ 263 0057 88000000 		.4byte	.LASF4
+ 264 005b 04       		.uleb128 0x4
+ 265 005c 02       		.byte	0x2
+ 266 005d 05       		.byte	0x5
+ 267 005e 25010000 		.4byte	.LASF5
+ 268 0062 04       		.uleb128 0x4
+ 269 0063 02       		.byte	0x2
+ 270 0064 07       		.byte	0x7
+ 271 0065 0E000000 		.4byte	.LASF6
+ 272 0069 04       		.uleb128 0x4
+ 273 006a 04       		.byte	0x4
+ 274 006b 05       		.byte	0x5
+ 275 006c B0000000 		.4byte	.LASF7
+ 276 0070 03       		.uleb128 0x3
+ 277 0071 A7000000 		.4byte	.LASF8
+ 278 0075 03       		.byte	0x3
+ 279 0076 50       		.byte	0x50
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 6
+
+
+ 280 0077 7B000000 		.4byte	0x7b
+ 281 007b 04       		.uleb128 0x4
+ 282 007c 04       		.byte	0x4
+ 283 007d 07       		.byte	0x7
+ 284 007e 57000000 		.4byte	.LASF9
+ 285 0082 04       		.uleb128 0x4
+ 286 0083 08       		.byte	0x8
+ 287 0084 05       		.byte	0x5
+ 288 0085 00000000 		.4byte	.LASF10
+ 289 0089 04       		.uleb128 0x4
+ 290 008a 08       		.byte	0x8
+ 291 008b 07       		.byte	0x7
+ 292 008c 69000000 		.4byte	.LASF11
+ 293 0090 05       		.uleb128 0x5
+ 294 0091 04       		.byte	0x4
+ 295 0092 04       		.uleb128 0x4
+ 296 0093 04       		.byte	0x4
+ 297 0094 07       		.byte	0x7
+ 298 0095 3C010000 		.4byte	.LASF12
+ 299 0099 04       		.uleb128 0x4
+ 300 009a 01       		.byte	0x1
+ 301 009b 08       		.byte	0x8
+ 302 009c 96000000 		.4byte	.LASF13
+ 303 00a0 06       		.uleb128 0x6
+ 304 00a1 04       		.byte	0x4
+ 305 00a2 49000000 		.4byte	0x49
+ 306 00a6 07       		.uleb128 0x7
+ 307 00a7 01       		.byte	0x1
+ 308 00a8 FC000000 		.4byte	.LASF21
+ 309 00ac 01       		.byte	0x1
+ 310 00ad 69       		.byte	0x69
+ 311 00ae 01       		.byte	0x1
+ 312 00af 90000000 		.4byte	0x90
+ 313 00b3 01       		.byte	0x1
+ 314 00b4 CD000000 		.4byte	0xcd
+ 315 00b8 08       		.uleb128 0x8
+ 316 00b9 15010000 		.4byte	.LASF22
+ 317 00bd 01       		.byte	0x1
+ 318 00be 69       		.byte	0x69
+ 319 00bf 30000000 		.4byte	0x30
+ 320 00c3 09       		.uleb128 0x9
+ 321 00c4 7000     		.ascii	"p\000"
+ 322 00c6 01       		.byte	0x1
+ 323 00c7 6A       		.byte	0x6a
+ 324 00c8 90000000 		.4byte	0x90
+ 325 00cc 00       		.byte	0
+ 326 00cd 0A       		.uleb128 0xa
+ 327 00ce 01       		.byte	0x1
+ 328 00cf 1A010000 		.4byte	.LASF23
+ 329 00d3 01       		.byte	0x1
+ 330 00d4 3B       		.byte	0x3b
+ 331 00d5 01       		.byte	0x1
+ 332 00d6 00000000 		.4byte	.LFB7
+ 333 00da 28000000 		.4byte	.LFE7
+ 334 00de 02       		.byte	0x2
+ 335 00df 7D       		.byte	0x7d
+ 336 00e0 00       		.sleb128 0
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 7
+
+
+ 337 00e1 01       		.byte	0x1
+ 338 00e2 01010000 		.4byte	0x101
+ 339 00e6 0B       		.uleb128 0xb
+ 340 00e7 3D000000 		.4byte	.LASF14
+ 341 00eb 01       		.byte	0x1
+ 342 00ec 3D       		.byte	0x3d
+ 343 00ed 01010000 		.4byte	0x101
+ 344 00f1 01       		.byte	0x1
+ 345 00f2 01       		.byte	0x1
+ 346 00f3 0B       		.uleb128 0xb
+ 347 00f4 30000000 		.4byte	.LASF15
+ 348 00f8 01       		.byte	0x1
+ 349 00f9 3E       		.byte	0x3e
+ 350 00fa 01010000 		.4byte	0x101
+ 351 00fe 01       		.byte	0x1
+ 352 00ff 01       		.byte	0x1
+ 353 0100 00       		.byte	0
+ 354 0101 0C       		.uleb128 0xc
+ 355 0102 49000000 		.4byte	0x49
+ 356 0106 0C010000 		.4byte	0x10c
+ 357 010a 0D       		.uleb128 0xd
+ 358 010b 00       		.byte	0
+ 359 010c 0E       		.uleb128 0xe
+ 360 010d 01       		.byte	0x1
+ 361 010e 9B000000 		.4byte	.LASF24
+ 362 0112 01       		.byte	0x1
+ 363 0113 54       		.byte	0x54
+ 364 0114 01       		.byte	0x1
+ 365 0115 90000000 		.4byte	0x90
+ 366 0119 00000000 		.4byte	.LFB8
+ 367 011d 34000000 		.4byte	.LFE8
+ 368 0121 02       		.byte	0x2
+ 369 0122 7D       		.byte	0x7d
+ 370 0123 00       		.sleb128 0
+ 371 0124 01       		.byte	0x1
+ 372 0125 AA010000 		.4byte	0x1aa
+ 373 0129 0F       		.uleb128 0xf
+ 374 012a 15010000 		.4byte	.LASF22
+ 375 012e 01       		.byte	0x1
+ 376 012f 54       		.byte	0x54
+ 377 0130 30000000 		.4byte	0x30
+ 378 0134 00000000 		.4byte	.LLST0
+ 379 0138 10       		.uleb128 0x10
+ 380 0139 7000     		.ascii	"p\000"
+ 381 013b 01       		.byte	0x1
+ 382 013c 55       		.byte	0x55
+ 383 013d 90000000 		.4byte	0x90
+ 384 0141 01       		.byte	0x1
+ 385 0142 52       		.byte	0x52
+ 386 0143 11       		.uleb128 0x11
+ 387 0144 00000000 		.4byte	.LBB6
+ 388 0148 06000000 		.4byte	.LBE6
+ 389 014c 60010000 		.4byte	0x160
+ 390 0150 12       		.uleb128 0x12
+ 391 0151 746D7000 		.ascii	"tmp\000"
+ 392 0155 01       		.byte	0x1
+ 393 0156 57       		.byte	0x57
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 8
+
+
+ 394 0157 70000000 		.4byte	0x70
+ 395 015b 2E000000 		.4byte	.LLST1
+ 396 015f 00       		.byte	0
+ 397 0160 13       		.uleb128 0x13
+ 398 0161 A6000000 		.4byte	0xa6
+ 399 0165 06000000 		.4byte	.LBB7
+ 400 0169 20000000 		.4byte	.LBE7
+ 401 016d 01       		.byte	0x1
+ 402 016e 58       		.byte	0x58
+ 403 016f 90010000 		.4byte	0x190
+ 404 0173 14       		.uleb128 0x14
+ 405 0174 B8000000 		.4byte	0xb8
+ 406 0178 41000000 		.4byte	.LLST2
+ 407 017c 15       		.uleb128 0x15
+ 408 017d 06000000 		.4byte	.LBB8
+ 409 0181 20000000 		.4byte	.LBE8
+ 410 0185 16       		.uleb128 0x16
+ 411 0186 C3000000 		.4byte	0xc3
+ 412 018a 7F000000 		.4byte	.LLST3
+ 413 018e 00       		.byte	0
+ 414 018f 00       		.byte	0
+ 415 0190 15       		.uleb128 0x15
+ 416 0191 20000000 		.4byte	.LBB9
+ 417 0195 26000000 		.4byte	.LBE9
+ 418 0199 12       		.uleb128 0x12
+ 419 019a 746D7000 		.ascii	"tmp\000"
+ 420 019e 01       		.byte	0x1
+ 421 019f 59       		.byte	0x59
+ 422 01a0 70000000 		.4byte	0x70
+ 423 01a4 A1000000 		.4byte	.LLST4
+ 424 01a8 00       		.byte	0
+ 425 01a9 00       		.byte	0
+ 426 01aa 17       		.uleb128 0x17
+ 427 01ab A6000000 		.4byte	0xa6
+ 428 01af 00000000 		.4byte	.LFB9
+ 429 01b3 28000000 		.4byte	.LFE9
+ 430 01b7 02       		.byte	0x2
+ 431 01b8 7D       		.byte	0x7d
+ 432 01b9 00       		.sleb128 0
+ 433 01ba 01       		.byte	0x1
+ 434 01bb D2010000 		.4byte	0x1d2
+ 435 01bf 14       		.uleb128 0x14
+ 436 01c0 B8000000 		.4byte	0xb8
+ 437 01c4 B4000000 		.4byte	.LLST5
+ 438 01c8 16       		.uleb128 0x16
+ 439 01c9 C3000000 		.4byte	0xc3
+ 440 01cd F2000000 		.4byte	.LLST6
+ 441 01d1 00       		.byte	0
+ 442 01d2 18       		.uleb128 0x18
+ 443 01d3 01       		.byte	0x1
+ 444 01d4 45010000 		.4byte	.LASF25
+ 445 01d8 01       		.byte	0x1
+ 446 01d9 7D       		.byte	0x7d
+ 447 01da 01       		.byte	0x1
+ 448 01db 30000000 		.4byte	0x30
+ 449 01df 00000000 		.4byte	.LFB10
+ 450 01e3 14000000 		.4byte	.LFE10
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 9
+
+
+ 451 01e7 02       		.byte	0x2
+ 452 01e8 7D       		.byte	0x7d
+ 453 01e9 00       		.sleb128 0
+ 454 01ea 01       		.byte	0x1
+ 455 01eb 19       		.uleb128 0x19
+ 456 01ec 28000000 		.4byte	.LASF16
+ 457 01f0 01       		.byte	0x1
+ 458 01f1 33       		.byte	0x33
+ 459 01f2 A0000000 		.4byte	0xa0
+ 460 01f6 05       		.byte	0x5
+ 461 01f7 03       		.byte	0x3
+ 462 01f8 00000000 		.4byte	nextmem
+ 463 01fc 19       		.uleb128 0x19
+ 464 01fd D9000000 		.4byte	.LASF17
+ 465 0201 01       		.byte	0x1
+ 466 0202 34       		.byte	0x34
+ 467 0203 A0000000 		.4byte	0xa0
+ 468 0207 05       		.byte	0x5
+ 469 0208 03       		.byte	0x3
+ 470 0209 00000000 		.4byte	endmem
+ 471 020d 0B       		.uleb128 0xb
+ 472 020e 3D000000 		.4byte	.LASF14
+ 473 0212 01       		.byte	0x1
+ 474 0213 3D       		.byte	0x3d
+ 475 0214 01010000 		.4byte	0x101
+ 476 0218 01       		.byte	0x1
+ 477 0219 01       		.byte	0x1
+ 478 021a 0B       		.uleb128 0xb
+ 479 021b 30000000 		.4byte	.LASF15
+ 480 021f 01       		.byte	0x1
+ 481 0220 3E       		.byte	0x3e
+ 482 0221 01010000 		.4byte	0x101
+ 483 0225 01       		.byte	0x1
+ 484 0226 01       		.byte	0x1
+ 485 0227 00       		.byte	0
+ 486              		.section	.debug_abbrev,"",%progbits
+ 487              	.Ldebug_abbrev0:
+ 488 0000 01       		.uleb128 0x1
+ 489 0001 11       		.uleb128 0x11
+ 490 0002 01       		.byte	0x1
+ 491 0003 25       		.uleb128 0x25
+ 492 0004 0E       		.uleb128 0xe
+ 493 0005 13       		.uleb128 0x13
+ 494 0006 0B       		.uleb128 0xb
+ 495 0007 03       		.uleb128 0x3
+ 496 0008 0E       		.uleb128 0xe
+ 497 0009 1B       		.uleb128 0x1b
+ 498 000a 0E       		.uleb128 0xe
+ 499 000b 55       		.uleb128 0x55
+ 500 000c 06       		.uleb128 0x6
+ 501 000d 11       		.uleb128 0x11
+ 502 000e 01       		.uleb128 0x1
+ 503 000f 52       		.uleb128 0x52
+ 504 0010 01       		.uleb128 0x1
+ 505 0011 10       		.uleb128 0x10
+ 506 0012 06       		.uleb128 0x6
+ 507 0013 00       		.byte	0
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 10
+
+
+ 508 0014 00       		.byte	0
+ 509 0015 02       		.uleb128 0x2
+ 510 0016 24       		.uleb128 0x24
+ 511 0017 00       		.byte	0
+ 512 0018 0B       		.uleb128 0xb
+ 513 0019 0B       		.uleb128 0xb
+ 514 001a 3E       		.uleb128 0x3e
+ 515 001b 0B       		.uleb128 0xb
+ 516 001c 03       		.uleb128 0x3
+ 517 001d 08       		.uleb128 0x8
+ 518 001e 00       		.byte	0
+ 519 001f 00       		.byte	0
+ 520 0020 03       		.uleb128 0x3
+ 521 0021 16       		.uleb128 0x16
+ 522 0022 00       		.byte	0
+ 523 0023 03       		.uleb128 0x3
+ 524 0024 0E       		.uleb128 0xe
+ 525 0025 3A       		.uleb128 0x3a
+ 526 0026 0B       		.uleb128 0xb
+ 527 0027 3B       		.uleb128 0x3b
+ 528 0028 0B       		.uleb128 0xb
+ 529 0029 49       		.uleb128 0x49
+ 530 002a 13       		.uleb128 0x13
+ 531 002b 00       		.byte	0
+ 532 002c 00       		.byte	0
+ 533 002d 04       		.uleb128 0x4
+ 534 002e 24       		.uleb128 0x24
+ 535 002f 00       		.byte	0
+ 536 0030 0B       		.uleb128 0xb
+ 537 0031 0B       		.uleb128 0xb
+ 538 0032 3E       		.uleb128 0x3e
+ 539 0033 0B       		.uleb128 0xb
+ 540 0034 03       		.uleb128 0x3
+ 541 0035 0E       		.uleb128 0xe
+ 542 0036 00       		.byte	0
+ 543 0037 00       		.byte	0
+ 544 0038 05       		.uleb128 0x5
+ 545 0039 0F       		.uleb128 0xf
+ 546 003a 00       		.byte	0
+ 547 003b 0B       		.uleb128 0xb
+ 548 003c 0B       		.uleb128 0xb
+ 549 003d 00       		.byte	0
+ 550 003e 00       		.byte	0
+ 551 003f 06       		.uleb128 0x6
+ 552 0040 0F       		.uleb128 0xf
+ 553 0041 00       		.byte	0
+ 554 0042 0B       		.uleb128 0xb
+ 555 0043 0B       		.uleb128 0xb
+ 556 0044 49       		.uleb128 0x49
+ 557 0045 13       		.uleb128 0x13
+ 558 0046 00       		.byte	0
+ 559 0047 00       		.byte	0
+ 560 0048 07       		.uleb128 0x7
+ 561 0049 2E       		.uleb128 0x2e
+ 562 004a 01       		.byte	0x1
+ 563 004b 3F       		.uleb128 0x3f
+ 564 004c 0C       		.uleb128 0xc
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 11
+
+
+ 565 004d 03       		.uleb128 0x3
+ 566 004e 0E       		.uleb128 0xe
+ 567 004f 3A       		.uleb128 0x3a
+ 568 0050 0B       		.uleb128 0xb
+ 569 0051 3B       		.uleb128 0x3b
+ 570 0052 0B       		.uleb128 0xb
+ 571 0053 27       		.uleb128 0x27
+ 572 0054 0C       		.uleb128 0xc
+ 573 0055 49       		.uleb128 0x49
+ 574 0056 13       		.uleb128 0x13
+ 575 0057 20       		.uleb128 0x20
+ 576 0058 0B       		.uleb128 0xb
+ 577 0059 01       		.uleb128 0x1
+ 578 005a 13       		.uleb128 0x13
+ 579 005b 00       		.byte	0
+ 580 005c 00       		.byte	0
+ 581 005d 08       		.uleb128 0x8
+ 582 005e 05       		.uleb128 0x5
+ 583 005f 00       		.byte	0
+ 584 0060 03       		.uleb128 0x3
+ 585 0061 0E       		.uleb128 0xe
+ 586 0062 3A       		.uleb128 0x3a
+ 587 0063 0B       		.uleb128 0xb
+ 588 0064 3B       		.uleb128 0x3b
+ 589 0065 0B       		.uleb128 0xb
+ 590 0066 49       		.uleb128 0x49
+ 591 0067 13       		.uleb128 0x13
+ 592 0068 00       		.byte	0
+ 593 0069 00       		.byte	0
+ 594 006a 09       		.uleb128 0x9
+ 595 006b 34       		.uleb128 0x34
+ 596 006c 00       		.byte	0
+ 597 006d 03       		.uleb128 0x3
+ 598 006e 08       		.uleb128 0x8
+ 599 006f 3A       		.uleb128 0x3a
+ 600 0070 0B       		.uleb128 0xb
+ 601 0071 3B       		.uleb128 0x3b
+ 602 0072 0B       		.uleb128 0xb
+ 603 0073 49       		.uleb128 0x49
+ 604 0074 13       		.uleb128 0x13
+ 605 0075 00       		.byte	0
+ 606 0076 00       		.byte	0
+ 607 0077 0A       		.uleb128 0xa
+ 608 0078 2E       		.uleb128 0x2e
+ 609 0079 01       		.byte	0x1
+ 610 007a 3F       		.uleb128 0x3f
+ 611 007b 0C       		.uleb128 0xc
+ 612 007c 03       		.uleb128 0x3
+ 613 007d 0E       		.uleb128 0xe
+ 614 007e 3A       		.uleb128 0x3a
+ 615 007f 0B       		.uleb128 0xb
+ 616 0080 3B       		.uleb128 0x3b
+ 617 0081 0B       		.uleb128 0xb
+ 618 0082 27       		.uleb128 0x27
+ 619 0083 0C       		.uleb128 0xc
+ 620 0084 11       		.uleb128 0x11
+ 621 0085 01       		.uleb128 0x1
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 12
+
+
+ 622 0086 12       		.uleb128 0x12
+ 623 0087 01       		.uleb128 0x1
+ 624 0088 40       		.uleb128 0x40
+ 625 0089 0A       		.uleb128 0xa
+ 626 008a 9742     		.uleb128 0x2117
+ 627 008c 0C       		.uleb128 0xc
+ 628 008d 01       		.uleb128 0x1
+ 629 008e 13       		.uleb128 0x13
+ 630 008f 00       		.byte	0
+ 631 0090 00       		.byte	0
+ 632 0091 0B       		.uleb128 0xb
+ 633 0092 34       		.uleb128 0x34
+ 634 0093 00       		.byte	0
+ 635 0094 03       		.uleb128 0x3
+ 636 0095 0E       		.uleb128 0xe
+ 637 0096 3A       		.uleb128 0x3a
+ 638 0097 0B       		.uleb128 0xb
+ 639 0098 3B       		.uleb128 0x3b
+ 640 0099 0B       		.uleb128 0xb
+ 641 009a 49       		.uleb128 0x49
+ 642 009b 13       		.uleb128 0x13
+ 643 009c 3F       		.uleb128 0x3f
+ 644 009d 0C       		.uleb128 0xc
+ 645 009e 3C       		.uleb128 0x3c
+ 646 009f 0C       		.uleb128 0xc
+ 647 00a0 00       		.byte	0
+ 648 00a1 00       		.byte	0
+ 649 00a2 0C       		.uleb128 0xc
+ 650 00a3 01       		.uleb128 0x1
+ 651 00a4 01       		.byte	0x1
+ 652 00a5 49       		.uleb128 0x49
+ 653 00a6 13       		.uleb128 0x13
+ 654 00a7 01       		.uleb128 0x1
+ 655 00a8 13       		.uleb128 0x13
+ 656 00a9 00       		.byte	0
+ 657 00aa 00       		.byte	0
+ 658 00ab 0D       		.uleb128 0xd
+ 659 00ac 21       		.uleb128 0x21
+ 660 00ad 00       		.byte	0
+ 661 00ae 00       		.byte	0
+ 662 00af 00       		.byte	0
+ 663 00b0 0E       		.uleb128 0xe
+ 664 00b1 2E       		.uleb128 0x2e
+ 665 00b2 01       		.byte	0x1
+ 666 00b3 3F       		.uleb128 0x3f
+ 667 00b4 0C       		.uleb128 0xc
+ 668 00b5 03       		.uleb128 0x3
+ 669 00b6 0E       		.uleb128 0xe
+ 670 00b7 3A       		.uleb128 0x3a
+ 671 00b8 0B       		.uleb128 0xb
+ 672 00b9 3B       		.uleb128 0x3b
+ 673 00ba 0B       		.uleb128 0xb
+ 674 00bb 27       		.uleb128 0x27
+ 675 00bc 0C       		.uleb128 0xc
+ 676 00bd 49       		.uleb128 0x49
+ 677 00be 13       		.uleb128 0x13
+ 678 00bf 11       		.uleb128 0x11
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 13
+
+
+ 679 00c0 01       		.uleb128 0x1
+ 680 00c1 12       		.uleb128 0x12
+ 681 00c2 01       		.uleb128 0x1
+ 682 00c3 40       		.uleb128 0x40
+ 683 00c4 0A       		.uleb128 0xa
+ 684 00c5 9742     		.uleb128 0x2117
+ 685 00c7 0C       		.uleb128 0xc
+ 686 00c8 01       		.uleb128 0x1
+ 687 00c9 13       		.uleb128 0x13
+ 688 00ca 00       		.byte	0
+ 689 00cb 00       		.byte	0
+ 690 00cc 0F       		.uleb128 0xf
+ 691 00cd 05       		.uleb128 0x5
+ 692 00ce 00       		.byte	0
+ 693 00cf 03       		.uleb128 0x3
+ 694 00d0 0E       		.uleb128 0xe
+ 695 00d1 3A       		.uleb128 0x3a
+ 696 00d2 0B       		.uleb128 0xb
+ 697 00d3 3B       		.uleb128 0x3b
+ 698 00d4 0B       		.uleb128 0xb
+ 699 00d5 49       		.uleb128 0x49
+ 700 00d6 13       		.uleb128 0x13
+ 701 00d7 02       		.uleb128 0x2
+ 702 00d8 06       		.uleb128 0x6
+ 703 00d9 00       		.byte	0
+ 704 00da 00       		.byte	0
+ 705 00db 10       		.uleb128 0x10
+ 706 00dc 34       		.uleb128 0x34
+ 707 00dd 00       		.byte	0
+ 708 00de 03       		.uleb128 0x3
+ 709 00df 08       		.uleb128 0x8
+ 710 00e0 3A       		.uleb128 0x3a
+ 711 00e1 0B       		.uleb128 0xb
+ 712 00e2 3B       		.uleb128 0x3b
+ 713 00e3 0B       		.uleb128 0xb
+ 714 00e4 49       		.uleb128 0x49
+ 715 00e5 13       		.uleb128 0x13
+ 716 00e6 02       		.uleb128 0x2
+ 717 00e7 0A       		.uleb128 0xa
+ 718 00e8 00       		.byte	0
+ 719 00e9 00       		.byte	0
+ 720 00ea 11       		.uleb128 0x11
+ 721 00eb 0B       		.uleb128 0xb
+ 722 00ec 01       		.byte	0x1
+ 723 00ed 11       		.uleb128 0x11
+ 724 00ee 01       		.uleb128 0x1
+ 725 00ef 12       		.uleb128 0x12
+ 726 00f0 01       		.uleb128 0x1
+ 727 00f1 01       		.uleb128 0x1
+ 728 00f2 13       		.uleb128 0x13
+ 729 00f3 00       		.byte	0
+ 730 00f4 00       		.byte	0
+ 731 00f5 12       		.uleb128 0x12
+ 732 00f6 34       		.uleb128 0x34
+ 733 00f7 00       		.byte	0
+ 734 00f8 03       		.uleb128 0x3
+ 735 00f9 08       		.uleb128 0x8
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 14
+
+
+ 736 00fa 3A       		.uleb128 0x3a
+ 737 00fb 0B       		.uleb128 0xb
+ 738 00fc 3B       		.uleb128 0x3b
+ 739 00fd 0B       		.uleb128 0xb
+ 740 00fe 49       		.uleb128 0x49
+ 741 00ff 13       		.uleb128 0x13
+ 742 0100 02       		.uleb128 0x2
+ 743 0101 06       		.uleb128 0x6
+ 744 0102 00       		.byte	0
+ 745 0103 00       		.byte	0
+ 746 0104 13       		.uleb128 0x13
+ 747 0105 1D       		.uleb128 0x1d
+ 748 0106 01       		.byte	0x1
+ 749 0107 31       		.uleb128 0x31
+ 750 0108 13       		.uleb128 0x13
+ 751 0109 11       		.uleb128 0x11
+ 752 010a 01       		.uleb128 0x1
+ 753 010b 12       		.uleb128 0x12
+ 754 010c 01       		.uleb128 0x1
+ 755 010d 58       		.uleb128 0x58
+ 756 010e 0B       		.uleb128 0xb
+ 757 010f 59       		.uleb128 0x59
+ 758 0110 0B       		.uleb128 0xb
+ 759 0111 01       		.uleb128 0x1
+ 760 0112 13       		.uleb128 0x13
+ 761 0113 00       		.byte	0
+ 762 0114 00       		.byte	0
+ 763 0115 14       		.uleb128 0x14
+ 764 0116 05       		.uleb128 0x5
+ 765 0117 00       		.byte	0
+ 766 0118 31       		.uleb128 0x31
+ 767 0119 13       		.uleb128 0x13
+ 768 011a 02       		.uleb128 0x2
+ 769 011b 06       		.uleb128 0x6
+ 770 011c 00       		.byte	0
+ 771 011d 00       		.byte	0
+ 772 011e 15       		.uleb128 0x15
+ 773 011f 0B       		.uleb128 0xb
+ 774 0120 01       		.byte	0x1
+ 775 0121 11       		.uleb128 0x11
+ 776 0122 01       		.uleb128 0x1
+ 777 0123 12       		.uleb128 0x12
+ 778 0124 01       		.uleb128 0x1
+ 779 0125 00       		.byte	0
+ 780 0126 00       		.byte	0
+ 781 0127 16       		.uleb128 0x16
+ 782 0128 34       		.uleb128 0x34
+ 783 0129 00       		.byte	0
+ 784 012a 31       		.uleb128 0x31
+ 785 012b 13       		.uleb128 0x13
+ 786 012c 02       		.uleb128 0x2
+ 787 012d 06       		.uleb128 0x6
+ 788 012e 00       		.byte	0
+ 789 012f 00       		.byte	0
+ 790 0130 17       		.uleb128 0x17
+ 791 0131 2E       		.uleb128 0x2e
+ 792 0132 01       		.byte	0x1
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 15
+
+
+ 793 0133 31       		.uleb128 0x31
+ 794 0134 13       		.uleb128 0x13
+ 795 0135 11       		.uleb128 0x11
+ 796 0136 01       		.uleb128 0x1
+ 797 0137 12       		.uleb128 0x12
+ 798 0138 01       		.uleb128 0x1
+ 799 0139 40       		.uleb128 0x40
+ 800 013a 0A       		.uleb128 0xa
+ 801 013b 9742     		.uleb128 0x2117
+ 802 013d 0C       		.uleb128 0xc
+ 803 013e 01       		.uleb128 0x1
+ 804 013f 13       		.uleb128 0x13
+ 805 0140 00       		.byte	0
+ 806 0141 00       		.byte	0
+ 807 0142 18       		.uleb128 0x18
+ 808 0143 2E       		.uleb128 0x2e
+ 809 0144 00       		.byte	0
+ 810 0145 3F       		.uleb128 0x3f
+ 811 0146 0C       		.uleb128 0xc
+ 812 0147 03       		.uleb128 0x3
+ 813 0148 0E       		.uleb128 0xe
+ 814 0149 3A       		.uleb128 0x3a
+ 815 014a 0B       		.uleb128 0xb
+ 816 014b 3B       		.uleb128 0x3b
+ 817 014c 0B       		.uleb128 0xb
+ 818 014d 27       		.uleb128 0x27
+ 819 014e 0C       		.uleb128 0xc
+ 820 014f 49       		.uleb128 0x49
+ 821 0150 13       		.uleb128 0x13
+ 822 0151 11       		.uleb128 0x11
+ 823 0152 01       		.uleb128 0x1
+ 824 0153 12       		.uleb128 0x12
+ 825 0154 01       		.uleb128 0x1
+ 826 0155 40       		.uleb128 0x40
+ 827 0156 0A       		.uleb128 0xa
+ 828 0157 9742     		.uleb128 0x2117
+ 829 0159 0C       		.uleb128 0xc
+ 830 015a 00       		.byte	0
+ 831 015b 00       		.byte	0
+ 832 015c 19       		.uleb128 0x19
+ 833 015d 34       		.uleb128 0x34
+ 834 015e 00       		.byte	0
+ 835 015f 03       		.uleb128 0x3
+ 836 0160 0E       		.uleb128 0xe
+ 837 0161 3A       		.uleb128 0x3a
+ 838 0162 0B       		.uleb128 0xb
+ 839 0163 3B       		.uleb128 0x3b
+ 840 0164 0B       		.uleb128 0xb
+ 841 0165 49       		.uleb128 0x49
+ 842 0166 13       		.uleb128 0x13
+ 843 0167 02       		.uleb128 0x2
+ 844 0168 0A       		.uleb128 0xa
+ 845 0169 00       		.byte	0
+ 846 016a 00       		.byte	0
+ 847 016b 00       		.byte	0
+ 848              		.section	.debug_loc,"",%progbits
+ 849              	.Ldebug_loc0:
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 16
+
+
+ 850              	.LLST0:
+ 851 0000 00000000 		.4byte	.LVL0
+ 852 0004 10000000 		.4byte	.LVL4
+ 853 0008 0100     		.2byte	0x1
+ 854 000a 50       		.byte	0x50
+ 855 000b 10000000 		.4byte	.LVL4
+ 856 000f 14000000 		.4byte	.LVL5
+ 857 0013 0300     		.2byte	0x3
+ 858 0015 70       		.byte	0x70
+ 859 0016 79       		.sleb128 -7
+ 860 0017 9F       		.byte	0x9f
+ 861 0018 14000000 		.4byte	.LVL5
+ 862 001c 34000000 		.4byte	.LFE8
+ 863 0020 0400     		.2byte	0x4
+ 864 0022 F3       		.byte	0xf3
+ 865 0023 01       		.uleb128 0x1
+ 866 0024 50       		.byte	0x50
+ 867 0025 9F       		.byte	0x9f
+ 868 0026 00000000 		.4byte	0
+ 869 002a 00000000 		.4byte	0
+ 870              	.LLST1:
+ 871 002e 06000000 		.4byte	.LVL2
+ 872 0032 08000000 		.4byte	.LVL3
+ 873 0036 0100     		.2byte	0x1
+ 874 0038 53       		.byte	0x53
+ 875 0039 00000000 		.4byte	0
+ 876 003d 00000000 		.4byte	0
+ 877              	.LLST2:
+ 878 0041 06000000 		.4byte	.LVL2
+ 879 0045 10000000 		.4byte	.LVL4
+ 880 0049 0100     		.2byte	0x1
+ 881 004b 50       		.byte	0x50
+ 882 004c 10000000 		.4byte	.LVL4
+ 883 0050 14000000 		.4byte	.LVL5
+ 884 0054 0300     		.2byte	0x3
+ 885 0056 70       		.byte	0x70
+ 886 0057 79       		.sleb128 -7
+ 887 0058 9F       		.byte	0x9f
+ 888 0059 14000000 		.4byte	.LVL5
+ 889 005d 1C000000 		.4byte	.LVL7
+ 890 0061 0100     		.2byte	0x1
+ 891 0063 50       		.byte	0x50
+ 892 0064 1C000000 		.4byte	.LVL7
+ 893 0068 34000000 		.4byte	.LFE8
+ 894 006c 0900     		.2byte	0x9
+ 895 006e F3       		.byte	0xf3
+ 896 006f 01       		.uleb128 0x1
+ 897 0070 50       		.byte	0x50
+ 898 0071 23       		.byte	0x23
+ 899 0072 07       		.uleb128 0x7
+ 900 0073 09       		.byte	0x9
+ 901 0074 F8       		.byte	0xf8
+ 902 0075 1A       		.byte	0x1a
+ 903 0076 9F       		.byte	0x9f
+ 904 0077 00000000 		.4byte	0
+ 905 007b 00000000 		.4byte	0
+ 906              	.LLST3:
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 17
+
+
+ 907 007f 18000000 		.4byte	.LVL6
+ 908 0083 20000000 		.4byte	.LVL8
+ 909 0087 0100     		.2byte	0x1
+ 910 0089 52       		.byte	0x52
+ 911 008a 20000000 		.4byte	.LVL8
+ 912 008e 34000000 		.4byte	.LFE8
+ 913 0092 0500     		.2byte	0x5
+ 914 0094 03       		.byte	0x3
+ 915 0095 00000000 		.4byte	nextmem
+ 916 0099 00000000 		.4byte	0
+ 917 009d 00000000 		.4byte	0
+ 918              	.LLST4:
+ 919 00a1 26000000 		.4byte	.LVL10
+ 920 00a5 34000000 		.4byte	.LFE8
+ 921 00a9 0100     		.2byte	0x1
+ 922 00ab 53       		.byte	0x53
+ 923 00ac 00000000 		.4byte	0
+ 924 00b0 00000000 		.4byte	0
+ 925              	.LLST5:
+ 926 00b4 00000000 		.4byte	.LVL11
+ 927 00b8 0A000000 		.4byte	.LVL12
+ 928 00bc 0100     		.2byte	0x1
+ 929 00be 50       		.byte	0x50
+ 930 00bf 0A000000 		.4byte	.LVL12
+ 931 00c3 0E000000 		.4byte	.LVL13
+ 932 00c7 0300     		.2byte	0x3
+ 933 00c9 70       		.byte	0x70
+ 934 00ca 79       		.sleb128 -7
+ 935 00cb 9F       		.byte	0x9f
+ 936 00cc 0E000000 		.4byte	.LVL13
+ 937 00d0 16000000 		.4byte	.LVL15
+ 938 00d4 0100     		.2byte	0x1
+ 939 00d6 50       		.byte	0x50
+ 940 00d7 16000000 		.4byte	.LVL15
+ 941 00db 28000000 		.4byte	.LFE9
+ 942 00df 0900     		.2byte	0x9
+ 943 00e1 F3       		.byte	0xf3
+ 944 00e2 01       		.uleb128 0x1
+ 945 00e3 50       		.byte	0x50
+ 946 00e4 23       		.byte	0x23
+ 947 00e5 07       		.uleb128 0x7
+ 948 00e6 09       		.byte	0x9
+ 949 00e7 F8       		.byte	0xf8
+ 950 00e8 1A       		.byte	0x1a
+ 951 00e9 9F       		.byte	0x9f
+ 952 00ea 00000000 		.4byte	0
+ 953 00ee 00000000 		.4byte	0
+ 954              	.LLST6:
+ 955 00f2 12000000 		.4byte	.LVL14
+ 956 00f6 1A000000 		.4byte	.LVL16
+ 957 00fa 0100     		.2byte	0x1
+ 958 00fc 53       		.byte	0x53
+ 959 00fd 1A000000 		.4byte	.LVL16
+ 960 0101 28000000 		.4byte	.LFE9
+ 961 0105 0500     		.2byte	0x5
+ 962 0107 03       		.byte	0x3
+ 963 0108 00000000 		.4byte	nextmem
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 18
+
+
+ 964 010c 00000000 		.4byte	0
+ 965 0110 00000000 		.4byte	0
+ 966              		.section	.debug_aranges,"",%progbits
+ 967 0000 34000000 		.4byte	0x34
+ 968 0004 0200     		.2byte	0x2
+ 969 0006 00000000 		.4byte	.Ldebug_info0
+ 970 000a 04       		.byte	0x4
+ 971 000b 00       		.byte	0
+ 972 000c 0000     		.2byte	0
+ 973 000e 0000     		.2byte	0
+ 974 0010 00000000 		.4byte	.LFB7
+ 975 0014 28000000 		.4byte	.LFE7-.LFB7
+ 976 0018 00000000 		.4byte	.LFB8
+ 977 001c 34000000 		.4byte	.LFE8-.LFB8
+ 978 0020 00000000 		.4byte	.LFB9
+ 979 0024 28000000 		.4byte	.LFE9-.LFB9
+ 980 0028 00000000 		.4byte	.LFB10
+ 981 002c 14000000 		.4byte	.LFE10-.LFB10
+ 982 0030 00000000 		.4byte	0
+ 983 0034 00000000 		.4byte	0
+ 984              		.section	.debug_ranges,"",%progbits
+ 985              	.Ldebug_ranges0:
+ 986 0000 00000000 		.4byte	.LFB7
+ 987 0004 28000000 		.4byte	.LFE7
+ 988 0008 00000000 		.4byte	.LFB8
+ 989 000c 34000000 		.4byte	.LFE8
+ 990 0010 00000000 		.4byte	.LFB9
+ 991 0014 28000000 		.4byte	.LFE9
+ 992 0018 00000000 		.4byte	.LFB10
+ 993 001c 14000000 		.4byte	.LFE10
+ 994 0020 00000000 		.4byte	0
+ 995 0024 00000000 		.4byte	0
+ 996              		.section	.debug_line,"",%progbits
+ 997              	.Ldebug_line0:
+ 998 0000 AB010000 		.section	.debug_str,"MS",%progbits,1
+ 998      02005001 
+ 998      00000201 
+ 998      FB0E0D00 
+ 998      01010101 
+ 999              	.LASF10:
+ 1000 0000 6C6F6E67 		.ascii	"long long int\000"
+ 1000      206C6F6E 
+ 1000      6720696E 
+ 1000      7400
+ 1001              	.LASF6:
+ 1002 000e 73686F72 		.ascii	"short unsigned int\000"
+ 1002      7420756E 
+ 1002      7369676E 
+ 1002      65642069 
+ 1002      6E7400
+ 1003              	.LASF2:
+ 1004 0021 73697A65 		.ascii	"size_t\000"
+ 1004      5F7400
+ 1005              	.LASF16:
+ 1006 0028 6E657874 		.ascii	"nextmem\000"
+ 1006      6D656D00 
+ 1007              	.LASF15:
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 19
+
+
+ 1008 0030 5F5F6865 		.ascii	"__heap_end__\000"
+ 1008      61705F65 
+ 1008      6E645F5F 
+ 1008      00
+ 1009              	.LASF14:
+ 1010 003d 5F5F6865 		.ascii	"__heap_base__\000"
+ 1010      61705F62 
+ 1010      6173655F 
+ 1010      5F00
+ 1011              	.LASF18:
+ 1012 004b 474E5520 		.ascii	"GNU C 4.7.2\000"
+ 1012      4320342E 
+ 1012      372E3200 
+ 1013              	.LASF9:
+ 1014 0057 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1014      20756E73 
+ 1014      69676E65 
+ 1014      6420696E 
+ 1014      7400
+ 1015              	.LASF11:
+ 1016 0069 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1016      206C6F6E 
+ 1016      6720756E 
+ 1016      7369676E 
+ 1016      65642069 
+ 1017              	.LASF3:
+ 1018 0080 75696E74 		.ascii	"uint8_t\000"
+ 1018      385F7400 
+ 1019              	.LASF4:
+ 1020 0088 756E7369 		.ascii	"unsigned char\000"
+ 1020      676E6564 
+ 1020      20636861 
+ 1020      7200
+ 1021              	.LASF13:
+ 1022 0096 63686172 		.ascii	"char\000"
+ 1022      00
+ 1023              	.LASF24:
+ 1024 009b 6368436F 		.ascii	"chCoreAlloc\000"
+ 1024      7265416C 
+ 1024      6C6F6300 
+ 1025              	.LASF8:
+ 1026 00a7 75696E74 		.ascii	"uint32_t\000"
+ 1026      33325F74 
+ 1026      00
+ 1027              	.LASF7:
+ 1028 00b0 6C6F6E67 		.ascii	"long int\000"
+ 1028      20696E74 
+ 1028      00
+ 1029              	.LASF19:
+ 1030 00b9 2E2E2F2E 		.ascii	"../../os/kernel/src/chmemcore.c\000"
+ 1030      2E2F6F73 
+ 1030      2F6B6572 
+ 1030      6E656C2F 
+ 1030      7372632F 
+ 1031              	.LASF17:
+ 1032 00d9 656E646D 		.ascii	"endmem\000"
+ 1032      656D00
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 20
+
+
+ 1033              	.LASF20:
+ 1034 00e0 433A5C43 		.ascii	"C:\\Chibios\\demos\\FirmwareV2\000"
+ 1034      68696269 
+ 1034      6F735C64 
+ 1034      656D6F73 
+ 1034      5C466972 
+ 1035              	.LASF21:
+ 1036 00fc 6368436F 		.ascii	"chCoreAllocI\000"
+ 1036      7265416C 
+ 1036      6C6F6349 
+ 1036      00
+ 1037              	.LASF1:
+ 1038 0109 7369676E 		.ascii	"signed char\000"
+ 1038      65642063 
+ 1038      68617200 
+ 1039              	.LASF22:
+ 1040 0115 73697A65 		.ascii	"size\000"
+ 1040      00
+ 1041              	.LASF23:
+ 1042 011a 5F636F72 		.ascii	"_core_init\000"
+ 1042      655F696E 
+ 1042      697400
+ 1043              	.LASF5:
+ 1044 0125 73686F72 		.ascii	"short int\000"
+ 1044      7420696E 
+ 1044      7400
+ 1045              	.LASF0:
+ 1046 012f 756E7369 		.ascii	"unsigned int\000"
+ 1046      676E6564 
+ 1046      20696E74 
+ 1046      00
+ 1047              	.LASF12:
+ 1048 013c 73697A65 		.ascii	"sizetype\000"
+ 1048      74797065 
+ 1048      00
+ 1049              	.LASF25:
+ 1050 0145 6368436F 		.ascii	"chCoreStatus\000"
+ 1050      72655374 
+ 1050      61747573 
+ 1050      00
+ 1051              		.ident	"GCC: (Sourcery CodeBench Lite 2012.09-63) 4.7.2"
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s 			page 21
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 chmemcore.c
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:19     .text._core_init:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:25     .text._core_init:00000000 _core_init
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:47     .text._core_init:00000018 $d
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:55     .text.chCoreAlloc:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:61     .text.chCoreAlloc:00000000 chCoreAlloc
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:122    .text.chCoreAlloc:0000002c $d
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:128    .text.chCoreAllocI:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:134    .text.chCoreAllocI:00000000 chCoreAllocI
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:170    .text.chCoreAllocI:00000020 $d
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:176    .text.chCoreStatus:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:182    .text.chCoreStatus:00000000 chCoreStatus
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:200    .text.chCoreStatus:0000000c $d
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:206    .bss.endmem:00000000 $d
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:210    .bss.endmem:00000000 endmem
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:213    .bss.nextmem:00000000 $d
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:217    .bss.nextmem:00000000 nextmem
+                     .debug_frame:00000010 $d
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:54     .text._core_init:00000028 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:127    .text.chCoreAlloc:00000034 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:175    .text.chCoreAllocI:00000028 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\ccCMqEXH.s:205    .text.chCoreStatus:00000014 $t
+
+UNDEFINED SYMBOLS
+__heap_base__
+__heap_end__

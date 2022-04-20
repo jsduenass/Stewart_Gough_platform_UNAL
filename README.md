@@ -6,7 +6,7 @@ The mechatronic lab at Universidad Nacional de Colombia has a Stewart Gough plat
     <img alt="XPC Interface" src="https://user-images.githubusercontent.com/30636259/164065189-5919d6cb-fb75-4dbe-b450-4dbaf8083977.png"/>
 </p>
 
-## Installation
+## Set up host computer
 
 ### Requirements
 * __MATLAB:__ Install an old version of MATLAB that supports XPCTarget toolbox is required. MATLAB R2011a is recommended [^matlab_downloads].   
@@ -25,7 +25,7 @@ Once the required programs are installed. Get a copy of this repo and set up the
 
 1. Copy the folder _thirdpartydrivers_ folder into the XPC toolbox folder located at _matlabroot_. Then write the command `rehash toolbox` to update the files MATLAB toolbox is referencing.
     ```matlab
-    driverSource = 'ext\thirdpartydrivers';
+    driverSource = 'libs\thirdpartydrivers';
     driverDestination = strcat(matlabroot,'\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers')
     copyfile(driverSource, driverDestination)
     rehash toolbox
@@ -33,9 +33,9 @@ Once the required programs are installed. Get a copy of this repo and set up the
     > Run MATLAB as administrator if _matlabroot_ is a protected folder (error "No matching files were found.").
 1. Add to MATLAB's search path the Simulink's custom Stewart Gough library
     ```matlab
-    savepath('ext\Stewart_Gough_library')
-    savepath('ext\Stewart_Gough_library\Trajectories')
-    savepath('ext\Stewart_Gough_library\Functions')
+    savepath('libs\Stewart_Gough_library')
+    savepath('libs\Stewart_Gough_library\Trajectories')
+    savepath('libs\Stewart_Gough_library\Functions')
     ```
 
 ### Set up xPC Compiler

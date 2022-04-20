@@ -1,0 +1,1980 @@
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"chmempools.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.chPoolInit,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.global	chPoolInit
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	chPoolInit, %function
+  25              	chPoolInit:
+  26              	.LFB7:
+  27              		.file 1 "../../os/kernel/src/chmempools.c"
+  28              		.loc 1 57 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34              		.loc 1 61 0
+  35 0000 0023     		movs	r3, #0
+  36 0002 0360     		str	r3, [r0, #0]
+  37              		.loc 1 62 0
+  38 0004 4160     		str	r1, [r0, #4]
+  39              		.loc 1 63 0
+  40 0006 8260     		str	r2, [r0, #8]
+  41 0008 7047     		bx	lr
+  42              		.cfi_endproc
+  43              	.LFE7:
+  44              		.size	chPoolInit, .-chPoolInit
+  45 000a 00BFAFF3 		.section	.text.chPoolLoadArray,"ax",%progbits
+  45      0080
+  46              		.align	2
+  47              		.p2align 4,,15
+  48              		.global	chPoolLoadArray
+  49              		.thumb
+  50              		.thumb_func
+  51              		.type	chPoolLoadArray, %function
+  52              	chPoolLoadArray:
+  53              	.LFB8:
+  54              		.loc 1 79 0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 2
+
+
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  59              	.LVL1:
+  60 0000 10B4     		push	{r4}
+  61              	.LCFI0:
+  62              		.cfi_def_cfa_offset 4
+  63              		.cfi_offset 4, -4
+  64              		.loc 1 83 0
+  65 0002 62B1     		cbz	r2, .L2
+  66              	.LVL2:
+  67              	.L6:
+  68              	.LBB16:
+  69              	.LBB17:
+  70              		.loc 1 168 0
+  71 0004 2023     		movs	r3, #32
+  72              	.LVL3:
+  73              	@ 168 "../../os/kernel/src/chmempools.c" 1
+  74 0006 83F31188 		msr     BASEPRI, r3
+  75              	@ 0 "" 2
+  76              	.LVL4:
+  77              		.thumb
+  78              	.LBE17:
+  79              	.LBB18:
+  80              	.LBB19:
+  81              		.loc 1 150 0
+  82 000a 0468     		ldr	r4, [r0, #0]
+  83              	.LBE19:
+  84              	.LBE18:
+  85              	.LBB21:
+  86              		.loc 1 170 0
+  87 000c 0023     		movs	r3, #0
+  88              	.LVL5:
+  89              	.LBE21:
+  90              	.LBB22:
+  91              	.LBB20:
+  92              		.loc 1 150 0
+  93 000e 0C60     		str	r4, [r1, #0]
+  94              		.loc 1 151 0
+  95 0010 0160     		str	r1, [r0, #0]
+  96              	.LBE20:
+  97              	.LBE22:
+  98              	.LBB23:
+  99              		.loc 1 170 0
+ 100              	@ 170 "../../os/kernel/src/chmempools.c" 1
+ 101 0012 83F31188 		msr     BASEPRI, r3
+ 102              	@ 0 "" 2
+ 103              	.LVL6:
+ 104              		.thumb
+ 105              	.LBE23:
+ 106              	.LBE16:
+ 107              		.loc 1 85 0
+ 108 0016 4368     		ldr	r3, [r0, #4]
+ 109              	.LVL7:
+ 110              		.loc 1 83 0
+ 111 0018 013A     		subs	r2, r2, #1
+ 112              		.loc 1 85 0
+ 113 001a 1944     		add	r1, r1, r3
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 3
+
+
+ 114              	.LVL8:
+ 115              		.loc 1 83 0
+ 116 001c F2D1     		bne	.L6
+ 117              	.LVL9:
+ 118              	.L2:
+ 119              		.loc 1 88 0
+ 120 001e 10BC     		pop	{r4}
+ 121 0020 7047     		bx	lr
+ 122              		.cfi_endproc
+ 123              	.LFE8:
+ 124              		.size	chPoolLoadArray, .-chPoolLoadArray
+ 125 0022 00BFAFF3 		.section	.text.chPoolAllocI,"ax",%progbits
+ 125      0080AFF3 
+ 125      0080AFF3 
+ 125      0080
+ 126              		.align	2
+ 127              		.p2align 4,,15
+ 128              		.global	chPoolAllocI
+ 129              		.thumb
+ 130              		.thumb_func
+ 131              		.type	chPoolAllocI, %function
+ 132              	chPoolAllocI:
+ 133              	.LFB9:
+ 134              		.loc 1 100 0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              	.LVL10:
+ 139 0000 08B5     		push	{r3, lr}
+ 140              	.LCFI1:
+ 141              		.cfi_def_cfa_offset 8
+ 142              		.cfi_offset 3, -8
+ 143              		.cfi_offset 14, -4
+ 144              		.loc 1 100 0
+ 145 0002 0346     		mov	r3, r0
+ 146              		.loc 1 106 0
+ 147 0004 0068     		ldr	r0, [r0, #0]
+ 148              	.LVL11:
+ 149 0006 10B1     		cbz	r0, .L10
+ 150              		.loc 1 107 0
+ 151 0008 0268     		ldr	r2, [r0, #0]
+ 152 000a 1A60     		str	r2, [r3, #0]
+ 153 000c 08BD     		pop	{r3, pc}
+ 154              	.L10:
+ 155              		.loc 1 108 0
+ 156 000e 9A68     		ldr	r2, [r3, #8]
+ 157 0010 0AB1     		cbz	r2, .L11
+ 158              		.loc 1 109 0
+ 159 0012 5868     		ldr	r0, [r3, #4]
+ 160              	.LVL12:
+ 161 0014 9047     		blx	r2
+ 162              	.LVL13:
+ 163              	.L11:
+ 164              		.loc 1 111 0
+ 165 0016 08BD     		pop	{r3, pc}
+ 166              		.cfi_endproc
+ 167              	.LFE9:
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 4
+
+
+ 168              		.size	chPoolAllocI, .-chPoolAllocI
+ 169 0018 AFF30080 		.section	.text.chPoolAlloc,"ax",%progbits
+ 169      AFF30080 
+ 170              		.align	2
+ 171              		.p2align 4,,15
+ 172              		.global	chPoolAlloc
+ 173              		.thumb
+ 174              		.thumb_func
+ 175              		.type	chPoolAlloc, %function
+ 176              	chPoolAlloc:
+ 177              	.LFB10:
+ 178              		.loc 1 123 0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182              	.LVL14:
+ 183 0000 08B5     		push	{r3, lr}
+ 184              	.LCFI2:
+ 185              		.cfi_def_cfa_offset 8
+ 186              		.cfi_offset 3, -8
+ 187              		.cfi_offset 14, -4
+ 188              		.loc 1 123 0
+ 189 0002 0246     		mov	r2, r0
+ 190              	.LBB24:
+ 191              		.loc 1 126 0
+ 192 0004 2023     		movs	r3, #32
+ 193              	.LVL15:
+ 194              	@ 126 "../../os/kernel/src/chmempools.c" 1
+ 195 0006 83F31188 		msr     BASEPRI, r3
+ 196              	@ 0 "" 2
+ 197              	.LVL16:
+ 198              		.thumb
+ 199              	.LBE24:
+ 200              	.LBB25:
+ 201              	.LBB26:
+ 202              		.loc 1 106 0
+ 203 000a 0068     		ldr	r0, [r0, #0]
+ 204              	.LVL17:
+ 205 000c 28B1     		cbz	r0, .L16
+ 206              		.loc 1 107 0
+ 207 000e 0368     		ldr	r3, [r0, #0]
+ 208              	.LVL18:
+ 209 0010 1360     		str	r3, [r2, #0]
+ 210              	.LVL19:
+ 211              	.L17:
+ 212              	.LBE26:
+ 213              	.LBE25:
+ 214              	.LBB28:
+ 215              		.loc 1 128 0
+ 216 0012 0023     		movs	r3, #0
+ 217              	.LVL20:
+ 218              	@ 128 "../../os/kernel/src/chmempools.c" 1
+ 219 0014 83F31188 		msr     BASEPRI, r3
+ 220              	@ 0 "" 2
+ 221              	.LVL21:
+ 222              		.thumb
+ 223              	.LBE28:
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 5
+
+
+ 224              		.loc 1 130 0
+ 225 0018 08BD     		pop	{r3, pc}
+ 226              	.LVL22:
+ 227              	.L16:
+ 228              	.LBB29:
+ 229              	.LBB27:
+ 230              		.loc 1 108 0
+ 231 001a 9368     		ldr	r3, [r2, #8]
+ 232              	.LVL23:
+ 233 001c 002B     		cmp	r3, #0
+ 234 001e F8D0     		beq	.L17
+ 235              		.loc 1 109 0
+ 236 0020 5068     		ldr	r0, [r2, #4]
+ 237              	.LVL24:
+ 238 0022 9847     		blx	r3
+ 239              	.LVL25:
+ 240 0024 F5E7     		b	.L17
+ 241              	.LBE27:
+ 242              	.LBE29:
+ 243              		.cfi_endproc
+ 244              	.LFE10:
+ 245              		.size	chPoolAlloc, .-chPoolAlloc
+ 246 0026 00BFAFF3 		.section	.text.chPoolFreeI,"ax",%progbits
+ 246      0080AFF3 
+ 246      0080
+ 247              		.align	2
+ 248              		.p2align 4,,15
+ 249              		.global	chPoolFreeI
+ 250              		.thumb
+ 251              		.thumb_func
+ 252              		.type	chPoolFreeI, %function
+ 253              	chPoolFreeI:
+ 254              	.LFB11:
+ 255              		.loc 1 144 0
+ 256              		.cfi_startproc
+ 257              		@ args = 0, pretend = 0, frame = 0
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259              		@ link register save eliminated.
+ 260              	.LVL26:
+ 261              		.loc 1 150 0
+ 262 0000 0368     		ldr	r3, [r0, #0]
+ 263 0002 0B60     		str	r3, [r1, #0]
+ 264              		.loc 1 151 0
+ 265 0004 0160     		str	r1, [r0, #0]
+ 266 0006 7047     		bx	lr
+ 267              		.cfi_endproc
+ 268              	.LFE11:
+ 269              		.size	chPoolFreeI, .-chPoolFreeI
+ 270 0008 AFF30080 		.section	.text.chPoolFree,"ax",%progbits
+ 270      AFF30080 
+ 271              		.align	2
+ 272              		.p2align 4,,15
+ 273              		.global	chPoolFree
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.type	chPoolFree, %function
+ 277              	chPoolFree:
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 6
+
+
+ 278              	.LFB12:
+ 279              		.loc 1 166 0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              		@ link register save eliminated.
+ 284              	.LVL27:
+ 285              	.LBB30:
+ 286              		.loc 1 168 0
+ 287 0000 2023     		movs	r3, #32
+ 288              	.LVL28:
+ 289              	@ 168 "../../os/kernel/src/chmempools.c" 1
+ 290 0002 83F31188 		msr     BASEPRI, r3
+ 291              	@ 0 "" 2
+ 292              	.LVL29:
+ 293              		.thumb
+ 294              	.LBE30:
+ 295              	.LBB31:
+ 296              	.LBB32:
+ 297              		.loc 1 150 0
+ 298 0006 0268     		ldr	r2, [r0, #0]
+ 299              	.LBE32:
+ 300              	.LBE31:
+ 301              	.LBB34:
+ 302              		.loc 1 170 0
+ 303 0008 0023     		movs	r3, #0
+ 304              	.LVL30:
+ 305              	.LBE34:
+ 306              	.LBB35:
+ 307              	.LBB33:
+ 308              		.loc 1 150 0
+ 309 000a 0A60     		str	r2, [r1, #0]
+ 310              		.loc 1 151 0
+ 311 000c 0160     		str	r1, [r0, #0]
+ 312              	.LBE33:
+ 313              	.LBE35:
+ 314              	.LBB36:
+ 315              		.loc 1 170 0
+ 316              	@ 170 "../../os/kernel/src/chmempools.c" 1
+ 317 000e 83F31188 		msr     BASEPRI, r3
+ 318              	@ 0 "" 2
+ 319              	.LVL31:
+ 320              		.thumb
+ 321 0012 7047     		bx	lr
+ 322              	.LBE36:
+ 323              		.cfi_endproc
+ 324              	.LFE12:
+ 325              		.size	chPoolFree, .-chPoolFree
+ 326 0014 AFF30080 		.text
+ 326      AFF30080 
+ 326      AFF30080 
+ 327              	.Letext0:
+ 328              		.file 2 "c:\\program files (x86)\\codesourcery\\sourcery_codebench_lite_for_arm_eabi\\bin\\../lib/
+ 329              		.file 3 "c:\\program files (x86)\\codesourcery\\sourcery_codebench_lite_for_arm_eabi\\bin\\../lib/
+ 330              		.file 4 "../../os/kernel/include/chmemcore.h"
+ 331              		.file 5 "../../os/kernel/include/chmempools.h"
+ 332              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 7
+
+
+ 333              	.Ldebug_info0:
+ 334 0000 1F040000 		.4byte	0x41f
+ 335 0004 0200     		.2byte	0x2
+ 336 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 337 000a 04       		.byte	0x4
+ 338 000b 01       		.uleb128 0x1
+ 339 000c 18010000 		.4byte	.LASF27
+ 340 0010 01       		.byte	0x1
+ 341 0011 71000000 		.4byte	.LASF28
+ 342 0015 53010000 		.4byte	.LASF29
+ 343 0019 C0000000 		.4byte	.Ldebug_ranges0+0xc0
+ 344 001d 00000000 		.4byte	0
+ 345 0021 00000000 		.4byte	0
+ 346 0025 00000000 		.4byte	.Ldebug_line0
+ 347 0029 02       		.uleb128 0x2
+ 348 002a 04       		.byte	0x4
+ 349 002b 05       		.byte	0x5
+ 350 002c 696E7400 		.ascii	"int\000"
+ 351 0030 03       		.uleb128 0x3
+ 352 0031 00000000 		.4byte	.LASF2
+ 353 0035 02       		.byte	0x2
+ 354 0036 D5       		.byte	0xd5
+ 355 0037 3B000000 		.4byte	0x3b
+ 356 003b 04       		.uleb128 0x4
+ 357 003c 04       		.byte	0x4
+ 358 003d 07       		.byte	0x7
+ 359 003e C8000000 		.4byte	.LASF0
+ 360 0042 04       		.uleb128 0x4
+ 361 0043 01       		.byte	0x1
+ 362 0044 06       		.byte	0x6
+ 363 0045 81010000 		.4byte	.LASF1
+ 364 0049 03       		.uleb128 0x3
+ 365 004a EC000000 		.4byte	.LASF3
+ 366 004e 03       		.byte	0x3
+ 367 004f 2A       		.byte	0x2a
+ 368 0050 54000000 		.4byte	0x54
+ 369 0054 04       		.uleb128 0x4
+ 370 0055 01       		.byte	0x1
+ 371 0056 08       		.byte	0x8
+ 372 0057 92000000 		.4byte	.LASF4
+ 373 005b 04       		.uleb128 0x4
+ 374 005c 02       		.byte	0x2
+ 375 005d 05       		.byte	0x5
+ 376 005e 3D010000 		.4byte	.LASF5
+ 377 0062 04       		.uleb128 0x4
+ 378 0063 02       		.byte	0x2
+ 379 0064 07       		.byte	0x7
+ 380 0065 49000000 		.4byte	.LASF6
+ 381 0069 04       		.uleb128 0x4
+ 382 006a 04       		.byte	0x4
+ 383 006b 05       		.byte	0x5
+ 384 006c 78010000 		.4byte	.LASF7
+ 385 0070 03       		.uleb128 0x3
+ 386 0071 6F010000 		.4byte	.LASF8
+ 387 0075 03       		.byte	0x3
+ 388 0076 50       		.byte	0x50
+ 389 0077 7B000000 		.4byte	0x7b
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 8
+
+
+ 390 007b 04       		.uleb128 0x4
+ 391 007c 04       		.byte	0x4
+ 392 007d 07       		.byte	0x7
+ 393 007e 37000000 		.4byte	.LASF9
+ 394 0082 04       		.uleb128 0x4
+ 395 0083 08       		.byte	0x8
+ 396 0084 05       		.byte	0x5
+ 397 0085 05010000 		.4byte	.LASF10
+ 398 0089 04       		.uleb128 0x4
+ 399 008a 08       		.byte	0x8
+ 400 008b 07       		.byte	0x7
+ 401 008c D5000000 		.4byte	.LASF11
+ 402 0090 05       		.uleb128 0x5
+ 403 0091 04       		.byte	0x4
+ 404 0092 04       		.uleb128 0x4
+ 405 0093 04       		.byte	0x4
+ 406 0094 07       		.byte	0x7
+ 407 0095 FC000000 		.4byte	.LASF12
+ 408 0099 03       		.uleb128 0x3
+ 409 009a 24010000 		.4byte	.LASF13
+ 410 009e 04       		.byte	0x4
+ 411 009f 25       		.byte	0x25
+ 412 00a0 A4000000 		.4byte	0xa4
+ 413 00a4 06       		.uleb128 0x6
+ 414 00a5 04       		.byte	0x4
+ 415 00a6 AA000000 		.4byte	0xaa
+ 416 00aa 07       		.uleb128 0x7
+ 417 00ab 01       		.byte	0x1
+ 418 00ac 90000000 		.4byte	0x90
+ 419 00b0 BA000000 		.4byte	0xba
+ 420 00b4 08       		.uleb128 0x8
+ 421 00b5 30000000 		.4byte	0x30
+ 422 00b9 00       		.byte	0
+ 423 00ba 09       		.uleb128 0x9
+ 424 00bb 26000000 		.4byte	.LASF30
+ 425 00bf 04       		.byte	0x4
+ 426 00c0 05       		.byte	0x5
+ 427 00c1 25       		.byte	0x25
+ 428 00c2 D5000000 		.4byte	0xd5
+ 429 00c6 0A       		.uleb128 0xa
+ 430 00c7 F4000000 		.4byte	.LASF14
+ 431 00cb 05       		.byte	0x5
+ 432 00cc 26       		.byte	0x26
+ 433 00cd D5000000 		.4byte	0xd5
+ 434 00d1 02       		.byte	0x2
+ 435 00d2 23       		.byte	0x23
+ 436 00d3 00       		.uleb128 0
+ 437 00d4 00       		.byte	0
+ 438 00d5 06       		.uleb128 0x6
+ 439 00d6 04       		.byte	0x4
+ 440 00d7 BA000000 		.4byte	0xba
+ 441 00db 0B       		.uleb128 0xb
+ 442 00dc 0C       		.byte	0xc
+ 443 00dd 05       		.byte	0x5
+ 444 00de 2D       		.byte	0x2d
+ 445 00df 0E010000 		.4byte	0x10e
+ 446 00e3 0A       		.uleb128 0xa
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 9
+
+
+ 447 00e4 8D010000 		.4byte	.LASF15
+ 448 00e8 05       		.byte	0x5
+ 449 00e9 2E       		.byte	0x2e
+ 450 00ea D5000000 		.4byte	0xd5
+ 451 00ee 02       		.byte	0x2
+ 452 00ef 23       		.byte	0x23
+ 453 00f0 00       		.uleb128 0
+ 454 00f1 0A       		.uleb128 0xa
+ 455 00f2 07000000 		.4byte	.LASF16
+ 456 00f6 05       		.byte	0x5
+ 457 00f7 2F       		.byte	0x2f
+ 458 00f8 30000000 		.4byte	0x30
+ 459 00fc 02       		.byte	0x2
+ 460 00fd 23       		.byte	0x23
+ 461 00fe 04       		.uleb128 0x4
+ 462 00ff 0A       		.uleb128 0xa
+ 463 0100 31010000 		.4byte	.LASF17
+ 464 0104 05       		.byte	0x5
+ 465 0105 31       		.byte	0x31
+ 466 0106 99000000 		.4byte	0x99
+ 467 010a 02       		.byte	0x2
+ 468 010b 23       		.byte	0x23
+ 469 010c 08       		.uleb128 0x8
+ 470 010d 00       		.byte	0
+ 471 010e 03       		.uleb128 0x3
+ 472 010f AB000000 		.4byte	.LASF18
+ 473 0113 05       		.byte	0x5
+ 474 0114 33       		.byte	0x33
+ 475 0115 DB000000 		.4byte	0xdb
+ 476 0119 04       		.uleb128 0x4
+ 477 011a 01       		.byte	0x1
+ 478 011b 08       		.byte	0x8
+ 479 011c 13010000 		.4byte	.LASF19
+ 480 0120 0C       		.uleb128 0xc
+ 481 0121 01       		.byte	0x1
+ 482 0122 BB000000 		.4byte	.LASF31
+ 483 0126 01       		.byte	0x1
+ 484 0127 64       		.byte	0x64
+ 485 0128 01       		.byte	0x1
+ 486 0129 90000000 		.4byte	0x90
+ 487 012d 01       		.byte	0x1
+ 488 012e 48010000 		.4byte	0x148
+ 489 0132 0D       		.uleb128 0xd
+ 490 0133 6D7000   		.ascii	"mp\000"
+ 491 0136 01       		.byte	0x1
+ 492 0137 64       		.byte	0x64
+ 493 0138 48010000 		.4byte	0x148
+ 494 013c 0E       		.uleb128 0xe
+ 495 013d B6000000 		.4byte	.LASF20
+ 496 0141 01       		.byte	0x1
+ 497 0142 65       		.byte	0x65
+ 498 0143 90000000 		.4byte	0x90
+ 499 0147 00       		.byte	0
+ 500 0148 06       		.uleb128 0x6
+ 501 0149 04       		.byte	0x4
+ 502 014a 0E010000 		.4byte	0x10e
+ 503 014e 0F       		.uleb128 0xf
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 10
+
+
+ 504 014f 01       		.byte	0x1
+ 505 0150 65000000 		.4byte	.LASF21
+ 506 0154 01       		.byte	0x1
+ 507 0155 90       		.byte	0x90
+ 508 0156 01       		.byte	0x1
+ 509 0157 01       		.byte	0x1
+ 510 0158 7D010000 		.4byte	0x17d
+ 511 015c 0D       		.uleb128 0xd
+ 512 015d 6D7000   		.ascii	"mp\000"
+ 513 0160 01       		.byte	0x1
+ 514 0161 90       		.byte	0x90
+ 515 0162 48010000 		.4byte	0x148
+ 516 0166 10       		.uleb128 0x10
+ 517 0167 B6000000 		.4byte	.LASF20
+ 518 016b 01       		.byte	0x1
+ 519 016c 90       		.byte	0x90
+ 520 016d 90000000 		.4byte	0x90
+ 521 0171 11       		.uleb128 0x11
+ 522 0172 70687000 		.ascii	"php\000"
+ 523 0176 01       		.byte	0x1
+ 524 0177 91       		.byte	0x91
+ 525 0178 D5000000 		.4byte	0xd5
+ 526 017c 00       		.byte	0
+ 527 017d 0F       		.uleb128 0xf
+ 528 017e 01       		.byte	0x1
+ 529 017f A0000000 		.4byte	.LASF22
+ 530 0183 01       		.byte	0x1
+ 531 0184 A6       		.byte	0xa6
+ 532 0185 01       		.byte	0x1
+ 533 0186 01       		.byte	0x1
+ 534 0187 BF010000 		.4byte	0x1bf
+ 535 018b 0D       		.uleb128 0xd
+ 536 018c 6D7000   		.ascii	"mp\000"
+ 537 018f 01       		.byte	0x1
+ 538 0190 A6       		.byte	0xa6
+ 539 0191 48010000 		.4byte	0x148
+ 540 0195 10       		.uleb128 0x10
+ 541 0196 B6000000 		.4byte	.LASF20
+ 542 019a 01       		.byte	0x1
+ 543 019b A6       		.byte	0xa6
+ 544 019c 90000000 		.4byte	0x90
+ 545 01a0 12       		.uleb128 0x12
+ 546 01a1 B1010000 		.4byte	0x1b1
+ 547 01a5 11       		.uleb128 0x11
+ 548 01a6 746D7000 		.ascii	"tmp\000"
+ 549 01aa 01       		.byte	0x1
+ 550 01ab A8       		.byte	0xa8
+ 551 01ac 70000000 		.4byte	0x70
+ 552 01b0 00       		.byte	0
+ 553 01b1 13       		.uleb128 0x13
+ 554 01b2 11       		.uleb128 0x11
+ 555 01b3 746D7000 		.ascii	"tmp\000"
+ 556 01b7 01       		.byte	0x1
+ 557 01b8 AA       		.byte	0xaa
+ 558 01b9 70000000 		.4byte	0x70
+ 559 01bd 00       		.byte	0
+ 560 01be 00       		.byte	0
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 11
+
+
+ 561 01bf 14       		.uleb128 0x14
+ 562 01c0 01       		.byte	0x1
+ 563 01c1 95010000 		.4byte	.LASF25
+ 564 01c5 01       		.byte	0x1
+ 565 01c6 39       		.byte	0x39
+ 566 01c7 01       		.byte	0x1
+ 567 01c8 00000000 		.4byte	.LFB7
+ 568 01cc 0A000000 		.4byte	.LFE7
+ 569 01d0 02       		.byte	0x2
+ 570 01d1 7D       		.byte	0x7d
+ 571 01d2 00       		.sleb128 0
+ 572 01d3 01       		.byte	0x1
+ 573 01d4 FF010000 		.4byte	0x1ff
+ 574 01d8 15       		.uleb128 0x15
+ 575 01d9 6D7000   		.ascii	"mp\000"
+ 576 01dc 01       		.byte	0x1
+ 577 01dd 39       		.byte	0x39
+ 578 01de 48010000 		.4byte	0x148
+ 579 01e2 01       		.byte	0x1
+ 580 01e3 50       		.byte	0x50
+ 581 01e4 16       		.uleb128 0x16
+ 582 01e5 32000000 		.4byte	.LASF23
+ 583 01e9 01       		.byte	0x1
+ 584 01ea 39       		.byte	0x39
+ 585 01eb 30000000 		.4byte	0x30
+ 586 01ef 01       		.byte	0x1
+ 587 01f0 51       		.byte	0x51
+ 588 01f1 16       		.uleb128 0x16
+ 589 01f2 5C000000 		.4byte	.LASF24
+ 590 01f6 01       		.byte	0x1
+ 591 01f7 39       		.byte	0x39
+ 592 01f8 99000000 		.4byte	0x99
+ 593 01fc 01       		.byte	0x1
+ 594 01fd 52       		.byte	0x52
+ 595 01fe 00       		.byte	0
+ 596 01ff 17       		.uleb128 0x17
+ 597 0200 01       		.byte	0x1
+ 598 0201 16000000 		.4byte	.LASF26
+ 599 0205 01       		.byte	0x1
+ 600 0206 4F       		.byte	0x4f
+ 601 0207 01       		.byte	0x1
+ 602 0208 00000000 		.4byte	.LFB8
+ 603 020c 22000000 		.4byte	.LFE8
+ 604 0210 00000000 		.4byte	.LLST0
+ 605 0214 01       		.byte	0x1
+ 606 0215 BD020000 		.4byte	0x2bd
+ 607 0219 15       		.uleb128 0x15
+ 608 021a 6D7000   		.ascii	"mp\000"
+ 609 021d 01       		.byte	0x1
+ 610 021e 4F       		.byte	0x4f
+ 611 021f 48010000 		.4byte	0x148
+ 612 0223 01       		.byte	0x1
+ 613 0224 50       		.byte	0x50
+ 614 0225 18       		.uleb128 0x18
+ 615 0226 7000     		.ascii	"p\000"
+ 616 0228 01       		.byte	0x1
+ 617 0229 4F       		.byte	0x4f
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 12
+
+
+ 618 022a 90000000 		.4byte	0x90
+ 619 022e 20000000 		.4byte	.LLST1
+ 620 0232 18       		.uleb128 0x18
+ 621 0233 6E00     		.ascii	"n\000"
+ 622 0235 01       		.byte	0x1
+ 623 0236 4F       		.byte	0x4f
+ 624 0237 30000000 		.4byte	0x30
+ 625 023b 3E000000 		.4byte	.LLST2
+ 626 023f 19       		.uleb128 0x19
+ 627 0240 7D010000 		.4byte	0x17d
+ 628 0244 04000000 		.4byte	.LBB16
+ 629 0248 16000000 		.4byte	.LBE16
+ 630 024c 01       		.byte	0x1
+ 631 024d 54       		.byte	0x54
+ 632 024e 1A       		.uleb128 0x1a
+ 633 024f 95010000 		.4byte	0x195
+ 634 0253 51000000 		.4byte	.LLST3
+ 635 0257 1A       		.uleb128 0x1a
+ 636 0258 8B010000 		.4byte	0x18b
+ 637 025c 70000000 		.4byte	.LLST4
+ 638 0260 1B       		.uleb128 0x1b
+ 639 0261 04000000 		.4byte	.LBB17
+ 640 0265 0A000000 		.4byte	.LBE17
+ 641 0269 77020000 		.4byte	0x277
+ 642 026d 1C       		.uleb128 0x1c
+ 643 026e A5010000 		.4byte	0x1a5
+ 644 0272 83000000 		.4byte	.LLST5
+ 645 0276 00       		.byte	0
+ 646 0277 1D       		.uleb128 0x1d
+ 647 0278 4E010000 		.4byte	0x14e
+ 648 027c 0A000000 		.4byte	.LBB18
+ 649 0280 00000000 		.4byte	.Ldebug_ranges0+0
+ 650 0284 01       		.byte	0x1
+ 651 0285 A9       		.byte	0xa9
+ 652 0286 AC020000 		.4byte	0x2ac
+ 653 028a 1A       		.uleb128 0x1a
+ 654 028b 66010000 		.4byte	0x166
+ 655 028f 96000000 		.4byte	.LLST6
+ 656 0293 1A       		.uleb128 0x1a
+ 657 0294 5C010000 		.4byte	0x15c
+ 658 0298 B5000000 		.4byte	.LLST7
+ 659 029c 1E       		.uleb128 0x1e
+ 660 029d 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 661 02a1 1C       		.uleb128 0x1c
+ 662 02a2 71010000 		.4byte	0x171
+ 663 02a6 96000000 		.4byte	.LLST6
+ 664 02aa 00       		.byte	0
+ 665 02ab 00       		.byte	0
+ 666 02ac 1E       		.uleb128 0x1e
+ 667 02ad 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 668 02b1 1C       		.uleb128 0x1c
+ 669 02b2 B2010000 		.4byte	0x1b2
+ 670 02b6 C8000000 		.4byte	.LLST9
+ 671 02ba 00       		.byte	0
+ 672 02bb 00       		.byte	0
+ 673 02bc 00       		.byte	0
+ 674 02bd 1F       		.uleb128 0x1f
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 13
+
+
+ 675 02be 20010000 		.4byte	0x120
+ 676 02c2 00000000 		.4byte	.LFB9
+ 677 02c6 18000000 		.4byte	.LFE9
+ 678 02ca DB000000 		.4byte	.LLST10
+ 679 02ce 01       		.byte	0x1
+ 680 02cf E6020000 		.4byte	0x2e6
+ 681 02d3 1A       		.uleb128 0x1a
+ 682 02d4 32010000 		.4byte	0x132
+ 683 02d8 FB000000 		.4byte	.LLST11
+ 684 02dc 1C       		.uleb128 0x1c
+ 685 02dd 3C010000 		.4byte	0x13c
+ 686 02e1 27010000 		.4byte	.LLST12
+ 687 02e5 00       		.byte	0
+ 688 02e6 20       		.uleb128 0x20
+ 689 02e7 01       		.byte	0x1
+ 690 02e8 47010000 		.4byte	.LASF32
+ 691 02ec 01       		.byte	0x1
+ 692 02ed 7B       		.byte	0x7b
+ 693 02ee 01       		.byte	0x1
+ 694 02ef 90000000 		.4byte	0x90
+ 695 02f3 00000000 		.4byte	.LFB10
+ 696 02f7 26000000 		.4byte	.LFE10
+ 697 02fb 51010000 		.4byte	.LLST13
+ 698 02ff 01       		.byte	0x1
+ 699 0300 82030000 		.4byte	0x382
+ 700 0304 18       		.uleb128 0x18
+ 701 0305 6D7000   		.ascii	"mp\000"
+ 702 0308 01       		.byte	0x1
+ 703 0309 7B       		.byte	0x7b
+ 704 030a 48010000 		.4byte	0x148
+ 705 030e 71010000 		.4byte	.LLST14
+ 706 0312 21       		.uleb128 0x21
+ 707 0313 B6000000 		.4byte	.LASF20
+ 708 0317 01       		.byte	0x1
+ 709 0318 7C       		.byte	0x7c
+ 710 0319 90000000 		.4byte	0x90
+ 711 031d 01       		.byte	0x1
+ 712 031e 50       		.byte	0x50
+ 713 031f 1B       		.uleb128 0x1b
+ 714 0320 04000000 		.4byte	.LBB24
+ 715 0324 0A000000 		.4byte	.LBE24
+ 716 0328 3C030000 		.4byte	0x33c
+ 717 032c 22       		.uleb128 0x22
+ 718 032d 746D7000 		.ascii	"tmp\000"
+ 719 0331 01       		.byte	0x1
+ 720 0332 7E       		.byte	0x7e
+ 721 0333 70000000 		.4byte	0x70
+ 722 0337 B6010000 		.4byte	.LLST15
+ 723 033b 00       		.byte	0
+ 724 033c 1D       		.uleb128 0x1d
+ 725 033d 20010000 		.4byte	0x120
+ 726 0341 0A000000 		.4byte	.LBB25
+ 727 0345 48000000 		.4byte	.Ldebug_ranges0+0x48
+ 728 0349 01       		.byte	0x1
+ 729 034a 7F       		.byte	0x7f
+ 730 034b 68030000 		.4byte	0x368
+ 731 034f 1A       		.uleb128 0x1a
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 14
+
+
+ 732 0350 32010000 		.4byte	0x132
+ 733 0354 D4010000 		.4byte	.LLST16
+ 734 0358 1E       		.uleb128 0x1e
+ 735 0359 60000000 		.4byte	.Ldebug_ranges0+0x60
+ 736 035d 1C       		.uleb128 0x1c
+ 737 035e 3C010000 		.4byte	0x13c
+ 738 0362 19020000 		.4byte	.LLST17
+ 739 0366 00       		.byte	0
+ 740 0367 00       		.byte	0
+ 741 0368 23       		.uleb128 0x23
+ 742 0369 12000000 		.4byte	.LBB28
+ 743 036d 18000000 		.4byte	.LBE28
+ 744 0371 22       		.uleb128 0x22
+ 745 0372 746D7000 		.ascii	"tmp\000"
+ 746 0376 01       		.byte	0x1
+ 747 0377 80       		.byte	0x80
+ 748 0378 70000000 		.4byte	0x70
+ 749 037c 43020000 		.4byte	.LLST18
+ 750 0380 00       		.byte	0
+ 751 0381 00       		.byte	0
+ 752 0382 24       		.uleb128 0x24
+ 753 0383 4E010000 		.4byte	0x14e
+ 754 0387 00000000 		.4byte	.LFB11
+ 755 038b 08000000 		.4byte	.LFE11
+ 756 038f 02       		.byte	0x2
+ 757 0390 7D       		.byte	0x7d
+ 758 0391 00       		.sleb128 0
+ 759 0392 01       		.byte	0x1
+ 760 0393 AD030000 		.4byte	0x3ad
+ 761 0397 25       		.uleb128 0x25
+ 762 0398 5C010000 		.4byte	0x15c
+ 763 039c 01       		.byte	0x1
+ 764 039d 50       		.byte	0x50
+ 765 039e 25       		.uleb128 0x25
+ 766 039f 66010000 		.4byte	0x166
+ 767 03a3 01       		.byte	0x1
+ 768 03a4 51       		.byte	0x51
+ 769 03a5 26       		.uleb128 0x26
+ 770 03a6 71010000 		.4byte	0x171
+ 771 03aa 01       		.byte	0x1
+ 772 03ab 51       		.byte	0x51
+ 773 03ac 00       		.byte	0
+ 774 03ad 27       		.uleb128 0x27
+ 775 03ae 7D010000 		.4byte	0x17d
+ 776 03b2 00000000 		.4byte	.LFB12
+ 777 03b6 14000000 		.4byte	.LFE12
+ 778 03ba 02       		.byte	0x2
+ 779 03bb 7D       		.byte	0x7d
+ 780 03bc 00       		.sleb128 0
+ 781 03bd 01       		.byte	0x1
+ 782 03be 25       		.uleb128 0x25
+ 783 03bf 8B010000 		.4byte	0x18b
+ 784 03c3 01       		.byte	0x1
+ 785 03c4 50       		.byte	0x50
+ 786 03c5 25       		.uleb128 0x25
+ 787 03c6 95010000 		.4byte	0x195
+ 788 03ca 01       		.byte	0x1
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 15
+
+
+ 789 03cb 51       		.byte	0x51
+ 790 03cc 1B       		.uleb128 0x1b
+ 791 03cd 00000000 		.4byte	.LBB30
+ 792 03d1 06000000 		.4byte	.LBE30
+ 793 03d5 E3030000 		.4byte	0x3e3
+ 794 03d9 1C       		.uleb128 0x1c
+ 795 03da A5010000 		.4byte	0x1a5
+ 796 03de 56020000 		.4byte	.LLST19
+ 797 03e2 00       		.byte	0
+ 798 03e3 1D       		.uleb128 0x1d
+ 799 03e4 4E010000 		.4byte	0x14e
+ 800 03e8 06000000 		.4byte	.LBB31
+ 801 03ec 78000000 		.4byte	.Ldebug_ranges0+0x78
+ 802 03f0 01       		.byte	0x1
+ 803 03f1 A9       		.byte	0xa9
+ 804 03f2 12040000 		.4byte	0x412
+ 805 03f6 25       		.uleb128 0x25
+ 806 03f7 66010000 		.4byte	0x166
+ 807 03fb 01       		.byte	0x1
+ 808 03fc 51       		.byte	0x51
+ 809 03fd 25       		.uleb128 0x25
+ 810 03fe 5C010000 		.4byte	0x15c
+ 811 0402 01       		.byte	0x1
+ 812 0403 50       		.byte	0x50
+ 813 0404 1E       		.uleb128 0x1e
+ 814 0405 90000000 		.4byte	.Ldebug_ranges0+0x90
+ 815 0409 26       		.uleb128 0x26
+ 816 040a 71010000 		.4byte	0x171
+ 817 040e 01       		.byte	0x1
+ 818 040f 51       		.byte	0x51
+ 819 0410 00       		.byte	0
+ 820 0411 00       		.byte	0
+ 821 0412 1E       		.uleb128 0x1e
+ 822 0413 A8000000 		.4byte	.Ldebug_ranges0+0xa8
+ 823 0417 1C       		.uleb128 0x1c
+ 824 0418 B2010000 		.4byte	0x1b2
+ 825 041c 69020000 		.4byte	.LLST20
+ 826 0420 00       		.byte	0
+ 827 0421 00       		.byte	0
+ 828 0422 00       		.byte	0
+ 829              		.section	.debug_abbrev,"",%progbits
+ 830              	.Ldebug_abbrev0:
+ 831 0000 01       		.uleb128 0x1
+ 832 0001 11       		.uleb128 0x11
+ 833 0002 01       		.byte	0x1
+ 834 0003 25       		.uleb128 0x25
+ 835 0004 0E       		.uleb128 0xe
+ 836 0005 13       		.uleb128 0x13
+ 837 0006 0B       		.uleb128 0xb
+ 838 0007 03       		.uleb128 0x3
+ 839 0008 0E       		.uleb128 0xe
+ 840 0009 1B       		.uleb128 0x1b
+ 841 000a 0E       		.uleb128 0xe
+ 842 000b 55       		.uleb128 0x55
+ 843 000c 06       		.uleb128 0x6
+ 844 000d 11       		.uleb128 0x11
+ 845 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 16
+
+
+ 846 000f 52       		.uleb128 0x52
+ 847 0010 01       		.uleb128 0x1
+ 848 0011 10       		.uleb128 0x10
+ 849 0012 06       		.uleb128 0x6
+ 850 0013 00       		.byte	0
+ 851 0014 00       		.byte	0
+ 852 0015 02       		.uleb128 0x2
+ 853 0016 24       		.uleb128 0x24
+ 854 0017 00       		.byte	0
+ 855 0018 0B       		.uleb128 0xb
+ 856 0019 0B       		.uleb128 0xb
+ 857 001a 3E       		.uleb128 0x3e
+ 858 001b 0B       		.uleb128 0xb
+ 859 001c 03       		.uleb128 0x3
+ 860 001d 08       		.uleb128 0x8
+ 861 001e 00       		.byte	0
+ 862 001f 00       		.byte	0
+ 863 0020 03       		.uleb128 0x3
+ 864 0021 16       		.uleb128 0x16
+ 865 0022 00       		.byte	0
+ 866 0023 03       		.uleb128 0x3
+ 867 0024 0E       		.uleb128 0xe
+ 868 0025 3A       		.uleb128 0x3a
+ 869 0026 0B       		.uleb128 0xb
+ 870 0027 3B       		.uleb128 0x3b
+ 871 0028 0B       		.uleb128 0xb
+ 872 0029 49       		.uleb128 0x49
+ 873 002a 13       		.uleb128 0x13
+ 874 002b 00       		.byte	0
+ 875 002c 00       		.byte	0
+ 876 002d 04       		.uleb128 0x4
+ 877 002e 24       		.uleb128 0x24
+ 878 002f 00       		.byte	0
+ 879 0030 0B       		.uleb128 0xb
+ 880 0031 0B       		.uleb128 0xb
+ 881 0032 3E       		.uleb128 0x3e
+ 882 0033 0B       		.uleb128 0xb
+ 883 0034 03       		.uleb128 0x3
+ 884 0035 0E       		.uleb128 0xe
+ 885 0036 00       		.byte	0
+ 886 0037 00       		.byte	0
+ 887 0038 05       		.uleb128 0x5
+ 888 0039 0F       		.uleb128 0xf
+ 889 003a 00       		.byte	0
+ 890 003b 0B       		.uleb128 0xb
+ 891 003c 0B       		.uleb128 0xb
+ 892 003d 00       		.byte	0
+ 893 003e 00       		.byte	0
+ 894 003f 06       		.uleb128 0x6
+ 895 0040 0F       		.uleb128 0xf
+ 896 0041 00       		.byte	0
+ 897 0042 0B       		.uleb128 0xb
+ 898 0043 0B       		.uleb128 0xb
+ 899 0044 49       		.uleb128 0x49
+ 900 0045 13       		.uleb128 0x13
+ 901 0046 00       		.byte	0
+ 902 0047 00       		.byte	0
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 17
+
+
+ 903 0048 07       		.uleb128 0x7
+ 904 0049 15       		.uleb128 0x15
+ 905 004a 01       		.byte	0x1
+ 906 004b 27       		.uleb128 0x27
+ 907 004c 0C       		.uleb128 0xc
+ 908 004d 49       		.uleb128 0x49
+ 909 004e 13       		.uleb128 0x13
+ 910 004f 01       		.uleb128 0x1
+ 911 0050 13       		.uleb128 0x13
+ 912 0051 00       		.byte	0
+ 913 0052 00       		.byte	0
+ 914 0053 08       		.uleb128 0x8
+ 915 0054 05       		.uleb128 0x5
+ 916 0055 00       		.byte	0
+ 917 0056 49       		.uleb128 0x49
+ 918 0057 13       		.uleb128 0x13
+ 919 0058 00       		.byte	0
+ 920 0059 00       		.byte	0
+ 921 005a 09       		.uleb128 0x9
+ 922 005b 13       		.uleb128 0x13
+ 923 005c 01       		.byte	0x1
+ 924 005d 03       		.uleb128 0x3
+ 925 005e 0E       		.uleb128 0xe
+ 926 005f 0B       		.uleb128 0xb
+ 927 0060 0B       		.uleb128 0xb
+ 928 0061 3A       		.uleb128 0x3a
+ 929 0062 0B       		.uleb128 0xb
+ 930 0063 3B       		.uleb128 0x3b
+ 931 0064 0B       		.uleb128 0xb
+ 932 0065 01       		.uleb128 0x1
+ 933 0066 13       		.uleb128 0x13
+ 934 0067 00       		.byte	0
+ 935 0068 00       		.byte	0
+ 936 0069 0A       		.uleb128 0xa
+ 937 006a 0D       		.uleb128 0xd
+ 938 006b 00       		.byte	0
+ 939 006c 03       		.uleb128 0x3
+ 940 006d 0E       		.uleb128 0xe
+ 941 006e 3A       		.uleb128 0x3a
+ 942 006f 0B       		.uleb128 0xb
+ 943 0070 3B       		.uleb128 0x3b
+ 944 0071 0B       		.uleb128 0xb
+ 945 0072 49       		.uleb128 0x49
+ 946 0073 13       		.uleb128 0x13
+ 947 0074 38       		.uleb128 0x38
+ 948 0075 0A       		.uleb128 0xa
+ 949 0076 00       		.byte	0
+ 950 0077 00       		.byte	0
+ 951 0078 0B       		.uleb128 0xb
+ 952 0079 13       		.uleb128 0x13
+ 953 007a 01       		.byte	0x1
+ 954 007b 0B       		.uleb128 0xb
+ 955 007c 0B       		.uleb128 0xb
+ 956 007d 3A       		.uleb128 0x3a
+ 957 007e 0B       		.uleb128 0xb
+ 958 007f 3B       		.uleb128 0x3b
+ 959 0080 0B       		.uleb128 0xb
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 18
+
+
+ 960 0081 01       		.uleb128 0x1
+ 961 0082 13       		.uleb128 0x13
+ 962 0083 00       		.byte	0
+ 963 0084 00       		.byte	0
+ 964 0085 0C       		.uleb128 0xc
+ 965 0086 2E       		.uleb128 0x2e
+ 966 0087 01       		.byte	0x1
+ 967 0088 3F       		.uleb128 0x3f
+ 968 0089 0C       		.uleb128 0xc
+ 969 008a 03       		.uleb128 0x3
+ 970 008b 0E       		.uleb128 0xe
+ 971 008c 3A       		.uleb128 0x3a
+ 972 008d 0B       		.uleb128 0xb
+ 973 008e 3B       		.uleb128 0x3b
+ 974 008f 0B       		.uleb128 0xb
+ 975 0090 27       		.uleb128 0x27
+ 976 0091 0C       		.uleb128 0xc
+ 977 0092 49       		.uleb128 0x49
+ 978 0093 13       		.uleb128 0x13
+ 979 0094 20       		.uleb128 0x20
+ 980 0095 0B       		.uleb128 0xb
+ 981 0096 01       		.uleb128 0x1
+ 982 0097 13       		.uleb128 0x13
+ 983 0098 00       		.byte	0
+ 984 0099 00       		.byte	0
+ 985 009a 0D       		.uleb128 0xd
+ 986 009b 05       		.uleb128 0x5
+ 987 009c 00       		.byte	0
+ 988 009d 03       		.uleb128 0x3
+ 989 009e 08       		.uleb128 0x8
+ 990 009f 3A       		.uleb128 0x3a
+ 991 00a0 0B       		.uleb128 0xb
+ 992 00a1 3B       		.uleb128 0x3b
+ 993 00a2 0B       		.uleb128 0xb
+ 994 00a3 49       		.uleb128 0x49
+ 995 00a4 13       		.uleb128 0x13
+ 996 00a5 00       		.byte	0
+ 997 00a6 00       		.byte	0
+ 998 00a7 0E       		.uleb128 0xe
+ 999 00a8 34       		.uleb128 0x34
+ 1000 00a9 00       		.byte	0
+ 1001 00aa 03       		.uleb128 0x3
+ 1002 00ab 0E       		.uleb128 0xe
+ 1003 00ac 3A       		.uleb128 0x3a
+ 1004 00ad 0B       		.uleb128 0xb
+ 1005 00ae 3B       		.uleb128 0x3b
+ 1006 00af 0B       		.uleb128 0xb
+ 1007 00b0 49       		.uleb128 0x49
+ 1008 00b1 13       		.uleb128 0x13
+ 1009 00b2 00       		.byte	0
+ 1010 00b3 00       		.byte	0
+ 1011 00b4 0F       		.uleb128 0xf
+ 1012 00b5 2E       		.uleb128 0x2e
+ 1013 00b6 01       		.byte	0x1
+ 1014 00b7 3F       		.uleb128 0x3f
+ 1015 00b8 0C       		.uleb128 0xc
+ 1016 00b9 03       		.uleb128 0x3
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 19
+
+
+ 1017 00ba 0E       		.uleb128 0xe
+ 1018 00bb 3A       		.uleb128 0x3a
+ 1019 00bc 0B       		.uleb128 0xb
+ 1020 00bd 3B       		.uleb128 0x3b
+ 1021 00be 0B       		.uleb128 0xb
+ 1022 00bf 27       		.uleb128 0x27
+ 1023 00c0 0C       		.uleb128 0xc
+ 1024 00c1 20       		.uleb128 0x20
+ 1025 00c2 0B       		.uleb128 0xb
+ 1026 00c3 01       		.uleb128 0x1
+ 1027 00c4 13       		.uleb128 0x13
+ 1028 00c5 00       		.byte	0
+ 1029 00c6 00       		.byte	0
+ 1030 00c7 10       		.uleb128 0x10
+ 1031 00c8 05       		.uleb128 0x5
+ 1032 00c9 00       		.byte	0
+ 1033 00ca 03       		.uleb128 0x3
+ 1034 00cb 0E       		.uleb128 0xe
+ 1035 00cc 3A       		.uleb128 0x3a
+ 1036 00cd 0B       		.uleb128 0xb
+ 1037 00ce 3B       		.uleb128 0x3b
+ 1038 00cf 0B       		.uleb128 0xb
+ 1039 00d0 49       		.uleb128 0x49
+ 1040 00d1 13       		.uleb128 0x13
+ 1041 00d2 00       		.byte	0
+ 1042 00d3 00       		.byte	0
+ 1043 00d4 11       		.uleb128 0x11
+ 1044 00d5 34       		.uleb128 0x34
+ 1045 00d6 00       		.byte	0
+ 1046 00d7 03       		.uleb128 0x3
+ 1047 00d8 08       		.uleb128 0x8
+ 1048 00d9 3A       		.uleb128 0x3a
+ 1049 00da 0B       		.uleb128 0xb
+ 1050 00db 3B       		.uleb128 0x3b
+ 1051 00dc 0B       		.uleb128 0xb
+ 1052 00dd 49       		.uleb128 0x49
+ 1053 00de 13       		.uleb128 0x13
+ 1054 00df 00       		.byte	0
+ 1055 00e0 00       		.byte	0
+ 1056 00e1 12       		.uleb128 0x12
+ 1057 00e2 0B       		.uleb128 0xb
+ 1058 00e3 01       		.byte	0x1
+ 1059 00e4 01       		.uleb128 0x1
+ 1060 00e5 13       		.uleb128 0x13
+ 1061 00e6 00       		.byte	0
+ 1062 00e7 00       		.byte	0
+ 1063 00e8 13       		.uleb128 0x13
+ 1064 00e9 0B       		.uleb128 0xb
+ 1065 00ea 01       		.byte	0x1
+ 1066 00eb 00       		.byte	0
+ 1067 00ec 00       		.byte	0
+ 1068 00ed 14       		.uleb128 0x14
+ 1069 00ee 2E       		.uleb128 0x2e
+ 1070 00ef 01       		.byte	0x1
+ 1071 00f0 3F       		.uleb128 0x3f
+ 1072 00f1 0C       		.uleb128 0xc
+ 1073 00f2 03       		.uleb128 0x3
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 20
+
+
+ 1074 00f3 0E       		.uleb128 0xe
+ 1075 00f4 3A       		.uleb128 0x3a
+ 1076 00f5 0B       		.uleb128 0xb
+ 1077 00f6 3B       		.uleb128 0x3b
+ 1078 00f7 0B       		.uleb128 0xb
+ 1079 00f8 27       		.uleb128 0x27
+ 1080 00f9 0C       		.uleb128 0xc
+ 1081 00fa 11       		.uleb128 0x11
+ 1082 00fb 01       		.uleb128 0x1
+ 1083 00fc 12       		.uleb128 0x12
+ 1084 00fd 01       		.uleb128 0x1
+ 1085 00fe 40       		.uleb128 0x40
+ 1086 00ff 0A       		.uleb128 0xa
+ 1087 0100 9742     		.uleb128 0x2117
+ 1088 0102 0C       		.uleb128 0xc
+ 1089 0103 01       		.uleb128 0x1
+ 1090 0104 13       		.uleb128 0x13
+ 1091 0105 00       		.byte	0
+ 1092 0106 00       		.byte	0
+ 1093 0107 15       		.uleb128 0x15
+ 1094 0108 05       		.uleb128 0x5
+ 1095 0109 00       		.byte	0
+ 1096 010a 03       		.uleb128 0x3
+ 1097 010b 08       		.uleb128 0x8
+ 1098 010c 3A       		.uleb128 0x3a
+ 1099 010d 0B       		.uleb128 0xb
+ 1100 010e 3B       		.uleb128 0x3b
+ 1101 010f 0B       		.uleb128 0xb
+ 1102 0110 49       		.uleb128 0x49
+ 1103 0111 13       		.uleb128 0x13
+ 1104 0112 02       		.uleb128 0x2
+ 1105 0113 0A       		.uleb128 0xa
+ 1106 0114 00       		.byte	0
+ 1107 0115 00       		.byte	0
+ 1108 0116 16       		.uleb128 0x16
+ 1109 0117 05       		.uleb128 0x5
+ 1110 0118 00       		.byte	0
+ 1111 0119 03       		.uleb128 0x3
+ 1112 011a 0E       		.uleb128 0xe
+ 1113 011b 3A       		.uleb128 0x3a
+ 1114 011c 0B       		.uleb128 0xb
+ 1115 011d 3B       		.uleb128 0x3b
+ 1116 011e 0B       		.uleb128 0xb
+ 1117 011f 49       		.uleb128 0x49
+ 1118 0120 13       		.uleb128 0x13
+ 1119 0121 02       		.uleb128 0x2
+ 1120 0122 0A       		.uleb128 0xa
+ 1121 0123 00       		.byte	0
+ 1122 0124 00       		.byte	0
+ 1123 0125 17       		.uleb128 0x17
+ 1124 0126 2E       		.uleb128 0x2e
+ 1125 0127 01       		.byte	0x1
+ 1126 0128 3F       		.uleb128 0x3f
+ 1127 0129 0C       		.uleb128 0xc
+ 1128 012a 03       		.uleb128 0x3
+ 1129 012b 0E       		.uleb128 0xe
+ 1130 012c 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 21
+
+
+ 1131 012d 0B       		.uleb128 0xb
+ 1132 012e 3B       		.uleb128 0x3b
+ 1133 012f 0B       		.uleb128 0xb
+ 1134 0130 27       		.uleb128 0x27
+ 1135 0131 0C       		.uleb128 0xc
+ 1136 0132 11       		.uleb128 0x11
+ 1137 0133 01       		.uleb128 0x1
+ 1138 0134 12       		.uleb128 0x12
+ 1139 0135 01       		.uleb128 0x1
+ 1140 0136 40       		.uleb128 0x40
+ 1141 0137 06       		.uleb128 0x6
+ 1142 0138 9742     		.uleb128 0x2117
+ 1143 013a 0C       		.uleb128 0xc
+ 1144 013b 01       		.uleb128 0x1
+ 1145 013c 13       		.uleb128 0x13
+ 1146 013d 00       		.byte	0
+ 1147 013e 00       		.byte	0
+ 1148 013f 18       		.uleb128 0x18
+ 1149 0140 05       		.uleb128 0x5
+ 1150 0141 00       		.byte	0
+ 1151 0142 03       		.uleb128 0x3
+ 1152 0143 08       		.uleb128 0x8
+ 1153 0144 3A       		.uleb128 0x3a
+ 1154 0145 0B       		.uleb128 0xb
+ 1155 0146 3B       		.uleb128 0x3b
+ 1156 0147 0B       		.uleb128 0xb
+ 1157 0148 49       		.uleb128 0x49
+ 1158 0149 13       		.uleb128 0x13
+ 1159 014a 02       		.uleb128 0x2
+ 1160 014b 06       		.uleb128 0x6
+ 1161 014c 00       		.byte	0
+ 1162 014d 00       		.byte	0
+ 1163 014e 19       		.uleb128 0x19
+ 1164 014f 1D       		.uleb128 0x1d
+ 1165 0150 01       		.byte	0x1
+ 1166 0151 31       		.uleb128 0x31
+ 1167 0152 13       		.uleb128 0x13
+ 1168 0153 11       		.uleb128 0x11
+ 1169 0154 01       		.uleb128 0x1
+ 1170 0155 12       		.uleb128 0x12
+ 1171 0156 01       		.uleb128 0x1
+ 1172 0157 58       		.uleb128 0x58
+ 1173 0158 0B       		.uleb128 0xb
+ 1174 0159 59       		.uleb128 0x59
+ 1175 015a 0B       		.uleb128 0xb
+ 1176 015b 00       		.byte	0
+ 1177 015c 00       		.byte	0
+ 1178 015d 1A       		.uleb128 0x1a
+ 1179 015e 05       		.uleb128 0x5
+ 1180 015f 00       		.byte	0
+ 1181 0160 31       		.uleb128 0x31
+ 1182 0161 13       		.uleb128 0x13
+ 1183 0162 02       		.uleb128 0x2
+ 1184 0163 06       		.uleb128 0x6
+ 1185 0164 00       		.byte	0
+ 1186 0165 00       		.byte	0
+ 1187 0166 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 22
+
+
+ 1188 0167 0B       		.uleb128 0xb
+ 1189 0168 01       		.byte	0x1
+ 1190 0169 11       		.uleb128 0x11
+ 1191 016a 01       		.uleb128 0x1
+ 1192 016b 12       		.uleb128 0x12
+ 1193 016c 01       		.uleb128 0x1
+ 1194 016d 01       		.uleb128 0x1
+ 1195 016e 13       		.uleb128 0x13
+ 1196 016f 00       		.byte	0
+ 1197 0170 00       		.byte	0
+ 1198 0171 1C       		.uleb128 0x1c
+ 1199 0172 34       		.uleb128 0x34
+ 1200 0173 00       		.byte	0
+ 1201 0174 31       		.uleb128 0x31
+ 1202 0175 13       		.uleb128 0x13
+ 1203 0176 02       		.uleb128 0x2
+ 1204 0177 06       		.uleb128 0x6
+ 1205 0178 00       		.byte	0
+ 1206 0179 00       		.byte	0
+ 1207 017a 1D       		.uleb128 0x1d
+ 1208 017b 1D       		.uleb128 0x1d
+ 1209 017c 01       		.byte	0x1
+ 1210 017d 31       		.uleb128 0x31
+ 1211 017e 13       		.uleb128 0x13
+ 1212 017f 52       		.uleb128 0x52
+ 1213 0180 01       		.uleb128 0x1
+ 1214 0181 55       		.uleb128 0x55
+ 1215 0182 06       		.uleb128 0x6
+ 1216 0183 58       		.uleb128 0x58
+ 1217 0184 0B       		.uleb128 0xb
+ 1218 0185 59       		.uleb128 0x59
+ 1219 0186 0B       		.uleb128 0xb
+ 1220 0187 01       		.uleb128 0x1
+ 1221 0188 13       		.uleb128 0x13
+ 1222 0189 00       		.byte	0
+ 1223 018a 00       		.byte	0
+ 1224 018b 1E       		.uleb128 0x1e
+ 1225 018c 0B       		.uleb128 0xb
+ 1226 018d 01       		.byte	0x1
+ 1227 018e 55       		.uleb128 0x55
+ 1228 018f 06       		.uleb128 0x6
+ 1229 0190 00       		.byte	0
+ 1230 0191 00       		.byte	0
+ 1231 0192 1F       		.uleb128 0x1f
+ 1232 0193 2E       		.uleb128 0x2e
+ 1233 0194 01       		.byte	0x1
+ 1234 0195 31       		.uleb128 0x31
+ 1235 0196 13       		.uleb128 0x13
+ 1236 0197 11       		.uleb128 0x11
+ 1237 0198 01       		.uleb128 0x1
+ 1238 0199 12       		.uleb128 0x12
+ 1239 019a 01       		.uleb128 0x1
+ 1240 019b 40       		.uleb128 0x40
+ 1241 019c 06       		.uleb128 0x6
+ 1242 019d 9642     		.uleb128 0x2116
+ 1243 019f 0C       		.uleb128 0xc
+ 1244 01a0 01       		.uleb128 0x1
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 23
+
+
+ 1245 01a1 13       		.uleb128 0x13
+ 1246 01a2 00       		.byte	0
+ 1247 01a3 00       		.byte	0
+ 1248 01a4 20       		.uleb128 0x20
+ 1249 01a5 2E       		.uleb128 0x2e
+ 1250 01a6 01       		.byte	0x1
+ 1251 01a7 3F       		.uleb128 0x3f
+ 1252 01a8 0C       		.uleb128 0xc
+ 1253 01a9 03       		.uleb128 0x3
+ 1254 01aa 0E       		.uleb128 0xe
+ 1255 01ab 3A       		.uleb128 0x3a
+ 1256 01ac 0B       		.uleb128 0xb
+ 1257 01ad 3B       		.uleb128 0x3b
+ 1258 01ae 0B       		.uleb128 0xb
+ 1259 01af 27       		.uleb128 0x27
+ 1260 01b0 0C       		.uleb128 0xc
+ 1261 01b1 49       		.uleb128 0x49
+ 1262 01b2 13       		.uleb128 0x13
+ 1263 01b3 11       		.uleb128 0x11
+ 1264 01b4 01       		.uleb128 0x1
+ 1265 01b5 12       		.uleb128 0x12
+ 1266 01b6 01       		.uleb128 0x1
+ 1267 01b7 40       		.uleb128 0x40
+ 1268 01b8 06       		.uleb128 0x6
+ 1269 01b9 9642     		.uleb128 0x2116
+ 1270 01bb 0C       		.uleb128 0xc
+ 1271 01bc 01       		.uleb128 0x1
+ 1272 01bd 13       		.uleb128 0x13
+ 1273 01be 00       		.byte	0
+ 1274 01bf 00       		.byte	0
+ 1275 01c0 21       		.uleb128 0x21
+ 1276 01c1 34       		.uleb128 0x34
+ 1277 01c2 00       		.byte	0
+ 1278 01c3 03       		.uleb128 0x3
+ 1279 01c4 0E       		.uleb128 0xe
+ 1280 01c5 3A       		.uleb128 0x3a
+ 1281 01c6 0B       		.uleb128 0xb
+ 1282 01c7 3B       		.uleb128 0x3b
+ 1283 01c8 0B       		.uleb128 0xb
+ 1284 01c9 49       		.uleb128 0x49
+ 1285 01ca 13       		.uleb128 0x13
+ 1286 01cb 02       		.uleb128 0x2
+ 1287 01cc 0A       		.uleb128 0xa
+ 1288 01cd 00       		.byte	0
+ 1289 01ce 00       		.byte	0
+ 1290 01cf 22       		.uleb128 0x22
+ 1291 01d0 34       		.uleb128 0x34
+ 1292 01d1 00       		.byte	0
+ 1293 01d2 03       		.uleb128 0x3
+ 1294 01d3 08       		.uleb128 0x8
+ 1295 01d4 3A       		.uleb128 0x3a
+ 1296 01d5 0B       		.uleb128 0xb
+ 1297 01d6 3B       		.uleb128 0x3b
+ 1298 01d7 0B       		.uleb128 0xb
+ 1299 01d8 49       		.uleb128 0x49
+ 1300 01d9 13       		.uleb128 0x13
+ 1301 01da 02       		.uleb128 0x2
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 24
+
+
+ 1302 01db 06       		.uleb128 0x6
+ 1303 01dc 00       		.byte	0
+ 1304 01dd 00       		.byte	0
+ 1305 01de 23       		.uleb128 0x23
+ 1306 01df 0B       		.uleb128 0xb
+ 1307 01e0 01       		.byte	0x1
+ 1308 01e1 11       		.uleb128 0x11
+ 1309 01e2 01       		.uleb128 0x1
+ 1310 01e3 12       		.uleb128 0x12
+ 1311 01e4 01       		.uleb128 0x1
+ 1312 01e5 00       		.byte	0
+ 1313 01e6 00       		.byte	0
+ 1314 01e7 24       		.uleb128 0x24
+ 1315 01e8 2E       		.uleb128 0x2e
+ 1316 01e9 01       		.byte	0x1
+ 1317 01ea 31       		.uleb128 0x31
+ 1318 01eb 13       		.uleb128 0x13
+ 1319 01ec 11       		.uleb128 0x11
+ 1320 01ed 01       		.uleb128 0x1
+ 1321 01ee 12       		.uleb128 0x12
+ 1322 01ef 01       		.uleb128 0x1
+ 1323 01f0 40       		.uleb128 0x40
+ 1324 01f1 0A       		.uleb128 0xa
+ 1325 01f2 9742     		.uleb128 0x2117
+ 1326 01f4 0C       		.uleb128 0xc
+ 1327 01f5 01       		.uleb128 0x1
+ 1328 01f6 13       		.uleb128 0x13
+ 1329 01f7 00       		.byte	0
+ 1330 01f8 00       		.byte	0
+ 1331 01f9 25       		.uleb128 0x25
+ 1332 01fa 05       		.uleb128 0x5
+ 1333 01fb 00       		.byte	0
+ 1334 01fc 31       		.uleb128 0x31
+ 1335 01fd 13       		.uleb128 0x13
+ 1336 01fe 02       		.uleb128 0x2
+ 1337 01ff 0A       		.uleb128 0xa
+ 1338 0200 00       		.byte	0
+ 1339 0201 00       		.byte	0
+ 1340 0202 26       		.uleb128 0x26
+ 1341 0203 34       		.uleb128 0x34
+ 1342 0204 00       		.byte	0
+ 1343 0205 31       		.uleb128 0x31
+ 1344 0206 13       		.uleb128 0x13
+ 1345 0207 02       		.uleb128 0x2
+ 1346 0208 0A       		.uleb128 0xa
+ 1347 0209 00       		.byte	0
+ 1348 020a 00       		.byte	0
+ 1349 020b 27       		.uleb128 0x27
+ 1350 020c 2E       		.uleb128 0x2e
+ 1351 020d 01       		.byte	0x1
+ 1352 020e 31       		.uleb128 0x31
+ 1353 020f 13       		.uleb128 0x13
+ 1354 0210 11       		.uleb128 0x11
+ 1355 0211 01       		.uleb128 0x1
+ 1356 0212 12       		.uleb128 0x12
+ 1357 0213 01       		.uleb128 0x1
+ 1358 0214 40       		.uleb128 0x40
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 25
+
+
+ 1359 0215 0A       		.uleb128 0xa
+ 1360 0216 9742     		.uleb128 0x2117
+ 1361 0218 0C       		.uleb128 0xc
+ 1362 0219 00       		.byte	0
+ 1363 021a 00       		.byte	0
+ 1364 021b 00       		.byte	0
+ 1365              		.section	.debug_loc,"",%progbits
+ 1366              	.Ldebug_loc0:
+ 1367              	.LLST0:
+ 1368 0000 00000000 		.4byte	.LFB8
+ 1369 0004 02000000 		.4byte	.LCFI0
+ 1370 0008 0200     		.2byte	0x2
+ 1371 000a 7D       		.byte	0x7d
+ 1372 000b 00       		.sleb128 0
+ 1373 000c 02000000 		.4byte	.LCFI0
+ 1374 0010 22000000 		.4byte	.LFE8
+ 1375 0014 0200     		.2byte	0x2
+ 1376 0016 7D       		.byte	0x7d
+ 1377 0017 04       		.sleb128 4
+ 1378 0018 00000000 		.4byte	0
+ 1379 001c 00000000 		.4byte	0
+ 1380              	.LLST1:
+ 1381 0020 00000000 		.4byte	.LVL1
+ 1382 0024 1C000000 		.4byte	.LVL8
+ 1383 0028 0100     		.2byte	0x1
+ 1384 002a 51       		.byte	0x51
+ 1385 002b 1C000000 		.4byte	.LVL8
+ 1386 002f 22000000 		.4byte	.LFE8
+ 1387 0033 0100     		.2byte	0x1
+ 1388 0035 51       		.byte	0x51
+ 1389 0036 00000000 		.4byte	0
+ 1390 003a 00000000 		.4byte	0
+ 1391              	.LLST2:
+ 1392 003e 00000000 		.4byte	.LVL1
+ 1393 0042 04000000 		.4byte	.LVL2
+ 1394 0046 0100     		.2byte	0x1
+ 1395 0048 52       		.byte	0x52
+ 1396 0049 00000000 		.4byte	0
+ 1397 004d 00000000 		.4byte	0
+ 1398              	.LLST3:
+ 1399 0051 04000000 		.4byte	.LVL2
+ 1400 0055 1C000000 		.4byte	.LVL8
+ 1401 0059 0100     		.2byte	0x1
+ 1402 005b 51       		.byte	0x51
+ 1403 005c 1C000000 		.4byte	.LVL8
+ 1404 0060 1E000000 		.4byte	.LVL9
+ 1405 0064 0200     		.2byte	0x2
+ 1406 0066 70       		.byte	0x70
+ 1407 0067 00       		.sleb128 0
+ 1408 0068 00000000 		.4byte	0
+ 1409 006c 00000000 		.4byte	0
+ 1410              	.LLST4:
+ 1411 0070 04000000 		.4byte	.LVL2
+ 1412 0074 1E000000 		.4byte	.LVL9
+ 1413 0078 0100     		.2byte	0x1
+ 1414 007a 50       		.byte	0x50
+ 1415 007b 00000000 		.4byte	0
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 26
+
+
+ 1416 007f 00000000 		.4byte	0
+ 1417              	.LLST5:
+ 1418 0083 0A000000 		.4byte	.LVL4
+ 1419 0087 0E000000 		.4byte	.LVL5
+ 1420 008b 0100     		.2byte	0x1
+ 1421 008d 53       		.byte	0x53
+ 1422 008e 00000000 		.4byte	0
+ 1423 0092 00000000 		.4byte	0
+ 1424              	.LLST6:
+ 1425 0096 0A000000 		.4byte	.LVL4
+ 1426 009a 1C000000 		.4byte	.LVL8
+ 1427 009e 0100     		.2byte	0x1
+ 1428 00a0 51       		.byte	0x51
+ 1429 00a1 1C000000 		.4byte	.LVL8
+ 1430 00a5 1E000000 		.4byte	.LVL9
+ 1431 00a9 0200     		.2byte	0x2
+ 1432 00ab 70       		.byte	0x70
+ 1433 00ac 00       		.sleb128 0
+ 1434 00ad 00000000 		.4byte	0
+ 1435 00b1 00000000 		.4byte	0
+ 1436              	.LLST7:
+ 1437 00b5 0A000000 		.4byte	.LVL4
+ 1438 00b9 1E000000 		.4byte	.LVL9
+ 1439 00bd 0100     		.2byte	0x1
+ 1440 00bf 50       		.byte	0x50
+ 1441 00c0 00000000 		.4byte	0
+ 1442 00c4 00000000 		.4byte	0
+ 1443              	.LLST9:
+ 1444 00c8 16000000 		.4byte	.LVL6
+ 1445 00cc 18000000 		.4byte	.LVL7
+ 1446 00d0 0100     		.2byte	0x1
+ 1447 00d2 53       		.byte	0x53
+ 1448 00d3 00000000 		.4byte	0
+ 1449 00d7 00000000 		.4byte	0
+ 1450              	.LLST10:
+ 1451 00db 00000000 		.4byte	.LFB9
+ 1452 00df 02000000 		.4byte	.LCFI1
+ 1453 00e3 0200     		.2byte	0x2
+ 1454 00e5 7D       		.byte	0x7d
+ 1455 00e6 00       		.sleb128 0
+ 1456 00e7 02000000 		.4byte	.LCFI1
+ 1457 00eb 18000000 		.4byte	.LFE9
+ 1458 00ef 0200     		.2byte	0x2
+ 1459 00f1 7D       		.byte	0x7d
+ 1460 00f2 08       		.sleb128 8
+ 1461 00f3 00000000 		.4byte	0
+ 1462 00f7 00000000 		.4byte	0
+ 1463              	.LLST11:
+ 1464 00fb 00000000 		.4byte	.LVL10
+ 1465 00ff 06000000 		.4byte	.LVL11
+ 1466 0103 0100     		.2byte	0x1
+ 1467 0105 50       		.byte	0x50
+ 1468 0106 06000000 		.4byte	.LVL11
+ 1469 010a 15000000 		.4byte	.LVL13-1
+ 1470 010e 0100     		.2byte	0x1
+ 1471 0110 53       		.byte	0x53
+ 1472 0111 15000000 		.4byte	.LVL13-1
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 27
+
+
+ 1473 0115 18000000 		.4byte	.LFE9
+ 1474 0119 0400     		.2byte	0x4
+ 1475 011b F3       		.byte	0xf3
+ 1476 011c 01       		.uleb128 0x1
+ 1477 011d 50       		.byte	0x50
+ 1478 011e 9F       		.byte	0x9f
+ 1479 011f 00000000 		.4byte	0
+ 1480 0123 00000000 		.4byte	0
+ 1481              	.LLST12:
+ 1482 0127 06000000 		.4byte	.LVL11
+ 1483 012b 14000000 		.4byte	.LVL12
+ 1484 012f 0100     		.2byte	0x1
+ 1485 0131 50       		.byte	0x50
+ 1486 0132 14000000 		.4byte	.LVL12
+ 1487 0136 15000000 		.4byte	.LVL13-1
+ 1488 013a 0200     		.2byte	0x2
+ 1489 013c 73       		.byte	0x73
+ 1490 013d 00       		.sleb128 0
+ 1491 013e 16000000 		.4byte	.LVL13
+ 1492 0142 18000000 		.4byte	.LFE9
+ 1493 0146 0100     		.2byte	0x1
+ 1494 0148 50       		.byte	0x50
+ 1495 0149 00000000 		.4byte	0
+ 1496 014d 00000000 		.4byte	0
+ 1497              	.LLST13:
+ 1498 0151 00000000 		.4byte	.LFB10
+ 1499 0155 02000000 		.4byte	.LCFI2
+ 1500 0159 0200     		.2byte	0x2
+ 1501 015b 7D       		.byte	0x7d
+ 1502 015c 00       		.sleb128 0
+ 1503 015d 02000000 		.4byte	.LCFI2
+ 1504 0161 26000000 		.4byte	.LFE10
+ 1505 0165 0200     		.2byte	0x2
+ 1506 0167 7D       		.byte	0x7d
+ 1507 0168 08       		.sleb128 8
+ 1508 0169 00000000 		.4byte	0
+ 1509 016d 00000000 		.4byte	0
+ 1510              	.LLST14:
+ 1511 0171 00000000 		.4byte	.LVL14
+ 1512 0175 0C000000 		.4byte	.LVL17
+ 1513 0179 0100     		.2byte	0x1
+ 1514 017b 50       		.byte	0x50
+ 1515 017c 0C000000 		.4byte	.LVL17
+ 1516 0180 12000000 		.4byte	.LVL19
+ 1517 0184 0100     		.2byte	0x1
+ 1518 0186 52       		.byte	0x52
+ 1519 0187 12000000 		.4byte	.LVL19
+ 1520 018b 1A000000 		.4byte	.LVL22
+ 1521 018f 0400     		.2byte	0x4
+ 1522 0191 F3       		.byte	0xf3
+ 1523 0192 01       		.uleb128 0x1
+ 1524 0193 50       		.byte	0x50
+ 1525 0194 9F       		.byte	0x9f
+ 1526 0195 1A000000 		.4byte	.LVL22
+ 1527 0199 23000000 		.4byte	.LVL25-1
+ 1528 019d 0100     		.2byte	0x1
+ 1529 019f 52       		.byte	0x52
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 28
+
+
+ 1530 01a0 23000000 		.4byte	.LVL25-1
+ 1531 01a4 26000000 		.4byte	.LFE10
+ 1532 01a8 0400     		.2byte	0x4
+ 1533 01aa F3       		.byte	0xf3
+ 1534 01ab 01       		.uleb128 0x1
+ 1535 01ac 50       		.byte	0x50
+ 1536 01ad 9F       		.byte	0x9f
+ 1537 01ae 00000000 		.4byte	0
+ 1538 01b2 00000000 		.4byte	0
+ 1539              	.LLST15:
+ 1540 01b6 0A000000 		.4byte	.LVL16
+ 1541 01ba 10000000 		.4byte	.LVL18
+ 1542 01be 0100     		.2byte	0x1
+ 1543 01c0 53       		.byte	0x53
+ 1544 01c1 1A000000 		.4byte	.LVL22
+ 1545 01c5 1C000000 		.4byte	.LVL23
+ 1546 01c9 0100     		.2byte	0x1
+ 1547 01cb 53       		.byte	0x53
+ 1548 01cc 00000000 		.4byte	0
+ 1549 01d0 00000000 		.4byte	0
+ 1550              	.LLST16:
+ 1551 01d4 0A000000 		.4byte	.LVL16
+ 1552 01d8 0C000000 		.4byte	.LVL17
+ 1553 01dc 0100     		.2byte	0x1
+ 1554 01de 50       		.byte	0x50
+ 1555 01df 0C000000 		.4byte	.LVL17
+ 1556 01e3 12000000 		.4byte	.LVL19
+ 1557 01e7 0100     		.2byte	0x1
+ 1558 01e9 52       		.byte	0x52
+ 1559 01ea 12000000 		.4byte	.LVL19
+ 1560 01ee 1A000000 		.4byte	.LVL22
+ 1561 01f2 0400     		.2byte	0x4
+ 1562 01f4 F3       		.byte	0xf3
+ 1563 01f5 01       		.uleb128 0x1
+ 1564 01f6 50       		.byte	0x50
+ 1565 01f7 9F       		.byte	0x9f
+ 1566 01f8 1A000000 		.4byte	.LVL22
+ 1567 01fc 23000000 		.4byte	.LVL25-1
+ 1568 0200 0100     		.2byte	0x1
+ 1569 0202 52       		.byte	0x52
+ 1570 0203 23000000 		.4byte	.LVL25-1
+ 1571 0207 26000000 		.4byte	.LFE10
+ 1572 020b 0400     		.2byte	0x4
+ 1573 020d F3       		.byte	0xf3
+ 1574 020e 01       		.uleb128 0x1
+ 1575 020f 50       		.byte	0x50
+ 1576 0210 9F       		.byte	0x9f
+ 1577 0211 00000000 		.4byte	0
+ 1578 0215 00000000 		.4byte	0
+ 1579              	.LLST17:
+ 1580 0219 0C000000 		.4byte	.LVL17
+ 1581 021d 22000000 		.4byte	.LVL24
+ 1582 0221 0100     		.2byte	0x1
+ 1583 0223 50       		.byte	0x50
+ 1584 0224 22000000 		.4byte	.LVL24
+ 1585 0228 23000000 		.4byte	.LVL25-1
+ 1586 022c 0200     		.2byte	0x2
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 29
+
+
+ 1587 022e 72       		.byte	0x72
+ 1588 022f 00       		.sleb128 0
+ 1589 0230 24000000 		.4byte	.LVL25
+ 1590 0234 26000000 		.4byte	.LFE10
+ 1591 0238 0100     		.2byte	0x1
+ 1592 023a 50       		.byte	0x50
+ 1593 023b 00000000 		.4byte	0
+ 1594 023f 00000000 		.4byte	0
+ 1595              	.LLST18:
+ 1596 0243 18000000 		.4byte	.LVL21
+ 1597 0247 1A000000 		.4byte	.LVL22
+ 1598 024b 0100     		.2byte	0x1
+ 1599 024d 53       		.byte	0x53
+ 1600 024e 00000000 		.4byte	0
+ 1601 0252 00000000 		.4byte	0
+ 1602              	.LLST19:
+ 1603 0256 06000000 		.4byte	.LVL29
+ 1604 025a 0A000000 		.4byte	.LVL30
+ 1605 025e 0100     		.2byte	0x1
+ 1606 0260 53       		.byte	0x53
+ 1607 0261 00000000 		.4byte	0
+ 1608 0265 00000000 		.4byte	0
+ 1609              	.LLST20:
+ 1610 0269 12000000 		.4byte	.LVL31
+ 1611 026d 14000000 		.4byte	.LFE12
+ 1612 0271 0100     		.2byte	0x1
+ 1613 0273 53       		.byte	0x53
+ 1614 0274 00000000 		.4byte	0
+ 1615 0278 00000000 		.4byte	0
+ 1616              		.section	.debug_aranges,"",%progbits
+ 1617 0000 44000000 		.4byte	0x44
+ 1618 0004 0200     		.2byte	0x2
+ 1619 0006 00000000 		.4byte	.Ldebug_info0
+ 1620 000a 04       		.byte	0x4
+ 1621 000b 00       		.byte	0
+ 1622 000c 0000     		.2byte	0
+ 1623 000e 0000     		.2byte	0
+ 1624 0010 00000000 		.4byte	.LFB7
+ 1625 0014 0A000000 		.4byte	.LFE7-.LFB7
+ 1626 0018 00000000 		.4byte	.LFB8
+ 1627 001c 22000000 		.4byte	.LFE8-.LFB8
+ 1628 0020 00000000 		.4byte	.LFB9
+ 1629 0024 18000000 		.4byte	.LFE9-.LFB9
+ 1630 0028 00000000 		.4byte	.LFB10
+ 1631 002c 26000000 		.4byte	.LFE10-.LFB10
+ 1632 0030 00000000 		.4byte	.LFB11
+ 1633 0034 08000000 		.4byte	.LFE11-.LFB11
+ 1634 0038 00000000 		.4byte	.LFB12
+ 1635 003c 14000000 		.4byte	.LFE12-.LFB12
+ 1636 0040 00000000 		.4byte	0
+ 1637 0044 00000000 		.4byte	0
+ 1638              		.section	.debug_ranges,"",%progbits
+ 1639              	.Ldebug_ranges0:
+ 1640 0000 0A000000 		.4byte	.LBB18
+ 1641 0004 0C000000 		.4byte	.LBE18
+ 1642 0008 0E000000 		.4byte	.LBB22
+ 1643 000c 12000000 		.4byte	.LBE22
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 30
+
+
+ 1644 0010 00000000 		.4byte	0
+ 1645 0014 00000000 		.4byte	0
+ 1646 0018 0A000000 		.4byte	.LBB19
+ 1647 001c 0C000000 		.4byte	.LBE19
+ 1648 0020 0E000000 		.4byte	.LBB20
+ 1649 0024 12000000 		.4byte	.LBE20
+ 1650 0028 00000000 		.4byte	0
+ 1651 002c 00000000 		.4byte	0
+ 1652 0030 0C000000 		.4byte	.LBB21
+ 1653 0034 0E000000 		.4byte	.LBE21
+ 1654 0038 12000000 		.4byte	.LBB23
+ 1655 003c 16000000 		.4byte	.LBE23
+ 1656 0040 00000000 		.4byte	0
+ 1657 0044 00000000 		.4byte	0
+ 1658 0048 0A000000 		.4byte	.LBB25
+ 1659 004c 12000000 		.4byte	.LBE25
+ 1660 0050 1A000000 		.4byte	.LBB29
+ 1661 0054 26000000 		.4byte	.LBE29
+ 1662 0058 00000000 		.4byte	0
+ 1663 005c 00000000 		.4byte	0
+ 1664 0060 0A000000 		.4byte	.LBB26
+ 1665 0064 12000000 		.4byte	.LBE26
+ 1666 0068 1A000000 		.4byte	.LBB27
+ 1667 006c 26000000 		.4byte	.LBE27
+ 1668 0070 00000000 		.4byte	0
+ 1669 0074 00000000 		.4byte	0
+ 1670 0078 06000000 		.4byte	.LBB31
+ 1671 007c 08000000 		.4byte	.LBE31
+ 1672 0080 0A000000 		.4byte	.LBB35
+ 1673 0084 0E000000 		.4byte	.LBE35
+ 1674 0088 00000000 		.4byte	0
+ 1675 008c 00000000 		.4byte	0
+ 1676 0090 06000000 		.4byte	.LBB32
+ 1677 0094 08000000 		.4byte	.LBE32
+ 1678 0098 0A000000 		.4byte	.LBB33
+ 1679 009c 0E000000 		.4byte	.LBE33
+ 1680 00a0 00000000 		.4byte	0
+ 1681 00a4 00000000 		.4byte	0
+ 1682 00a8 08000000 		.4byte	.LBB34
+ 1683 00ac 0A000000 		.4byte	.LBE34
+ 1684 00b0 0E000000 		.4byte	.LBB36
+ 1685 00b4 14000000 		.4byte	.LBE36
+ 1686 00b8 00000000 		.4byte	0
+ 1687 00bc 00000000 		.4byte	0
+ 1688 00c0 00000000 		.4byte	.LFB7
+ 1689 00c4 0A000000 		.4byte	.LFE7
+ 1690 00c8 00000000 		.4byte	.LFB8
+ 1691 00cc 22000000 		.4byte	.LFE8
+ 1692 00d0 00000000 		.4byte	.LFB9
+ 1693 00d4 18000000 		.4byte	.LFE9
+ 1694 00d8 00000000 		.4byte	.LFB10
+ 1695 00dc 26000000 		.4byte	.LFE10
+ 1696 00e0 00000000 		.4byte	.LFB11
+ 1697 00e4 08000000 		.4byte	.LFE11
+ 1698 00e8 00000000 		.4byte	.LFB12
+ 1699 00ec 14000000 		.4byte	.LFE12
+ 1700 00f0 00000000 		.4byte	0
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 31
+
+
+ 1701 00f4 00000000 		.4byte	0
+ 1702              		.section	.debug_line,"",%progbits
+ 1703              	.Ldebug_line0:
+ 1704 0000 2E020000 		.section	.debug_str,"MS",%progbits,1
+ 1704      02008801 
+ 1704      00000201 
+ 1704      FB0E0D00 
+ 1704      01010101 
+ 1705              	.LASF2:
+ 1706 0000 73697A65 		.ascii	"size_t\000"
+ 1706      5F7400
+ 1707              	.LASF16:
+ 1708 0007 6D705F6F 		.ascii	"mp_object_size\000"
+ 1708      626A6563 
+ 1708      745F7369 
+ 1708      7A6500
+ 1709              	.LASF26:
+ 1710 0016 6368506F 		.ascii	"chPoolLoadArray\000"
+ 1710      6F6C4C6F 
+ 1710      61644172 
+ 1710      72617900 
+ 1711              	.LASF30:
+ 1712 0026 706F6F6C 		.ascii	"pool_header\000"
+ 1712      5F686561 
+ 1712      64657200 
+ 1713              	.LASF23:
+ 1714 0032 73697A65 		.ascii	"size\000"
+ 1714      00
+ 1715              	.LASF9:
+ 1716 0037 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1716      20756E73 
+ 1716      69676E65 
+ 1716      6420696E 
+ 1716      7400
+ 1717              	.LASF6:
+ 1718 0049 73686F72 		.ascii	"short unsigned int\000"
+ 1718      7420756E 
+ 1718      7369676E 
+ 1718      65642069 
+ 1718      6E7400
+ 1719              	.LASF24:
+ 1720 005c 70726F76 		.ascii	"provider\000"
+ 1720      69646572 
+ 1720      00
+ 1721              	.LASF21:
+ 1722 0065 6368506F 		.ascii	"chPoolFreeI\000"
+ 1722      6F6C4672 
+ 1722      65654900 
+ 1723              	.LASF28:
+ 1724 0071 2E2E2F2E 		.ascii	"../../os/kernel/src/chmempools.c\000"
+ 1724      2E2F6F73 
+ 1724      2F6B6572 
+ 1724      6E656C2F 
+ 1724      7372632F 
+ 1725              	.LASF4:
+ 1726 0092 756E7369 		.ascii	"unsigned char\000"
+ 1726      676E6564 
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 32
+
+
+ 1726      20636861 
+ 1726      7200
+ 1727              	.LASF22:
+ 1728 00a0 6368506F 		.ascii	"chPoolFree\000"
+ 1728      6F6C4672 
+ 1728      656500
+ 1729              	.LASF18:
+ 1730 00ab 4D656D6F 		.ascii	"MemoryPool\000"
+ 1730      7279506F 
+ 1730      6F6C00
+ 1731              	.LASF20:
+ 1732 00b6 6F626A70 		.ascii	"objp\000"
+ 1732      00
+ 1733              	.LASF31:
+ 1734 00bb 6368506F 		.ascii	"chPoolAllocI\000"
+ 1734      6F6C416C 
+ 1734      6C6F6349 
+ 1734      00
+ 1735              	.LASF0:
+ 1736 00c8 756E7369 		.ascii	"unsigned int\000"
+ 1736      676E6564 
+ 1736      20696E74 
+ 1736      00
+ 1737              	.LASF11:
+ 1738 00d5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1738      206C6F6E 
+ 1738      6720756E 
+ 1738      7369676E 
+ 1738      65642069 
+ 1739              	.LASF3:
+ 1740 00ec 75696E74 		.ascii	"uint8_t\000"
+ 1740      385F7400 
+ 1741              	.LASF14:
+ 1742 00f4 70685F6E 		.ascii	"ph_next\000"
+ 1742      65787400 
+ 1743              	.LASF12:
+ 1744 00fc 73697A65 		.ascii	"sizetype\000"
+ 1744      74797065 
+ 1744      00
+ 1745              	.LASF10:
+ 1746 0105 6C6F6E67 		.ascii	"long long int\000"
+ 1746      206C6F6E 
+ 1746      6720696E 
+ 1746      7400
+ 1747              	.LASF19:
+ 1748 0113 63686172 		.ascii	"char\000"
+ 1748      00
+ 1749              	.LASF27:
+ 1750 0118 474E5520 		.ascii	"GNU C 4.7.2\000"
+ 1750      4320342E 
+ 1750      372E3200 
+ 1751              	.LASF13:
+ 1752 0124 6D656D67 		.ascii	"memgetfunc_t\000"
+ 1752      65746675 
+ 1752      6E635F74 
+ 1752      00
+ 1753              	.LASF17:
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 33
+
+
+ 1754 0131 6D705F70 		.ascii	"mp_provider\000"
+ 1754      726F7669 
+ 1754      64657200 
+ 1755              	.LASF5:
+ 1756 013d 73686F72 		.ascii	"short int\000"
+ 1756      7420696E 
+ 1756      7400
+ 1757              	.LASF32:
+ 1758 0147 6368506F 		.ascii	"chPoolAlloc\000"
+ 1758      6F6C416C 
+ 1758      6C6F6300 
+ 1759              	.LASF29:
+ 1760 0153 433A5C43 		.ascii	"C:\\Chibios\\demos\\FirmwareV2\000"
+ 1760      68696269 
+ 1760      6F735C64 
+ 1760      656D6F73 
+ 1760      5C466972 
+ 1761              	.LASF8:
+ 1762 016f 75696E74 		.ascii	"uint32_t\000"
+ 1762      33325F74 
+ 1762      00
+ 1763              	.LASF7:
+ 1764 0178 6C6F6E67 		.ascii	"long int\000"
+ 1764      20696E74 
+ 1764      00
+ 1765              	.LASF1:
+ 1766 0181 7369676E 		.ascii	"signed char\000"
+ 1766      65642063 
+ 1766      68617200 
+ 1767              	.LASF15:
+ 1768 018d 6D705F6E 		.ascii	"mp_next\000"
+ 1768      65787400 
+ 1769              	.LASF25:
+ 1770 0195 6368506F 		.ascii	"chPoolInit\000"
+ 1770      6F6C496E 
+ 1770      697400
+ 1771              		.ident	"GCC: (Sourcery CodeBench Lite 2012.09-63) 4.7.2"
+ARM GAS  C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s 			page 34
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 chmempools.c
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:19     .text.chPoolInit:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:25     .text.chPoolInit:00000000 chPoolInit
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:46     .text.chPoolLoadArray:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:52     .text.chPoolLoadArray:00000000 chPoolLoadArray
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:126    .text.chPoolAllocI:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:132    .text.chPoolAllocI:00000000 chPoolAllocI
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:170    .text.chPoolAlloc:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:176    .text.chPoolAlloc:00000000 chPoolAlloc
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:247    .text.chPoolFreeI:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:253    .text.chPoolFreeI:00000000 chPoolFreeI
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:271    .text.chPoolFree:00000000 $t
+C:\Users\LAB_ME~1\AppData\Local\Temp\cc2VVLLX.s:277    .text.chPoolFree:00000000 chPoolFree
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS
