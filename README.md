@@ -1,3 +1,8 @@
+
+<a href="https://gitlab.com/jsduenass/Stewart_Gough_platform_UNAL">
+<img src = "https://img.shields.io/badge/-gitlab%20mirror-554488?logo=gitlab&logoColor=white&style=flat" alt = "gitlab mirror" width="20%" "/>
+ <a/>
+
 # Stewart Gough platform (Legacy system)
 
 The mechatronic lab at Universidad Nacional de Colombia has a Stewart Gough platform, a six Degrees Of Freedom parallel manipulator powered by lineal actuators. This repo contains the legacy system used to control this robot.
